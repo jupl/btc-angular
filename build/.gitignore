@@ -1,0 +1,5 @@
+# Ignore generated output
+base/
+web/
+android/assets/www/
+ios/www/
