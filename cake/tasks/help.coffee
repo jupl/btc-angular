@@ -18,7 +18,8 @@ module.exports = class Help
     return unless typeof taskObject is 'object'
     if taskObject.command? and taskObject.description? and taskObject.task?
       command = taskObject.command
-      command += Array(@maxCommandLength - command.length).join ' '
+      if @maxCommandLength - command.length > 0
+        command += Array(@maxCommandLength - command.length).join ' '
       console.log "#{command} # #{taskObject.description}"
     else
       for key, value of taskObject
