@@ -5,17 +5,17 @@ exports.config =
   files:
     javascripts:
       joinTo:
-        'javascripts/app.js': /^app(\/|\\)/
-        'javascripts/vendor.js': /^vendor(\/|\\)/
-        'test/javascripts/tests.js': /^test(\/|\\)tests(\/|\\)/
-        'test/javascripts/vendor.js': /^test(\/|\\)vendor(\/|\\)/
+        'javascripts/app.js': /^app/
+        'javascripts/vendor.js': /^vendor(\/|\\)(?!vendor-)/
+        'test/javascripts/tests.js': /^test(\/|\\)tests(\/|\\)(?!tests-)/
+        'test/javascripts/vendor.js': /^test(\/|\\)vendor/
       order:
         before: []
 
     stylesheets:
       joinTo:
-        'stylesheets/app.css': /^(app|vendor)(\/|\\)/
-        'test/stylesheets/test.css': /^test(\/|\\)/
+        'stylesheets/app.css': /^(app|vendor(\/|\\)(?!vendor-))/
+        'test/stylesheets/test.css': /^test/
       order:
         before: []
         after: []

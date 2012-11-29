@@ -1,11 +1,30 @@
+{runTest} = require './util'
 {config} = require '../config'
 
+# Rename build path
 config.paths.public = 'build/web'
 
+# Additional checking in vendor.js and tests.js
 {joinTo} = config.files.javascripts
-joinTo['javascripts/vendor.js'] = /^vendor(-web)?(\/|\\)/
-joinTo['test/javascripts/tests.js'] = /^test(\/|\\)tests(-web)?(\/|\\)/
+
+vendorJsFile = 'javascripts/vendor.js'
+vendorJsFileTest = joinTo[vendorJsFile]
+joinTo[vendorJsFile] = (file) ->
+  return true if /^vendor(\/|\\)vendor-web/.test file
+  runTest vendorJsFileTest, file
+
+testsJsFile = 'test/javascripts/tests.js'
+testsJsFileTest = joinTo[testsJsFile]
+joinTo[testsJsFile] = (file) ->
+  return true if /^test(\/|\\)tests(\/|\\)tests-web/.test file
+  runTest testsJsFileTest, file
+
+# Additional checkng in app.css
 {joinTo} = config.files.stylesheets
-joinTo['stylesheets/app.css'] = /^(app|vendor(-web)?)(\/|\\)/
+appCssFile = 'stylesheets/app.css'
+appCssFileTest = joinTo[appCssFile]
+joinTo[appCssFile] = (file) ->
+  return true if /^vendor(\/|\\)vendor-web/.test file
+  runTest appCssFileTest, file
 
 exports.config = config
