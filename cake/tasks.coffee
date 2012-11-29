@@ -1,24 +1,12 @@
 tasks =
+  build:    require './tasks/build'
   cordova:  require './tasks/cordova'
   help:     require './tasks/help'
   test:     require './tasks/test'
-  build:    require './tasks/build'
 
 tasks[key] = new value for key, value of tasks
 
 module.exports =
-
-  test:
-    terminal:
-      command:      'test'
-      description:  'Run test tasks in terminal using jsdom\n'
-      task:         tasks.test.terminal
-
-  help:
-    npm:
-      command:      'help:npm'
-      description:  'Help for those running commands from npm\n'
-      task:         tasks.help.npm
 
   cordova:
     android:
@@ -97,3 +85,15 @@ module.exports =
       command:      'server:prod'
       description:  'Continuously build on changes for web minified and host locally\n'
       task:         tasks.build.serverProd
+
+  test:
+    terminal:
+      command:      'test'
+      description:  'Run test tasks in terminal using jsdom\n'
+      task:         tasks.test.terminal
+
+  help:
+    npm:
+      command:      'help:npm'
+      description:  'Help for those running commands from npm\n'
+      task:         tasks.help.npm

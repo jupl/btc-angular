@@ -32,6 +32,7 @@ This categorization applies in the following places:
 * `config`
 * `build`
 
+
 ### Web
 
 * A regular web project is generated under `build/web`.
