@@ -10,13 +10,13 @@ config.paths.public = 'build/android/assets/www'
 vendorJsFile = 'javascripts/vendor.js'
 vendorJsFileTest = joinTo[vendorJsFile]
 joinTo[vendorJsFile] = (file) ->
-  return true if /^vendor(\/|\\)vendor-android/.test file
+  return false if /^vendor(\/|\\)vendor(?!-android)/.test file
   runTest vendorJsFileTest, file
 
 testsJsFile = 'test/javascripts/tests.js'
 testsJsFileTest = joinTo[testsJsFile]
 joinTo[testsJsFile] = (file) ->
-  return true if /^test(\/|\\)tests(\/|\\)tests-android/.test file
+  return false if /^test(\/|\\)tests(\/|\\)tests(?!-android)/.test file
   runTest testsJsFileTest, file
 
 # Additional checkng in app.css
@@ -24,7 +24,7 @@ joinTo[testsJsFile] = (file) ->
 appCssFile = 'stylesheets/app.css'
 appCssFileTest = joinTo[appCssFile]
 joinTo[appCssFile] = (file) ->
-  return true if /^vendor(\/|\\)vendor-android/.test file
+  return false if /^vendor(\/|\\)vendor(?!-android)/.test file
   runTest appCssFileTest, file
 
 exports.config = config

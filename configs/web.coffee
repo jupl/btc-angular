@@ -10,13 +10,13 @@ config.paths.public = 'build/web'
 vendorJsFile = 'javascripts/vendor.js'
 vendorJsFileTest = joinTo[vendorJsFile]
 joinTo[vendorJsFile] = (file) ->
-  return true if /^vendor(\/|\\)vendor-web/.test file
+  return false if /^vendor(\/|\\)vendor(?!-web)/.test file
   runTest vendorJsFileTest, file
 
 testsJsFile = 'test/javascripts/tests.js'
 testsJsFileTest = joinTo[testsJsFile]
 joinTo[testsJsFile] = (file) ->
-  return true if /^test(\/|\\)tests(\/|\\)tests-web/.test file
+  return false if /^test(\/|\\)tests(\/|\\)tests(?!-web)/.test file
   runTest testsJsFileTest, file
 
 # Additional checkng in app.css
@@ -24,7 +24,7 @@ joinTo[testsJsFile] = (file) ->
 appCssFile = 'stylesheets/app.css'
 appCssFileTest = joinTo[appCssFile]
 joinTo[appCssFile] = (file) ->
-  return true if /^vendor(\/|\\)vendor-web/.test file
+  return false if /^vendor(\/|\\)vendor(?!-web)/.test file
   runTest appCssFileTest, file
 
 exports.config = config
