@@ -9,17 +9,8 @@
   <script src="javascripts/vendor.js"></script>
   <script src="../javascripts/vendor.js"></script>
   <script src="../javascripts/app.js"></script>
-  <script>
-    mocha.suite.bail(false);
-    mocha.setup({ui: 'bdd', globals: ['script*']});
-  </script>
   <script src="javascripts/tests.js"></script>
-  <script>
-    $(function() {
-      should = chai.should();
-      mocha.run();
-    });
-  </script>
+  <script>$(mocha.run);</script>
 </head>
 
 <body>

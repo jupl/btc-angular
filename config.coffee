@@ -7,8 +7,10 @@ exports.config =
       joinTo:
         'javascripts/app.js': /^app/
         'javascripts/vendor.js': /^vendor/
-        'test/javascripts/tests.js': /^test(\/|\\)tests/
-        'test/javascripts/vendor.js': /^test(\/|\\)vendor/
+        'test/javascripts/tests.js': /^test[\\/]tests/
+        'test/javascripts/vendor.js': /^test[\\/]vendor/
+      order:
+        after: ['test/vendor/scripts/test-helper.js']          
 
     stylesheets:
       joinTo:

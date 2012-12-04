@@ -11,8 +11,8 @@ module.exports =
   getExcludeFileTest: (platform, file) ->
     switch file
       when 'javascripts/vendor.js'
-        new RegExp("^vendor(\\/|\\\\)vendor(?!-#{platform})")
+        new RegExp("^vendor[\\\\/]vendor(?!-#{platform})")
       when 'test/javascripts/tests.js'
-        new RegExp("^test(\\/|\\\\)tests(\\/|\\\\)tests(?!-#{platform})")
+        new RegExp("^test[\\\\/]tests[\\\\/]tests(?!-#{platform})")
       when 'stylesheets/app.css'
-        new RegExp("^vendor(\\/|\\\\)vendor(?!-#{platform})")
+        new RegExp("^vendor[\\\\/]vendor(?!-#{platform})")
