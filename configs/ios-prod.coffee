@@ -5,4 +5,4 @@
 setProdMode config
 setIOSEnv config
 
-exports.config = 
+exports.config = config

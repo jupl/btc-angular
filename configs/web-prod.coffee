@@ -5,5 +5,4 @@
 setProdMode config
 setWebEnv config
 
-console.log config
 exports.config = config
