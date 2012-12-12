@@ -1,4 +1,4 @@
-{runTest, getExcludeFileTest} = require './util'
+{runTest, getExcludeFileTest} = require './build-util'
 
 jsFiles = [
   'javascripts/vendor.js'
@@ -8,10 +8,16 @@ cssFiles = [
   'stylesheets/app.css'
 ]
 
-exports.generate = (platform, buildPath) ->
-  # Get base config
-  {config} = require '../config'
+exports.setAndroidEnv = (config) ->
+  generate config, 'android', 'build/android/assets/www'
 
+exports.setIOSEnv = (config) ->
+  generate config, 'ios', 'build/ios/www'
+
+exports.setWebEnv = (config) ->
+  generate config, 'web', 'build/web'
+
+generate = (config, platform, buildPath) ->
   # Get reference to CSS and JS joinTos
   jsJoinTo = config.files.javascripts.joinTo
   cssJoinTo = config.files.stylesheets.joinTo
@@ -22,6 +28,7 @@ exports.generate = (platform, buildPath) ->
   # Add additional checking to JS files
   for jsFile in jsFiles then do (jsFile) ->
     fileTest = jsJoinTo[jsFile]
+    return unless fileTest?
     excludeFileTest = getExcludeFileTest platform, jsFile
     jsJoinTo[jsFile] = (file) ->
       return false if excludeFileTest.test file
@@ -30,6 +37,7 @@ exports.generate = (platform, buildPath) ->
   # Add additional checking to CSS files
   for cssFile in cssFiles then do (cssFile) ->
     fileTest = cssJoinTo[cssFile]
+    return unless fileTest?
     excludeFileTest = getExcludeFileTest platform, cssFile
     cssJoinTo[cssFile] = (file) ->
       return false if excludeFileTest.test file
