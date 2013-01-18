@@ -25,7 +25,7 @@ module.exports = class Build extends Exec
   _build: (args, {prod} = {prod: no}) =>
     # Before running the brunch command let's clear the public folder
     {config} = require "../../#{args[2]}"
-    wrench.rmdirSyncRecursive config.paths.public
+    wrench.rmdirSyncRecursive config.paths.public, ->
 
     # Run brunch command
     args.push '-m' if prod
