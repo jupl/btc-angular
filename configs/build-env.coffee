@@ -8,14 +8,12 @@ cssFiles = [
   'stylesheets/app.css'
 ]
 
-exports.setAndroidEnv = (config) ->
-  generate config, 'android', 'build/android/assets/www'
-
-exports.setIOSEnv = (config) ->
-  generate config, 'ios', 'build/ios/www'
-
-exports.setWebEnv = (config) ->
-  generate config, 'web', 'build/web'
+module.exports = (env, config) ->
+  buildPath = switch env
+    when 'android' then 'build/android/assets/www'
+    when 'ios' then 'build/ios/www'
+    when 'web' then 'build/web'
+  generate config, env, buildPath if buildPath?
 
 generate = (config, platform, buildPath) ->
   # Get reference to CSS and JS joinTos

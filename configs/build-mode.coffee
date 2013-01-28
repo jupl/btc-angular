@@ -1,5 +1,10 @@
+module.exports = (config) ->
+  switch config
+    when 'dev' then setDevMode config
+    when 'prod' then setProdMode config
+
 # Modify given config so that test files are included
-exports.setDevMode = (config) ->
+setDevMode = (config) ->
   # Get reference to CSS and JS joinTos
   jsJoinTo = config.files.javascripts.joinTo
   cssJoinTo = config.files.stylesheets.joinTo
@@ -15,6 +20,6 @@ exports.setDevMode = (config) ->
   config
 
 # Modify given config so that test files are ignored
-exports.setProdMode = (config) ->
+setProdMode = (config) ->
   config.conventions = ignored: (file) -> /^test/.test file
   config

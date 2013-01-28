@@ -1,8 +1,8 @@
 {config} = require '../config'
-{setProdMode} = require './build-mode'
-{setAndroidEnv} = require './build-env'
+setMode = require './build-mode'
+setEnv = require './build-env'
 
-setProdMode config
-setAndroidEnv config
+setMode 'prod', config
+setEnv 'android', config
 
 exports.config = config

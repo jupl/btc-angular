@@ -1,8 +1,8 @@
 {config} = require '../config'
-{setDevMode} = require './build-mode'
-{setIOSEnv} = require './build-env'
+setMode = require './build-mode'
+setEnv = require './build-env'
 
-setDevMode config
-setIOSEnv config
+setMode 'dev', config
+setEnv 'ios', config
 
 exports.config = config

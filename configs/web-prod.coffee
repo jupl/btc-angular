@@ -1,8 +1,8 @@
 {config} = require '../config'
-{setProdMode} = require './build-mode'
-{setWebEnv} = require './build-env'
+setMode = require './build-mode'
+setEnv = require './build-env'
 
-setProdMode config
-setWebEnv config
+setMode 'prod', config
+setEnv 'web', config
 
 exports.config = config
