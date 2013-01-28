@@ -28,5 +28,5 @@ module.exports = class Build extends Exec
     wrench.rmdirSyncRecursive config.paths.public, ->
 
     # Run brunch command
-    args.push '-m' if prod
+    args.push '-o' if prod
     @exec args

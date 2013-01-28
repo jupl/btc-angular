@@ -74,7 +74,7 @@
      * Chai version
      */
 
-    exports.version = '1.2.0';
+    exports.version = '1.4.2';
 
     /*!
      * Primary `Assertion` prototype
@@ -86,7 +86,7 @@
      * Assertion Error
      */
 
-    exports.AssertionError = require('./chai/browser/error');
+    exports.AssertionError = require('./chai/error');
 
     /*!
      * Utils for plugins (not exported)
@@ -155,7 +155,7 @@
      * Module dependencies.
      */
 
-    var AssertionError = require('./browser/error')
+    var AssertionError = require('./error')
       , util = require('./utils')
       , flag = util.flag;
 
@@ -228,8 +228,9 @@
      * @api private
      */
 
-    Assertion.prototype.assert = function (expr, msg, negateMsg, expected, _actual) {
+    Assertion.prototype.assert = function (expr, msg, negateMsg, expected, _actual, showDiff) {
       var ok = util.test(this, arguments);
+      if (true !== showDiff) showDiff = false;
 
       if (!ok) {
         var msg = util.getMessage(this, arguments)
@@ -239,6 +240,7 @@
           , actual: actual
           , expected: expected
           , stackStartFunction: (Assertion.includeStack) ? this.assert : flag(this, 'ssfi')
+          , showDiff: showDiff
         });
       }
     };
@@ -261,38 +263,6 @@
     });
 
   }); // module: chai/assertion.js
-
-  require.register("chai/browser/error.js", function(module, exports, require){
-    /*!
-     * chai
-     * Copyright(c) 2011-2012 Jake Luer <jake@alogicalparadox.com>
-     * MIT Licensed
-     */
-
-    module.exports = AssertionError;
-
-    function AssertionError (options) {
-      options = options || {};
-      this.message = options.message;
-      this.actual = options.actual;
-      this.expected = options.expected;
-      this.operator = options.operator;
-
-      if (options.stackStartFunction && Error.captureStackTrace) {
-        var stackStartFunction = options.stackStartFunction;
-        Error.captureStackTrace(this, stackStartFunction);
-      }
-    }
-
-    AssertionError.prototype = Object.create(Error.prototype);
-    AssertionError.prototype.name = 'AssertionError';
-    AssertionError.prototype.constructor = AssertionError;
-
-    AssertionError.prototype.toString = function() {
-      return this.message;
-    };
-
-  }); // module: chai/browser/error.js
 
   require.register("chai/core/assertions.js", function(module, exports, require){
     /*!
@@ -325,6 +295,8 @@
        * - and
        * - have
        * - with
+       * - at
+       * - of
        *
        * @name language chains
        * @api public
@@ -332,7 +304,8 @@
 
       [ 'to', 'be', 'been'
       , 'is', 'and', 'have'
-      , 'with', 'that' ].forEach(function (chain) {
+      , 'with', 'that', 'at'
+      , 'of' ].forEach(function (chain) {
         Assertion.addProperty(chain, function () {
           return this;
         });
@@ -671,6 +644,8 @@
             , 'expected #{this} to equal #{exp}'
             , 'expected #{this} to not equal #{exp}'
             , val
+            , this._obj
+            , true
           );
         }
       }
@@ -700,6 +675,8 @@
           , 'expected #{this} to deeply equal #{exp}'
           , 'expected #{this} to not deeply equal #{exp}'
           , obj
+          , this._obj
+          , true
         );
       });
 
@@ -743,7 +720,7 @@
           this.assert(
               obj > n
             , 'expected #{this} to be above ' + n
-            , 'expected #{this} to be below ' + n
+            , 'expected #{this} to be at most ' + n
           );
         }
       }
@@ -751,6 +728,53 @@
       Assertion.addMethod('above', assertAbove);
       Assertion.addMethod('gt', assertAbove);
       Assertion.addMethod('greaterThan', assertAbove);
+
+      /**
+       * ### .least(value)
+       *
+       * Asserts that the target is greater than or equal to `value`.
+       *
+       *     expect(10).to.be.at.least(10);
+       *
+       * Can also be used in conjunction with `length` to
+       * assert a minimum length. The benefit being a
+       * more informative error message than if the length
+       * was supplied directly.
+       *
+       *     expect('foo').to.have.length.of.at.least(2);
+       *     expect([ 1, 2, 3 ]).to.have.length.of.at.least(3);
+       *
+       * @name least
+       * @alias gte
+       * @param {Number} value
+       * @param {String} message _optional_
+       * @api public
+       */
+
+      function assertLeast (n, msg) {
+        if (msg) flag(this, 'message', msg);
+        var obj = flag(this, 'object');
+        if (flag(this, 'doLength')) {
+          new Assertion(obj, msg).to.have.property('length');
+          var len = obj.length;
+          this.assert(
+              len >= n
+            , 'expected #{this} to have a length at least #{exp} but got #{act}'
+            , 'expected #{this} to not have a length below #{exp}'
+            , n
+            , len
+          );
+        } else {
+          this.assert(
+              obj >= n
+            , 'expected #{this} to be at least ' + n
+            , 'expected #{this} to be below ' + n
+          );
+        }
+      }
+
+      Assertion.addMethod('least', assertLeast);
+      Assertion.addMethod('gte', assertLeast);
 
       /**
        * ### .below(value)
@@ -792,7 +816,7 @@
           this.assert(
               obj < n
             , 'expected #{this} to be below ' + n
-            , 'expected #{this} to be above ' + n
+            , 'expected #{this} to be at least ' + n
           );
         }
       }
@@ -800,6 +824,53 @@
       Assertion.addMethod('below', assertBelow);
       Assertion.addMethod('lt', assertBelow);
       Assertion.addMethod('lessThan', assertBelow);
+
+      /**
+       * ### .most(value)
+       *
+       * Asserts that the target is less than or equal to `value`.
+       *
+       *     expect(5).to.be.at.most(5);
+       *
+       * Can also be used in conjunction with `length` to
+       * assert a maximum length. The benefit being a
+       * more informative error message than if the length
+       * was supplied directly.
+       *
+       *     expect('foo').to.have.length.of.at.most(4);
+       *     expect([ 1, 2, 3 ]).to.have.length.of.at.most(3);
+       *
+       * @name most
+       * @alias lte
+       * @param {Number} value
+       * @param {String} message _optional_
+       * @api public
+       */
+
+      function assertMost (n, msg) {
+        if (msg) flag(this, 'message', msg);
+        var obj = flag(this, 'object');
+        if (flag(this, 'doLength')) {
+          new Assertion(obj, msg).to.have.property('length');
+          var len = obj.length;
+          this.assert(
+              len <= n
+            , 'expected #{this} to have a length at most #{exp} but got #{act}'
+            , 'expected #{this} to not have a length above #{exp}'
+            , n
+            , len
+          );
+        } else {
+          this.assert(
+              obj <= n
+            , 'expected #{this} to be at most ' + n
+            , 'expected #{this} to be above ' + n
+          );
+        }
+      }
+
+      Assertion.addMethod('most', assertMost);
+      Assertion.addMethod('lte', assertMost);
 
       /**
        * ### .within(start, finish)
@@ -1391,6 +1462,70 @@
     };
 
   }); // module: chai/core/assertions.js
+
+  require.register("chai/error.js", function(module, exports, require){
+    /*!
+     * chai
+     * Copyright(c) 2011-2012 Jake Luer <jake@alogicalparadox.com>
+     * MIT Licensed
+     */
+
+    /*!
+     * Main export
+     */
+
+    module.exports = AssertionError;
+
+    /**
+     * # AssertionError (constructor)
+     *
+     * Create a new assertion error based on the Javascript
+     * `Error` prototype.
+     *
+     * **Options**
+     * - message
+     * - actual
+     * - expected
+     * - operator
+     * - startStackFunction
+     *
+     * @param {Object} options
+     * @api public
+     */
+
+    function AssertionError (options) {
+      options = options || {};
+      this.message = options.message;
+      this.actual = options.actual;
+      this.expected = options.expected;
+      this.operator = options.operator;
+      this.showDiff = options.showDiff;
+
+      if (options.stackStartFunction && Error.captureStackTrace) {
+        var stackStartFunction = options.stackStartFunction;
+        Error.captureStackTrace(this, stackStartFunction);
+      }
+    }
+
+    /*!
+     * Inherit from Error
+     */
+
+    AssertionError.prototype = Object.create(Error.prototype);
+    AssertionError.prototype.name = 'AssertionError';
+    AssertionError.prototype.constructor = AssertionError;
+
+    /**
+     * # toString()
+     *
+     * Override default to string method
+     */
+
+    AssertionError.prototype.toString = function() {
+      return this.message;
+    };
+
+  }); // module: chai/error.js
 
   require.register("chai/interface/assert.js", function(module, exports, require){
     /*!
@@ -2255,13 +2390,17 @@
       };
 
       /**
-       * ### .throws(function, [constructor/regexp], [message])
+       * ### .throws(function, [constructor/string/regexp], [string/regexp], [message])
        *
        * Asserts that `function` will throw an error that is an instance of
        * `constructor`, or alternately that it will throw an error with message
        * matching `regexp`.
        *
+       *     assert.throw(fn, 'function throws a reference error');
+       *     assert.throw(fn, /function throws a reference error/);
+       *     assert.throw(fn, ReferenceError);
        *     assert.throw(fn, ReferenceError, 'function throws a reference error');
+       *     assert.throw(fn, ReferenceError, /function throws a reference error/);
        *
        * @name throws
        * @alias throw
@@ -2274,13 +2413,13 @@
        * @api public
        */
 
-      assert.Throw = function (fn, type, msg) {
-        if ('string' === typeof type) {
-          msg = type;
-          type = null;
+      assert.Throw = function (fn, errt, errs, msg) {
+        if ('string' === typeof errt || errt instanceof RegExp) {
+          errs = errt;
+          errt = null;
         }
 
-        new Assertion(fn, msg).to.Throw(type);
+        new Assertion(fn, msg).to.Throw(errt, errs);
       };
 
       /**
@@ -2649,7 +2788,7 @@
       };
     }
 
-    function _deepEqual(actual, expected) {
+    function _deepEqual(actual, expected, memos) {
 
       // 7.1. All identical values are equivalent, as determined by ===.
       if (actual === expected) {
@@ -2681,7 +2820,7 @@
       // corresponding key, and an identical 'prototype' property. Note: this
       // accounts for both named and indexed properties on Arrays.
       } else {
-        return objEquiv(actual, expected);
+        return objEquiv(actual, expected, memos);
       }
     }
 
@@ -2693,11 +2832,25 @@
       return Object.prototype.toString.call(object) == '[object Arguments]';
     }
 
-    function objEquiv(a, b) {
+    function objEquiv(a, b, memos) {
       if (isUndefinedOrNull(a) || isUndefinedOrNull(b))
         return false;
+
       // an identical 'prototype' property.
       if (a.prototype !== b.prototype) return false;
+
+      // check if we have already compared a and b
+      var i;
+      if (memos) {
+        for(i = 0; i < memos.length; i++) {
+          if ((memos[i][0] === a && memos[i][1] === b) ||
+              (memos[i][0] === b && memos[i][1] === a))
+            return true;
+        }
+      } else {
+        memos = [];
+      }
+
       //~~~I've managed to break Object.keys through screwy arguments passing.
       //   Converting to array solves the problem.
       if (isArguments(a)) {
@@ -2706,19 +2859,21 @@
         }
         a = pSlice.call(a);
         b = pSlice.call(b);
-        return _deepEqual(a, b);
+        return _deepEqual(a, b, memos);
       }
       try {
         var ka = Object.keys(a),
             kb = Object.keys(b),
-            key, i;
+            key;
       } catch (e) {//happens when one is a string literal and the other isn't
         return false;
       }
+
       // having the same number of owned properties (keys incorporates
       // hasOwnProperty)
       if (ka.length != kb.length)
         return false;
+
       //the same set of keys (although not necessarily the same order),
       ka.sort();
       kb.sort();
@@ -2727,12 +2882,17 @@
         if (ka[i] != kb[i])
           return false;
       }
+
+      // remember objects we have compared to guard against circular references
+      memos.push([ a, b ]);
+
       //equivalent values for every corresponding key, and
       //~~~possibly expensive deep test
       for (i = ka.length - 1; i >= 0; i--) {
         key = ka[i];
-        if (!_deepEqual(a[key], b[key])) return false;
+        if (!_deepEqual(a[key], b[key], memos)) return false;
       }
+
       return true;
     }
 
@@ -2792,7 +2952,7 @@
 
     module.exports = function (obj, args) {
       var actual = args[4];
-      return 'undefined' !== actual ? actual : obj._obj;
+      return 'undefined' !== typeof actual ? actual : obj._obj;
     };
 
   }); // module: chai/utils/getActual.js
