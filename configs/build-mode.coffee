@@ -1,5 +1,5 @@
-module.exports = (config) ->
-  switch config
+module.exports = (mode, config) ->
+  switch mode
     when 'dev' then setDevMode config
     when 'prod' then setProdMode config
 
