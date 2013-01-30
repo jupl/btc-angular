@@ -1,3 +1,5 @@
+{basename} = require 'path'
+
 module.exports = (mode, config) ->
   switch mode
     when 'dev' then setDevMode config
@@ -21,5 +23,7 @@ setDevMode = (config) ->
 
 # Modify given config so that test files are ignored
 setProdMode = (config) ->
-  config.conventions = ignored: (file) -> /^test/.test file
+  config.conventions ?= {}
+  config.conventions.ignored = (file) ->
+    basename(file).indexOf('_') is 0 or /^test/.test(file)
   config
