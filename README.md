@@ -1,56 +1,53 @@
 # Cordova Brunch
 
-## Description
-
-Base [Brunch](http://brunch.io/) skeleton that includes [Apache Cordova](https://incubator.apache.org/cordova/) for building native applications. (currently supports Android and iOS) Regular web apps can still be developed as well. Brunch does not have to be installed or used directly to get started with this skeleton. Testing is also provided through [Mocha](http://visionmedia.github.com/mocha/) with [Chai](http://chaijs.com/) and [Sinon](http://sinonjs.org/) (using [Sinon-Chai](http://github.com/domenic/sinon-chai)).
-
-
-## Installation Instructions
-
-* Install [Node](http://nodejs.org/) if you have not done so already.
-* Download the skeleton and run `npm install` from within the skeleton folder.
-* Optional - Install [CoffeeScript](http://coffeescript.org/) to use `cake`: `npm install -g coffee-script`
+## Introduction
+Cordova Brunch is a base skeleton for building web applications. In additional to assembling standard web-based application, this skeleton can also assemble native applications using Cordova. (Currently supports iOS and Android applications) While [Brunch](http://brunch.io) can be used to run commands, tasks are also supplied via cake. For a more complete skeleton, see [Cordova Brunch (feat. Chapless Brunch)](https://github.com/jupl/cordova-brunch/tree/chapless) for a skeleton with Chaplin.
 
 
-## Tasks
-
-* `npm` - You can run tasks using `npm run-script [task]`. Run `npm start` to see all available tasks.
-* `cake` - If you have CoffeeScript installed you can run tasks using `cake [task]`. Run `cake` to see all available tasks.
-
-
-## Apps
-
-Items are categorized as follows:
-* `base` - Shared across all app types
-* `web` - Used in the regular web app
-* `android` - Used in the Cordova Android app
-* `ios` - Used in the Cordova iOS app
-
-This categorization applies in the following places:
-* `vendor`
-* `test`
-* `config`
-* `build`
+## Requirements
+* [node.js](http://nodejs.org) (mandatory)
+* [CoffeeScript](http://coffeescript.org/#installation) (recommended via npm)
 
 
-### Web
+## Setup
+1. Install node.js.
+2. While not mandatory, it is recommended to install CoffeeScript.
+3. Download this skeleton.
+4. Open a Terminal / Command Prompt and navigate to this directory where you downloaded the skeleton.
+5. Execute the command `npm install` to install all package dependencies.
 
-* A regular web project is generated under `build/web`.
-* To assemble code with Brunch run the task `build:web:<stage>` or `watch:web:<stage>`, where `<stage>` is `dev` (no CSS/JS minification) or `prod` (CSS/JS minification).
-* To run a simple HTTP server run the task `server:<stage>`.
 
+## Command List
+While Brunch commands can be used, cake commands are provided for this skeleton. These tasks can be executed using cake if it is installed. (`cake [command]`) If cake is not installed these commands can also be executed using npm. (`npm run-script [command]`) These are the following commands (this list is accessible using either the command `cake` or `npm start`):
 
 ### Cordova
+These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app.
 
-* To create a Cordova app run the task `cordova:<os>`, where `<os>` is the type of app to build.
-* A Cordova Android project is generated under `build/android`. The project can then be imported into Eclipse or updated with the `android` tool.
-* A Cordova iOS project is generated under `build/ios`. The project can then be opened with XCode.
-* Creating an app using the method above is not enough, as it does not contain HTML/CSS/JS. To add Brunch assembled code run the task `build:<os>:<stage>` or `watch:<os>:<stage>`, where `<stage>` is `dev` (no CSS/JS minification) or `prod` (CSS/JS minification).
+#### `cordova:ios`
+Set up XCode project for an iOS app
 
+#### `cordova:android`
+Set up Eclipse-friendly project for an Android app
 
-## FAQ
+### Building
+These commands are used to assemble the application, generating the necessary JS/CSS and adding assets.
+* `[env]` The enviroment to build for. Use `web` to build a regular web application under `build/web/`. Use `ios`/`android` to build the web part of the Cordova application and add it to its respective native project under `build/[env]` (assuming you ran the `cordova:` command above).
+* `[mode]` Use `dev` mode to keep readable JS/CSS and include tests under the `test/` folder. Use `prod` mode to minify/uglify JS/CSS and omit tests.
 
-Why `npm` and `cake`?
-* By specifying Brunch in `package.json` you can keep things consistent when working with others on a project in case of upgrades and changes.
-* It is easier for one to get someone started on an existing project if they are unfamiliar with some of these tools. For me I can get them to install Node.js, download the project, install dependencies and use `npm run-script` or `cake`.
-* Cakefile is used to write advanced tasks in the future and can be used cross-platform.
+#### `build:[env]:[mode]`
+Assemble the application once.
+
+#### `watch:[env]:[mode]`
+Assemble the application and continue to watch for changes. Rebuild every time a change is detected.
+
+#### `server:[mode]`
+Assemble the application and continue to watch for changes. Rebuild every time a change is detected. Also, the application is served locally to open with a browser. This build uses the `web` environment.
+
+### Testing
+Use the `test` command to execute tests in the terminal using jsdom.
+
+## Details
+
+### Core
+* [Brunch](http://brunch.io) 1.5.2
+* [Cordova](http://cordova.apache.org) 2.3.0
