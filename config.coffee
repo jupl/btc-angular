@@ -8,7 +8,7 @@ exports.config =
         'javascripts/app.js': /^app/
         'javascripts/vendor.js': /^vendor/
       order:
-        before: ['test/vendor/scripts/modernizr.js']
+        before: []
         after: []
 
     stylesheets:
