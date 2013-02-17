@@ -1,4 +1,5 @@
 {basename} = require 'path'
+typeof$ = (obj) -> ({}).toString.call(obj).slice(8, -1)
 
 module.exports = (mode, config) ->
   switch mode

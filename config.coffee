@@ -1,6 +1,6 @@
 exports.config =
   paths:
-    public: 'build/base'
+    public: 'build/web'
 
   files:
     javascripts:

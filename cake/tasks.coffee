@@ -9,33 +9,68 @@ tasks[key] = new value for key, value of tasks
 module.exports =
 
   cordova:
-    android:
-      command:      'cordova:android'
-      description:  'Create a new Eclipse Android project with Cordova'
-      task:         tasks.cordova.android
-    ios:
-      command:      'cordova:ios'
-      description:  'Create a new XCode iOS project with Cordova\n'
-      task:         tasks.cordova.ios
+    init:
+      default:
+        command:      'cordova:init'
+        description:  'Create a new Cordova project'
+        task:         tasks.cordova.init
+      android:
+        command:      'cordova:init:android'
+        description:  'Create a new Cordova project with support for the Android platform'
+        task:         tasks.cordova.initAndroid
+      ios:
+        command:      'cordova:init:ios'
+        description:  'Create a new Cordova project with support for the iOS platform'
+        task:         tasks.cordova.initIOS
+      all:
+        command:      'cordova:init:all'
+        description:  'Create a new Cordova project supporting all available platforms'
+        task:         tasks.cordova.initAll
+    add:
+      android:
+        command:      'cordova:add:android'
+        description:  'Add Android platform support to the Cordova project'
+        task:         tasks.cordova.addAndroid
+      ios:
+        command:      'cordova:add:ios'
+        description:  'Add iOS platform support to the Cordova project'
+        task:         tasks.cordova.addIOS
+      all:
+        command:      'cordova:add:all'
+        description:  'Add all platform support to the Cordova project'
+        task:         tasks.cordova.addAll
+    remove:
+      android:
+        command:      'cordova:rm:android'
+        description:  'Remove Android platform support from the Cordova project'
+        task:         tasks.cordova.removeAndroid
+      ios:
+        command:      'cordova:rm:ios'
+        description:  'Remove iOS platform support from the Cordova project'
+        task:         tasks.cordova.removeIOS
+      all:
+        command:      'cordova:rm:all'
+        description:  'Remove all platform support from the Cordova project\n'
+        task:         tasks.cordova.removeAll
 
   build:
     android:
       dev:
         command:      'build:android:dev'
-        description:  'Build project once for Android'
+        description:  'Build project once for Android and deploy to a connected device'
         task:         tasks.build.onceAndroidDev
       prod:
         command:      'build:android:prod'
-        description:  'Build project once for Android minified'
+        description:  'Build project once for Android minified and deploy to a connected device'
         task:         tasks.build.onceAndroidProd
     ios:
       dev:
         command:      'build:ios:dev'
-        description:  'Build project once for iOS'
+        description:  'Build project once for iOS and deploy to a connected device'
         task:         tasks.build.onceIOSDev
       prod:
         command:      'build:ios:prod'
-        description:  'Build project once for iOS minified'
+        description:  'Build project once for iOS minified and deploy to a connected device'
         task:         tasks.build.onceIOSProd
     web:
       dev:
@@ -44,28 +79,28 @@ module.exports =
         task:         tasks.build.onceWebDev
       prod:
         command:      'build:web:prod'
-        description:  'Build project once for web minified\n'
+        description:  'Build project once for web minified'
         task:         tasks.build.onceWebProd
+    all:
+      dev:
+        command:      'build:all:dev'
+        description:  'Build project once for all platforms and deploy to connected devices where applicable'
+        task:         tasks.build.onceAllDev
+      prod:
+        command:      'build:all:prod'
+        description:  'Build project once for all platforms minified and deploy to connected devices where applicable\n'
+        task:         tasks.build.onceAllProd
 
   watch:
-    android:
+    cordova:
       dev:
-        command:      'watch:android:dev'
-        description:  'Continuously build on changes for Android'
-        task:         tasks.build.watchAndroidDev
+        command:      'watch:cordova:dev'
+        description:  'Continuously build on changes for Cordova'
+        task:         tasks.build.watchCordovaDev
       prod:
-        command:      'watch:android:prod'
-        description:  'Continuously build on changes for Android minified'
-        task:         tasks.build.watchAndroidProd
-    ios:
-      dev:
-        command:      'watch:ios:dev'
-        description:  'Continuously build on changes for iOS'
-        task:         tasks.build.watchIOSDev
-      prod:
-        command:      'watch:ios:prod'
-        description:  'Continuously build on changes for iOS minified'
-        task:         tasks.build.watchIOSProd
+        command:      'watch:cordova:prod'
+        description:  'Continuously build on changes for Cordova minified'
+        task:         tasks.build.watchCordovaProd
     web:
       dev:
         command:      'watch:web:dev'
@@ -85,6 +120,35 @@ module.exports =
       command:      'server:prod'
       description:  'Continuously build on changes for web minified and host locally\n'
       task:         tasks.build.serverProd
+
+  emulate:
+    android:
+      dev:
+        command:      'emulate:android:dev'
+        description:  'Build project once for Android'
+        task:         tasks.build.emulateAndroidDev
+      prod:
+        command:      'emulate:android:prod'
+        description:  'Build project once for Android minified'
+        task:         tasks.build.emulateAndroidProd
+    ios:
+      dev:
+        command:      'emulate:ios:dev'
+        description:  'Build project once for iOS'
+        task:         tasks.build.emulateIOSDev
+      prod:
+        command:      'emulate:ios:prod'
+        description:  'Build project once for iOS minified'
+        task:         tasks.build.emulateIOSProd
+    all:
+      dev:
+        command:      'emulate:all:dev'
+        description:  'Build project once for all platforms'
+        task:         tasks.build.emulateAllDev
+      prod:
+        command:      'emulate:all:prod'
+        description:  'Build project once for all platforms minified\n'
+        task:         tasks.build.emulateAllProd
 
   test:
     terminal:
