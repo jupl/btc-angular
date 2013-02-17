@@ -41,13 +41,24 @@ module.exports = class Cordova extends Exec
     wrench.rmdirSyncRecursive @cordovaPath, ->
     args = ['create', @cordovaPath]
 
-    # Wrench poll directory
-    id = ''
-    args.push id
-    name = ''
-    args.push name
+    packageNamePrompt = (callback) =>
+      commander.prompt 'Package name (optional): ', (name) =>
+        name = _s.clean name
+        name = "#{name.charAt(0).toLowerCase}#{name.slice(1)}"
+        if name isnt ''
+          args.push name
+          appNamePrompt callback
+        else
+          do callback
 
-    @exec args
+    appNamePrompt = (callback) =>
+      commander.prompt 'App name (optional): ', (name) =>
+        name = _s.titleize _s.clean name
+        args.push name if name isnt ''
+        do callback
+
+    packageNamePrompt =>
+      @exec args
 
   _add: (platforms...) ->
     platforms.unshift 'add'
