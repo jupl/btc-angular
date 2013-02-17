@@ -49,5 +49,5 @@ Use the `test` command to execute tests in the terminal using jsdom.
 ## Details
 
 ### Core
-* [Brunch](http://brunch.io) 1.5.2
+* [Brunch](http://brunch.io) 1.5.3
 * [Cordova](http://cordova.apache.org) 2.3.0

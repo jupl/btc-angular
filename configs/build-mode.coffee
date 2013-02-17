@@ -24,6 +24,11 @@ setDevMode = (config) ->
 # Modify given config so that test files are ignored
 setProdMode = (config) ->
   config.conventions ?= {}
+  {ignored} = config.conventions
   config.conventions.ignored = (file) ->
-    basename(file).indexOf('_') is 0 or /^test/.test(file)
+    return true if /^test/.test(file)
+    switch typeof$ ignored
+      when 'Function' then ignored file
+      when 'RegExp' then ignored.test file
+      else basename(file).indexOf '_' is 0
   config
