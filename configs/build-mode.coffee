@@ -30,5 +30,5 @@ setProdMode = (config) ->
     switch typeof$ ignored
       when 'Function' then ignored file
       when 'RegExp' then ignored.test file
-      else basename(file).indexOf '_' is 0
+      else basename(file).indexOf('_') is 0
   config
