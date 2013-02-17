@@ -6,20 +6,23 @@ Exec = require '../lib/exec'
 
 module.exports = class Cordova extends Exec
   command: './node_modules/.bin/cordova'
-  cordovaPath: './build/cordova'
+  cordovaPath: 'build/cordova'
   platforms: ['android', 'ios']
 
   init: =>
     @_initialize()
   initAndroid: =>
-    @_initialize()
-    @addAndroid()
+    @_initialize =>
+      @addAndroid()
+      process.exit()
   initIOS: =>
-    @_initialize()
-    @addIOS()
+    @_initialize =>
+      @addIOS()
+      process.exit()
   initAll: =>
-    @_initialize()
-    @addAll()
+    @_initialize =>
+      @addAll()
+      process.exit()
 
   addAndroid: => @_add 'android'
   addIOS:     => @_add 'ios'
@@ -37,14 +40,14 @@ module.exports = class Cordova extends Exec
   emulateIOS:     => @_emulate 'ios'
   emulateAll:     => @_emulate @platforms...
 
-  _initialize: ->
+  _initialize: (callback) ->
     wrench.rmdirSyncRecursive @cordovaPath, ->
     args = ['create', @cordovaPath]
 
     packageNamePrompt = (callback) =>
       commander.prompt 'Package name (optional): ', (name) =>
         name = _s.clean name
-        name = "#{name.charAt(0).toLowerCase}#{name.slice(1)}"
+        name = "#{name.charAt(0).toLowerCase()}#{name.slice(1)}"
         if name isnt ''
           args.push name
           appNamePrompt callback
@@ -59,14 +62,18 @@ module.exports = class Cordova extends Exec
 
     packageNamePrompt =>
       @exec args
+      if callback
+        callback()
+      else
+        process.exit()
 
   _add: (platforms...) ->
     platforms.unshift 'add'
     onExit = =>
-      for platform in platforms
-        fs.createReadStream("../gitignore/#{platform}.gitignore")
+      for platform in platforms when platform isnt 'add'
+        fs.createReadStream("./cake/gitignore/#{platform}.gitignore")
           .pipe(fs.createWriteStream("#{@cordovaPath}/platforms/#{platform}/.gitignore"))
-    @exec(platforms, onExit, cwd: @cordovaPath)
+    @exec(platforms, onExit, cwd: @cordovaPath, env: process.env)
 
   _remove: (platforms...) ->
     platforms.unshift 'remove'
