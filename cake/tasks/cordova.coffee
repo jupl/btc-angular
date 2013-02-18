@@ -37,6 +37,7 @@ module.exports = class Cordova extends Exec
   emulateIOS:     => @_emulate 'ios'
   emulateAll:     => @_emulate @platforms...
 
+  # For initialize, get user input, build Cordova project, and copy generated assets
   _initialize: (callback) ->
     wrench.rmdirSyncRecursive @cordovaPath, ->
     args = ['create', @cordovaPath]
@@ -57,6 +58,8 @@ module.exports = class Cordova extends Exec
         args.push name if name isnt ''
         callback()
 
+    # After prompt and generation, copy config.xml and res into app/assets
+    #   before finishing up.
     packageNamePrompt =>
       @exec args, =>
         stream = fs.createReadStream("#{@cordovaPath}/www/config.xml")
@@ -68,14 +71,19 @@ module.exports = class Cordova extends Exec
             process.exit()
         stream.pipe(fs.createWriteStream('app/assets/config.xml'))
 
+  # NOTE: For the commands below it is required to be in the Cordova project folder.
+  #   Therefore we need to point the command to that folder and change the location
+  #   of the command to execute.
+
+  # After adding, drop in .gitignore files to the projects
   _add: (platforms...) ->
     platforms.unshift 'add'
     platforms.unshift 'platform'
     onExit = =>
       for platform in platforms when platform isnt 'add'
-        fs.createReadStream("./cake/gitignore/#{platform}.gitignore")
-          .pipe(fs.createWriteStream("#{@cordovaPath}/platforms/#{platform}/.gitignore"))
-      process.exit()
+        stream = fs.createReadStream("./cake/gitignore/#{platform}.gitignore")
+        stream.on 'end', -> process.exit()
+        stream.pipe(fs.createWriteStream("#{@cordovaPath}/platforms/#{platform}/.gitignore"))
     {command} = this
     @command = "../.#{@command}"
     @exec(platforms, onExit, cwd: @cordovaPath, env: process.env)
@@ -97,8 +105,16 @@ module.exports = class Cordova extends Exec
     @command = command
 
   _emulate: (platforms...) ->
-    platforms.unshift 'emulate'
+    afterBuild = =>
+      platforms.shift()
+      platforms.unshift 'emulate'
+      {command} = this
+      @command = "../.#{@command}"
+      @exec(platforms, (->), cwd: @cordovaPath)
+      @command = command
+
+    platforms.unshift 'build'
     {command} = this
     @command = "../.#{@command}"
-    @exec(platforms, (->), cwd: @cordovaPath)
+    @exec(platforms, afterBuild, cwd: @cordovaPath)
     @command = command
