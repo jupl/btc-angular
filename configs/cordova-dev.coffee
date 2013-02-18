@@ -1,4 +1,6 @@
-{config} = require './dev'
-config.paths ?= {}
-config.paths.public = 'build/cordova/www'
+{config} = require '../config'
+setMode = require './build-mode'
+setEnv = require './build-env'
+setMode 'dev', config
+setEnv 'cordova', config
 exports.config = config
