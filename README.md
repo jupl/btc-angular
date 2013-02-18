@@ -1,6 +1,9 @@
 # Cordova Brunch
 
+**IMPORTANT**: There are big changes in moving to using cordova-cli.
+
 ## Introduction
+
 Cordova Brunch is a base skeleton for building web applications. In additional to assembling standard web-based application, this skeleton can also assemble native applications using Cordova. (Currently supports iOS and Android applications) While [Brunch](http://brunch.io) can be used to run commands, tasks are also supplied via cake. For a more complete skeleton, see [Cordova Brunch (feat. Chapless Brunch)](https://github.com/jupl/cordova-brunch/tree/chapless) for a skeleton with Chaplin.
 
 
@@ -21,7 +24,8 @@ Cordova Brunch is a base skeleton for building web applications. In additional t
 While Brunch commands can be used, cake commands are provided for this skeleton. These tasks can be executed using cake if it is installed. (`cake [command]`) If cake is not installed these commands can also be executed using npm. (`npm run-script [command]`) These are the following commands (this list is accessible using either the command `cake` or `npm start`):
 
 ### Cordova
-These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app. `[platform]` denotes the application platform to build under. (Currently supporting `ios` and `android`. `all` is also supported to include all of them.)
+These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app. `[platform]` denotes the application platform to build under. (Currently supporting `ios` and `android`. `all` is also supported to include all of them.) If you need access to the Cordova JavaScript from your page use the script tag: `<script type="text/javascript" src="cordova.js"></script>`
+
 
 #### `cordova:init`, `cordova:init:[platform]`
 Create a new Cordova project using [cordova-cli](https://github.com/apache/cordova-cli).
@@ -50,7 +54,8 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 
 #### `emulate:[platform]:[mode]`
 Assemble the application, compile, and deploy to an emulator for the specified platform.
-NOTE: [ios-sim](https://github.com/phonegap/ios-sim) is required for testing on an iOS device.
+
+**NOTE**: [ios-sim](https://github.com/phonegap/ios-sim) is required to emulate on the iOS Simulator.
 
 ### Testing
 Use the `test` command to execute tests in the terminal using jsdom.
