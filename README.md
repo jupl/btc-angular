@@ -21,27 +21,36 @@ Cordova Brunch is a base skeleton for building web applications. In additional t
 While Brunch commands can be used, cake commands are provided for this skeleton. These tasks can be executed using cake if it is installed. (`cake [command]`) If cake is not installed these commands can also be executed using npm. (`npm run-script [command]`) These are the following commands (this list is accessible using either the command `cake` or `npm start`):
 
 ### Cordova
-These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app.
+These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app. `[platform]` denotes the application platform to build under. (Currently supporting `ios` and `android`. `all` is also supported to include all of them.)
 
-#### `cordova:ios`
-Set up XCode project for an iOS app
+#### `cordova:init`, `cordova:init:[platform]`
+Create a new Cordova project using [cordova-cli](https://github.com/apache/cordova-cli).
+* When creating a project, you will be prompted for a package name and app name. (If anything is not provided, Cordova defaults will be used.)
+* Project will reside in `build/cordova`.
+* Cordova-specific files are added to `app/assets`. (These files will be ignored if a non-Cordova web build is made.) Do not remove these files.
+* It is recommended for your web app to not depend on any files in `app/assets/res`.
+* If a platform is not provided for `:init`, then use `:add` to add platforms to support.
 
-#### `cordova:android`
-Set up Eclipse-friendly project for an Android app
+#### `cordova:add:[platform]`, `cordova:remove:[platform]`
+Add/remove specified platform support to the Cordova project.
 
 ### Building
 These commands are used to assemble the application, generating the necessary JS/CSS and adding assets.
-* `[env]` The enviroment to build for. Use `web` to build a regular web application under `build/web/`. Use `ios`/`android` to build the web part of the Cordova application and add it to its respective native project under `build/[env]` (assuming you ran the `cordova:` command above).
+* `[platform]` denotes the application platform to build under. (Currently supporting `ios` and `android`. `all` is also supported to include all of them.)
 * `[mode]` Use `dev` mode to keep readable JS/CSS and include tests under the `test/` folder. Use `prod` mode to minify/uglify JS/CSS and omit tests.
 
-#### `build:[env]:[mode]`
-Assemble the application once.
+#### `build:web:[mode]`, `build:[platform]:[mode]`
+Assemble the application once. If a Cordova build is made, it will also compile for the specified platform.
 
-#### `watch:[env]:[mode]`
+#### `watch:web:[mode]`, `watch:cordova:[mode]`
 Assemble the application and continue to watch for changes. Rebuild every time a change is detected.
 
 #### `server:[mode]`
 Assemble the application and continue to watch for changes. Rebuild every time a change is detected. Also, the application is served locally to open with a browser. This build uses the `web` environment.
+
+#### `emulate:[platform]:[mode]`
+Assemble the application, compile, and deploy to an emulator for the specified platform.
+NOTE: [ios-sim](https://github.com/phonegap/ios-sim) is required for testing on an iOS device.
 
 ### Testing
 Use the `test` command to execute tests in the terminal using jsdom.
@@ -50,4 +59,4 @@ Use the `test` command to execute tests in the terminal using jsdom.
 
 ### Core
 * [Brunch](http://brunch.io) 1.5.3
-* [Cordova](http://cordova.apache.org) 2.3.0
+* [Cordova](http://cordova.apache.org)
