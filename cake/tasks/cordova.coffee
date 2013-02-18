@@ -80,7 +80,9 @@ module.exports = class Cordova extends Exec
     platforms.unshift 'add'
     platforms.unshift 'platform'
     onExit = =>
-      for platform in platforms when platform isnt 'add'
+      platforms.shift()
+      platforms.shift()
+      for platform in platforms
         stream = fs.createReadStream("./cake/gitignore/#{platform}.gitignore")
         stream.on 'end', -> process.exit()
         stream.pipe(fs.createWriteStream("#{@cordovaPath}/platforms/#{platform}/.gitignore"))
