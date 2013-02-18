@@ -14,15 +14,12 @@ module.exports = class Cordova extends Exec
   initAndroid: =>
     @_initialize =>
       @addAndroid()
-      process.exit()
   initIOS: =>
     @_initialize =>
       @addIOS()
-      process.exit()
   initAll: =>
     @_initialize =>
       @addAll()
-      process.exit()
 
   addAndroid: => @_add 'android'
   addIOS:     => @_add 'ios'
@@ -52,37 +49,52 @@ module.exports = class Cordova extends Exec
           args.push name
           appNamePrompt callback
         else
-          do callback
+          callback()
 
     appNamePrompt = (callback) =>
       commander.prompt 'App name (optional): ', (name) =>
         name = _s.titleize _s.clean name
         args.push name if name isnt ''
-        do callback
+        callback()
 
     packageNamePrompt =>
-      @exec args
-      if callback
-        callback()
-      else
-        process.exit()
+      @exec args, =>
+        if callback
+          callback()
+        else
+          process.exit()
 
   _add: (platforms...) ->
     platforms.unshift 'add'
+    platforms.unshift 'platform'
     onExit = =>
       for platform in platforms when platform isnt 'add'
         fs.createReadStream("./cake/gitignore/#{platform}.gitignore")
           .pipe(fs.createWriteStream("#{@cordovaPath}/platforms/#{platform}/.gitignore"))
+      process.exit()
+    {command} = this
+    @command = "../.#{@command}"
     @exec(platforms, onExit, cwd: @cordovaPath, env: process.env)
+    @command = command
 
   _remove: (platforms...) ->
     platforms.unshift 'remove'
+    platforms.unshift 'platform'
+    {command} = this
+    @command = "../.#{@command}"
     @exec(platforms, (->), cwd: @cordovaPath)
+    @command = command
 
   _build: (platforms...) ->
     platforms.unshift 'build'
+    {command} = this
+    @command = "../.#{@command}"
     @exec(platforms, (->), cwd: @cordovaPath)
+    @command = command
 
   _emulate: (platforms...) ->
     platforms.unshift 'emulate'
+    {command} = this
+    @command = "../.#{@command}"
     @exec(platforms, (->), cwd: @cordovaPath)
+    @command = command
