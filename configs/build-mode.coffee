@@ -6,7 +6,7 @@ module.exports = (mode, config) ->
     when 'dev' then setDevMode config
     when 'prod' then setProdMode config
 
-# Modify given config so that test files are included
+# For dev, include test files
 setDevMode = (config) ->
   # Get reference to CSS and JS joinTos
   jsJoinTo = config.files.javascripts.joinTo
@@ -22,7 +22,7 @@ setDevMode = (config) ->
 
   config
 
-# Modify given config so that test files are ignored
+# For prod, ignore any test assets
 setProdMode = (config) ->
   config.conventions ?= {}
   {ignored} = config.conventions

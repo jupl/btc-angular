@@ -7,6 +7,7 @@ module.exports = (env, config) =>
     when 'cordova' then setCordovaEnv config
     else config
 
+# For web, ignore cordova specific files and set path
 setWebEnv = (config) ->
   config.paths ?= {}
   config.conventions ?= {}
@@ -20,6 +21,7 @@ setWebEnv = (config) ->
       else basename(file).indexOf('_') is 0
   config
 
+# For Cordova, set path
 setCordovaEnv = (config) ->
   config.paths ?= {}
   config.paths.public = 'build/cordova/www'
