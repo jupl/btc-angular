@@ -37,7 +37,7 @@ module.exports = class Build extends Exec
 
   _buildCordova: (action, platform, {prod, emulate} = {}) =>
     configPath = "configs/cordova-#{if prod then 'prod' else 'dev'}"
-    mode = if platform is 'emulate' then 'build' else platform
+    mode = if action is 'emulate' then 'build' else action
     {config} = require "../../#{configPath}"
     wrench.rmdirSyncRecursive config.paths.public, ->
     args = [mode, '-c', configPath]
@@ -57,10 +57,10 @@ module.exports = class Build extends Exec
   _cordova: (action, platform) ->
     switch action
       when 'build' then switch platform
-        when 'android' then Cordova.buildAndroid()
-        when 'ios' then Cordova.buildIOS()
-        when 'all' then Cordova.buildAll()
+        when 'android' then Cordova::buildAndroid()
+        when 'ios' then Cordova::buildIOS()
+        when 'all' then Cordova::buildAll()
       when 'emulate' then switch platform
-        when 'android' then Cordova.emulateAndroid()
-        when 'ios' then Cordova.emulateIOS()
-        when 'all' then Cordova.emulateAll()
+        when 'android' then Cordova::emulateAndroid()
+        when 'ios' then Cordova::emulateIOS()
+        when 'all' then Cordova::emulateAll()

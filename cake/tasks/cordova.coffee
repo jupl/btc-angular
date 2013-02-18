@@ -59,10 +59,14 @@ module.exports = class Cordova extends Exec
 
     packageNamePrompt =>
       @exec args, =>
-        if callback
-          callback()
-        else
-          process.exit()
+        stream = fs.createReadStream("#{@cordovaPath}/www/config.xml")
+        stream.on 'end', =>
+          wrench.copyDirSyncRecursive("#{@cordovaPath}/www/res", 'app/assets/res', ->)
+          if callback
+            callback()
+          else
+            process.exit()
+        stream.pipe(fs.createWriteStream('app/assets/config.xml'))
 
   _add: (platforms...) ->
     platforms.unshift 'add'
