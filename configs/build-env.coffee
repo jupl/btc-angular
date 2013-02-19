@@ -1,5 +1,4 @@
-{basename} = require 'path'
-typeof$ = (obj) -> ({}).toString.call(obj).slice(8, -1)
+{addIgnored} = require './build-util'
 
 module.exports = (env, config) =>
   switch env
@@ -10,15 +9,8 @@ module.exports = (env, config) =>
 # For web, ignore cordova specific files and set path
 setWebEnv = (config) ->
   config.paths ?= {}
-  config.conventions ?= {}
   config.paths.public = 'build/web'
-  {ignored} = config.conventions
-  config.conventions.ignored = (file) ->
-    return true if file is 'app/assets/config.xml' or /^app[\\/]assets[\\/]res/.test(file)
-    switch typeof$ ignored
-      when 'Function' then ignored file
-      when 'RegExp' then ignored.test file
-      else basename(file).indexOf('_') is 0
+  addIgnored config, /^app[\\/]assets[\\/]res/, 'app/assets/config.xml'
   config
 
 # For Cordova, set path

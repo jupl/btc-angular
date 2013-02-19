@@ -1,5 +1,4 @@
-{basename} = require 'path'
-typeof$ = (obj) -> ({}).toString.call(obj).slice(8, -1)
+{addIgnored} = require './build-util'
 
 module.exports = (mode, config) ->
   switch mode
@@ -25,11 +24,5 @@ setDevMode = (config) ->
 # For prod, ignore any test assets
 setProdMode = (config) ->
   config.conventions ?= {}
-  {ignored} = config.conventions
-  config.conventions.ignored = (file) ->
-    return true if /^test/.test(file)
-    switch typeof$ ignored
-      when 'Function' then ignored file
-      when 'RegExp' then ignored.test file
-      else basename(file).indexOf('_') is 0
+  addIgnored config, /^test/
   config
