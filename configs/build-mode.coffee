@@ -23,6 +23,5 @@ setDevMode = (config) ->
 
 # For prod, ignore any test assets
 setProdMode = (config) ->
-  config.conventions ?= {}
   addIgnored config, /^test/
   config
