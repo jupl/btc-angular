@@ -4,11 +4,11 @@ _s = require 'underscore.string'
 module.exports = class Scaffold
 
   @generate: ->
-    scaffold = new Scaffold
+    scaffold = new @constructor
     scaffold.generate arguments...
 
   @destroy: ->
-    scaffold = new Scaffold
+    scaffold = new @constructor
     scaffold.destroy arguments...
 
   generate: (name = '', callback = ->) ->
