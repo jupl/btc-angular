@@ -28,6 +28,7 @@
   "dependencies": {
     "brunch": "1.6.1",
     "wrench": "1.4.4",
+    "scaffolt": "0.1.1",
     "commander": "1.1.1",
     "coffee-script": "1.6.2",
     "underscore.string": "2.3.0",
