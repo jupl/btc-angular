@@ -12,21 +12,21 @@ module.exports = class Scaffold
     scaffold = new this
     scaffold.destroy arguments...
 
-  generate: (name = '', callback = ->) ->
+  generate: (name, callback = ->) ->
     if name
-      scaffolt @className(), name, callback
+      scaffolt @className(), name, {}, callback
       return
 
     @prompt (name) =>
-      scaffolt @className(), name, callback
+      scaffolt @className(), name, {}, process.exit
 
-  destroy: (name = '', callback = ->) ->
+  destroy: (name, callback = ->) ->
     if name
-      scaffolt @className(), name, callback
-      return
-
-    @prompt (name) =>
       scaffolt @className(), name, {revert: yes}, callback
+      return
+
+    @prompt (name) =>
+      scaffolt @className(), name, {revert: yes}, process.exit
 
   className: ->
     _s.dasherize(@constructor.name).replace(/^-/, '')
@@ -39,7 +39,7 @@ module.exports = class Scaffold
         @prompt callback
 
   promptString: ->
-    name = _s.humanize(@constructor.name).toLowerCase()
+    name = _s.humanize(@className()).toLowerCase()
     "\nEnter name for #{name}: "
 
   validate: (name) ->
