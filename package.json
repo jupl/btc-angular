@@ -1,0 +1,41 @@
+{
+  "name": "package-name",
+  "author": "Your Name",
+  "version": "0.0.1",
+  "homepage": "",
+  "description": "Package description",
+
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+
+  "engines": {
+    "node": "~0.6.10 || 0.8 || 0.9"
+  },
+  
+  "scripts": {
+    "start": "./node_modules/.bin/cake help:npm",
+
+    "build:dev":    "./node_modules/.bin/cake build:dev",
+    "build:prod":   "./node_modules/.bin/cake build:prod",
+    "watch:dev":    "./node_modules/.bin/cake watch:dev",
+    "watch:prod":   "./node_modules/.bin/cake watch:prod",
+    "server:dev":   "./node_modules/.bin/cake server:dev",
+    "server:prod":  "./node_modules/.bin/cake server:prod"
+  },
+
+  "dependencies": {
+    "brunch": "1.6.1",
+    "wrench": "1.4.4",
+    "commander": "1.1.1",
+    "coffee-script": "1.6.2",
+    "underscore.string": "2.3.0",
+
+    "javascript-brunch": ">= 1.0 < 1.6",
+    "css-brunch": ">= 1.0 < 1.6",
+
+    "uglify-js-brunch": ">= 1.0 < 1.6",
+    "clean-css-brunch": ">= 1.0 < 1.6"
+  }
+}
