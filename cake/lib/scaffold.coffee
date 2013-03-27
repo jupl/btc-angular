@@ -40,7 +40,7 @@ module.exports = class Scaffold
 
   promptString: ->
     name = _s.humanize(@className()).toLowerCase()
-    "\nEnter name for #{name}: "
+    "\nEnter name for #{name}:"
 
   validate: (name) ->
     true
