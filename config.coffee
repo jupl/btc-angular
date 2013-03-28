@@ -1,8 +1,5 @@
 exports.config =
 
-  paths:
-    public: 'build/web'
-
   files:
     javascripts:
       joinTo:
