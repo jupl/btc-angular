@@ -120,4 +120,4 @@ module.exports =
     npm:
       command:      'help:npm'
       description:  'Help for those running commands from npm\n'
-      task:         tasks.help.npm
+      task:         -> do Help.npm
