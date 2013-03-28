@@ -13,7 +13,7 @@ module.exports = class Cordova extends Exec
 
   @initialize: ->
     instance = new this
-    instance.initialize parameters...
+    instance.initialize arguments...
 
   for platform in platforms then do (platform) =>
     @initialize[platform] = =>
