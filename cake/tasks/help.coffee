@@ -1,7 +1,11 @@
 module.exports = class Help
   maxCommandLength: 22
 
-  npm: =>
+  @npm: ->
+    help = new Help
+    help.npm()
+
+  npm: ->
     tasks = require '../tasks'
     console.log """
     

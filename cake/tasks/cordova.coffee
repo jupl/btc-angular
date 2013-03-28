@@ -4,41 +4,28 @@ commander = require 'commander'
 _s = require 'underscore.string'
 Exec = require '../lib/exec'
 
+platforms = ['android', 'ios']
+
 module.exports = class Cordova extends Exec
   command: './node_modules/.bin/cordova'
   cordovaPath: 'build/cordova'
-  platforms: ['android', 'ios']
+  platforms: platforms
 
-  init: =>
-    @_initialize()
-  initAndroid: =>
-    @_initialize =>
-      @addAndroid()
-  initIOS: =>
-    @_initialize =>
-      @addIOS()
-  initAll: =>
-    @_initialize =>
-      @addAll()
+  @initialize: ->
+    instance = new this
+    instance.initialize parameters...
 
-  addAndroid: => @_add 'android'
-  addIOS:     => @_add 'ios'
-  addAll:     => @_add @platforms...
-
-  removeAndroid: => @_remove 'android'
-  removeIOS:     => @_remove 'ios'
-  removeAll:     => @_remove @platforms...
-
-  buildAndroid: => @_build 'android'
-  buildIOS:     => @_build 'ios'
-  buildAll:     => @_build @platforms...
-
-  emulateAndroid: => @_emulate 'android'
-  emulateIOS:     => @_emulate 'ios'
-  emulateAll:     => @_emulate @platforms...
+  for platform in platforms then do (platform) =>
+    @initialize[platform] = =>
+      @initialize({platform})
+    for action in ['add', 'remove', 'build', 'emulate'] then do (action) =>
+      this[action] ?= {}
+      this[action][platform] = ->
+        instance = new this
+        instance[action]({platform})
 
   # For initialize, get user input, build Cordova project, and copy generated assets
-  _initialize: (callback) ->
+  initialize: ({platform} = {}) ->
     wrench.rmdirSyncRecursive @cordovaPath, ->
     args = ['create', @cordovaPath]
 
@@ -65,10 +52,8 @@ module.exports = class Cordova extends Exec
         stream = fs.createReadStream("#{@cordovaPath}/www/config.xml")
         stream.on 'end', =>
           wrench.copyDirSyncRecursive("#{@cordovaPath}/www/res", 'app/assets/res', ->)
-          if callback
-            callback()
-          else
-            process.exit()
+          @add({platform}) if platform
+          process.exit()
         stream.pipe(fs.createWriteStream('app/assets/config.xml'))
 
   # NOTE: For the commands below it is required to be in the Cordova project folder.
@@ -76,47 +61,33 @@ module.exports = class Cordova extends Exec
   #   of the command to execute.
 
   # After adding, drop in .gitignore files to the projects
-  _add: (platforms...) ->
-    platforms.unshift 'add'
-    platforms.unshift 'platform'
+  add: ({platform}) ->
     onExit = =>
-      platforms.shift()
-      platforms.shift()
-      for platform in platforms
-        stream = fs.createReadStream("./cake/gitignore/#{platform}.gitignore")
-        stream.on 'end', -> process.exit()
-        stream.pipe(fs.createWriteStream("#{@cordovaPath}/platforms/#{platform}/.gitignore"))
+      stream = fs.createReadStream("./cake/gitignore/#{platform}.gitignore")
+      stream.on 'end', -> process.exit()
+      stream.pipe fs.createWriteStream("#{@cordovaPath}/platforms/#{platform}/.gitignore")
     {command} = this
     @command = "../.#{@command}"
-    @exec(platforms, onExit, cwd: @cordovaPath, env: process.env)
+    @exec(['platform', 'add', platform], onExit, cwd: @cordovaPath, env: process.env)
     @command = command
 
-  _remove: (platforms...) ->
-    platforms.unshift 'remove'
-    platforms.unshift 'platform'
+  remove: ({platform}) ->
     {command} = this
     @command = "../.#{@command}"
-    @exec(platforms, (->), cwd: @cordovaPath)
+    @exec(['platform', 'remove', platform], (->), cwd: @cordovaPath)
     @command = command
 
-  _build: (platforms...) ->
-    platforms.unshift 'build'
+  build: ({platform}) ->
     {command} = this
     @command = "../.#{@command}"
-    @exec(platforms, (->), cwd: @cordovaPath)
+    @exec(['build', platform], (->), cwd: @cordovaPath)
     @command = command
 
-  _emulate: (platforms...) ->
+  emulate: ({platform}) ->
     afterBuild = =>
-      platforms.shift()
-      platforms.unshift 'emulate'
-      {command} = this
-      @command = "../.#{@command}"
-      @exec(platforms, (->), cwd: @cordovaPath)
+      @exec(['emulate', platform], (->), cwd: @cordovaPath)
       @command = command
 
-    platforms.unshift 'build'
     {command} = this
     @command = "../.#{@command}"
-    @exec(platforms, afterBuild, cwd: @cordovaPath)
-    @command = command
+    @exec(['build', platform], afterBuild, cwd: @cordovaPath)

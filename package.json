@@ -50,30 +50,22 @@
     "emulate:ios:dev":      "./node_modules/.bin/cake emulate:ios:dev",
     "emulate:ios:prod":     "./node_modules/.bin/cake emulate:ios:prod",
     "emulate:all:dev":      "./node_modules/.bin/cake emulate:all:dev",
-    "emulate:all:prod":     "./node_modules/.bin/cake emulate:all:prod",
-
-    "test":                 "./node_modules/.bin/cake test"
+    "emulate:all:prod":     "./node_modules/.bin/cake emulate:all:prod"
   },
 
   "dependencies": {
-    "brunch": "1.5.3",
+    "brunch": "1.6.1",
     "wrench": "1.4.4",
     "cordova": "2.5.4",
+    "scaffolt": "0.1.1",
     "commander": "1.1.1",
-    "coffee-script": "1.4.0",
-    "underscore.string": "2.3.1",
+    "coffee-script": "1.6.2",
+    "underscore.string": "2.3.0",
     
     "javascript-brunch": ">= 1.0 < 1.6",
     "css-brunch": ">= 1.0 < 1.6",
     
     "uglify-js-brunch": ">= 1.0 < 1.6",
     "clean-css-brunch": ">= 1.0 < 1.6"
-  },
-
-  "devDependencies": {
-    "chai": "1.5.0",
-    "sinon": "1.5.2",
-    "sinon-chai": "2.3.1",
-    "jsdom": "0.5.0"
   }
 }
