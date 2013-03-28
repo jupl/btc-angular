@@ -35,5 +35,5 @@ module.exports =
   help:
     npm:
       command:      'help:npm'
-      description:  'Help for those running commands from npm'
+      description:  'Help for those running commands from npm\n'
       task:         -> do Help.npm
