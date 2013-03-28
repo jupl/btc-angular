@@ -1,3 +1,4 @@
+require 'sugar'
 wrench = require 'wrench'
 Exec = require '../lib/exec'
 
@@ -23,7 +24,7 @@ module.exports = class Build extends Exec
     args.push '-c', "configs/#{platform}/#{environment}"
 
     # Before running the brunch command let's clear the public folder
-    {config} = require "../../#{args.slice(-1)[0]}"
+    {config} = require "../../#{args.last()}"
     wrench.rmdirSyncRecursive config.paths.public, ->
 
     @exec args
