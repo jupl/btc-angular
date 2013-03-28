@@ -4,12 +4,12 @@ Exec = require '../lib/exec'
 module.exports = class Build extends Exec
   command: './node_modules/.bin/brunch'
 
-  for platform in ['web'] then do (platform) =>
-    for type in ['once', 'watch', 'server'] then do (type) =>
+  for type in ['once', 'watch', 'server'] then do (type) =>
+    this[type] ?= {}
+    for platform in ['web'] then do (platform) =>
+      this[type][platform] ?= {}
       for environment in ['development', 'production'] then do (environment) =>
-        this[platform] ?= {}
-        this[platform][type] ?= {}
-        this[platform][type][environment] = ->
+        this[type][platform][environment] = ->
           build = new Build
           build.build({platform, type, environment})
 
