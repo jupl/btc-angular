@@ -29,11 +29,11 @@ module.exports =
         task:         -> do Cordova.add.ios
     remove:
       android:
-        command:      'cordova:rm:android'
+        command:      'cordova:rem:android'
         description:  'Remove Android platform support from the Cordova project'
         task:         -> do Cordova.remove.android
       ios:
-        command:      'cordova:rm:ios'
+        command:      'cordova:rem:ios'
         description:  'Remove iOS platform support from the Cordova project\n'
         task:         -> do Cordova.remove.ios
 
