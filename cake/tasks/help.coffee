@@ -1,3 +1,5 @@
+require 'sugar'
+
 module.exports = class Help
   maxCommandLength: 20
 
@@ -22,9 +24,7 @@ module.exports = class Help
   printTasks: (taskObject) ->
     return unless typeof taskObject is 'object'
     if taskObject.command? and taskObject.description? and taskObject.task?
-      command = taskObject.command
-      if @maxCommandLength - command.length > 0
-        command += Array(@maxCommandLength - command.length).join ' '
+      command = taskObject.command.padRight(' ', @maxCommandLength)
       console.log "#{command} # #{taskObject.description}"
     else
       for key, value of taskObject
