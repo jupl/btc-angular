@@ -5,6 +5,19 @@ Cordova = require './cordova'
 module.exports = class Build extends Exec
   command: './node_modules/.bin/brunch'
 
+  for typeTmp in ['once', 'watch', 'server']
+    for platformTmp in Cordova::platforms.concat('web')
+      type = typeTmp
+      platform = platformTmp
+      type = 'emulate' if type is 'server' and platform isnt 'web'
+      platform = 'cordova' if type is 'watch' and platform isnt 'web'
+      this[type] ?= {}
+      this[type][platform] ?= {}
+      for environment in ['development', 'production'] then do (type, platform, environment) =>
+        this[type][platform][environment] = ->
+          build = new Build
+          build.build({platform, type, environment})
+
   for platform in Cordova::platforms.concat('web') then do (platform) =>
     for type in ['once', 'watch', 'server'] then do (type) =>
       type = 'emulate' if type is 'server' and platform isnt 'web'

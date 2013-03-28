@@ -20,7 +20,7 @@ module.exports = class Cordova extends Exec
       @initialize({platform})
     for action in ['add', 'remove', 'build', 'emulate'] then do (action) =>
       this[action] ?= {}
-      this[action][platform] = ->
+      this[action][platform] = =>
         instance = new this
         instance[action]({platform})
 
