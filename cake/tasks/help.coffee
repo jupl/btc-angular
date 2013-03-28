@@ -1,7 +1,7 @@
 require 'sugar'
 
 module.exports = class Help
-  maxCommandLength: 20
+  maxCommandLength: 24
 
   @npm: ->
     help = new Help
@@ -24,8 +24,10 @@ module.exports = class Help
   printTasks: (taskObject) ->
     return unless typeof taskObject is 'object'
     if taskObject.command? and taskObject.description? and taskObject.task?
-      command = taskObject.command.padRight(' ', @maxCommandLength)
+      command = taskObject
+        .command
+        .padRight(' ', @maxCommandLength)
+        .truncate(@maxCommandLength, true, 'right', '')
       console.log "#{command} # #{taskObject.description}"
     else
-      for key, value of taskObject
-        @_printTasks value unless key is 'npm'
+      @printTasks(value) for key, value of taskObject when key isnt 'npm'
