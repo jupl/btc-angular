@@ -1,12 +1,8 @@
 # Cordova Brunch
 
-**IMPORTANT**: There are big changes in moving to using cordova-cli.
-
 ## Introduction
 
-Cordova Brunch is a base skeleton for building web applications. In additional to assembling standard web-based application, this skeleton can also assemble native applications using Cordova. (Currently supports iOS and Android applications) While [Brunch](http://brunch.io) can be used to run commands, tasks are also supplied via cake. For more complete skeletons, see one of the following:
-* [Cordova Brunch (feat. Chapless Brunch)](https://github.com/jupl/cordova-brunch/tree/chapless)
-* [Cordova Brunch (feat. Cinder Brunch)](https://github.com/jupl/cordova-brunch/tree/cinder)
+Cordova Brunch is a base skeleton for building web applications. In additional to assembling standard web-based application, this skeleton can also assemble native applications using Cordova. (Currently supports iOS and Android applications) While [Brunch](http://brunch.io) can be used to run commands, tasks are also supplied via cake.
 
 ## Requirements
 * [node.js](http://nodejs.org) (mandatory)
@@ -25,7 +21,7 @@ Cordova Brunch is a base skeleton for building web applications. In additional t
 While Brunch commands can be used, cake commands are provided for this skeleton. These tasks can be executed using cake if it is installed. (`cake [command]`) If cake is not installed these commands can also be executed using npm. (`npm run-script [command]`) These are the following commands (this list is accessible using either the command `cake` or `npm start`):
 
 ### Cordova
-These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app. `[platform]` denotes the application platform to build under. (Currently supporting `ios` and `android`. `all` is also supported to include all of them.) If you need access to the Cordova JavaScript from your page use the script tag: `<script type="text/javascript" src="cordova.js"></script>`
+These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app. `[platform]` denotes the application platform to build under. (Currently supporting `ios` and `android`) If you need access to the Cordova JavaScript from your page use the script tag: `<script src="cordova.js"></script>`
 
 
 #### `cordova:init`, `cordova:init:[platform]`
@@ -36,12 +32,12 @@ Create a new Cordova project using [cordova-cli](https://github.com/apache/cordo
 * It is recommended for your web app to not depend on any files in `app/assets/res`.
 * If a platform is not provided for `:init`, then use `:add` to add platforms to support.
 
-#### `cordova:add:[platform]`, `cordova:remove:[platform]`
+#### `cordova:add:[platform]`, `cordova:rem:[platform]`
 Add/remove specified platform support to the Cordova project.
 
 ### Building
 These commands are used to assemble the application, generating the necessary JS/CSS and adding assets.
-* `[platform]` denotes the application platform to build under. (Currently supporting `ios` and `android`. `all` is also supported to include all of them.)
+* `[platform]` denotes the application platform to build under. (Currently supporting `ios` and `android`)
 * `[mode]` Use `dev` mode to keep readable JS/CSS and include tests under the `test/` folder. Use `prod` mode to minify/uglify JS/CSS and omit tests.
 
 #### `build:web:[mode]`, `build:[platform]:[mode]`
@@ -58,11 +54,8 @@ Assemble the application, compile, and deploy to an emulator for the specified p
 
 **NOTE**: [ios-sim](https://github.com/phonegap/ios-sim) is required to emulate on the iOS Simulator.
 
-### Testing
-Use the `test` command to execute tests in the terminal using jsdom.
-
 ## Details
 
 ### Core
-* [Brunch](http://brunch.io) 1.5.3
+* [Brunch](http://brunch.io) 1.6.1
 * [Cordova](http://cordova.apache.org)
