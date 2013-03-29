@@ -1,6 +1,7 @@
 require 'sugar'
 wrench = require 'wrench'
 Exec = require '../lib/exec'
+Cordova = require './cordova'
 
 module.exports = class Build extends Exec
   command: './node_modules/.bin/brunch'
