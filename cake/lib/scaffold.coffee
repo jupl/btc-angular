@@ -1,6 +1,6 @@
+require 'sugar'
 scaffolt = require 'scaffolt'
 commander = require 'commander'
-_s = require 'underscore.string'
 
 module.exports = class Scaffold
 
@@ -14,33 +14,30 @@ module.exports = class Scaffold
 
   generate: (name, callback = ->) ->
     if name
-      scaffolt @className(), name, {}, callback
+      scaffolt @constructor.name.dasherize(), name, {}, callback
       return
 
     @prompt (name) =>
-      scaffolt @className(), name, {}, process.exit
+      scaffolt @constructor.name.dasherize(), name, {}, process.exit
 
   destroy: (name, callback = ->) ->
     if name
-      scaffolt @className(), name, {revert: yes}, callback
+      scaffolt @constructor.name.dasherize(), name, {revert: yes}, callback
       return
 
     @prompt (name) =>
-      scaffolt @className(), name, {revert: yes}, process.exit
-
-  className: ->
-    _s.dasherize(@constructor.name).replace(/^-/, '')
+      scaffolt @constructor.name.dasherize(), name, {revert: yes}, process.exit
 
   prompt: (callback) ->
     commander.prompt @promptString(), (name) =>
       if @validate name
-        callback name
+        callback name.parameterize().dasherize()
       else
         @prompt callback
 
-  promptString: ->
-    name = _s.humanize(@className()).toLowerCase()
+  promptString: (name) ->
+    name ?= @constructor.name.underscore().humanize().toLowerCase()
     "\nEnter name for #{name}: "
 
   validate: (name) ->
-    true
+    not name.parameterize().isBlank()
