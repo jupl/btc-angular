@@ -1,6 +1,6 @@
+require 'sugar'
 wrench = require 'wrench'
 Exec = require '../lib/exec'
-Cordova = require './cordova'
 
 module.exports = class Build extends Exec
   command: './node_modules/.bin/brunch'
@@ -9,22 +9,12 @@ module.exports = class Build extends Exec
     for platformTmp in Cordova::platforms.concat('web')
       type = typeTmp
       platform = platformTmp
-      type = 'emulate' if type is 'server' and platform isnt 'web'
-      platform = 'cordova' if type is 'watch' and platform isnt 'web'
+      if platform isnt 'web'
+        type = 'emulate' if type is 'server'
+        platform = 'cordova' if type is 'watch'
       this[type] ?= {}
       this[type][platform] ?= {}
       for environment in ['development', 'production'] then do (type, platform, environment) =>
-        this[type][platform][environment] = ->
-          build = new Build
-          build.build({platform, type, environment})
-
-  for platform in Cordova::platforms.concat('web') then do (platform) =>
-    for type in ['once', 'watch', 'server'] then do (type) =>
-      type = 'emulate' if type is 'server' and platform isnt 'web'
-      platform = 'cordova' if type is 'watch' and platform isnt 'web'
-      this[type] ?= {}
-      this[type][platform] ?= {}
-      for environment in ['development', 'production'] then do (environment) =>
         this[type][platform][environment] = ->
           build = new Build
           build.build({platform, type, environment})
@@ -43,7 +33,7 @@ module.exports = class Build extends Exec
       args.push '-c', "configs/cordova/#{environment}"
 
     # Before running the brunch command let's clear the public folder
-    {config} = require "../../#{args.slice(-1)[0]}"
+    {config} = require "../../#{args.last()}"
     wrench.rmdirSyncRecursive config.paths.public, ->
 
     @exec args, =>

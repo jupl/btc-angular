@@ -1,7 +1,7 @@
+require 'sugar'
 fs = require 'fs'
 wrench = require 'wrench'
 commander = require 'commander'
-_s = require 'underscore.string'
 Exec = require '../lib/exec'
 
 platforms = ['android', 'ios']
@@ -31,9 +31,8 @@ module.exports = class Cordova extends Exec
 
     packageNamePrompt = (callback) =>
       commander.prompt 'Package name (optional): ', (name) =>
-        name = _s.clean name
-        name = "#{name.charAt(0).toLowerCase()}#{name.slice(1)}"
-        if name isnt ''
+        name = name.parameterize().dasherize().replace(/-/g, '.')
+        if name isnt '' and name.has('.')
           args.push name
           appNamePrompt callback
         else
@@ -41,7 +40,7 @@ module.exports = class Cordova extends Exec
 
     appNamePrompt = (callback) =>
       commander.prompt 'App name (optional): ', (name) =>
-        name = _s.titleize _s.clean name
+        name = name.titleize()
         args.push name if name isnt ''
         callback()
 
