@@ -66,7 +66,7 @@ module.exports =
       prod:
         command:      'watch:cordova:prod'
         description:  'Continuously build on changes for Cordova minified'
-        task:         -> do Build.watch.cordova.development
+        task:         -> do Build.watch.cordova.production
     web:
       dev:
         command:      'watch:web:dev'
@@ -85,7 +85,7 @@ module.exports =
     prod:
       command:      'server:prod'
       description:  'Continuously build on changes for web minified and host locally\n'
-      task:         -> do Build.server.web.development
+      task:         -> do Build.server.web.production
 
   emulate:
     android:
