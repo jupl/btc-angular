@@ -1,7 +1,13 @@
-module.exports = class Help
-  maxCommandLength: 22
+require 'sugar'
 
-  npm: =>
+module.exports = class Help
+  maxCommandLength: 24
+
+  @npm: ->
+    help = new Help
+    help.npm()
+
+  npm: ->
     tasks = require '../tasks'
     console.log """
     
@@ -12,15 +18,15 @@ module.exports = class Help
     Generator commands (gen:) will require a prompt. Command list:
 
     """
-    @_printTasks tasks
+    @printTasks tasks
 
-  _printTasks: (taskObject) =>
+  printTasks: (taskObject) ->
     return unless typeof taskObject is 'object'
     if taskObject.command? and taskObject.description? and taskObject.task?
-      command = taskObject.command
-      if @maxCommandLength - command.length > 0
-        command += Array(@maxCommandLength - command.length).join ' '
+      command = taskObject
+        .command
+        .padRight(' ', @maxCommandLength)
+        .truncate(@maxCommandLength, true, 'right', '')
       console.log "#{command} # #{taskObject.description}"
     else
-      for key, value of taskObject
-        @_printTasks value unless key is 'npm'
+      @printTasks(value) for key, value of taskObject when key isnt 'npm'

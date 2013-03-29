@@ -1,20 +1,20 @@
 {addIgnored} = require './build-util'
 
-module.exports = (env, config) =>
-  switch env
-    when 'web' then setWebEnv config
-    when 'cordova' then setCordovaEnv config
+module.exports = (environment, config) =>
+  switch environment
+    when 'web' then webEnvironment config
+    when 'cordova' then cordovaEnvironment config
     else config
 
 # For web, ignore cordova specific files and set path
-setWebEnv = (config) ->
+webEnvironment = (config) ->
   config.paths ?= {}
   config.paths.public = 'build/web'
   addIgnored config, /^app[\\/]assets[\\/]res/, 'app/assets/config.xml'
   config
 
 # For Cordova, set path
-setCordovaEnv = (config) ->
+cordovaEnvironment = (config) ->
   config.paths ?= {}
   config.paths.public = 'build/cordova/www'
   config

@@ -2,11 +2,11 @@
 
 module.exports = (mode, config) ->
   switch mode
-    when 'dev' then setDevMode config
-    when 'prod' then setProdMode config
+    when 'development' then developmentMode config
+    when 'production' then productionMode config
 
-# For dev, include test files
-setDevMode = (config) ->
+# Modify given config so that test files are included
+developmentMode = (config) ->
   # Get reference to CSS and JS joinTos
   jsJoinTo = config.files.javascripts.joinTo
   cssJoinTo = config.files.stylesheets.joinTo
@@ -14,6 +14,8 @@ setDevMode = (config) ->
   # Add test javascript files
   jsJoinTo['test/javascripts/tests.js'] = /^test[\\/]tests/
   jsJoinTo['test/javascripts/vendor.js'] = /^test[\\/]vendor/
+  config.files.javascripts.order ?= {}
+  config.files.javascripts.order.after ?= []
   config.files.javascripts.order.after.push 'test/vendor/scripts/test-helper.js'
 
   # Add test css files
@@ -21,7 +23,7 @@ setDevMode = (config) ->
 
   config
 
-# For prod, ignore any test assets
-setProdMode = (config) ->
+# Modify given config so that test files are ignored
+productionMode = (config) ->
   addIgnored config, /^test/
   config
