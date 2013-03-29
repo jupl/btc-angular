@@ -8,8 +8,8 @@ module.exports = (mode, config) ->
 # Modify given config so that test files are included
 developmentMode = (config) ->
   # Get reference to CSS and JS joinTos
-  jsJoinTo = config.files.javascripts.joinTo ? {}
-  cssJoinTo = config.files.stylesheets.joinTo ? {}
+  jsJoinTo = config.files.javascripts.joinTo
+  cssJoinTo = config.files.stylesheets.joinTo
 
   # Add test javascript files
   jsJoinTo['test/javascripts/tests.js'] = /^test[\\/]tests/

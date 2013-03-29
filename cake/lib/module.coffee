@@ -1,4 +1,4 @@
-Scaffold = require '../../lib/scaffold'
+Scaffold = require './scaffold'
 
 module.exports = class Module extends Scaffold
 
