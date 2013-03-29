@@ -15,17 +15,15 @@ module.exports = class Cordova extends Exec
     instance = new this
     instance.initialize arguments...
 
-  for platform in platforms then do (platform) =>
-    @initialize[platform] = =>
-      @initialize({platform})
-    for action in ['add', 'remove', 'build', 'emulate'] then do (action) =>
+  for platform in platforms
+    for action in ['add', 'remove', 'build', 'emulate'] then do (platform, action) =>
       this[action] ?= {}
       this[action][platform] = =>
         instance = new this
         instance[action]({platform})
 
   # For initialize, get user input, build Cordova project, and copy generated assets
-  initialize: ({platform} = {}) ->
+  initialize: ->
     wrench.rmdirSyncRecursive @cordovaPath, ->
     args = ['create', @cordovaPath]
 
@@ -51,7 +49,6 @@ module.exports = class Cordova extends Exec
         stream = fs.createReadStream("#{@cordovaPath}/www/config.xml")
         stream.on 'end', =>
           wrench.copyDirSyncRecursive("#{@cordovaPath}/www/res", 'app/assets/res', ->)
-          @add({platform}) if platform
           process.exit()
         stream.pipe(fs.createWriteStream('app/assets/config.xml'))
 

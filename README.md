@@ -24,13 +24,12 @@ While Brunch commands can be used, cake commands are provided for this skeleton.
 These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app. `[platform]` denotes the application platform to build under. (Currently supporting `ios` and `android`) If you need access to the Cordova JavaScript from your page use the script tag: `<script src="cordova.js"></script>`
 
 
-#### `cordova:init`, `cordova:init:[platform]`
+#### `cordova:init`
 Create a new Cordova project using [cordova-cli](https://github.com/apache/cordova-cli).
 * When creating a project, you will be prompted for a package name and app name. (If anything is not provided, Cordova defaults will be used.)
 * Project will reside in `build/cordova`.
 * Cordova-specific files are added to `app/assets`. (These files will be ignored if a non-Cordova web build is made.) Do not remove these files.
 * It is recommended for your web app to not depend on any files in `app/assets/res`.
-* If a platform is not provided for `:init`, then use `:add` to add platforms to support.
 
 #### `cordova:add:[platform]`, `cordova:rem:[platform]`
 Add/remove specified platform support to the Cordova project.

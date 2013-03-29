@@ -6,18 +6,9 @@ module.exports =
 
   cordova:
     init:
-      default:
-        command:      'cordova:init'
-        description:  'Create a new Cordova project'
-        task:         -> do Cordova.initialize
-      android:
-        command:      'cordova:init:android'
-        description:  'Create a new Cordova project with support for the Android platform'
-        task:         -> do Cordova.initialize.android
-      ios:
-        command:      'cordova:init:ios'
-        description:  'Create a new Cordova project with support for the iOS platform'
-        task:         -> do Cordova.initialize.ios
+      command:      'cordova:init'
+      description:  'Create a new Cordova project'
+      task:         -> do Cordova.initialize
     add:
       android:
         command:      'cordova:add:android'
