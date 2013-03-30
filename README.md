@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Cordova Brunch is a base skeleton for building web applications. In additional to assembling standard web-based application, this skeleton can also assemble native applications using Cordova. (Currently supports iOS and Android applications) While [Brunch](http://brunch.io) can be used to run commands, tasks are also supplied via cake.
+Cordova Brunch is a base skeleton for building web applications. In additional to assembling standard web-based application, this skeleton can also assemble native applications using Cordova. (Currently supports iOS and Android applications) While [Brunch](http://brunch.io) can be used to run commands, tasks are also supplied via cake. For complete skeletons that include Cordova Brunch see:
+- [Chapless Brunch](https://github.com/jupl/chapless-brunch/tree/cordova)
+- [Cinder Brunch](https://github.com/jupl/cinder-brunch/tree/cordova)
 
 ## Requirements
 * [node.js](http://nodejs.org) (mandatory)
