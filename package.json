@@ -17,6 +17,10 @@
   "scripts": {
     "start":                "./node_modules/.bin/cake help:npm",
 
+    "add:fastclick":        "./node_modules/.bin/cake add:fastclick",
+
+    "rem:fastclick":        "./node_modules/.bin/cake rem:fastclick",
+
     "cordova:init":         "./node_modules/.bin/cake cordova:init",
     "cordova:init:android": "./node_modules/.bin/cake cordova:init:android",
     "cordova:init:ios":     "./node_modules/.bin/cake cordova:init:ios",

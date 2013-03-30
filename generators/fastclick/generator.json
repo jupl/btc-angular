@@ -1,0 +1,9 @@
+{
+  "files": [
+    {
+      "from": "fastclick.js",
+      "to": "vendor/scripts/common/fastclick.js"
+    }
+  ],
+  "dependencies": []
+}
