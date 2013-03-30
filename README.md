@@ -1,4 +1,4 @@
-# Cordova Brunch 0.1.0
+# Cordova Brunch 0.1.1
 
 ## Introduction
 
