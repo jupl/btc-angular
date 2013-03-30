@@ -1,4 +1,4 @@
-# Cordova Brunch 0.1.0
+# Cordova Brunch 0.1.1
 
 ## Introduction
 
@@ -20,9 +20,14 @@ Cordova Brunch is a base skeleton for building web applications. In additional t
 ## Command List
 While Brunch commands can be used, cake commands are provided for this skeleton. These tasks can be executed using cake if it is installed. (`cake [command]`) If cake is not installed these commands can also be executed using npm. (`npm run-script [command]`) These are the following commands (this list is accessible using either the command `cake` or `npm start`):
 
+### Extras
+These commands add additional features/items to the project that are not included by default.
+
+#### `add:fastclick` / `rem:fastclick`
+Add/remove FastClick to/from the project for optimized click events in touch devices. Visit the [GitHub page](https://github.com/ftlabs/fastclick) for more information and instructions.
+
 ### Cordova
 These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app. `[platform]` denotes the application platform to build under. (Currently supporting `ios` and `android`) If you need access to the Cordova JavaScript from your page use the script tag: `<script src="cordova.js"></script>`
-
 
 #### `cordova:init`
 Create a new Cordova project using [cordova-cli](https://github.com/apache/cordova-cli).
@@ -59,3 +64,6 @@ Assemble the application, compile, and deploy to an emulator for the specified p
 * [Brunch](http://brunch.io) 1.6.1
 * [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.1.1
 * [Cordova](http://cordova.apache.org)
+
+### Utilities
+* [FastClick](https://github.com/ftlabs/fastclick) 0.6.3

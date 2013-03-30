@@ -1,8 +1,22 @@
 Build = require './tasks/build'
 Help = require './tasks/help'
 Cordova = require './tasks/cordova'
+Module =
+  Fastclick: require './tasks/modules/fastclick'
 
 module.exports =
+
+  add:
+    fastclick:
+      command:      'add:fastclick'
+      description:  'Add FastClick\n'
+      task:         -> do Module.Fastclick.add
+
+  rem:
+    fastclick:
+      command:      'rem:fastclick'
+      description:  'Remove FastClick\n'
+      task:         -> do Module.Fastclick.remove
 
   cordova:
     init:
