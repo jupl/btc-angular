@@ -1,6 +1,6 @@
 # Changelog
 
-#### 0.1.3 (WIP)
+#### 0.1.3 (April 15, 2013)
 - Update Brunch and Scaffolt.
 - Update Mocha
 
