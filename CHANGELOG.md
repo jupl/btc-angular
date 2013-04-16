@@ -1,6 +1,6 @@
 # Changelog
 
-#### 0.1.2 (WIP)
+#### 0.1.2 (April 15, 2013)
 - Update Brunch Toolchain.
 
 #### 0.1.1 (March 29, 2013)
