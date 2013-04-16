@@ -1,4 +1,4 @@
-# Brunch Toolchain 0.1.2
+# Brunch Toolchain 0.1.3
 
 ## Introduction
 
@@ -37,11 +37,11 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 ## Details
 
 ### Core
-* [Brunch](http://brunch.io) 1.6.2
-* [Scaffolt](https://github.com/paulmillr/scaffolt) 0.1.1
+* [Brunch](http://brunch.io) 1.6.3
+* [Scaffolt](https://github.com/paulmillr/scaffolt) 0.2.0
 
 ### Testing
-* [Mocha](http://visionmedia.github.com/mocha/) 1.8.1
+* [Mocha](http://visionmedia.github.com/mocha/) 1.9.0
 * [Chai](http://chaijs.com/) 1.5.0
 * [Sinon](http://sinonjs.org/) 1.6.0
 * [Sinon-Chai](https://github.com/domenic/sinon-chai) 2.3.1

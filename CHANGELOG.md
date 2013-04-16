@@ -1,6 +1,10 @@
 # Changelog
 
-### 0.1.2 (April 2, 2013)
+#### 0.1.3 (April 15, 2013)
+- Update Brunch and Scaffolt.
+- Update Mocha
+
+#### 0.1.2 (April 2, 2013)
 - Updated Brunch and Brunch plugins.
 - Minor enhancement to Module.
 
