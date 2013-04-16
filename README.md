@@ -20,7 +20,7 @@ Cordova Brunch is a base skeleton for building web applications. In additional t
 
 
 ## Command List
-While Brunch commands can be used, cake commands are provided for this skeleton. These tasks can be executed using cake if it is installed. (`cake [command]`) If cake is not installed these commands can also be executed using npm. (`npm run-script [command]`) These are the following commands (this list is accessible using either the command `cake` or `npm start`):
+While Brunch/Scaffolt commands can be used, cake commands are provided for this skeleton. These tasks can be executed using cake if it is installed. (`cake [command]`) If cake is not installed these commands can also be executed using npm. (`npm run-script [command]`) These are the following commands (this list is accessible using either the command `cake` or `npm start`):
 
 ### Extras
 These commands add additional features/items to the project that are not included by default.
@@ -63,9 +63,9 @@ Assemble the application, compile, and deploy to an emulator for the specified p
 ## Details
 
 ### Core
-* [Brunch](http://brunch.io) 1.6.1
-* [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.1.1
-* [Cordova](http://cordova.apache.org)
+* [Brunch](http://brunch.io) 1.6.3
+* [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.1.3
+* [Cordova](http://cordova.apache.org) 2.6.0
 
 ### Utilities
 * [FastClick](https://github.com/ftlabs/fastclick) 0.6.3
