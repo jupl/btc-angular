@@ -3,6 +3,7 @@ commander = require 'commander'
 Exec = require './exec'
 
 module.exports = class Scaffold extends Exec
+  command: './node_modules/.bin/scaffolt'
 
   @generate: ->
     instance = new this
