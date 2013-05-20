@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.1.3 (WIP)
+- Use bin-based Scaffolt instead of API as a temporary fix.
+
 #### 0.1.3 (April 15, 2013)
 - Update Brunch and Scaffolt.
 - Update Mocha
