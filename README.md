@@ -63,7 +63,6 @@ Assemble the application, compile, and deploy to an emulator for the specified p
 ## Details
 
 ### Core
-* [Brunch](http://brunch.io) 1.6.3
 * [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.1.3
 * [Cordova](http://cordova.apache.org) 2.6.0
 
