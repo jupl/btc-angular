@@ -1,8 +1,9 @@
 require 'sugar'
-scaffolt = require 'scaffolt'
 commander = require 'commander'
+Exec = require './exec'
 
-module.exports = class Scaffold
+module.exports = class Scaffold extends Exec
+  command: './node_modules/.bin/scaffolt'
 
   @generate: ->
     instance = new this
@@ -12,21 +13,27 @@ module.exports = class Scaffold
     instance = new this
     instance.destroy arguments...
 
-  generate: (name, callback = ->) ->
+  generate: (name, callback) ->
+    callback = process.exit unless Object.isFunction(callback)
+    args = [@constructor.name.dasherize()]
     if name
-      scaffolt @constructor.name.dasherize(), name, {}, callback
-      return
+      args.push name
+      return @exec args, callback
 
     @prompt (name) =>
-      scaffolt @constructor.name.dasherize(), name, {}, process.exit
+      args.push name
+      @exec args, callback
 
-  destroy: (name, callback = ->) ->
+  destroy: (name, callback) ->
+    callback = process.exit unless Object.isFunction(callback)
+    args = [@constructor.name.dasherize()]
     if name
-      scaffolt @constructor.name.dasherize(), name, {revert: yes}, callback
-      return
+      args.push name, '--revert'
+      return @exec args, callback
 
     @prompt (name) =>
-      scaffolt @constructor.name.dasherize(), name, {revert: yes}, process.exit
+      args.push name, '--revert'
+      @exec args, callback
 
   prompt: (callback) ->
     commander.prompt @promptString(), (name) =>
