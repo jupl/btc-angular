@@ -69,3 +69,4 @@ Assemble the application, compile, and deploy to an emulator for the specified p
 
 ### Utilities
 * [FastClick](https://github.com/ftlabs/fastclick) 0.6.3
+* [Hammer.js](http://eightmedia.github.io/hammer.js/) 1.0.5

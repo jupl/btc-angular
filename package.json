@@ -18,8 +18,10 @@
     "start":                "./node_modules/.bin/cake help:npm",
 
     "add:fastclick":        "./node_modules/.bin/cake add:fastclick",
+    "add:hammer":           "./node_modules/.bin/cake add:hammer",
 
     "rem:fastclick":        "./node_modules/.bin/cake rem:fastclick",
+    "rem:hammer":           "./node_modules/.bin/cake rem:hammer",
 
     "cordova:init":         "./node_modules/.bin/cake cordova:init",
     "cordova:init:android": "./node_modules/.bin/cake cordova:init:android",

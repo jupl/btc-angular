@@ -3,20 +3,29 @@ Help = require './tasks/help'
 Cordova = require './tasks/cordova'
 Module =
   Fastclick: require './tasks/modules/fastclick'
+  Hammer:    require './tasks/modules/hammer'
 
 module.exports =
 
   add:
     fastclick:
       command:      'add:fastclick'
-      description:  'Add FastClick\n'
+      description:  'Add FastClick'
       task:         -> do Module.Fastclick.add
+    hammer:
+      command:      'add:hammer'
+      description:  'Add Hammer.js\n'
+      task:         -> do Module.Hammer.add
 
   rem:
     fastclick:
       command:      'rem:fastclick'
       description:  'Remove FastClick\n'
       task:         -> do Module.Fastclick.remove
+    hammer:
+      command:      'rem:hammer'
+      description:  'Remove Hammer.js\n'
+      task:         -> do Module.Hammer.remove
 
   cordova:
     init:
