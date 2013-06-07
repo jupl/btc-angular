@@ -2,7 +2,7 @@
 
 ### (WIP)
 - Add Hammer.js
-- Update Cordova to 2.8
+- Update Cordova CLI
 - Update FastClick to 0.6.7
 - Update Brunch Toolchain to 0.1.4
 
