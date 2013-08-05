@@ -27,7 +27,7 @@ While Brunch/Scaffolt commands can be used, cake commands are provided for this 
 Download and preinstall any Bower dependencies in advance. You can run this if you want to download Bower dependencies in advance.
 
 ### Building
-These commands are used to assemble the application, generating the necessary JS/CSS and adding assets. Use `dev` mode to keep readable JS/CSS and include tests under the `test/` folder. Use `prod` mode to minify/uglify JS/CSS and omit tests. If any Bower dependencies have not been downloaded yet, Bower will first download them.
+These commands are used to assemble the application, generating the necessary JS/CSS and adding assets. Use `dev` mode to keep readable JS/CSS, plus include source maps as well as tests under the `test/` folder. Use `prod` mode to minify/uglify JS/CSS as well as omit source maps and tests. If any Bower dependencies have not been downloaded yet, Bower will first download them.
 
 #### `build:[mode]`
 Assemble the application once.
