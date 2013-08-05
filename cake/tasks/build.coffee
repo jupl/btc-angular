@@ -20,7 +20,6 @@ module.exports = class Build extends Exec
       when 'watch' then ['watch']
       when 'server' then ['watch', '-s']
 
-    args.push '-o' if environment is 'production'
     args.push '-c', "configs/#{platform}/#{environment}"
 
     # Before running the brunch command let's clear the public folder

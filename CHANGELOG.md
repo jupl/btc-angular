@@ -1,5 +1,13 @@
 # Changelog
 
+### WIP (WIP)
+- Update Brunch
+  - Update plugins
+  - Modify `config`s for optimize and source map options
+- Update Scaffolt
+  - Add `helpers.js` file for adding helpers
+- Update test-related vendor files
+
 #### 0.1.4 (May 19, 2013)
 - Use bin-based Scaffolt instead of API as a temporary fix.
 - Update Brunch and Scaffolt.

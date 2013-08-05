@@ -37,8 +37,8 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 ## Details
 
 ### Core
-* [Brunch](http://brunch.io) 1.6.7
-* [Scaffolt](https://github.com/paulmillr/scaffolt) 0.3.0
+* [Brunch](http://brunch.io) 1.7.0
+* [Scaffolt](https://github.com/paulmillr/scaffolt) 0.3.3
 
 ### Testing
 * [Mocha](http://visionmedia.github.com/mocha/) 1.9.0
