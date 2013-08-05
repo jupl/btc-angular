@@ -21,7 +21,7 @@ module.exports = class Build extends Exec
       when 'watch' then ['watch']
       when 'server' then ['watch', '-s']
 
-    args.push '-c', "configs/#{platform}/#{environment}"
+    args.push '-c', ".configs/#{platform}/#{environment}"
 
     # Before running the brunch command let's clear the public folder
     {config} = require "../../#{args.last()}"

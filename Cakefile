@@ -1,4 +1,4 @@
-tasks = require './cake/tasks'
+tasks = require './.cake/tasks'
 
 generateTasks = (taskObject) ->
   return unless typeof taskObject is 'object'

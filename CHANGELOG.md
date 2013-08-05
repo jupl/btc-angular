@@ -9,6 +9,7 @@
 - Update Scaffolt
   - Add `helpers.js` file for adding helpers
 - Update test-related vendor files
+- Set `cake` and `configs` directories hidden
 
 #### 0.1.4 (May 19, 2013)
 - Use bin-based Scaffolt instead of API as a temporary fix.
