@@ -1,5 +1,6 @@
 require 'sugar'
 wrench = require 'wrench'
+Bower = require './bower'
 Exec = require '../lib/exec'
 
 module.exports = class Build extends Exec
@@ -26,4 +27,5 @@ module.exports = class Build extends Exec
     {config} = require "../../#{args.last()}"
     wrench.rmdirSyncRecursive config.paths.public, ->
 
-    @exec args
+    Bower.install =>
+      @exec args

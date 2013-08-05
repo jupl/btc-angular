@@ -1,3 +1,4 @@
+Bower = require './tasks/bower'
 Build = require './tasks/build'
 Help = require './tasks/help'
 
@@ -31,6 +32,12 @@ module.exports =
         command:      'server:prod'
         description:  'Continuously rebuild project minified on changes, and host locally\n'
         task:         -> do Build.server.web.production
+
+  bower:
+    install:
+      command:      'bower:install'
+      description:  'Download and install any Bower dependencies\n'
+      task:         -> do Bower.install
 
   help:
     npm:

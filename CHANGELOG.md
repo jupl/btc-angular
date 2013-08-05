@@ -4,6 +4,8 @@
 - Update Brunch
   - Update plugins
   - Modify `config`s for optimize and source map options
+  - Leverage Bower
+    - `test/vendor` still has files included manually
 - Update Scaffolt
   - Add `helpers.js` file for adding helpers
 - Update test-related vendor files
