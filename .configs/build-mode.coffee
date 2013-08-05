@@ -23,7 +23,9 @@ developmentMode = (config) ->
 
   config
 
-# Modify given config so that test files are ignored
+# Modify given config so that certain files are ignored
 productionMode = (config) ->
   addIgnored config, /^test/
+  config.optimize = yes
+  config.sourceMaps = no
   config

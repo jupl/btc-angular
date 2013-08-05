@@ -1,7 +1,14 @@
+Bower = require './tasks/bower'
 Build = require './tasks/build'
 Help = require './tasks/help'
 
 module.exports =
+
+  bower:
+    install:
+      command:      'bower:install'
+      description:  'Download and install Bower dependencies\n'
+      task:         -> do Bower.install
 
   build:
     once:
