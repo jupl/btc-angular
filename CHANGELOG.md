@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP (WIP)
+### 0.2.0 (August 5, 2013)
 - Update Brunch
   - Update plugins
   - Modify `config`s for optimize and source map options
