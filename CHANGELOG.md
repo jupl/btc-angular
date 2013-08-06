@@ -1,5 +1,9 @@
 # Changelog
 
+### WIP
+- Set `generators` directory hidden
+- Update test system
+
 ### 0.2.0 (August 5, 2013)
 - Update Brunch
   - Update plugins
