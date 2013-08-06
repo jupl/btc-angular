@@ -1,7 +1,6 @@
 # Changelog
 
-### WIP
-- Set `generators` directory hidden
+### 0.2.1 (August 6, 2013)
 - Update test system
 
 ### 0.2.0 (August 5, 2013)
