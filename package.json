@@ -26,13 +26,13 @@
   },
 
   "dependencies": {
-    "sugar": "1.3.8",
-    "bower": "1.1.0",
-    "brunch": "1.7.0",
+    "sugar": "~1.4.0",
+    "bower": "~1.2.6",
+    "brunch": "~1.7.5",
+    "scaffolt": "~0.4.0",
+    "coffee-script": "~1.6.3",
     "wrench": "1.4.4",
-    "scaffolt": "0.3.2",
     "commander": "1.1.1",
-    "coffee-script": "1.6.3",
 
     "javascript-brunch": ">= 1.0 < 1.8",
     "css-brunch": ">= 1.0 < 1.8",
