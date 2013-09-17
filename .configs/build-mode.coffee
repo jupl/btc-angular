@@ -4,6 +4,7 @@ module.exports = (mode, config) ->
   switch mode
     when 'development' then developmentMode config
     when 'production' then productionMode config
+  return
 
 # Modify given config so that test files are included
 developmentMode = (config) ->
@@ -21,11 +22,8 @@ developmentMode = (config) ->
   # Add test css files
   cssJoinTo['test/stylesheets/test.css'] = /^test/
 
-  config
-
 # Modify given config so that certain files are ignored
 productionMode = (config) ->
   addIgnored config, /^test/
   config.optimize = yes
   config.sourceMaps = no
-  config

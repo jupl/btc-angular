@@ -1,7 +1,12 @@
 # Changelog
 
 ### WIP
-- Set `generators` directory hidden
+- Update Brunch
+  - Change config to use `overrides` instead of multiple config files
+- Update packages and test
+- Update test-related vendor files
+
+### 0.2.1 (August 6, 2013)
 - Update test system
 
 ### 0.2.0 (August 5, 2013)

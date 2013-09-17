@@ -1,4 +1,6 @@
-exports.config =
+setup = require './.configs/setup'
+
+exports.config = setup
 
   files:
     javascripts:
