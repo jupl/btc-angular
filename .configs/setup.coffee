@@ -1,6 +1,6 @@
 require 'sugar'
-setMode = require '../build-mode'
-setEnvironment = require '../build-environment'
+setMode = require './build-mode'
+setEnvironment = require './build-environment'
 
 module.exports = (config) ->
   config = Object.clone(config, deep: yes)

@@ -8,12 +8,10 @@ module.exports = class Build extends Exec
 
   for type in ['once', 'watch', 'server']
     this[type] ?= {}
-    for platform in ['web']
-      this[type][platform] ?= {}
-      for environment in ['development', 'production'] then do (type, platform, environment) =>
-        this[type][platform][environment] = =>
-          instance = new this
-          instance.build({platform, type, environment})
+    for environment in ['development', 'production'] then do (type, environment) =>
+      this[type][environment] = =>
+        instance = new this
+        instance.build({platform, type, environment})
 
   build: ({platform, type, environment}) ->
     args = switch type
@@ -21,7 +19,7 @@ module.exports = class Build extends Exec
       when 'watch' then ['watch']
       when 'server' then ['watch', '-s']
 
-    args.push '-c', ".configs/#{platform}/#{environment}"
+    args.push '-e', environment
 
     # Before running the brunch command let's clear the public folder
     {config} = require "../../#{args.last()}"
