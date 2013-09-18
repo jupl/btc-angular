@@ -1,10 +1,11 @@
-tasks = require './.cake/tasks'
+tasks = require './.task'
 
-generateTasks = (taskObject) ->
-  return unless typeof taskObject is 'object'
-  if taskObject.command? and taskObject.description? and taskObject.task?
-    task taskObject.command, taskObject.description, taskObject.task
+buildTasks = (tasks) ->
+  return unless typeof tasks is 'object'
+  if tasks.command and tasks.description and tasks.task
+    task(tasks.command, tasks.description, -> do tasks.task)
   else
-    generateTasks value for key, value of taskObject
+    buildTasks(tasks[key]) for key of tasks
+  return
 
-generateTasks tasks
+buildTasks(tasks)

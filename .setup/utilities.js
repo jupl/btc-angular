@@ -36,10 +36,12 @@ exports.addIgnored = function(config) {
   };
 }
 
+// Replacement for typeof keyword for slightly more detailed information
 var typeOf = exports.typeOf = function(obj) {
   return Object.prototype.toString.call(obj).slice(8, -1);
 };
 
+// Deep clone an object (usually for the Brunch configuration object)
 var clone = exports.clone = function(original) {
   switch(typeOf(original)) {
     case 'Object':
@@ -64,7 +66,7 @@ var clone = exports.clone = function(original) {
 
     case 'Function':
       return function() {
-        return original.apply(this, arguments);
+        return original.apply(null, arguments);
       };
   }
 

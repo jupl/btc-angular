@@ -1,4 +1,4 @@
-var setup = require('./.configs/setup');
+var setup = require('./.setup');
 
 exports.config = setup({
   files: {

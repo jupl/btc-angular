@@ -2,6 +2,7 @@
 
 var addIgnored = require('./utilities').addIgnored;
 
+// Adjust Brunch configuration object to fit a specific environment
 module.exports = function(environment, config) {
   switch(environment) {
     case 'dev':
@@ -13,11 +14,11 @@ module.exports = function(environment, config) {
   }
 };
 
+// List of environments supported
 module.exports.environments = ['dev', 'prod'];
 
-// Modify given config so that test files are included
+// For a development environment include test files
 function devEnvironment(config) {
-  // Get reference to CSS and JS joinTos
   var jsJoinTo = config.files.javascripts.joinTo;
   var cssJoinTo = config.files.stylesheets.joinTo;
 
@@ -36,7 +37,10 @@ function devEnvironment(config) {
   cssJoinTo['test/stylesheets/test.css'] = /^test/;
 }
 
-// Modify given config so that certain files are ignored
+// For a production environment:
+//  ignore test files
+//  ignore source maps
+//  minify/uglify generated code
 function prodEnvironment(config) {
   addIgnored(config, /^test/);
   config.optimize = true;

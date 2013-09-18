@@ -26,13 +26,14 @@
   },
 
   "dependencies": {
-    "sugar": "~1.4.0",
+    "q": "~0.9.7",
     "bower": "~1.2.6",
+    "sugar": "~1.4.0",
     "brunch": "~1.7.5",
+    "wrench": "~1.5.1",
+    "promptly": "~0.2.0",
     "scaffolt": "~0.4.0",
     "coffee-script": "~1.6.3",
-    "wrench": "1.4.4",
-    "commander": "1.1.1",
 
     "javascript-brunch": ">= 1.0 < 1.8",
     "css-brunch": ">= 1.0 < 1.8",
