@@ -5,6 +5,7 @@
   - Change config to use `overrides` instead of multiple config files
 - Update packages and test
 - Update test-related vendor files
+- Change a lot of the code from CS to JS
 
 ### 0.2.1 (August 6, 2013)
 - Update test system
