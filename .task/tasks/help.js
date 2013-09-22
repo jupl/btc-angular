@@ -26,7 +26,7 @@ help.printTasks = function(tasks) {
 
   if(tasks.command && tasks.description && tasks.task) {
     var command = tasks.command
-    .padRight(' ', this.maxCommandLength)
+    .padRight(this.maxCommandLength, ' ')
     .truncate(this.maxCommandLength, true, 'right', '');
     console.log(command + ' # ' + tasks.description);
   }
