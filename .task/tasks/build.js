@@ -26,29 +26,27 @@ build.command = './node_modules/.bin/brunch';
 });
 
 build.run = function(type, platform, environment) {
-  var args = [];
-  var self = this;
   var env = platform + ':' + environment;
+  var self = this;
+  var args = ['-e', env];
 
-  switch(args) {
+  switch(type) {
     case 'once':
-      args.push('build');
+      args.unshift('build');
       break;
     case 'watch':
-      args.push('watch');
+      args.unshift('watch');
       break;
     case 'server':
-      args.push('watch', '-s');
+      args.unshift('watch', '-s');
       break;
   }
 
-  args.push('--env', env);
-
   // Before running the brunch command let's clear the public folder
-  var config = require('../../config').config.overrides[env];
+  var config = require('../../brunch-config').config.overrides[env];
   wrench.rmdirSyncRecursive(config.paths.public, function() {});
 
-  return bower.install.then(function() {
-    self.exec(args);
+  return bower.install().done(function() {
+    self.execute(args);
   });
 };

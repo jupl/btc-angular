@@ -32,7 +32,7 @@ exports.addIgnored = function(config) {
     if(typeOf(ignored) === 'RegExp') {
       return ignored.test(file);
     }
-    return basename(file).startsWith('_');
+    return basename(file).indexOf('_') === 0;
   };
 }
 

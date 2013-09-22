@@ -7,12 +7,12 @@ This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://br
 
 ## Requirements
 * [node.js](http://nodejs.org) (mandatory)
-* [CoffeeScript](http://coffeescript.org/#installation) (recommended via npm)
+* [CoffeeScript](http://coffeescript.org/#installation) (optional via npm)
 
 
 ## Setup
 1. Install node.js.
-2. While not mandatory, it is recommended to install CoffeeScript.
+2. If you prefer using the `cake` command instead of `npm run-script` (see below) install CoffeeScript.
 3. Download this skeleton.
 4. Open a Terminal / Command Prompt and navigate to this directory where you downloaded the skeleton.
 5. Execute the command `npm install` to install all package dependencies.

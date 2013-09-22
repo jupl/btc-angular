@@ -7,10 +7,10 @@ var execute = module.exports = Object.create(null);
 execute.execute = function(args, options) {
   var deferred = Q.defer();
   var child = spawn(this.command, args, options);
-  child.on('exit close', function() {
+  child.on('exit', function() {
     deferred.resolve.apply(deferred, arguments);
   });
-  child.on('error disconnnect', function(err) {
+  child.on('error', function(err) {
     deferred.reject.apply(deferred, arguments);
   });
   child.stdout.pipe(process.stdout);
