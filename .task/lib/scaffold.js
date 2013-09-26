@@ -11,6 +11,8 @@ scaffold.command = './node_modules/.bin/scaffolt';
 scaffold.generate = function(name, destroy) {
   var self = this;
 
+  // If we have a given name, run the scaffold. Otherwise prompt the user
+  // for a name first.
   if(name) {
     return execute(name);
   }
@@ -18,6 +20,7 @@ scaffold.generate = function(name, destroy) {
     return this.prompt().done(execute);
   }
 
+  // Callback for prompt. Execute scaffolt to generate or destroy.
   function execute(name) {
     var args = [self.name, name];
     if(destroy) {
@@ -27,10 +30,12 @@ scaffold.generate = function(name, destroy) {
   }
 };
 
+// Alias for generate, but destroys automatically
 scaffold.destroy = function(name) {
   this.generate.call(this, name, true);
 };
 
+// Prompt command wrapped in a Q promise
 scaffold.prompt = function() {
   var self = this;
   var deferred = Q.defer();
@@ -45,6 +50,7 @@ scaffold.prompt = function() {
   return deferred.promise;
 };
 
+// Default prompt message for input
 scaffold.promptString = function(name) {
   if(name == null) {
     name = this.name.underscore().humanize().toLowerCase();

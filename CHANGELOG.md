@@ -2,10 +2,11 @@
 
 ### WIP
 - Update Brunch
-  - Change config to use `overrides` instead of multiple config files
+  - Change config to use `overrides` for different environments instead of multiple config files
+- Changed tasks object so that it is two-dimensional instead
 - Update packages and test
 - Update test-related vendor files
-- Change a lot of the code from CS to JS
+- Change a lot of the toolchain code from CS to JS
 
 ### 0.2.1 (August 6, 2013)
 - Update test system

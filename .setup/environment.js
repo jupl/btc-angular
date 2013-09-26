@@ -1,6 +1,6 @@
 'use strict';
 
-var addIgnored = require('./utilities').addIgnored;
+var addIgnored = require('./lib').addIgnored;
 
 // Adjust Brunch configuration object to fit a specific environment
 module.exports = function(environment, config) {

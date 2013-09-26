@@ -9,6 +9,7 @@ var build = module.exports = Object.create(exec);
 
 build.command = './node_modules/.bin/brunch';
 
+// Generate alias for each build command combination
 ['once', 'watch', 'server'].forEach(function(type) {
   if(!build[type]) {
     build[type] = {};
@@ -30,6 +31,7 @@ build.run = function(type, platform, environment) {
   var self = this;
   var args = ['-e', env];
 
+  // Determine which Brunch command to run
   switch(type) {
     case 'once':
       args.unshift('build');
