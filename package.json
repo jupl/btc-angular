@@ -17,6 +17,8 @@
   "scripts": {
     "start": "./node_modules/.bin/cake help:npm",
 
+    "bower:install":    "./node_modules/.bin/cake bower:install",
+
     "build:dev":    "./node_modules/.bin/cake build:dev",
     "build:prod":   "./node_modules/.bin/cake build:prod",
     "watch:dev":    "./node_modules/.bin/cake watch:dev",
