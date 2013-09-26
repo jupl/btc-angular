@@ -1,5 +1,13 @@
 # Changelog
 
+### 0.3.0 (September 26, 2013)
+- Update Brunch
+  - Change config to use `overrides` for different environments instead of multiple config files
+- Changed tasks structure/iteration
+- Update packages and test
+- Update test-related vendor files
+- Change a lot of the toolchain code from CS to JS
+
 ### 0.2.1 (August 6, 2013)
 - Update test system
 
