@@ -1,2 +1,1 @@
-require('./.task/lib').forEachTask (command, description, taskFunc) ->
-  task(command, description, taskFunc)
+require('./.task/lib').forEachTask(task)

@@ -3,7 +3,7 @@
 ### WIP
 - Update Brunch
   - Change config to use `overrides` for different environments instead of multiple config files
-- Changed tasks object so that it is two-dimensional instead
+- Changed tasks structure/iteration
 - Update packages and test
 - Update test-related vendor files
 - Change a lot of the toolchain code from CS to JS
