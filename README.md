@@ -42,13 +42,13 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 ## Details
 
 ### Core
-* [Brunch](http://brunch.io) 1.7.0
-* [Scaffolt](https://github.com/paulmillr/scaffolt) 0.3.3
-* [Bower](http://bower.io/) 1.1.0
+* [Brunch](http://brunch.io) 1.7.6
+* [Scaffolt](https://github.com/paulmillr/scaffolt) 0.4.0
+* [Bower](http://bower.io/) 1.2.6
 
 ### Testing
-* [Mocha](http://visionmedia.github.com/mocha/) 1.12.0
-* [Chai](http://chaijs.com/) 1.7.2
+* [Mocha](http://visionmedia.github.com/mocha/) 1.13.0
+* [Chai](http://chaijs.com/) 1.8.0
 * [Sinon](http://sinonjs.org/) 1.7.3
 * [Sinon-Chai](https://github.com/domenic/sinon-chai) 2.4.0
 * [Modernizr](http://modernizr.com/) 2.6.2
