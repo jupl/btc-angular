@@ -1,6 +1,9 @@
 # Changelog
 
-### WIP
+### 0.3.1 (September 26, 2013)
+- Bugfix with scaffold command and tasks iterator
+
+### 0.3.0 (September 26, 2013)
 - Update Brunch
   - Change config to use `overrides` for different environments instead of multiple config files
 - Changed tasks structure/iteration

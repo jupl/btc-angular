@@ -1,4 +1,4 @@
-# Brunch Toolchain 0.2.0
+# Brunch Toolchain 0.3.1
 
 ## Introduction
 
