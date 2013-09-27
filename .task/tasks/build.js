@@ -20,7 +20,7 @@ build.command = './node_modules/.bin/brunch';
     }
     environments.forEach(function(environment) {
       build[type][platform][environment] = function() {
-        build.run(type, platform, environment);
+        return build.run(type, platform, environment);
       };
     });
   });
