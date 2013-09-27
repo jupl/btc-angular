@@ -1,6 +1,6 @@
 # Changelog
 
-##$# 0.3.2 (September 27, 2013)
+### 0.3.2 (September 27, 2013)
 - Add ability to edit `bower.json` in bower task
 - Wrap promptly into a \promise
 - Bugfixes
