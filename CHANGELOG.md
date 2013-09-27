@@ -1,11 +1,11 @@
 # Changelog
 
-### WIP (WIP)
+##$# 0.3.2 (September 27, 2013)
 - Add ability to edit `bower.json` in bower task
-- Wrap promptly into a promise
+- Wrap promptly into a \promise
 - Bugfixes
 
-### 0.3.1 (September 26, 2013)
+#### 0.3.1 (September 26, 2013)
 - Bugfix with scaffold command and tasks iterator
 
 ### 0.3.0 (September 26, 2013)
@@ -16,7 +16,7 @@
 - Update test-related vendor files
 - Change a lot of the toolchain code from CS to JS
 
-### 0.2.1 (August 6, 2013)
+#### 0.2.1 (August 6, 2013)
 - Update test system
 
 ### 0.2.0 (August 5, 2013)
