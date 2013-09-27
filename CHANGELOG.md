@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.3.2
+- Add ability to edit `bower.json` in bower task
+
 ### 0.3.1 (September 26, 2013)
 - Bugfix with scaffold command and tasks iterator
 
