@@ -1,6 +1,6 @@
 # Changelog
 
-### 0.3.2
+### WIP (WIP)
 - Add ability to edit `bower.json` in bower task
 
 ### 0.3.1 (September 26, 2013)
