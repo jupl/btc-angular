@@ -59,5 +59,8 @@ scaffold.promptString = function(name) {
 };
 
 scaffold.validate = function(name) {
-  return !name.parameterize().isBlank();
+  if(name.parameterize().isBlank()) {
+    throw new Error('Name cannot be blank');
+  }
+  return name;
 };
