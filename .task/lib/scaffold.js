@@ -1,8 +1,7 @@
 'use strict';
 
 require('sugar');
-var Q = require('q');
-var prompt = require('promptly').prompt;
+var prompt = require('.').prompt;
 var execute = require('./execute');
 var scaffold = module.exports = Object.create(execute);
 
@@ -37,17 +36,7 @@ scaffold.destroy = function(name) {
 
 // Prompt command wrapped in a Q promise
 scaffold.prompt = function() {
-  var self = this;
-  var deferred = Q.defer();
-  prompt(this.promptString(), {validator: this.validate.bind(this)}, function(err, name) {
-    if(err) {
-      deferred.reject(err);
-    }
-    else {
-      deferred.resolve(name.parameterize().dasherize());
-    }
-  });
-  return deferred.promise;
+  return prompt(this.promptString(), {validator: this.validate.bind(this)});
 };
 
 // Default prompt message for input
@@ -55,12 +44,12 @@ scaffold.promptString = function(name) {
   if(name == null) {
     name = this.name.underscore().humanize().toLowerCase();
   }
-  return '\nEnter name for ' + name + ': ';
+  return 'Enter name for ' + name + ': ';
 };
 
 scaffold.validate = function(name) {
   if(name.parameterize().isBlank()) {
     throw new Error('Name cannot be blank');
   }
-  return name;
+  return name.parameterize().dasherize();
 };

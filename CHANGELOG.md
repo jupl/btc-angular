@@ -2,6 +2,8 @@
 
 ### WIP (WIP)
 - Add ability to edit `bower.json` in bower task
+- Wrap promptly into a promise
+- Bugfixes
 
 ### 0.3.1 (September 26, 2013)
 - Bugfix with scaffold command and tasks iterator
