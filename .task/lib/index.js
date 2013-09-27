@@ -2,7 +2,7 @@
 
 // Iterate over each task that is declared
 var forEachTask = exports.forEachTask = function(callback, command, tasks) {
-  if(tasks == null) {
+  if(tasks == null && command == null) {
     tasks = require('..');
   }
   if(typeof tasks !== 'object') {
@@ -12,10 +12,8 @@ var forEachTask = exports.forEachTask = function(callback, command, tasks) {
   if(tasks.description && tasks.task) {
     callback(command, tasks.description, tasks.task);
   }
-  else {
-    for(var index in tasks) {
-      var subCommand = command ? command + ':' : '';
-      forEachTask(callback, subCommand + index, tasks[index]);
-    }
+  for(var index in tasks) {
+    var subCommand = command ? command + ':' : '';
+    forEachTask(callback, subCommand + index, tasks[index]);
   }
 };
