@@ -26,7 +26,7 @@ function webPlatform(config) {
 }
 
 // For Cordova, simply specify cordova directory
-function cordovaEnvironment(config) {
+function cordovaPlatform(config) {
   if(!config.paths) {
     config.paths = {};
   }
