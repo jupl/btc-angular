@@ -8,12 +8,12 @@ Cordova Brunch is a base skeleton for building web applications. In additional t
 
 ## Requirements
 * [node.js](http://nodejs.org) (mandatory)
-* [CoffeeScript](http://coffeescript.org/#installation) (recommended via npm)
+* [CoffeeScript](http://coffeescript.org/#installation) (optional via npm)
 
 
 ## Setup
 1. Install node.js.
-2. While not mandatory, it is recommended to install CoffeeScript.
+2. If you prefer using the `cake` command instead of `npm run-script` (see below) install CoffeeScript.
 3. Download this skeleton.
 4. Open a Terminal / Command Prompt and navigate to this directory where you downloaded the skeleton.
 5. Execute the command `npm install` to install all package dependencies.
@@ -46,6 +46,14 @@ These commands are used to assemble the application, generating the necessary JS
 * `[platform]` denotes the application platform to build under. (Currently supporting `ios` and `android`)
 * `[mode]` Use `dev` mode to keep readable JS/CSS and include tests under the `test/` folder. Use `prod` mode to minify/uglify JS/CSS and omit tests.
 
+### Bower
+
+#### `bower:install`
+Download and preinstall any Bower dependencies in advance. You can run this if you want to download Bower dependencies in advance.
+
+### Building
+These commands are used to assemble the application, generating the necessary JS/CSS and adding assets. Use `dev` mode to keep readable JS/CSS, plus include source maps as well as tests under the `test/` folder. Use `prod` mode to minify/uglify JS/CSS as well as omit source maps and tests. If any Bower dependencies have not been downloaded yet, Bower will first download them.
+
 #### `build:web:[mode]`, `build:[platform]:[mode]`
 Assemble the application once. If a Cordova build is made, it will also compile for the specified platform.
 
@@ -63,7 +71,7 @@ Assemble the application, compile, and deploy to an emulator for the specified p
 ## Details
 
 ### Core
-* [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.1.4
+* [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.4.1
 * [Cordova](http://cordova.apache.org) 2.8
 
 ### Utilities

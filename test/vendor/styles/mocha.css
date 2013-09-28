@@ -147,6 +147,7 @@ body {
   -webkit-box-shadow: 0 1px 3px #eee;
   -moz-border-radius: 3px;
   -moz-box-shadow: 0 1px 3px #eee;
+  border-radius: 3px;
 }
 
 #mocha .test h2 {
@@ -187,6 +188,14 @@ body {
   display: none;
 }
 
+#mocha-report.pending .test.pass,
+#mocha-report.pending .test.fail {
+  display: none;
+}
+#mocha-report.pending .test.pass.pending {
+  display: block;
+}
+
 #mocha-error {
   color: #c00;
   font-size: 1.5em;
@@ -201,6 +210,7 @@ body {
   font-size: 12px;
   margin: 0;
   color: #888;
+  z-index: 1;
 }
 
 #mocha-stats .progress {
