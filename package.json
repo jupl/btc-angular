@@ -61,6 +61,7 @@
     "brunch": "~1.7.6",
     "wrench": "~1.5.1",
     "cordova": "2.8.x",
+    "jsonfile": "~1.0.1",
     "promptly": "~0.2.0",
     "scaffolt": "~0.4.0",
     "coffee-script": "~1.6.3",

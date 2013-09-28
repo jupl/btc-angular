@@ -21,7 +21,6 @@ var forEachTask = exports.forEachTask = function(callback, command, tasks) {
   }
 };
 
-// Wrap promptly's prompt in a promise
 exports.prompt = function(message, opts) {
   var deferred = Q.defer();
 
