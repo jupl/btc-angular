@@ -1,6 +1,8 @@
 'use strict';
 
 require('sugar');
+var Q = require('q');
+var fs = require('fs');
 var path = require('path');
 var prompt = require('../lib').prompt;
 var wrench = require('wrench');
@@ -16,7 +18,7 @@ cordova.command = path.resolve(__dirname, '../../node_modules/.bin/cordova');
 cordova.devices = ['android', 'ios'];
 
 cordova.add = function(device) {
-  return this.execute(['platform', 'add', device], {cwd: projectPath}).done(function() {
+  return this.execute(['platform', 'add', device], {cwd: projectPath}).then(function() {
     var stream = fs.createReadStream(path.resolve(gitignorePath, device + '.gitignore'));
     stream.on('end', process.exit);
     stream.pipe(fs.createWriteStream(path.resolve(projectPath, 'platforms', device, '.gitignore')));
@@ -33,7 +35,7 @@ cordova.build = function(device) {
 
 cordova.emulate = function(device) {
   var self = this;
-  return this.build(device).done(function() {
+  return this.build(device).then(function() {
     return self.execute(['emulate', device], {cwd: projectPath});
   });
 };
@@ -54,6 +56,7 @@ cordova.initialize = function() {
   wrench.rmdirSyncRecursive(projectPath, function() {});
 
   prompt('Package name (optional): ', {
+    default: '',
     validator: function(name) {
       var name = name.parameterize().dasherize().replace(/-/g, '.');
 
@@ -69,28 +72,33 @@ cordova.initialize = function() {
       }
     }
   })
-  .done(function(packageName) {
+  .then(function(packageName) {
     if(packageName) {
       args.push(packageName);
       return prompt('App name (optional): ', {
+        default: '',
         validator: function(name) {
           return name.parameterize().camelize();
         }
       });
     }
   })
-  .done(function(appName) {
+  .then(function(appName) {
     if(appName) {
       args.push(appName);
     }
     return self.execute(args);
   })
-  .done(function() {
+  .then(function() {
+    var deferred = Q.defer();
     var stream = fs.createReadStream(path.resolve(projectPath, 'www/config.xml'));
-    stream.on('end', function() {
-      wrench.copyDirSyncRecursive(path.resolve(projectPath, 'www/res'), path.resolve(appPath, 'assets/res'), function() {});
-      process.exit();
-    });
+    stream.on('end', function() { deferred.resolve() });
+    stream.on('error', function() { deferred.error() });
     stream.pipe(fs.createWriteStream(path.resolve(appPath, 'assets/config.xml')));
+    return deferred.promise;
+  })
+  .then(function() {
+    wrench.copyDirSyncRecursive(path.resolve(projectPath, 'www/res'), path.resolve(appPath, 'assets/res'), function() {});
+    process.exit();
   });
 };
