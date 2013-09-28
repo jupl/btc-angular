@@ -1,7 +1,7 @@
 'use strict';
 
 require('sugar');
-var prompt = require('.').prompt;
+var prompt = require('./').prompt;
 var execute = require('./execute');
 var scaffold = module.exports = Object.create(execute);
 
