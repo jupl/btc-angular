@@ -19,6 +19,7 @@
 
     "add:fastclick":        "./node_modules/.bin/cake add:fastclick",
     "add:hammer":           "./node_modules/.bin/cake add:hammer",
+    "add:hammer:jquery":    "./node_modules/.bin/cake add:hammer:jquery",
 
     "rem:fastclick":        "./node_modules/.bin/cake rem:fastclick",
     "rem:hammer":           "./node_modules/.bin/cake rem:hammer",
