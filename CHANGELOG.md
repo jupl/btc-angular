@@ -1,10 +1,9 @@
 # Changelog
 
-### (WIP)
-- Add Hammer.js
-- Update Cordova CLI
-- Update FastClick to 0.6.7
-- Update Brunch Toolchain to 0.1.4
+### WIP (WIP)
+- Update BTC
+- Update Cordova
+- Move FastClick and Hammer to Bower
 
 #### 0.1.2 (April 15, 2013)
 - Update Brunch Toolchain.

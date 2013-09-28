@@ -26,7 +26,10 @@ While Brunch/Scaffolt commands can be used, cake commands are provided for this 
 These commands add additional features/items to the project that are not included by default.
 
 #### `add:fastclick` / `rem:fastclick`
-Add/remove FastClick to/from the project for optimized click events in touch devices. Visit the [GitHub page](https://github.com/ftlabs/fastclick) for more information and instructions.
+Add/remove FastClick to/from the project for optimized click events in touch devices. Visit their [page](https://github.com/ftlabs/fastclick) for more information and instructions.
+
+#### `add:hammer` / `add:hammer:jquery` / `rem:hammer`
+Add/remove Hammer.js (standalone or jQuery plugin) to/from the project for touch event handling. Visit their [page](http://eightmedia.github.io/hammer.js/) for more information.
 
 ### Cordova
 These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app. `[platform]` denotes the application platform to build under. (Currently supporting `ios` and `android`) If you need access to the Cordova JavaScript from your page use the script tag: `<script src="cordova.js"></script>`
