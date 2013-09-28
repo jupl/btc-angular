@@ -4,8 +4,39 @@ var bower = require('./tasks/bower');
 var build = require('./tasks/build');
 var help = require('./tasks/help');
 var cordova = require('./tasks/cordova');
+var modul = {
+  fastclick:  require('./tasks/modules/fastclick'),
+  hammer:     require('./tasks/modules/hammer')
+};
 
 module.exports = {
+  add: {
+    fastclick: {
+      description:  'Add Fastclick',
+      task:         function(){ modul.fastclick.add() }
+    },
+    hammer: {
+      description:  'Add Hammer.js as standalone',
+      task:         function(){ modul.hammer.add() },
+
+      jquery: {
+        description:  'Add Hammer.js as jQuery plugin\n',
+        task:         function(){ modul.hammer.jquery.add() }
+      }
+    }
+  },
+
+  rem: {
+    fastclick: {
+      description:  'Remove Fastclick',
+      task:         function(){ modul.fastclick.remove() }
+    },
+    hammer: {
+      description:  'Add Hammer.js as standalone\n',
+      task:         function(){ modul.hammer.remove() }
+    }
+  },
+
   cordova: {
     init: {
       description:  'Create a new Cordova project',
@@ -20,8 +51,8 @@ module.exports = {
         description:  'Add iOS platform support to the Cordova project',
         task:         function(){ cordova.add.ios() }
       }
-    }
-    remove: {
+    },
+    rem: {
       android: {
         description:  'Remove Android platform support from the Cordova project',
         task:         function(){ cordova.remove.android() }
