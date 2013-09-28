@@ -18,25 +18,28 @@ cordova.command = path.resolve(__dirname, '../../node_modules/.bin/cordova');
 cordova.devices = ['android', 'ios'];
 
 cordova.add = function(device) {
-  return this.execute(['platform', 'add', device], {cwd: projectPath}).then(function() {
+  return this.execute(['--verbose', 'platform', 'add', device], {cwd: projectPath}).then(function() {
+    var deferred = Q.defer();
     var stream = fs.createReadStream(path.resolve(gitignorePath, device + '.gitignore'));
-    stream.on('end', process.exit);
+    stream.on('end', function() { deferred.resolve() });
+    stream.on('error', function() { deferred.error() });
     stream.pipe(fs.createWriteStream(path.resolve(projectPath, 'platforms', device, '.gitignore')));
+    return deferred.promise;
   });
 };
 
 cordova.remove = function(device) {
-  return this.execute(['platform', 'remove', device], {cwd: projectPath});
+  return this.execute(['--verbose', 'platform', 'remove', device], {cwd: projectPath});
 };
 
 cordova.build = function(device) {
-  return this.execute(['build', device], {cwd: projectPath});
+  return this.execute(['--verbose', 'build', device], {cwd: projectPath});
 };
 
 cordova.emulate = function(device) {
   var self = this;
   return this.build(device).then(function() {
-    return self.execute(['emulate', device], {cwd: projectPath});
+    return self.execute(['--verbose', 'emulate', device], {cwd: projectPath});
   });
 };
 
@@ -51,9 +54,7 @@ cordova.emulate = function(device) {
 
 cordova.initialize = function() {
   var self = this;
-  var args = ['create', projectPath];
-
-  wrench.rmdirSyncRecursive(projectPath, function() {});
+  var args = ['--verbose', 'create', projectPath];
 
   prompt('Package name (optional): ', {
     default: '',
@@ -63,7 +64,6 @@ cordova.initialize = function() {
       if(!name) {
         return;
       }
-
       if(name.has('.')) {
         return name;
       }
@@ -87,6 +87,7 @@ cordova.initialize = function() {
     if(appName) {
       args.push(appName);
     }
+    wrench.rmdirSyncRecursive(projectPath, function() {});
     return self.execute(args);
   })
   .then(function() {
@@ -99,6 +100,5 @@ cordova.initialize = function() {
   })
   .then(function() {
     wrench.copyDirSyncRecursive(path.resolve(projectPath, 'www/res'), path.resolve(appPath, 'assets/res'), function() {});
-    process.exit();
   });
 };
