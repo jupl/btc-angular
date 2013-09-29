@@ -1,9 +1,9 @@
 # Changelog
 
-### WIP (WIP)
+### 0.2.0 (September 28, 2013)
 - Update BTC
 - Update Cordova
-- Move FastClick and Hammer to Bower
+- Add FastClick and Hammer
 
 #### 0.1.2 (April 15, 2013)
 - Update Brunch Toolchain.
