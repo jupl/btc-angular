@@ -16,7 +16,7 @@ scaffold.generate = function(name, destroy) {
     return execute(name);
   }
   else {
-    return this.prompt().done(execute);
+    return this.prompt().then(execute);
   }
 
   // Callback for prompt. Execute scaffolt to generate or destroy.

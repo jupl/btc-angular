@@ -48,7 +48,7 @@ build.run = function(type, platform, environment) {
   var config = require('../../brunch-config').config.overrides[env];
   wrench.rmdirSyncRecursive(config.paths.public, function() {});
 
-  return bower.install().done(function() {
-    self.execute(args);
+  return bower.install().then(function() {
+    return self.execute(args);
   });
 };
