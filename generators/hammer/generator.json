@@ -1,0 +1,9 @@
+{
+  "files": [
+    {
+      "from": "hammer.js",
+      "to": "vendor/scripts/common/hammer.js"
+    }
+  ],
+  "dependencies": []
+}

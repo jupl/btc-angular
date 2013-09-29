@@ -24,4 +24,5 @@ Thumbs.db
 npm-debug.log
 node_modules/
 tmp/
-build/web*
+build/web/
+bower_components/
