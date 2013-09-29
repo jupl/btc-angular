@@ -99,6 +99,6 @@ cordova.initialize = function() {
     return deferred.promise;
   })
   .then(function() {
-    wrench.copyDirSyncRecursive(path.resolve(projectPath, 'www/res'), path.resolve(appPath, 'assets/res'), function() {});
+    wrench.copyDirSyncRecursive(path.resolve(projectPath, 'www/res'), path.resolve(appPath, 'assets/res'), {preserveFiles: true});
   });
 };
