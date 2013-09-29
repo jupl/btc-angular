@@ -75,18 +75,7 @@ build.run = function(type, platform, environment) {
 };
 
 build.cordova = function(type, device, environment) {
-  var env = 'cordova:' + environment;
-  var self = this;
-  var args = ['build', '-e', env];
-
-  // Before running the brunch command let's clear the public folder
-  var config = require('../../brunch-config').config.overrides[env];
-  wrench.rmdirSyncRecursive(config.paths.public, function() {});
-
-  return bower.install().then(function() {
-    return self.execute(args);
-  })
-  .then(function() {
+  return this.run('once', 'cordova', environment).then(function() {
     switch(type) {
       case 'once':
         return cordova.build(device);
