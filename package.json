@@ -25,8 +25,6 @@
     "rem:hammer":           "./node_modules/.bin/cake rem:hammer",
 
     "cordova:init":         "./node_modules/.bin/cake cordova:init",
-    "cordova:init:android": "./node_modules/.bin/cake cordova:init:android",
-    "cordova:init:ios":     "./node_modules/.bin/cake cordova:init:ios",
     "cordova:add:android":  "./node_modules/.bin/cake cordova:add:android",
     "cordova:add:ios":      "./node_modules/.bin/cake cordova:add:ios",
     "cordova:rem:android":  "./node_modules/.bin/cake cordova:rm:android",
@@ -34,17 +32,15 @@
 
     "bower:install":        "./node_modules/.bin/cake bower:install",
 
+    "build:dev":            "./node_modules/.bin/cake build:dev",
+    "build:prod":           "./node_modules/.bin/cake build:prod",
     "build:android:dev":    "./node_modules/.bin/cake build:android:dev",
     "build:android:prod":   "./node_modules/.bin/cake build:android:prod",
     "build:ios:dev":        "./node_modules/.bin/cake build:ios:dev",
     "build:ios:prod":       "./node_modules/.bin/cake build:ios:prod",
-    "build:web:dev":        "./node_modules/.bin/cake build:web:dev",
-    "build:web:prod":       "./node_modules/.bin/cake build:web:prod",
 
-    "watch:cordova:dev":    "./node_modules/.bin/cake watch:cordova:dev",
-    "watch:cordova:prod":   "./node_modules/.bin/cake watch:cordova:prod",
-    "watch:web:dev":        "./node_modules/.bin/cake watch:web:dev",
-    "watch:web:prod":       "./node_modules/.bin/cake watch:web:prod",
+    "watch:dev":            "./node_modules/.bin/cake watch:dev",
+    "watch:prod":           "./node_modules/.bin/cake watch:prod",
 
     "server:dev":           "./node_modules/.bin/cake server:dev",
     "server:prod":          "./node_modules/.bin/cake server:prod",

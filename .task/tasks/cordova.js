@@ -44,7 +44,7 @@ cordova.emulate = function(device) {
 };
 
 // Generate alias for each cordova action and device
-['add', 'remove', 'build', 'emulate'].forEach(function(action) {
+['add', 'remove'].forEach(function(action) {
   cordova.devices.forEach(function(device) {
     cordova[action][device] = function() {
       return cordova[action](device);

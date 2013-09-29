@@ -73,34 +73,79 @@ module.exports = {
 
   build: {
     dev: {
-      description:  'Build project',
+      description:  'Build project for web',
       task:         function(){ build.once.web.dev() }
     },
     prod: {
-      description:  'Build project minified',
+      description:  'Build project for web minified',
       task:         function(){ build.once.web.prod() }
+    },
+
+    android: {
+      dev: {
+        description:  'Build and compile project for Android',
+        task:         function(){ build.once.android.dev() }
+      },
+      prod: {
+        description:  'Build and compile project for Android minified',
+        task:         function(){ build.once.android.prod() }
+      }
+    },
+
+    ios: {
+      dev: {
+        description:  'Build and compile project for iOS',
+        task:         function(){ build.once.ios.dev() }
+      },
+      prod: {
+        description:  'Build and compile project for iOS minified\n',
+        task:         function(){ build.once.ios.prod() }
+      }
     }
   },
 
   watch: {
     dev: {
-      description:  'Continuously rebuild project on changes',
+      description:  'Continuously rebuild project on changes for web',
       task:         function(){ build.watch.web.dev() }
     },
     prod: {
-      description:  'Continuously rebuild project minified on changes',
+      description:  'Continuously rebuild project minified on changes for web\n',
       task:         function(){ build.watch.web.prod() }
     }
   },
 
   server: {
     dev: {
-      description:  'Continuously rebuild project on changes, and host locally',
+      description:  'Continuously rebuild project on changes, and host locally for web',
       task:         function(){ build.server.web.dev() }
     },
     prod: {
-      description:  'Continuously rebuild project minified on changes, and host locally\n',
+      description:  'Continuously rebuild project minified on changes, and host locally for web\n',
       task:         function(){ build.server.web.prod() }
+    }
+  },
+
+  emulate: {
+    android: {
+      dev: {
+        description:  'Build, compile, and deploy project to Android emulator',
+        task:         function(){ build.emulate.android.dev() }
+      },
+      prod: {
+        description:  'Build, compile, and deploy project minified to Android emulator',
+        task:         function(){ build.emulate.android.prod() }
+      }
+    },
+    ios: {
+      dev: {
+        description:  'Build, compile, and deploy project to iOS simulator',
+        task:         function(){ build.emulate.ios.dev() }
+      },
+      prod: {
+        description:  'Build, compile, and deploy project minified to iOS simulator\n',
+        task:         function(){ build.emulate.ios.prod() }
+      }
     }
   },
 
