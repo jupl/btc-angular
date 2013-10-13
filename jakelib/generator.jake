@@ -26,8 +26,8 @@ namespace('gen', function() {
       desc('');
     }
     task(generator.task, function() {
-      jake.Task['scaffold:gen'].invoke(generator.name);
-    })
+      return jake.Task['scaffold:gen'].invoke(generator.name);
+    });
   });
 });
 
@@ -41,7 +41,7 @@ namespace('del', function() {
       desc('');
     }
     task(generator.task, function() {
-      jake.Task['scaffold:del'].invoke(generator.name);
-    })
+      return jake.Task['scaffold:del'].invoke(generator.name);
+    });
   });
 });

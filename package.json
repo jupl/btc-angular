@@ -2,6 +2,8 @@
   "name": "package-name",
   "author": "Your Name",
   "version": "0.0.1",
+  "description": "Your Description",
+  "repository": "git",
 
   "scripts": {
     "start": "./node_modules/.bin/jake server:prod",
@@ -9,6 +11,7 @@
   },
 
   "dependencies": {
+    "bluebird": "~0.8.2",
     "bower": "~1.2.7",
     "brunch": "~1.7.8",
     "jake": "~0.7.2",
@@ -25,6 +28,6 @@
 
   "devDependencies": {
     "mocha-phantomjs": "~3.1.5",
-    "phantomjs": "~1.9.2-2"
+    "phantomjs": "~1.9.2"
   }
 }

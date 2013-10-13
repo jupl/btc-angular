@@ -1,5 +1,6 @@
 // These are tasks that are undocumented, as they tend to be used by other tasks.
 require('sugar');
+var Promise = require('bluebird');
 var util = require('util');
 var config = require('../brunch-config').config;
 
@@ -21,13 +22,17 @@ namespace('scaffold', function() {
     if(!process.env.name) {
       fail('name parameter is required. ex: jake gen:[type] name=[name]');
     }
-    jake.exec(util.format('./node_modules/.bin/scaffolt %s %s', type, process.env.name.dasherize()), {printStdout: true, printStderr: true});
+    return new Promise(function(resolve) {
+      jake.exec(util.format('./node_modules/.bin/scaffolt %s %s', type, process.env.name.dasherize()), {interactive: true}, resolve);
+    });
   });
 
   task('del', function(type) {
     if(!process.env.name) {
       fail('name parameter is required. ex: jake del:[type] name=[name]');
     }
-    jake.exec(util.format('./node_modules/.bin/scaffolt %s %s -r', type, process.env.name.dasherize()), {printStdout: true, printStderr: true});
+    return new Promise(function(resolve) {
+      jake.exec(util.format('./node_modules/.bin/scaffolt %s %s -r', type, process.env.name.dasherize()), {interactive: true}, resolve);
+    });
   });
 });

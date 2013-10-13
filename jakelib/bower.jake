@@ -1,7 +1,11 @@
 // Bower related tasks
+var Promise = require('bluebird');
+
 namespace('bower', function() {
   desc('Download and install Bower components');
   task('install', function() {
-    jake.exec('./node_modules/.bin/bower install', {printStdout: true, printStderr: true});
+    return new Promise(function(resolve) {
+      jake.exec('./node_modules/.bin/bower install', {interactive: true}, resolve);
+    });
   });
 });
