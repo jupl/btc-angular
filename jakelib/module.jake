@@ -4,7 +4,7 @@ namespace('add', function() {
   desc('Add jQuery');
   task('jquery', function() {
     editBower(function() {
-      this.dependencies.jQuery = '~2.0.3';
+      this.dependencies.jquery = '~2.0.3';
     });
   });
 });
@@ -13,7 +13,7 @@ namespace('rem', function() {
   desc('Remove jQuery');
   task('jquery', function() {
     editBower(function() {
-      delete this.dependencies.jQuery;
+      delete this.dependencies.jquery;
     });
   });
 });
