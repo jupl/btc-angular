@@ -3,6 +3,7 @@ require('sugar');
 var fs = require('fs');
 var jsonfile = require('jsonfile');
 var path = require('path');
+var Promise = require('bluebird');
 
 // Iterate over generators to get name and description
 var generators = fs.readdirSync('generators').filter(function(generator) {
@@ -26,7 +27,9 @@ namespace('gen', function() {
       desc('');
     }
     task(generator.task, function() {
-      return jake.Task['scaffold:gen'].invoke(generator.name);
+      return new Promise(function(resolve) {
+        jake.Task['scaffold:gen'].addListener('complete', resolve).invoke(generator.name);
+      });
     });
   });
 });
@@ -41,7 +44,9 @@ namespace('del', function() {
       desc('');
     }
     task(generator.task, function() {
-      return jake.Task['scaffold:del'].invoke(generator.name);
+      return new Promise(function(resolve) {
+        jake.Task['scaffold:del'].addListener('complete', resolve).invoke(generator.name);
+      });
     });
   });
 });
