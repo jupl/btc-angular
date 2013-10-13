@@ -1,8 +1,17 @@
 # Changelog
 
-### 0.3.2 (September 27, 2013)
+### WIP
+- Convert custom Cake tasks into standard Jake tasks
+- Remove any prompts in favor of Jake arguments
+- Remove `npm run-script` tasks. Use `jake`.
+- Add Mocha PhantomJS support to tasks
+- Add `auto-reload brunch` by default
+- Add test file generator
+- Remove Modernizr
+
+#### 0.3.2 (September 27, 2013)
 - Add ability to edit `bower.json` in bower task
-- Wrap promptly into a \promise
+- Wrap promptly into a promise
 - Bugfixes
 
 #### 0.3.1 (September 26, 2013)

@@ -1,5 +1,3 @@
-'use strict';
-
 var clone = require('./lib').clone;
 var setPlatform = require('./platform');
 var setEnvironment = require('./environment');

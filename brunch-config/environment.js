@@ -1,5 +1,3 @@
-'use strict';
-
 var addIgnored = require('./lib').addIgnored;
 
 // Adjust Brunch configuration object to fit a specific environment
@@ -40,9 +38,14 @@ function devEnvironment(config) {
 // For a production environment:
 //  ignore test files
 //  ignore source maps
-//  minify/uglify generated code
+//  optimize generated code
+//  disable auto-reload
 function prodEnvironment(config) {
   addIgnored(config, /^test/);
   config.optimize = true;
   config.sourceMaps = false;
+  if(!config.plugins) {
+    config.plugins = {};
+  }
+  config.plugins.autoReload = false;
 }

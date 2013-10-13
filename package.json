@@ -2,46 +2,29 @@
   "name": "package-name",
   "author": "Your Name",
   "version": "0.0.1",
-  "homepage": "",
-  "description": "Package description",
 
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-
-  "engines": {
-    "node": "~0.6.10 || 0.8 || 0.9 || 0.10"
-  },
-  
   "scripts": {
-    "start": "./node_modules/.bin/cake help:npm",
-
-    "bower:install": "./node_modules/.bin/cake bower:install",
-
-    "build:dev":    "./node_modules/.bin/cake build:dev",
-    "build:prod":   "./node_modules/.bin/cake build:prod",
-    "watch:dev":    "./node_modules/.bin/cake watch:dev",
-    "watch:prod":   "./node_modules/.bin/cake watch:prod",
-    "server:dev":   "./node_modules/.bin/cake server:dev",
-    "server:prod":  "./node_modules/.bin/cake server:prod"
+    "start": "./node_modules/.bin/jake server:prod",
+    "test": "./node_modules/.bin/jake test:phantom"
   },
 
   "dependencies": {
-    "q": "~0.9.7",
-    "bower": "~1.2.6",
-    "sugar": "~1.4.0",
-    "brunch": "~1.7.6",
-    "wrench": "~1.5.1",
-    "jsonfile": "~1.0.1",
-    "promptly": "~0.2.0",
-    "scaffolt": "~0.4.0",
-    "coffee-script": "~1.6.3",
+    "bower": "~1.2.7",
+    "brunch": "~1.7.8",
+    "jake": "~0.7.2",
+    "jsonfile": "~1.1.0",
+    "scaffolt": "~0.4.2",
+    "sugar": "~1.4.1",
 
     "javascript-brunch": ">= 1.0 < 1.8",
     "css-brunch": ">= 1.0 < 1.8",
+    "auto-reload-brunch": ">= 1.0 < 1.8",
+    "clean-css-brunch": ">= 1.0 < 1.8",
+    "uglify-js-brunch": ">= 1.0 < 1.8"
+  },
 
-    "uglify-js-brunch": ">= 1.0 < 1.8",
-    "clean-css-brunch": ">= 1.0 < 1.8"
+  "devDependencies": {
+    "mocha-phantomjs": "~3.1.5",
+    "phantomjs": "~1.9.2-2"
   }
 }

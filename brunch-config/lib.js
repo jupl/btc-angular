@@ -1,5 +1,3 @@
-'use strict';
-
 var basename = require('path').basename;
 
 // Add a number of tests to the ignored. Tests can be any of the following:

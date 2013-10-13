@@ -1,5 +1,3 @@
-'use strict';
-
 // Adjust Brunch configuration object to fit a specific platform
 module.exports = function(platform, config) {
   switch(platform) {
