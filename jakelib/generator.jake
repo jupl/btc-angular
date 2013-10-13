@@ -24,7 +24,7 @@ namespace('gen', function() {
       desc('Generate a ' + generator.description);
     }
     else {
-      desc('');
+      desc('Generate a ' + generator.name.spacify());
     }
     task(generator.task, function() {
       return new Promise(function(resolve) {
@@ -41,7 +41,7 @@ namespace('del', function() {
       desc('Destroy a generated ' + generator.description);
     }
     else {
-      desc('');
+      desc('Destroy a generated ' + generator.name.spacify());
     }
     task(generator.task, function() {
       return new Promise(function(resolve) {
