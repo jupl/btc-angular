@@ -21,7 +21,7 @@ function devEnvironment(config) {
   var cssJoinTo = config.files.stylesheets.joinTo;
 
   // Add test javascript files
-  jsJoinTo['test/javascripts/tests.js'] = /^test[\\\/]tests/;
+  jsJoinTo['test/javascripts/tests.js'] = /^test[\\\/]white/;
   jsJoinTo['test/javascripts/vendor.js'] = /^test[\\\/]vendor/;
   if(!config.files.javascripts.order) {
     config.files.javascripts.order = {};

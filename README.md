@@ -33,14 +33,23 @@ Download and preinstall any Bower dependencies in advance. You can run this if y
 
 ### Scaffolding
 
-#### `gen:test name=[name]` / `del:test name=[name]`
-Generate/destroy a Mocha test file with the given test name.
+#### `gen:test:white name=[name]` / `del:test:white name=[name]`
+Generate/destroy a Mocha test file with the given test name for whitebox.
+
+#### `gen:test:black name=[name]` / `del:test:black name=[name]`
+Generate/destroy a Lotte test file with the given test name for blackbox.
 
 ### Testing
-Testing is provided out of the box with Mocha, Chai, Sinon, and Sinon-Chai.
+Temporarily spin up a local server with Brunch and run tests using PhantomJS. Blackbox and whitebox testing is provided. Whitebox testing uses Mocha, Chai, Sinon, and Sinon-Chai. Blackbox testing uses Lotte.
 
-#### `test:phantom [reporter=[reporter]]`
-Temporarily spin up a local server with Brunch, then run Mocha tests in PhantomJS using mocha-phantomjs. You can specify a different reporter to use. (ex: `jake test:phantom reporter=min`)
+#### `test:all [reporter=[reporter]]`
+Run all tests listed below. For more information about `reporter`, see `test:white`.
+
+#### `test:white [reporter=[reporter]]`
+Run whitebox tests using mocha-phantomjs. Since Mocha is used, the reporter can be specified. (ex: `jake test:white reporter=min`)
+
+#### `test:black`
+Run black-box tests using Lotte.
 
 ### Building
 These commands are used to assemble the application, generating the necessary JS/CSS and adding assets. Use `dev` mode to keep readable JS/CSS, plus include source maps as well as tests under the `test/` folder. Use `prod` mode to minify/uglify JS/CSS as well as omit source maps and tests. If any Bower dependencies have not been downloaded yet, Bower will first download them.
@@ -69,3 +78,4 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 * [Sinon](http://sinonjs.org/) 1.7.3
 * [Sinon-Chai](https://github.com/domenic/sinon-chai) 2.4.0
 * [mocha-phantomjs](http://metaskills.net/mocha-phantomjs/) 3.1.5
+* [Lotte](https://github.com/StanAngeloff/lotte) 0.2.3

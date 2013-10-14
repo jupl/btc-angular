@@ -28,6 +28,7 @@
 
   "devDependencies": {
     "mocha-phantomjs": "~3.1.5",
-    "phantomjs": "~1.9.2"
+    "phantomjs": "~1.9.2",
+    "lotte": "~0.2.3"
   }
 }

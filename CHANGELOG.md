@@ -4,7 +4,8 @@
 - Convert custom Cake tasks into standard Jake tasks
 - Remove any prompts in favor of Jake arguments
 - Remove `npm run-script` tasks. Use `jake`.
-- Add Mocha PhantomJS support to tasks
+- Add Mocha PhantomJS support for whitebox testing
+- Add Lotte support for blackbox testing
 - Add `auto-reload brunch` by default
 - Add test file generator
 - Remove Modernizr
