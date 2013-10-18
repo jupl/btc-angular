@@ -76,7 +76,7 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 ### Testing
 * [PhantomJS](http://phantomjs.org/) 1.9.2 (using [wrapper](https://github.com/Obvious/phantomjs))
 * [Mocha PhantomJS](http://metaskills.net/mocha-phantomjs/) 3.1.5
-* [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs) (2.35.2)
+* [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs) 2.35.2
 * [Mocha](http://visionmedia.github.com/mocha/) 1.13.0
 * [Mocha as Promised](https://github.com/domenic/mocha-as-promised) 1.4.0
 * [Chai](http://chaijs.com/) 1.8.1
