@@ -11,7 +11,7 @@ var generators = fs.readdirSync('generators').filter(function(generator) {
 })
 .map(function(generator) {
   return {
-    task: generator.dasherize().replace(/-/g, ':'),
+    task: generator.dasherize().replace(/-/g, ''),
     name: generator,
     description: jsonfile.readFileSync(path.resolve('generators', generator, 'generator.json')).description
   }

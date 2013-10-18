@@ -1,6 +1,11 @@
 var addIgnored = require('./lib').addIgnored;
 
-// Adjust Brunch configuration object to fit a specific environment
+/**
+ * Modify given Brunch configuration to fit a given environment. Currently
+ * there is support for a development and production environment.
+ * @param  {String} platform
+ * @param  {Object} config
+ */
 module.exports = function(environment, config) {
   switch(environment) {
     case 'dev':
@@ -12,16 +17,23 @@ module.exports = function(environment, config) {
   }
 };
 
-// List of environments supported
+/**
+ * List of environments supported.
+ * @type {Array}
+ */
 module.exports.environments = ['dev', 'prod'];
 
-// For a development environment include test files
+/**
+ * Modify configuration to match the development environment. This entails
+ * adding test files to the build.
+ * @param  {Object} config
+ */
 function devEnvironment(config) {
   var jsJoinTo = config.files.javascripts.joinTo;
   var cssJoinTo = config.files.stylesheets.joinTo;
 
   // Add test javascript files
-  jsJoinTo['test/javascripts/tests.js'] = /^test[\\\/]white/;
+  jsJoinTo['test/javascripts/tests.js'] = /^test[\\\/]code/;
   jsJoinTo['test/javascripts/vendor.js'] = /^test[\\\/]vendor/;
   if(!config.files.javascripts.order) {
     config.files.javascripts.order = {};
@@ -29,17 +41,18 @@ function devEnvironment(config) {
   if(!config.files.javascripts.order.after) {
     config.files.javascripts.order.after = [];
   }
-  config.files.javascripts.order.after.push('test/vendor/scripts/test-helper.js');
+  config.files.javascripts.order.after.push('test/vendor/test-setup.js');
 
   // Add test css files
   cssJoinTo['test/stylesheets/test.css'] = /^test/;
 }
 
-// For a production environment:
-//  ignore test files
-//  ignore source maps
-//  optimize generated code
-//  disable auto-reload
+/**
+ * Modify configuration to match the production environment. This entails
+ * ignoring test files, disabling source maps, disabling auto-reload, and
+ * minifying/uglifying code.
+ * @param  {Object} config
+ */
 function prodEnvironment(config) {
   addIgnored(config, /^test/);
   config.optimize = true;

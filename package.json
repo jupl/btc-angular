@@ -6,8 +6,8 @@
   "repository": "git",
 
   "scripts": {
-    "start": "./node_modules/.bin/jake server:prod",
-    "test": "./node_modules/.bin/jake test:phantom"
+    "start": "npm install --production && ./node_modules/.bin/jake server:prod",
+    "test": "npm install && ./node_modules/.bin/jake test:all"
   },
 
   "dependencies": {
@@ -27,8 +27,11 @@
   },
 
   "devDependencies": {
+    "chai": "~1.8.1",
+    "mocha": "~1.13.0",
+    "mocha-as-promised": "~1.4.0",
     "mocha-phantomjs": "~3.1.5",
     "phantomjs": "~1.9.2",
-    "lotte": "~0.2.3"
+    "selenium-webdriver": "~2.35.2"
   }
 }
