@@ -36,10 +36,10 @@ Download and preinstall any Bower dependencies in advance. You can run this if y
 
 ### Scaffolding
 
-#### `gen:test:code name=[name]` / `del:test:code name=[name]`
+#### `gen:codetest name=[name]` / `del:codetest name=[name]`
 Generate/destroy a test file with the given test name for testing code. (ex: unit testing)
 
-#### `gen:test:site name=[name]` / `del:test:site name=[name]`
+#### `gen:sitetest name=[name]` / `del:sitetest name=[name]`
 Generate/destroy a test file with the given test name for testing the site. (ex: functional testing)
 
 
