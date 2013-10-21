@@ -10,7 +10,7 @@ var setPlatform = require('./platform');
  * @param  {Object} originalConfig
  * @return {Object}
  */
-module.exports = function(config) {
+module.exports = function(originalConfig) {
   var finalConfig = {
     overrides: {}
   };
