@@ -1,7 +1,7 @@
 /**
- * [exports description]
- * @param  {[type]} config [description]
- * @return {[type]}        [description]
+ * Modify configuration to fill in default options. This is more useful for
+ * tasks that require default information.
+ * @param  {Object} config
  */
 module.exports = function(config) {
   if(!config.server) {
