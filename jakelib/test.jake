@@ -58,9 +58,9 @@ namespace('test', function() {
     var server;
 
     return new Promise(function(resolve, reject) {
-      phantom = spawn('./node_modules/.bin/phantomjs', ['--webdriver=4444']);
-      server = spawn('./node_modules/.bin/brunch', 'w -s -e web:dev'.split(' '), {stdio: 'inherit'});
       var testPath = path.resolve(config.overrides['web:dev'].paths.public, 'index.html');
+      phantom = spawn('./node_modules/.bin/phantomjs', ['--webdriver=4444']);
+      server = spawn('./node_modules/.bin/brunch', ['w', '-s', '-e', 'web:dev'], {stdio: 'inherit'});
 
       // Catch for Ctrl-C
       process.on('SIGINT', reject);
