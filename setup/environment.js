@@ -1,4 +1,4 @@
-var addIgnored = require('./lib').addIgnored;
+var addIgnored = require('./util').addIgnored;
 
 /**
  * Modify given Brunch configuration to fit a given environment. Currently

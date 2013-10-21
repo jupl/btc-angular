@@ -1,6 +1,7 @@
 require('sugar');
-var setPlatform = require('./platform');
+var setDefaults = require('./defaults');
 var setEnvironment = require('./environment');
+var setPlatform = require('./platform');
 
 /**
  * Take a given Brunch configuration and append additional configuration
@@ -9,7 +10,7 @@ var setEnvironment = require('./environment');
  * @param  {Object} originalConfig
  * @return {Object}
  */
-module.exports = function(originalConfig) {
+module.exports = function(config) {
   var finalConfig = {
     overrides: {}
   };
@@ -18,6 +19,7 @@ module.exports = function(originalConfig) {
   setPlatform.platforms.forEach(function(platform) {
     setEnvironment.environments.forEach(function(environment) {
       var config = Object.clone(originalConfig, true);
+      setDefaults(config);
       setPlatform(platform, config);
       setEnvironment(environment, config);
       finalConfig.overrides[platform + ':' + environment] = config;
