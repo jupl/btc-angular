@@ -1,9 +1,10 @@
 // Test-related tasks
+var config = require('../brunch-config').config.overrides['web:dev'];
 var fs = require('fs');
 var path = require('path');
 var Promise = require('bluebird');
 var spawn = require('child_process').spawn;
-var config = require('../brunch-config').config;
+var util = require('util');
 
 namespace('test', function() {
   desc('Run all tests');
@@ -22,8 +23,8 @@ namespace('test', function() {
     var server;
 
     return new Promise(function(resolve, reject) {
-      server = spawn('./node_modules/.bin/brunch', 'w -s -e web:dev'.split(' '), {stdio: 'inherit'});
-      var testPath = path.resolve(config.overrides['web:dev'].paths.public, 'index.html');
+      var testPath = path.resolve(config.paths.public, 'index.html');
+      server = spawn('./node_modules/.bin/brunch', ['w', '-s', '-e', 'web:dev'], {stdio: 'inherit'});
 
       // Catch for Ctrl-C
       process.on('SIGINT', reject);
@@ -34,7 +35,7 @@ namespace('test', function() {
         if(fs.existsSync(testPath)) {
           clearInterval(id);
 
-          var command = './node_modules/.bin/mocha-phantomjs http://localhost:3333/test';
+          var command = util.format('./node_modules/.bin/mocha-phantomjs http://localhost:%d/test', config.server.port);
           if(process.env.reporter) {
             command += ' -R ' + process.env.reporter;
           }
@@ -58,7 +59,7 @@ namespace('test', function() {
     var server;
 
     return new Promise(function(resolve, reject) {
-      var testPath = path.resolve(config.overrides['web:dev'].paths.public, 'index.html');
+      var testPath = path.resolve(config.paths.public, 'index.html');
       phantom = spawn('./node_modules/.bin/phantomjs', ['--webdriver=4444']);
       server = spawn('./node_modules/.bin/brunch', ['w', '-s', '-e', 'web:dev'], {stdio: 'inherit'});
 
