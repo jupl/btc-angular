@@ -44,7 +44,7 @@ Generate/destroy a test file with the given test name for testing the site. (ex:
 
 
 ### Testing
-Temporarily spin up a local server with Brunch and run tests, leveraging [PhantomJS](http://phantomjs.org/), [Mocha](http://visionmedia.github.io/mocha/), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai), and runs through [mocha-phantomjs](http://metaskills.net/mocha-phantomjs/). Site testing uses [WebDriverJS](https://github.com/camme/webdriverjs).
+Temporarily spin up a local server with Brunch and run tests, leveraging [PhantomJS](http://phantomjs.org/), [Mocha](http://visionmedia.github.io/mocha/), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai), and runs through [mocha-phantomjs](http://metaskills.net/mocha-phantomjs/). Site testing uses [WebDriverJS](https://github.com/camme/webdriverjs). In addition, if you run a build (see below) using `dev` the tests are included with a reporter under `test/` to run. (ex. visit `http://locahost:port/test`)
 
 #### `test:all [reporter=[reporter]]`
 Run all tests listed below. Since Mocha is used, the reporter can be specified. (ex: `jake test:all reporter=min`) By default `spec` reporter is used.
@@ -53,7 +53,34 @@ Run all tests listed below. Since Mocha is used, the reporter can be specified. 
 Run code-based tests (ex. unit tests) using mocha-phantomjs.
 
 #### `test:site [reporter=[reporter]]`
-Run site-based tests (ex. system tests) using PhantomJS and WebDriverJS.
+Run site-based tests (ex. system tests) using PhantomJS and WebDriverJS. The
+global method `getDriver` is provided to get a setup and built driver.
+[Mocha as Promised](https://github.com/domenic/mocha-as-promised) is included
+to leverage WebDriverJS' use of Promises and handle asynchronous behavior
+easily. ex:
+
+```js
+describe('Sample', function() {
+  var driver;
+
+  before(function() {
+    driver = getDriver();
+  });
+
+  it('Has a proper title', function() {
+    return driver.get('http://localhost:3333').then(function() {
+      return driver.getTitle();
+    })
+    .then(function(title) {
+      expect(title).to.equal('Brunch Toolchain');
+    });
+  });
+
+  after(function() {
+    driver.quit();
+  })
+});
+```
 
 
 ### Building
