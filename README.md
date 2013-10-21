@@ -9,6 +9,28 @@
 This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. It can be used for skeletons.
 
 
+## File Structure
+
+    ├── app                 # App is built here. Look at Brunch for more info.
+    │   └── assets          # Static files that are just copied
+    ├── bower_components    # Packages installed by Bower
+    ├── generators          # Generators used by Scaffolt
+    ├── jakelib             # Unified set of tasks for development
+    ├── public              # Generated final product
+    ├── setup               # Add configuration options to brunch-config
+    ├── test                # Test-related files
+    │   ├── assets          # Static assets required for code tests
+    │   ├── code            # Code-based tests for Mocha PhantomJS
+    │   ├── mocha.opts      # Default options for site tests
+    │   ├── setup.js        # Configuration for site tests
+    │   ├── site            # Site-based tests for Mocha
+    │   └── vendor          # Test libraries for code-based tests
+    ├── vendor              # 3rd party JS/CSS libraries
+    ├── bower.json          # Listing for Bower dependencies to download
+    ├── brunch-config.js    # Brunch app build configuration
+    └── package.json        # Project dependencies and configuration
+
+
 ## Requirements
 * [node.js](http://nodejs.org)
 * [Jake](https://github.com/mde/jake#installing-with-npm) (required for development)
@@ -44,20 +66,16 @@ Generate/destroy a test file with the given test name for testing the site. (ex:
 
 
 ### Testing
-Temporarily spin up a local server with Brunch and run tests, leveraging [PhantomJS](http://phantomjs.org/), [Mocha](http://visionmedia.github.io/mocha/), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai), and runs through [mocha-phantomjs](http://metaskills.net/mocha-phantomjs/). Site testing uses [WebDriverJS](https://github.com/camme/webdriverjs). In addition, if you run a build (see below) using `dev` the tests are included with a reporter under `test/` to run. (ex. visit `http://locahost:port/test`)
+Temporarily spin up a local server with Brunch and run tests, leveraging [PhantomJS](http://phantomjs.org/), [Mocha](http://visionmedia.github.io/mocha/), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai), and runs through [mocha-phantomjs](http://metaskills.net/mocha-phantomjs/). Site testing uses [WebDriverJS](https://github.com/camme/webdriverjs).
 
 #### `test:all [reporter=[reporter]]`
 Run all tests listed below. Since Mocha is used, the reporter can be specified. (ex: `jake test:all reporter=min`) By default `spec` reporter is used.
 
 #### `test:code [reporter=[reporter]]`
-Run code-based tests (ex. unit tests) using mocha-phantomjs.
+Run code-based tests (ex. unit tests) using mocha-phantomjs. In addition, if you run a build (see below) using `dev` the tests are included with a reporter under `test/` to run in browsers. (ex. visit `http://locahost:[port]/test`)
 
 #### `test:site [reporter=[reporter]]`
-Run site-based tests (ex. system tests) using PhantomJS and WebDriverJS. The
-global method `getDriver` is provided to get a setup and built driver.
-[Mocha as Promised](https://github.com/domenic/mocha-as-promised) is included
-to leverage WebDriverJS' use of Promises and handle asynchronous behavior
-easily. ex:
+Run site-based tests (ex. system tests) using PhantomJS and WebDriverJS. The global method `getDriver` is provided to get a setup and built driver. [Mocha as Promised](https://github.com/domenic/mocha-as-promised) is included to leverage WebDriverJS' use of Promises and handle asynchronous behavior easily. ex:
 
 ```js
 describe('Sample', function() {
@@ -96,19 +114,19 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 Assemble the application and continue to watch for changes. Rebuild every time a change is detected. Also, the application is served locally to open with a browser. This build uses the `web` environment.
 
 
-## Details
+## Libraries
 
 ### Core
-* [Brunch](http://brunch.io) 1.7.8
-* [Scaffolt](https://github.com/paulmillr/scaffolt) 0.4.2
-* [Bower](http://bower.io/) 1.2.7
+* [Brunch](http://brunch.io)
+* [Scaffolt](https://github.com/paulmillr/scaffolt)
+* [Bower](http://bower.io/)
 
 ### Testing
-* [PhantomJS](http://phantomjs.org/) 1.9.2 (using [wrapper](https://github.com/Obvious/phantomjs))
-* [Mocha PhantomJS](http://metaskills.net/mocha-phantomjs/) 3.1.5
-* [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs) 2.35.2
-* [Mocha](http://visionmedia.github.com/mocha/) 1.13.0
-* [Mocha as Promised](https://github.com/domenic/mocha-as-promised) 1.4.0
-* [Chai](http://chaijs.com/) 1.8.1
-* [Sinon](http://sinonjs.org/) 1.7.3
-* [Sinon-Chai](https://github.com/domenic/sinon-chai) 2.4.0
+* [PhantomJS](http://phantomjs.org/) (using [wrapper](https://github.com/Obvious/phantomjs))
+* [Mocha PhantomJS](http://metaskills.net/mocha-phantomjs/)
+* [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs)
+* [Mocha](http://visionmedia.github.com/mocha/)
+* [Mocha as Promised](https://github.com/domenic/mocha-as-promised)
+* [Chai](http://chaijs.com/)
+* [Sinon](http://sinonjs.org/)
+* [Sinon-Chai](https://github.com/domenic/sinon-chai)
