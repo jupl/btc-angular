@@ -11,7 +11,7 @@
   },
 
   "dependencies": {
-    "bluebird": "~0.8.2",
+    "bluebird": "~0.9.8",
     "bower": "~1.2.7",
     "brunch": "~1.7.8",
     "jake": "~0.7.2",
