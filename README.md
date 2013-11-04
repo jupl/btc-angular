@@ -6,7 +6,7 @@
 
 ## Introduction
 
-This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. It can be used for skeletons.
+This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. It can be used for skeletons. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency.
 
 
 ## File Structure
@@ -26,6 +26,7 @@ This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://br
     │   ├── site            # Site-based tests for Mocha
     │   └── vendor          # Test libraries for code-based tests
     ├── vendor              # 3rd party JS/CSS libraries
+    ├── .editorconfig       # EditorConfig definition file for coding styles
     ├── bower.json          # Listing for Bower dependencies to download
     ├── brunch-config.js    # Brunch app build configuration
     └── package.json        # Project dependencies and configuration
