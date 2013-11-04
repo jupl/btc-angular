@@ -1,8 +1,15 @@
-this.title('{{#titleize}}{{name}}{{/titleize}}');
-this.base('http://localhost:3333');
+describe('{{#humanize}}{{name}}{{/humanize}}', function() {
+  var driver;
 
-this.open('/', function() {
-  this.describe('...', function() {
-    this.success();
+  before(function() {
+    driver = getDriver();
   });
+
+  it('...', function() {
+    return driver.get('http://localhost:3333');
+  });
+
+  after(function() {
+    driver.quit();
+  })
 });
