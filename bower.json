@@ -5,8 +5,6 @@
     "node_modules",
     "bower_components"
   ],
-  "dependencies": {
-  },
-  "overrides": {
-  }
+  "dependencies": {},
+  "overrides": {}
 }

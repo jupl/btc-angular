@@ -8,12 +8,34 @@
 <body>
   <div id="mocha"></div>
   <script src="javascripts/vendor.js"></script>
-  <script src="../javascripts/vendor.js"></script>
-  <script src="../javascripts/app.js"></script>
+  <!--
+    If you want to test application code for whitebox testing,
+    make sure to reference application code. For example:
+      <script src="../javascripts/app.js"></script>
+      <script src="../javascripts/vendor.js"></script>
+  -->
   <script src="javascripts/tests.js"></script>
+
   <script>
-    require('test/tests');
-    mocha.run();
+    // Load all test modules (modules have a -test suffix)
+    if(window.require) {
+      (function() {
+        var modules = window.require.list();
+        for(var index = 0; index < modules.length; index++) {
+          if(/-test$/.test(modules[index])) {
+            require(modules[index]);
+          }
+        }
+      })();
+    }
+
+    // Start Mocha
+    if(window.mochaPhantomJS) {
+      mochaPhantomJS.run();
+    }
+    else {
+      mocha.run();
+    }
   </script>
 </body>
 

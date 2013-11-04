@@ -1,8 +1,20 @@
 # Changelog
 
-### 0.3.2 (September 27, 2013)
+### 0.4.0 (November 4, 2013)
+- Convert custom Cake tasks into standard Jake tasks
+- Remove any prompts in favor of Jake arguments
+- Remove `npm run-script` tasks. Use `jake`.
+- Auto generate Jake tasks for Scaffolt generators
+- Add code testing and site testing support
+- Add PhantomJS for testing
+- Add `auto-reload-brunch` by default
+- Add test file generator
+- Remove Modernizr
+- Use default `public` path for default builds
+
+#### 0.3.2 (September 27, 2013)
 - Add ability to edit `bower.json` in bower task
-- Wrap promptly into a \promise
+- Wrap promptly into a promise
 - Bugfixes
 
 #### 0.3.1 (September 26, 2013)
