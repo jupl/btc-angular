@@ -2,13 +2,11 @@
 # Top-most EditorConfig file
 root = true
 
-# Unix-style newlines with a newline ending every file
+# Unix-style newlines with a newline ending every file.
+# Also 2 space indentation.
 [*]
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
-
-# JavaScript/JSON style
-[*.{js,json}]
 indent_style = space
 indent_size = 2
