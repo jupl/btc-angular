@@ -8,6 +8,7 @@ namespace('gen', function() {
     if(!generator.isModule) {
       desc('Generate a ' + generator.description);
       task(generator.task, function() {
+        validate(generator.name, process.env.name);
         return new Promise(function(resolve) {
           jake.Task['scaffold:gen'].addListener('complete', resolve).invoke(generator.name);
         });
@@ -22,6 +23,7 @@ namespace('del', function() {
     if(!generator.isModule) {
       desc('Destroy a generated ' + generator.description);
       task(generator.task, function() {
+        validate(generator.name, process.env.name);
         return new Promise(function(resolve) {
           jake.Task['scaffold:del'].addListener('complete', resolve).invoke(generator.name);
         });
@@ -29,3 +31,7 @@ namespace('del', function() {
     }
   });
 });
+
+function validate(generator, name) {
+  // Throw Jake fails here if it does not validate
+}
