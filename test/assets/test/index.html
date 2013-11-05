@@ -22,7 +22,7 @@
       (function() {
         var modules = window.require.list();
         for(var index = 0; index < modules.length; index++) {
-          if(/-test$/.test(modules[index])) {
+          if(/^(?:test\/).+(?:-test)$/.test(modules[index])) {
             require(modules[index]);
           }
         }
