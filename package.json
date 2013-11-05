@@ -1,8 +1,4 @@
 {
-  "name": "package-name",
-  "author": "Your Name",
-  "version": "0.0.1",
-  "description": "Your Description",
   "repository": "git",
 
   "scripts": {
