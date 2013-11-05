@@ -16,7 +16,9 @@ namespace('clean', function() {
   });
 });
 
-// General task to run Scaffolt
+// General task to run Scaffolt. gen/del require a name, while add/rem
+// uses placeholder text since it is not used. (in fact, the text
+// 'placeholder' is used)
 namespace('scaffold', function() {
   task('gen', function(type) {
     if(!process.env.name) {
@@ -33,6 +35,18 @@ namespace('scaffold', function() {
     }
     return new Promise(function(resolve) {
       jake.exec(util.format('./node_modules/.bin/scaffolt %s %s -r', type, process.env.name.dasherize()), {interactive: true}, resolve);
+    });
+  });
+
+  task('add', function(type) {
+    return new Promise(function(resolve) {
+      jake.exec(util.format('./node_modules/.bin/scaffolt %s placeholder', type), {interactive: true}, resolve);
+    });
+  });
+
+  task('rem', function(type) {
+    return new Promise(function(resolve) {
+      jake.exec(util.format('./node_modules/.bin/scaffolt %s placeholder -r', type), {interactive: true}, resolve);
     });
   });
 });
