@@ -59,6 +59,14 @@ While Brunch/Scaffolt/etc. can be used, Jake commands are provided for a simple 
 #### `bower:install`
 Download and preinstall any Bower dependencies in advance. You can run this if you want to download Bower dependencies in advance.
 
+
+### Extras
+These commands add additional features/items to the project that are not included by default.
+
+#### `add:jquery` / `rem:jquery`
+Add/remove jQuery from the project.
+
+
 ### Scaffolding
 
 #### `gen:codetest name=[name]` / `del:codetest name=[name]`
