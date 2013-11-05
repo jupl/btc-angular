@@ -1,5 +1,8 @@
 # Changelog
 
+### WIP
+- Update EditorConfig
+
 ### 0.4.0 (November 4, 2013)
 - Convert custom Cake tasks into standard Jake tasks
 - Remove any prompts in favor of Jake arguments
