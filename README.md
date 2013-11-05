@@ -54,6 +54,7 @@ One-line commands are provided for convenience as well for those that want to st
 ## Task List
 While Brunch/Scaffolt/etc. can be used, Jake commands are provided for a simple and consistent interface. These tasks can be executed using `jake`. (`jake [task]`) These are the following available tasks provided out of the box:
 
+
 ### Bower
 
 #### `bower:install`
@@ -64,7 +65,7 @@ Download and preinstall any Bower dependencies in advance. You can run this if y
 These commands add additional features/items to the project that are not included by default.
 
 #### `add:jquery` / `rem:jquery`
-Add/remove jQuery from the project.
+Add/remove [jQuery](http://jquery.com/) from the project.
 
 
 ### Scaffolding
@@ -107,7 +108,7 @@ describe('Sample', function() {
 
   after(function() {
     driver.quit();
-  })
+  });
 });
 ```
 
