@@ -33,8 +33,8 @@ This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://br
 
 
 ## Requirements
-* [node.js](http://nodejs.org)
-* [Jake](https://github.com/mde/jake#installing-with-npm) (required for development)
+- [node.js](http://nodejs.org)
+- [Jake](https://github.com/mde/jake#installing-with-npm) (required for development)
 
 
 ## Setup
@@ -65,7 +65,7 @@ Download and preinstall any Bower dependencies in advance. You can run this if y
 These commands add additional features/items to the project that are not included by default.
 
 #### `add:jquery` / `rem:jquery`
-Add/remove [jQuery](http://jquery.com/) from the project.
+Add/remove [jQuery](http://jquery.com/) to/from the project.
 
 
 ### Scaffolding
@@ -129,16 +129,16 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 ## Libraries
 
 ### Core
-* [Brunch](http://brunch.io)
-* [Scaffolt](https://github.com/paulmillr/scaffolt)
-* [Bower](http://bower.io/)
+- [Brunch](http://brunch.io)
+- [Scaffolt](https://github.com/paulmillr/scaffolt)
+- [Bower](http://bower.io/)
 
 ### Testing
-* [PhantomJS](http://phantomjs.org/) (using [wrapper](https://github.com/Obvious/phantomjs))
-* [Mocha PhantomJS](http://metaskills.net/mocha-phantomjs/)
-* [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs)
-* [Mocha](http://visionmedia.github.com/mocha/)
-* [Mocha as Promised](https://github.com/domenic/mocha-as-promised)
-* [Chai](http://chaijs.com/)
-* [Sinon](http://sinonjs.org/)
-* [Sinon-Chai](https://github.com/domenic/sinon-chai)
+- [PhantomJS](http://phantomjs.org/) (using [wrapper](https://github.com/Obvious/phantomjs))
+- [Mocha PhantomJS](http://metaskills.net/mocha-phantomjs/)
+- [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs)
+- [Mocha](http://visionmedia.github.com/mocha/)
+- [Mocha as Promised](https://github.com/domenic/mocha-as-promised)
+- [Chai](http://chaijs.com/)
+- [Sinon](http://sinonjs.org/)
+- [Sinon-Chai](https://github.com/domenic/sinon-chai)
