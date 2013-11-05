@@ -16,21 +16,6 @@ namespace('clean', function() {
   });
 });
 
-namespace('npm:install', function() {
-  desc('goobs')
-  task('dev', function() {
-    return new Promise(function(resolve) {
-      jake.exec('npm install');
-    });
-  })
-
-  task('prod', function() {
-    return new Promise(function(resolve) {
-      jake.exec('npm install --production');
-    });
-  })
-});
-
 // General task to run Scaffolt
 namespace('scaffold', function() {
   task('gen', function(type) {
