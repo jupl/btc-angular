@@ -1,52 +1,37 @@
-// Scaffolt generator tasks
-require('sugar');
-var fs = require('fs');
-var jsonfile = require('jsonfile');
-var path = require('path');
+// Scaffolt non-module generator tasks
+var generators = require('./lib/generators');
 var Promise = require('bluebird');
 
-// Iterate over generators to get name and description
-var generators = fs.readdirSync('generators').filter(function(generator) {
-  return fs.existsSync(path.resolve('generators', generator, 'generator.json'));
-})
-.map(function(generator) {
-  return {
-    task: generator.dasherize().replace(/-/g, ''),
-    name: generator,
-    description: jsonfile.readFileSync(path.resolve('generators', generator, 'generator.json')).description
-  }
-});
-
-// Iterate over generators for creating tasks that scaffold
+// Iterate over non-module generators for creating tasks that scaffold
 namespace('gen', function() {
   generators.forEach(function(generator) {
-    if(generator.description) {
+    if(!generator.isModule) {
       desc('Generate a ' + generator.description);
-    }
-    else {
-      desc('Generate a ' + generator.name.spacify());
-    }
-    task(generator.task, function() {
-      return new Promise(function(resolve) {
-        jake.Task['scaffold:gen'].addListener('complete', resolve).invoke(generator.name);
+      task(generator.task, function() {
+        validate(generator.name, process.env.name);
+        return new Promise(function(resolve) {
+          jake.Task['scaffold:gen'].addListener('complete', resolve).invoke(generator.name);
+        });
       });
-    });
+    }
   });
 });
 
-// Iterate over generators for creating tasks that destroys a scaffold
+// Iterate over non-module generators for creating tasks that destroys a scaffold
 namespace('del', function() {
   generators.forEach(function(generator) {
-    if(generator.description) {
+    if(!generator.isModule) {
       desc('Destroy a generated ' + generator.description);
-    }
-    else {
-      desc('Destroy a generated ' + generator.name.spacify());
-    }
-    task(generator.task, function() {
-      return new Promise(function(resolve) {
-        jake.Task['scaffold:del'].addListener('complete', resolve).invoke(generator.name);
+      task(generator.task, function() {
+        validate(generator.name, process.env.name);
+        return new Promise(function(resolve) {
+          jake.Task['scaffold:del'].addListener('complete', resolve).invoke(generator.name);
+        });
       });
-    });
+    }
   });
 });
+
+function validate(generator, name) {
+  // Throw Jake fails here if it does not validate
+}

@@ -1,7 +1,9 @@
 # Changelog
 
-### WIP
+### 0.4.1 (November 5, 2013)
 - Update EditorConfig
+- Scaffolt generators are automatically made into generators (requires a name) or modules. (do not require a name) This is done by checking the `isModule` property of a `generator.json` file.
+- Test modules for code testing are more specific
 
 ### 0.4.0 (November 4, 2013)
 - Convert custom Cake tasks into standard Jake tasks
