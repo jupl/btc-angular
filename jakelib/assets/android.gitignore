@@ -11,7 +11,6 @@
 # generated files
 bin/
 gen/
-assets/www/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -28,3 +27,10 @@ proguard/
 *.ipr
 *.iws
 .idea/
+
+# Gradle stuff
+.gradle/
+build/
+out/
+
+assets/www/
