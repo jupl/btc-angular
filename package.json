@@ -1,72 +1,34 @@
 {
-  "name": "package-name",
-  "author": "Your Name",
-  "version": "0.0.1",
-  "homepage": "",
-  "description": "Package description",
-
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-
-  "engines": {
-    "node": "~0.6.10 || 0.8 || 0.9 || 0.10"
-  },
+  "repository": "git",
 
   "scripts": {
-    "start":                "./node_modules/.bin/cake help:npm",
-
-    "add:fastclick":        "./node_modules/.bin/cake add:fastclick",
-    "add:hammer":           "./node_modules/.bin/cake add:hammer",
-    "add:hammer:jquery":    "./node_modules/.bin/cake add:hammer:jquery",
-
-    "rem:fastclick":        "./node_modules/.bin/cake rem:fastclick",
-    "rem:hammer":           "./node_modules/.bin/cake rem:hammer",
-
-    "cordova:init":         "./node_modules/.bin/cake cordova:init",
-    "cordova:add:android":  "./node_modules/.bin/cake cordova:add:android",
-    "cordova:add:ios":      "./node_modules/.bin/cake cordova:add:ios",
-    "cordova:rem:android":  "./node_modules/.bin/cake cordova:rm:android",
-    "cordova:rem:ios":      "./node_modules/.bin/cake cordova:rm:ios",
-
-    "bower:install":        "./node_modules/.bin/cake bower:install",
-
-    "build:dev":            "./node_modules/.bin/cake build:dev",
-    "build:prod":           "./node_modules/.bin/cake build:prod",
-    "build:android:dev":    "./node_modules/.bin/cake build:android:dev",
-    "build:android:prod":   "./node_modules/.bin/cake build:android:prod",
-    "build:ios:dev":        "./node_modules/.bin/cake build:ios:dev",
-    "build:ios:prod":       "./node_modules/.bin/cake build:ios:prod",
-
-    "watch:dev":            "./node_modules/.bin/cake watch:dev",
-    "watch:prod":           "./node_modules/.bin/cake watch:prod",
-
-    "server:dev":           "./node_modules/.bin/cake server:dev",
-    "server:prod":          "./node_modules/.bin/cake server:prod",
-
-    "emulate:android:dev":  "./node_modules/.bin/cake emulate:android:dev",
-    "emulate:android:prod": "./node_modules/.bin/cake emulate:android:prod",
-    "emulate:ios:dev":      "./node_modules/.bin/cake emulate:ios:dev",
-    "emulate:ios:prod":     "./node_modules/.bin/cake emulate:ios:prod"
+    "start": "npm install --production && ./node_modules/.bin/jake server:prod",
+    "test": "npm install && ./node_modules/.bin/jake test:all"
   },
 
   "dependencies": {
-    "q": "~0.9.7",
-    "bower": "~1.2.6",
-    "sugar": "~1.4.0",
-    "brunch": "~1.7.6",
-    "wrench": "~1.5.1",
-    "cordova": "~3.0.9",
-    "jsonfile": "~1.0.1",
-    "promptly": "~0.2.0",
-    "scaffolt": "~0.4.0",
-    "coffee-script": "~1.6.3",
+    "bluebird": "~0.9.8",
+    "bower": "~1.2.7",
+    "brunch": "~1.7.8",
+    "cordova": "~3.1.0",
+    "jake": "~0.7.2",
+    "jsonfile": "~1.1.0",
+    "scaffolt": "~0.4.2",
+    "sugar": "~1.4.1",
 
     "javascript-brunch": ">= 1.0 < 1.8",
     "css-brunch": ">= 1.0 < 1.8",
+    "auto-reload-brunch": ">= 1.0 < 1.8",
+    "clean-css-brunch": ">= 1.0 < 1.8",
+    "uglify-js-brunch": ">= 1.0 < 1.8"
+  },
 
-    "uglify-js-brunch": ">= 1.0 < 1.8",
-    "clean-css-brunch": ">= 1.0 < 1.8"
+  "devDependencies": {
+    "chai": "~1.8.1",
+    "mocha": "~1.14.0",
+    "mocha-as-promised": "~1.4.0",
+    "mocha-phantomjs": "~3.1.5",
+    "phantomjs": "~1.9.2",
+    "selenium-webdriver": "~2.37.0"
   }
 }
