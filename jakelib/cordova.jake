@@ -86,7 +86,7 @@ function validateDevice(device) {
   if(!device) {
     fail('Device name required');
   }
-  else if(devices.indexOf(device) !== -1) {
+  else if(devices.indexOf(device) === -1) {
     fail('Device is not available');
   }
 }

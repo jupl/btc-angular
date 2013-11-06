@@ -83,7 +83,7 @@ namespace('server', function() {
 });
 
 function validateDevice(device) {
-  if(devices.indexOf(device) !== -1) {
+  if(device && devices.indexOf(device) === -1) {
     fail('Device is not available');
   }
 }
