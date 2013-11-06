@@ -41,6 +41,9 @@
     if(window.mochaPhantomJS) {
       mochaPhantomJS.run();
     }
+    else if(window.device) {
+      document.addEventListener('deviceready', function() { mocha.run() }, false);
+    }
     else {
       mocha.run();
     }
