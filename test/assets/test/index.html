@@ -2,21 +2,51 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  
   <title>Mocha Tests</title>
   <link rel="stylesheet" href="stylesheets/test.css">
 </head>
-
 <body>
   <div id="mocha"></div>
-  <script src="../cordova.js"></script>
-  <script src="javascripts/vendor.js"></script>
-  <script src="../javascripts/vendor.js"></script>
-  <script src="../javascripts/app.js"></script>
-  <script src="javascripts/tests.js"></script>
+
   <script>
-    require('test/tests');
-    mocha.run();
+    // Do not include scripts that don't exist when inside Mocha PhantomJS
+    if(!window.mochaPhantomJS) {
+      document.write('<script src="../cordova.js"><\/script>');
+    }
+  </script>
+  <script src="javascripts/vendor.js"></script>
+  <!--
+    If you want to test application code for whitebox testing,
+    make sure to reference application code. For example:
+      <script src="../javascripts/vendor.js"></script>
+      <script src="../javascripts/app.js"></script>
+  -->
+  <script src="javascripts/tests.js"></script>
+
+  <script>
+    // Load all test modules
+    // (modules must be under test directory and have a -test suffix)
+    if(window.require) {
+      (function() {
+        var modules = window.require.list();
+        for(var index = 0; index < modules.length; index++) {
+          if(/^(?:test\/).+(?:-test)$/.test(modules[index])) {
+            require(modules[index]);
+          }
+        }
+      })();
+    }
+
+    // Start Mocha
+    if(window.mochaPhantomJS) {
+      mochaPhantomJS.run();
+    }
+    else if(window.device) {
+      document.addEventListener('deviceready', function() { mocha.run() }, false);
+    }
+    else {
+      mocha.run();
+    }
   </script>
 </body>
 </html>

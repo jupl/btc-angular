@@ -1,5 +1,10 @@
 # Changelog
 
+### 0.3.0 (November 6, 2013)
+- Update BTC
+- Update Cordova
+- Move web build (`build/web` to `public`) and Cordova build (`build/cordova` to `cordova`)
+
 ### 0.2.0 (September 28, 2013)
 - Update BTC
 - Update Cordova
