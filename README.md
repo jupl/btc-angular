@@ -67,7 +67,6 @@ These commands add additional features/items to the project that are not include
 #### `add:jquery` / `rem:jquery`
 Add/remove the ubiquitous library [jQuery](http://jquery.com/) to/from the project.
 
-
 #### `add:normalize` / `rem:normalize`
 Add/remove [normalize.css](http://necolas.github.io/normalize.css/) to ensure a consistent starting point in styling between different browsers.
 
