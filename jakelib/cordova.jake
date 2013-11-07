@@ -1,11 +1,14 @@
 // Cordova-based build tasks
 require('sugar');
 var devices = require('./lib').devices;
+var execute = require('./lib').execute;
+var localBinCommand = require('./lib').localBinCommand;
 var path = require('path');
 var Promise = require('bluebird');
+var resolvePath = require('./lib').resolvePath;
 
-var assetsPath = path.resolve(process.cwd(), 'app/assets');
-var projectPath = path.resolve(process.cwd(), 'cordova');
+var assetsPath = resolvePath('app', 'assets');
+var projectPath = resolvePath('cordova');
 
 namespace('emulate', function() {
   desc('Build project for development and simulate/emulate on a device');
@@ -13,11 +16,13 @@ namespace('emulate', function() {
     var device = process.env.device;
 
     validateDevice(device);
-    process.env.platform = 'cordova';
-    return jake.Task['build:dev'].invoke().then(function() {
-      return new Promise(function(resolve) {
-        jake.exec('./node_modules/.bin/cordova -d emulate ' + device, {interactive: true}, resolve);
-      });
+    process.env.device = 'none'; // Don't run Cordova in build:dev
+    return new Promise(function(resolve) {
+      jake.Task['build:dev'].addListener('complete', resolve).invoke();
+    })
+    .then(function() {
+      var command = localBinCommand('cordova', '-d emulate ' + device);
+      return execute(command, {cwd: projectPath});
     });
   });
 
@@ -26,11 +31,13 @@ namespace('emulate', function() {
     var device = process.env.device;
 
     validateDevice(device);
-    process.env.platform = 'cordova';
-    return jake.Task['build:prod'].invoke().then(function() {
-      return new Promise(function(resolve) {
-        jake.exec('./node_modules/.bin/cordova -d emulate ' + device, {interactive: true}, resolve);
-      });
+    process.env.device = 'none'; // Don't run Cordova in build:prod
+    return new Promise(function(resolve) {
+      jake.Task['build:prod'].addListener('complete', resolve).invoke();
+    })
+    .then(function() {
+      var command = localBinCommand('cordova', '-d emulate ' + device);
+      return execute(command, {cwd: projectPath});
     });
   });
 });
@@ -38,47 +45,55 @@ namespace('emulate', function() {
 namespace('cordova', function() {
   desc('Initialize Cordova builds by creating a Cordova project');
   task('init', function() {
-    var command = './node_modules/.bin/cordova -d create ' + projectPath;
+    var name = process.env.name;
+    var package = process.env.package;
 
-    validateProject(process.env.package, process.env.name);
-    if(process.env.package) {
-      command += ' ' + process.env.package.dasherize().replace(/-/g, '.');
-      if(process.env.name) {
-        command = ' ' + process.env.name.camelize();
+    validateProject(package, name);
+    if(package) {
+      package = package.dasherize().replace(/-/g, '.');
+      if(name) {
+        name = name.camelize();
+      }
+      else {
+        name = '';
       }
     }
+    else {
+      package = '';
+      name = '';
+    }
 
-    return new Promise(function(resolve) {
-      jake.rmRf(projectPath, {silent: true});
-      jake.exec(command, {interactive: true}, resolve);
-    })
-    .then(function() {
-      jake.cpR(path.resolve(projectPath, 'www/config.xml'), assetsPath);
-      jake.cpR(path.resolve(projectPath, 'www/res'), assetsPath);
+    var params = '-d create ' + projectPath + ' ' + package + ' ' + name;
+    var command = localBinCommand('cordova', params);
+    jake.rmRf(projectPath, {silent: true});
+    return execute(command).then(function() {
+      jake.cpR(path.resolve(projectPath, 'www', 'config.xml'), assetsPath);
+      jake.cpR(path.resolve(projectPath, 'www', 'res'), assetsPath);
     });
   });
 
   desc('Add a device to the Cordova project');
   task('add', function() {
+    var command;
     var device = process.env.device;
 
     validateDevice(device);
-    return new Promise(function(resolve) {
-      jake.exec('./node_modules/.bin/cordova -d platform add ' + device, {interactive: true}, resolve);
-    })
-    .then(function() {
-      jake.cpR(path.resolve(__dirname, 'assets', device + '.gitignore'), path.resolve(projectPath, 'platforms', device, '.gitignore'));
+    command = localBinCommand('cordova', '-d platform add ' + device);
+    return execute(command, {cwd: projectPath}).then(function() {
+      var origin = resolvePath('jakelib/assets', device + '.gitignore');
+      var dest = path.resolve(projectPath, 'platforms', device, '.gitignore');
+      jake.cpR(origin, dest);
     });
   });
 
   desc('Remove a device from the Cordova project');
   task('rem', function() {
+    var command;
     var device = process.env.device;
 
     validateDevice(device);
-    return new Promise(function(resolve) {
-      jake.exec('./node_modules/.bin/cordova -d platform remove ' + device, {interactive: true}, resolve);
-    });
+    command = localBinCommand('cordova', '-d platform remove ' + device);
+    return execute(command, {cwd: projectPath});
   });
 });
 

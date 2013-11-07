@@ -1,6 +1,10 @@
 // Brunch build tasks
 var devices = require('./lib').devices;
-var Promise = require('bluebird');
+var execute = require('./lib').execute;
+var localBinCommand = require('./lib').localBinCommand;
+var resolvePath = require('./lib').resolvePath;
+
+var projectPath = resolvePath('cordova');
 
 namespace('build', function() {
   desc('Build project (web or device) for development');
@@ -10,19 +14,16 @@ namespace('build', function() {
     validateDevice(device);
     if(device) {
       jake.Task['clean:cordova'].invoke();
-      return new Promise(function(resolve) {
-        jake.exec('./node_modules/.bin/brunch b -e cordova:dev', {interactive: true}, resolve);
-      }).then(function() {
-        return new Promise(function(resolve) {
-          jake.exec('./node_modules/.bin/cordova -d build ' + device, {interactive: true}, resolve);
-        });
+      return execute(localBinCommand('brunch', 'b -e cordova:dev')).then(function() {
+        if(device !== 'none') {
+          var command = localBinCommand('cordova', '-d build ' + device);
+          return execute(command, {cwd: projectPath});
+        }
       });
     }
     else {
       jake.Task['clean:web'].invoke();
-      return new Promise(function(resolve) {
-        jake.exec('./node_modules/.bin/brunch b -e web:dev', {interactive: true}, resolve);
-      });
+      return execute(localBinCommand('brunch', 'b -e web:dev'));
     }
   });
 
@@ -33,19 +34,15 @@ namespace('build', function() {
     validateDevice(device);
     if(device) {
       jake.Task['clean:cordova'].invoke();
-      return new Promise(function(resolve) {
-        jake.exec('./node_modules/.bin/brunch b -e cordova:dev', {interactive: true}, resolve);
-      }).then(function() {
-        return new Promise(function(resolve) {
-          jake.exec('./node_modules/.bin/cordova -d build ' + device, {interactive: true}, resolve);
-        });
+      return execute(localBinCommand('brunch', 'b -e cordova:prod')).then(function() {
+        if(device !== 'none') {
+          return execute(localBinCommand('cordova', '-d build ' + device), {cwd: projectPath});
+        }
       });
     }
     else {
       jake.Task['clean:web'].invoke();
-      return new Promise(function(resolve) {
-        jake.exec('./node_modules/.bin/brunch b -e web:prod', {interactive: true}, resolve);
-      });
+      return execute(localBinCommand('brunch', 'b -e web:prod'));
     }
   });
 });
@@ -53,37 +50,29 @@ namespace('build', function() {
 namespace('watch', function() {
   desc('Build project for development and rebuild on changes');
   task('dev', ['bower:install', 'clean:web'], function() {
-    return new Promise(function(resolve) {
-      jake.exec('./node_modules/.bin/brunch w -e web:dev', {interactive: true}, resolve);
-    });
+    return execute(localBinCommand('brunch', 'w -e web:dev'));
   });
 
   desc('Build project for production and rebuild on changes');
   task('prod', ['bower:install', 'clean:web'], function() {
-    return new Promise(function(resolve) {
-      jake.exec('./node_modules/.bin/brunch w -e web:prod', {interactive: true}, resolve);
-    });
+    return execute(localBinCommand('brunch', 'w -e web:prod'));
   });
 });
 
 namespace('server', function() {
   desc('Build project for development, rebuild on changes, and host locally');
   task('dev', ['bower:install', 'clean:web'], function() {
-    return new Promise(function(resolve) {
-      jake.exec('./node_modules/.bin/brunch w -s -e web:dev', {interactive: true}, resolve);
-    });
+    return execute(localBinCommand('brunch', 'w -s -e web:dev'));
   });
 
   desc('Build project for production, rebuild on changes, and host locally');
   task('prod', ['bower:install', 'clean:web'], function() {
-    return new Promise(function(resolve) {
-      jake.exec('./node_modules/.bin/brunch w -s -e web:prod', {interactive: true}, resolve);
-    });
+    return execute(localBinCommand('brunch', 'w -s -e web:dev'));
   });
 });
 
 function validateDevice(device) {
-  if(device && devices.indexOf(device) === -1) {
+  if(device && devices.indexOf(device) === -1 && device !== 'none') {
     fail('Device is not available');
   }
 }
