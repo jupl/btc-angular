@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Cordova Brunch is a base skeleton for building web applications. In additional to assembling standard web-based application, this skeleton can also assemble native applications using Cordova. (Currently supports iOS and Android applications) This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. It can be used for skeletons. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency. For complete skeletons that include Cordova Brunch see:
+Cordova Brunch is a base skeleton for building web applications. (Currently supports iOS and Android applications) This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. It can be used for skeletons. In additional to assembling a standard web-based application, this skeleton can also assemble native applications using Cordova. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency. For complete skeletons that include Cordova Brunch see:
 - [Chapless Brunch](https://github.com/jupl/chapless-brunch/tree/cordova)
 - [Cinder Brunch](https://github.com/jupl/cinder-brunch/tree/cordova)
 
@@ -82,12 +82,12 @@ These commands are to set up and initialize native projects that use Cordova to 
 
 #### `cordova:init [package=[package] [name=[name]]]`
 Create a new Cordova project using [cordova-cli](https://github.com/apache/cordova-cli).
-- Package and name options are optional, which uses the default Cordova options. If you specify a `name`, you must also specify `package`.
-- Project will reside in `cordova/`.
+- Package and name options are optional, which uses the default Cordova options. If you specify `name`, you must also specify `package`.
+- Project will reside in `cordova/`. If an existing project exists when running this task, it will be replaced with a new one.
 - Cordova-specific files are added to `app/assets`. (These files will be ignored if a non-Cordova web build is made.) Do not remove these files.
 - It is recommended for your web app to not depend on any files in `app/assets/res`.
 
-#### `cordova:add device=[device]`, `cordova:rem device=[device]`
+#### `cordova:add device=[device]` / `cordova:rem device=[device]`
 Add/remove specified device support to the Cordova project.
 
 
@@ -125,7 +125,7 @@ describe('Sample', function() {
       return driver.getTitle();
     })
     .then(function(title) {
-      expect(title).to.equal('Brunch Toolchain');
+      expect(title).to.equal('Cordova Brunch');
     });
   });
 
@@ -142,7 +142,7 @@ These commands are used to assemble the application, generating the necessary JS
 #### `build:[mode] [device=[device]]`
 Assemble the application once. If `device` is specified, then build a native app for a device using Cordova. Otherwise it uses the default web environment.
 
-#### `watch:[mode]`.
+#### `watch:[mode]`
 Assemble the application and continue to watch for changes. Rebuild every time a change is detected.
 
 #### `server:[mode]`
@@ -151,7 +151,7 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 #### `emulate:[mode] device=[device]`
 Assemble the application, compile, and deploy to an emulator for the specified device.
 
-**NOTE**: [ios-sim](https://github.com/phonegap/ios-sim) is required to emulate on the iOS Simulator.
+**NOTE**: [ios-sim](https://github.com/phonegap/ios-sim) is required to run the iOS Simulator.
 
 
 ## Libraries
