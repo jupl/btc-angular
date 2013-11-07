@@ -26,14 +26,12 @@ namespace('clean', function() {
 namespace('scaffold', function() {
   task('gen', function(type) {
     var name = process.env.name;
-
     validateName(name);
     return execute(localBinCommand('scaffolt', type + ' ' + name));
   });
 
   task('del', function(type) {
     var name = process.env.name;
-
     validateName(name);
     return execute(localBinCommand('scaffolt', type + ' ' + name + ' -r'));
   });
