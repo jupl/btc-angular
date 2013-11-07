@@ -3,6 +3,9 @@
 var generators = require('./lib/generators');
 var jsonfile = require('jsonfile');
 var Promise = require('bluebird');
+var resolvePath = require('./lib').resolvePath;
+
+var bowerFile = resolvePath('bower.json');
 
 namespace('add', function() {
   desc('Add jQuery');
@@ -17,7 +20,9 @@ namespace('add', function() {
       desc('Add ' + generator.description);
       task(generator.task, function() {
         return new Promise(function(resolve) {
-          jake.Task['scaffold:add'].addListener('complete', resolve).invoke(generator.name);
+          jake.Task['scaffold:add']
+          .addListener('complete', resolve)
+          .invoke(generator.name);
         });
       });
     }
@@ -37,7 +42,9 @@ namespace('rem', function() {
       desc('Remove ' + generator.description);
       task(generator.task, function() {
         return new Promise(function(resolve) {
-          jake.Task['scaffold:rem'].addListener('complete', resolve).invoke(generator.name);
+          jake.Task['scaffold:rem']
+          .addListener('complete', resolve)
+          .invoke(generator.name);
         });
       });
     }
@@ -45,7 +52,7 @@ namespace('rem', function() {
 });
 
 function editBower(callback) {
-  var json = jsonfile.readFileSync('bower.json');
+  var json = jsonfile.readFileSync(bowerFile);
   callback.call(json);
-  jsonfile.writeFileSync('bower.json', json);
+  jsonfile.writeFileSync(bowerFile, json);
 }
