@@ -3,6 +3,7 @@ require('sugar');
 var Promise = require('bluebird');
 var util = require('util');
 var config = require('../brunch-config').config;
+var platforms = require('../setup/platform').platforms;
 
 // Set default task to list available tasks
 task('default', function() {
@@ -11,8 +12,10 @@ task('default', function() {
 
 // Tasks that are used to clean build directories from Brunch
 namespace('clean', function() {
-  task('web', function() {
-    jake.rmRf(config.overrides['web:dev'].paths.public, {silent: true});
+  platforms.forEach(function(platform) {
+    task(platform, function() {
+      jake.rmRf(config.overrides['web:' + platform].paths.public, {silent: true});
+    });
   });
 });
 
