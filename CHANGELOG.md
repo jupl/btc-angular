@@ -2,6 +2,7 @@
 
 ### WIP
 - Fix potential issues in test tasks
+- Add `normalize.css` to available modules to add
 
 #### 0.4.1 (November 5, 2013)
 - Update EditorConfig

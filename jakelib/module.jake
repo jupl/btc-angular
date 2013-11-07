@@ -15,6 +15,13 @@ namespace('add', function() {
     });
   });
 
+  desc('Add normalize.css');
+  task('normalize', function() {
+    editBower(function() {
+      this.dependencies['normalize-css'] = '~2.1.3';
+    });
+  });
+
   generators.forEach(function(generator) {
     if(generator.isModule) {
       desc('Add ' + generator.description);
@@ -34,6 +41,13 @@ namespace('rem', function() {
   task('jquery', function() {
     editBower(function() {
       delete this.dependencies.jquery;
+    });
+  });
+
+  desc('Remove normalize.css');
+  task('normalize', function() {
+    editBower(function() {
+      delete this.dependencies['normalize-css'];
     });
   });
 
