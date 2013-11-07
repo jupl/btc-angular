@@ -3,7 +3,7 @@
 ### WIP
 - Fix potential issues in test tasks
 
-### 0.4.1 (November 5, 2013)
+#### 0.4.1 (November 5, 2013)
 - Update EditorConfig
 - Scaffolt generators are automatically made into generators (requires a name) or modules. (do not require a name) This is done by checking the `isModule` property of a `generator.json` file.
 - Test modules for code testing are more specific
