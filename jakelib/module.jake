@@ -16,6 +16,13 @@ namespace('add', function() {
     });
   });
 
+  desc('Add normalize.css');
+  task('normalize', function() {
+    editBower(function() {
+      this.dependencies['normalize-css'] = '~2.1.3';
+    });
+  });
+
   desc('Add FastClick (remove click delay in mobile)');
   task('fastclick', function() {
     editBower(function() {
@@ -23,7 +30,7 @@ namespace('add', function() {
     });
   });
 
-  desc('Add Hammer.js standalone (remove click delay in mobile)');
+  desc('Add Hammer.js (touch library)');
   task('hammer', function() {
     editBower(function() {
       this.dependencies.hammerjs = '~1.0.5';
@@ -63,13 +70,19 @@ namespace('rem', function() {
     });
   });
 
+  desc('Remove normalize.css');
+  task('normalize', function() {
+    editBower(function() {
+      delete this.dependencies['normalize-css'];
+    });
+  });
+
   desc('Remove FastClick');
   task('fastclick', function() {
     editBower(function() {
       delete this.dependencies.fastclick;
     });
   });
-
 
   desc('Remove Hammer.js');
   task('hammer', function() {

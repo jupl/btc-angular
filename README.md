@@ -68,7 +68,10 @@ Download and preinstall any Bower dependencies in advance. You can run this if y
 These commands add additional features/items to the project that are not included by default.
 
 #### `add:jquery` / `rem:jquery`
-Add/remove [jQuery](http://jquery.com/) to/from the project.
+Add/remove the ubiquitous library [jQuery](http://jquery.com/) to/from the project.
+
+#### `add:normalize` / `rem:normalize`
+Add/remove [normalize.css](http://necolas.github.io/normalize.css/) to ensure a consistent starting point in styling between different browsers.
 
 #### `add:fastclick` / `rem:fastclick`
 Add/remove FastClick to/from the project for optimized click events in touch devices. Visit their [page](https://github.com/ftlabs/fastclick) for more information and instructions.
