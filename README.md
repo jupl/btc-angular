@@ -69,7 +69,7 @@ Add/remove the ubiquitous library [jQuery](http://jquery.com/) to/from the proje
 
 
 #### `add:normalize` / `rem:normalize`
-Add/remove [normalize.css](http://necolas.github.io/normalize.css/) to ensure a consistent starting point between browsers.
+Add/remove [normalize.css](http://necolas.github.io/normalize.css/) to ensure a consistent starting point in styling between different browsers.
 
 
 ### Scaffolding
