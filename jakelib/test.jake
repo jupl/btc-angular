@@ -9,9 +9,9 @@ namespace('test', function() {
   desc('Run all tests');
   task('all', function() {
     return new Promise(function(resolve) {
-      console.log('Code testing\n------------');
+      console.log('\nCode testing\n------------');
       jake.Task['test:code'].addListener('complete', function() {
-        console.log('Site testing\n------------')
+        console.log('\nSite testing\n------------')
         jake.Task['test:site'].addListener('complete', resolve).execute();
       }).execute();
     });
