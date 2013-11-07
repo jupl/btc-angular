@@ -165,5 +165,6 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 
 ### Utilities
 - [jQuery](http://jquery.com/)
+- [normalize.css](http://necolas.github.io/normalize.css/)
 - [FastClick](https://github.com/ftlabs/fastclick)
 - [Hammer.js](http://eightmedia.github.io/hammer.js/)
