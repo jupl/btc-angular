@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.3.1 (November 7, 2013)
+- Check for existing of `cordova` variable, not `device` in testing
+
 ### 0.3.0 (November 6, 2013)
 - Update BTC
 - Update Cordova
