@@ -1,5 +1,5 @@
 // Scaffolt non-module generator tasks
-var generators = require('./lib/generators');
+var generators = require('./lib').generators;
 var Promise = require('bluebird');
 
 // Iterate over non-module generators for creating tasks that scaffold
