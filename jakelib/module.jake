@@ -1,6 +1,6 @@
 // Tasks to add modules to the project that are not included by default.
 // This is usually either Bower packages or module-based Scaffolt generators.
-var generators = require('./lib/generators');
+var generators = require('./lib').generators;
 var jsonfile = require('jsonfile');
 var Promise = require('bluebird');
 var resolvePath = require('./lib').resolvePath;
