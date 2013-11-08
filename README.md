@@ -11,7 +11,17 @@ Aang Brunch is a skeleton to for building [AngularJS](http://angularjs.org/) app
 ## File Structure
 
     ├── app                 # App is built here. Look at Brunch for more info.
-    │   └── assets          # Static files that are just copied
+    │   ├── assets          # Static files that are just copied
+    │   ├── controllers     # Angular controllers
+    │   ├── directives      # Angular directives
+    │   ├── factories       # Angular factories
+    │   ├── filters         # Angular filters
+    │   ├── partials        # HTML partials for Angular (templates and stylesheets)
+    │   ├── services        # Angular services
+    │   ├── app.js          # Configure main application module
+    │   ├── app.styl        # Application/page styling definition
+    │   ├── base.styl       # Stylus variables and mixins for the application
+    │   └── config.js       # Declare and setup Angular modules
     ├── bower_components    # Packages installed by Bower
     ├── generators          # Generators used by Scaffolt
     ├── jakelib             # Unified set of tasks for development
