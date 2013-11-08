@@ -34,6 +34,6 @@ namespace('server', function() {
 
   desc('Build project for production, rebuild on changes, and host locally');
   task('prod', ['bower:install', 'clean:web'], function() {
-    return execute(localBinCommand('brunch', 'w -s -e web:dev'));
+    return execute(localBinCommand('brunch', 'w -s -e web:prod'));
   });
 });
