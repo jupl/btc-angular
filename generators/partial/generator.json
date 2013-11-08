@@ -1,0 +1,14 @@
+{
+  "description": "partial for Angular (template and stylesheet)",
+  "files": [
+    {
+      "from": "template.html.hbs",
+      "to": "app/partials/{{name}}/template.html"
+    },
+    {
+      "from": "style.styl.hbs",
+      "to": "app/partials/{{name}}/style.styl"
+    }
+  ],
+  "dependencies": []
+}

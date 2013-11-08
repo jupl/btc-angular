@@ -6,6 +6,12 @@ exports.config = setup({
     wrapper: false
   },
 
+  angularTemplate: {
+    pathToSrc: function(path) {
+      return /^app\/(.+)\/template$/.exec(path)[1]
+    }
+  },
+
   files: {
     javascripts: {
       joinTo: {
@@ -13,7 +19,7 @@ exports.config = setup({
         'javascripts/vendor.js': /^(vendor|bower_components)/
       },
       order: {
-        before: ['app/config/modules.js']
+        before: ['app/config.js']
       }
     },
 

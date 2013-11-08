@@ -1,0 +1,10 @@
+{
+  "description": "Angular service",
+  "files": [
+    {
+      "from": "service.js.hbs",
+      "to": "app/services/{{name}}.js"
+    }
+  ],
+  "dependencies": []
+}

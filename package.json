@@ -18,6 +18,7 @@
     "javascript-brunch": ">= 1.0 < 1.8",
     "css-brunch": ">= 1.0 < 1.8",
     "stylus-brunch": ">= 1.0 < 1.8",
+    "aang-template-brunch": ">= 1.0 < 1.8",
     "auto-reload-brunch": ">= 1.0 < 1.8",
     "clean-css-brunch": ">= 1.0 < 1.8",
     "uglify-js-brunch": ">= 1.0 < 1.8"
