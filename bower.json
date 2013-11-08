@@ -7,11 +7,6 @@
   ],
   "dependencies": {
     "angular": "~1.2.0",
-    "angular-ui-router": "~0.2.0"
-  },
-  "overrides": {
-    "angular-ui-router": {
-      "main": "release/angular-ui-router.js"
-    }
+    "angular-route": "~1.2.0"
   }
 }
