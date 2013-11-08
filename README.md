@@ -151,3 +151,4 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 
 ### Utilities
 - [Nib](http://visionmedia.github.io/nib/)
+- [AngularUI Router](https://github.com/angular-ui/ui-router)
