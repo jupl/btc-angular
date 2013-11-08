@@ -1,0 +1,10 @@
+{
+  "description": "Angular directive",
+  "files": [
+    {
+      "from": "directive.js.hbs",
+      "to": "app/directives/{{#dasherize}}{{name}}{{/dasherize}}.js"
+    }
+  ],
+  "dependencies": []
+}

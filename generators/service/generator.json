@@ -3,7 +3,7 @@
   "files": [
     {
       "from": "service.js.hbs",
-      "to": "app/services/{{name}}.js"
+      "to": "app/services/{{#dasherize}}{{name}}{{/dasherize}}.js"
     }
   ],
   "dependencies": []
