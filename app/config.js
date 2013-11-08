@@ -8,5 +8,6 @@ angular.module('app', [
   'app.directives',
   'app.factories',
   'app.filters',
-  'app.services'
+  'app.services',
+  'ui.router'
 ]);

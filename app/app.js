@@ -1,9 +1,16 @@
 angular.module('app').config([
-  '$routeProvider',
+  '$stateProvider',
+  '$urlRouterProvider',
   '$locationProvider',
-  function($routeProvider, $locationProvider) {
-    // Set up router
-    $routeProvider.otherwise({templateUrl: 'partials/index'});
+  function($stateProvider, $urlRouterProvider, $locationProvider) {
+    // Set up routes
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider.state('index', {
+      url: '/',
+      templateUrl: 'partials/index'
+    });
+
     $locationProvider.html5Mode(true);
   }
 ])
