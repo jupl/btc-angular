@@ -1,5 +1,8 @@
 # Changelog
 
+### WIP
+- Fix issue with `addIgnored`
+
 #### 0.5.1 (November 9, 2013)
 - Ignore Bower files related to testing internally
 
