@@ -34,17 +34,10 @@ function devEnvironment(config) {
 
   // Add test javascript files
   jsJoinTo['test/javascripts/tests.js'] = /^test[\\\/]code/;
-  jsJoinTo['test/javascripts/vendor.js'] = /^test[\\\/]vendor/;
-  if(!config.files.javascripts.order) {
-    config.files.javascripts.order = {};
-  }
-  if(!config.files.javascripts.order.after) {
-    config.files.javascripts.order.after = [];
-  }
-  config.files.javascripts.order.after.push('test/vendor/test-setup.js');
+  jsJoinTo['test/javascripts/vendor.js'] = /^bower_components[\\\/](chai|mocha|sinon)/;
 
   // Add test css files
-  cssJoinTo['test/stylesheets/test.css'] = /^test/;
+  cssJoinTo['test/stylesheets/test.css'] = /^bower_components[\\\/]mocha/;
 }
 
 /**

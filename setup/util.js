@@ -26,10 +26,10 @@ exports.addIgnored = function(config) {
       if(test === file) {
         return true;
       }
-      if(Object.isFunction(ignored) && test(file)) {
+      if(Object.isFunction(test) && test(file)) {
         return true;
       }
-      if(Object.isRegExp(ignored) && test.test(file)) {
+      if(Object.isRegExp(test) && test.test(file)) {
         return true;
       }
     }

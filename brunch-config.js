@@ -5,13 +5,13 @@ exports.config = setup({
     javascripts: {
       joinTo: {
         'javascripts/app.js': /^app/,
-        'javascripts/vendor.js': /^(vendor|bower_components)/
+        'javascripts/vendor.js': /^(vendor|bower_components[\\\/](?!chai|mocha|sinon))/
       }
     },
 
     stylesheets: {
       joinTo: {
-        'stylesheets/app.css': /^(app|vendor|bower_components)/
+        'stylesheets/app.css': /^(app|vendor|bower_components[\\\/](?!chai|mocha|sinon))/
       }
     },
 

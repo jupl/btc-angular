@@ -3,6 +3,8 @@
 ### WIP
 - Fix potential issues in test tasks
 - Add `normalize.css` to available modules to add
+- Replace Mocha PhantomJS with Karma
+- Remove `test/vendor` files
 
 #### 0.4.1 (November 5, 2013)
 - Update EditorConfig
