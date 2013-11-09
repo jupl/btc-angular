@@ -6,6 +6,7 @@ module.exports = function(config) {
   config.set({
     autoWatch: true,
     browsers: ['PhantomJS'],
+    reporters: ['progress'],
     frameworks: ['mocha', 'chai', 'sinon-chai'],
     files: [
       path.resolve(__dirname, '../node_modules/mocha-as-promised/mocha-as-promised.js'),

@@ -6,6 +6,7 @@
 - Fix bug in `addIgnored`
 - Replace Mocha PhantomJS with Karma
 - Remove `test/vendor` files
+- Add autorun support in site testing using nodemon
 
 #### 0.4.1 (November 5, 2013)
 - Update EditorConfig

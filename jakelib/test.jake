@@ -72,6 +72,13 @@ namespace('test', function() {
     var reporter = process.env.reporter ? '-R ' + process.env.reporter : '';
     var command = localBinCommand('mocha', reporter);
 
+    // Set up tests that are to run continuously using nodemon
+    if(process.env.watch === 'true') {
+      var args = '--watch ' + publicPath;
+      args += ' --watch ' + resolvePath('test/site');
+      command = localBinCommand('nodemon', args + ' ' + command);
+    }
+
     return new Promise(function(resolve, reject) {
       phantom.catch(reject);
       server.catch(reject);
