@@ -24,7 +24,8 @@ namespace('test', function() {
   desc('Run code-based tests using Karma');
   task('code', ['bower:install', 'clean:web'], function() {
     var configFile = resolvePath('test/karma.conf.js');
-    var command = localBinCommand('karma', 'start ' + configFile);
+    var reporter = process.env.reporter ? ' --reporters ' + process.env.reporter : '';
+    var command = localBinCommand('karma', 'start ' + configFile + reporter);
 
     // Default behavior is to run tests once
     if(process.env.watch !== 'true') {

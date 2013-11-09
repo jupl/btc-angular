@@ -86,11 +86,11 @@ Tests leverage [PhantomJS](http://phantomjs.org/), [Mocha](http://visionmedia.gi
 #### `test:all`
 Run all tests listed below once.
 
-#### `test:code [watch=false]`
-Run code-based tests (ex. unit tests) using Karma. Karma is preconfigured out of the box to run with PhantomJS. If you run this task with `watch=true` Karma will auto-run on file changes. Otherwise by default Karma runs once. In addition, if you run a build (see below) with the `dev` environment the tests are included with a reporter under `test` to run in browsers. (ex. visit `http://locahost:[port]/test`)
+#### `test:code [reporter=[reporter]] [watch=false]`
+Run code-based tests (ex. unit tests) using Karma. Karma is preconfigured out of the box to run with PhantomJS. A Karma reporter can be specified with the `reporter` option. If you run this task with `watch=true` Karma will auto-run on file changes. Otherwise by default Karma runs once. In addition, if you run a build (see below) with the `dev` environment the tests are included with a reporter under `test` to run in browsers. (ex. visit `http://locahost:[port]/test`)
 
 #### `test:site [reporter=spec]`
-Run site-based tests (ex. system tests) using Mocha and WebDriverJS. A Brunch server is started up temporarily to interact with the site. Since Mocha is used, the reporter can be specified. (ex: jake test:all reporter=min) By default spec reporter is used. The global method `getDriver` is provided to get a setup and built driver. WebDriverJS' use of Promises can be combined with Mocha as Promised to handle asynchronous behavior easily. ex:
+Run site-based tests (ex. system tests) using Mocha and WebDriverJS. A Brunch server is started up temporarily to interact with the site. A Mocha reporter can be specified with the `reporter` option. (ex: jake test:all reporter=min) By default spec reporter is used. The global method `getDriver` is provided to get a setup and built driver. WebDriverJS' use of Promises can be combined with Mocha as Promised to handle asynchronous behavior easily. ex:
 
 ```js
 describe('Sample', function() {
