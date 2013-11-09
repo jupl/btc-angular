@@ -38,7 +38,7 @@ namespace('test', function() {
     }
     // Otherwise, build
     else {
-      var server = execute(localBinCommand('brunch', 'w -s -e web:dev'));
+      var server = execute(localBinCommand('brunch', 'w -e web:dev'));
       return new Promise(function(resolve, reject) {
         server.catch(reject);
         var id = setInterval(function() {
@@ -65,7 +65,7 @@ namespace('test', function() {
   desc('Run site-based tests using Mocha and WebDriverJS');
   task('site', ['bower:install', 'clean:web'], function() {
     var phantom = execute(localBinCommand('phantomjs', '--webdriver=4444'));
-    var server = execute(localBinCommand('brunch', 'w -s -e web:dev'));
+    var server = execute(localBinCommand('brunch', 'w -s -e web:prod'));
     var reporter = process.env.reporter ? '-R ' + process.env.reporter : '';
     var command = localBinCommand('mocha', reporter);
 
