@@ -13,6 +13,10 @@
   <script src="javascripts/tests.js"></script>
 
   <script>
+    // Set up Mocha and Chai
+    mocha.setup('bdd');
+    window.expect = chai.expect;
+
     // Load all test modules (modules have a -test suffix)
     if(window.require) {
       (function() {
@@ -25,9 +29,6 @@
       })();
     }
 
-    // Set up Mocha
-    mocha.setup('bdd');
-    window.expect = chai.expect;
     mocha.run();
   </script>
 </body>
