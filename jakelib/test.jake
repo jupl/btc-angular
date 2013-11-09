@@ -26,7 +26,7 @@ namespace('test', function() {
     var configFile = resolvePath('test/karma.conf.js');
     var command = localBinCommand('karma', 'start ' + configFile);
 
-    // If we are not
+    // Default behavior is to run tests once
     if(process.env.watch !== 'true') {
       return new Promise(function(resolve) {
         jake.Task['build:dev'].addListener('complete', function() {
@@ -36,7 +36,7 @@ namespace('test', function() {
         .execute();
       });
     }
-    // Otherwise, build
+    // Also tests can be run continuously
     else {
       var server = execute(localBinCommand('brunch', 'w -e web:dev'));
       return new Promise(function(resolve, reject) {
