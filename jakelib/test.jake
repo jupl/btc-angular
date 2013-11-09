@@ -14,8 +14,10 @@ namespace('test', function() {
     process.env.watch = null;
     return new Promise(function(resolve) {
       console.log('\nCode testing\n------------');
+      process.env.reporter = process.env.codereporter;
       jake.Task['test:code'].addListener('complete', function() {
         console.log('\nSite testing\n------------')
+        process.env.reporter = process.env.sitereporter;
         jake.Task['test:site'].addListener('complete', resolve).execute();
       }).execute();
     });
