@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+### 0.5.0 (November 9, 2013)
 - Fix potential issues in test tasks
 - Add `normalize.css` to available modules to add
 - Fix bug in `addIgnored`
