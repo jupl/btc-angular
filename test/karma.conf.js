@@ -7,7 +7,7 @@ module.exports = function(config) {
     browsers: ['PhantomJS'],
     frameworks: ['mocha', 'chai', 'sinon-chai'],
     files: [
-      path.resolve(__dirname, 'node_modules/mocha-as-promised/mocha-as-promised.js'),
+      path.resolve(__dirname, '../node_modules/mocha-as-promised/mocha-as-promised.js'),
       path.resolve(publicPath, '**/*.js'),
       path.resolve(__dirname, 'code/*.js'),
       path.resolve(__dirname, 'code/**/*.js')
