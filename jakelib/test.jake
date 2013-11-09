@@ -4,71 +4,93 @@ var execute = require('./lib').execute;
 var localBinCommand = require('./lib').localBinCommand;
 var path = require('path');
 var Promise = require('bluebird');
+var resolvePath = require('./lib').resolvePath;
+
+var publicPath = resolvePath(config.paths.public);
 
 namespace('test', function() {
   desc('Run all tests');
   task('all', function() {
+    process.env.watch = null;
     return new Promise(function(resolve) {
       console.log('\nCode testing\n------------');
+      process.env.reporter = process.env.codereporter;
       jake.Task['test:code'].addListener('complete', function() {
         console.log('\nSite testing\n------------')
+        process.env.reporter = process.env.sitereporter;
         jake.Task['test:site'].addListener('complete', resolve).execute();
       }).execute();
     });
   });
 
-  desc('Run code-based tests using Mocha PhantomJS');
+  desc('Run code-based tests using Karma');
   task('code', ['bower:install', 'clean:web'], function() {
-    var server = execute(localBinCommand('brunch', 'w -s -e web:dev'));
-    var reporter = process.env.reporter ? '-R ' + process.env.reporter : '';
-    var url = 'http://localhost:' + config.server.port + '/test';
-    var command = localBinCommand('mocha-phantomjs', url + ' ' + reporter);
+    var configFile = resolvePath('test/karma.conf.js');
+    var reporter = process.env.reporter ? ' --reporters ' + process.env.reporter : '';
+    var command = localBinCommand('karma', 'start ' + configFile + reporter);
 
-    return new Promise(function(resolve, reject) {
-      server.catch(reject);
-      var id = setInterval(function() {
-        // Check if public folder is not empty
-        var publicReady;
-        try {
-          publicReady = !!jake.readdirR(config.paths.public).length
-        }
-        catch(e) {
-        }
+    // Default behavior is to run tests once
+    if(process.env.watch !== 'true') {
+      return new Promise(function(resolve) {
+        jake.Task['build:dev'].addListener('complete', function() {
+          console.log('');
+          resolve(execute(command + ' --single-run'));
+        })
+        .execute();
+      });
+    }
+    // Also tests can be run continuously
+    else {
+      var server = execute(localBinCommand('brunch', 'w -e web:dev'));
+      return new Promise(function(resolve, reject) {
+        server.catch(reject);
+        var id = setInterval(function() {
+          try { // Check if public folder is not empty
+            var publicReady = !!jake.readdirR(publicPath).length
+          }
+          catch(e) {
+          }
 
-        if(publicReady) {
-          clearInterval(id);
-          execute(command).then(resolve, reject);
+          if(typeof publicReady !== 'undefined' && publicReady) {
+            clearInterval(id);
+            execute(command + ' --no-single-run').then(resolve, reject);
+          }
+        }, 1000);
+      })
+      .finally(function() {
+        if(!server.isFulfilled()) {
+          server.cancel();
         }
-      }, 1000);
-    })
-    // Make sure to stop server on success or fail
-    .finally(function() {
-      if(!server.isFulfilled()) {
-        server.cancel();
-      }
-    });
+      });
+    }
   });
 
-  desc('Run site-based tests using PhantomJS and WebDriverJS');
+  desc('Run site-based tests using Mocha and WebDriverJS');
   task('site', ['bower:install', 'clean:web'], function() {
     var phantom = execute(localBinCommand('phantomjs', '--webdriver=4444'));
-    var server = execute(localBinCommand('brunch', 'w -s -e web:dev'));
+    var server = execute(localBinCommand('brunch', 'w -s -e web:prod'));
     var reporter = process.env.reporter ? '-R ' + process.env.reporter : '';
     var command = localBinCommand('mocha', reporter);
+
+    // Set up tests that are to run continuously using nodemon
+    if(process.env.watch === 'true') {
+      var args = '--watch ' + publicPath;
+      args += ' --watch ' + resolvePath('test/site');
+      command = localBinCommand('nodemon', args + ' ' + command);
+    }
 
     return new Promise(function(resolve, reject) {
       phantom.catch(reject);
       server.catch(reject);
       var id = setInterval(function() {
         // Check if public folder is not empty
-        var publicReady;
         try {
-          publicReady = !!jake.readdirR(config.paths.public).length
+          var publicReady = !!jake.readdirR(publicPath).length
         }
         catch(e) {
         }
 
-        if(publicReady) {
+        if(typeof publicReady !== 'undefined' && publicReady) {
           clearInterval(id);
           execute(command).then(resolve, reject);
         }

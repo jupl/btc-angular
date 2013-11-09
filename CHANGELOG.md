@@ -1,5 +1,10 @@
 # Changelog
 
+### 0.4.0 (November 9, 2013)
+- Update BTC
+- Add device.js
+- Fix bug with package name
+
 #### 0.3.1 (November 7, 2013)
 - Check for existing of `cordova` variable, not `device` in testing
 

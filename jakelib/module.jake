@@ -1,6 +1,5 @@
 // Tasks to add modules to the project that are not included by default.
 // This is usually either Bower packages or module-based Scaffolt generators.
-var devices = require('./lib').devices;
 var generators = require('./lib').generators;
 var jsonfile = require('jsonfile');
 var Promise = require('bluebird');
@@ -48,6 +47,16 @@ namespace('add', function() {
     });
   });
 
+  desc('Add device.js (device information for CSS and JS)');
+  task('devicejs', function() {
+    editBower(function() {
+      this.dependencies.devicejs = 'https://github.com/matthewhudson/device.js';
+      this.overrides.devicejs = {
+        main: 'lib/device.js'
+      };
+    });
+  });
+
   generators.forEach(function(generator) {
     if(generator.isModule) {
       desc('Add ' + generator.description);
@@ -89,6 +98,14 @@ namespace('rem', function() {
     editBower(function() {
       delete this.dependencies.hammerjs;
       delete this.overrides.hammerjs;
+    });
+  });
+
+  desc('Remove device.js');
+  task('devicejs', function() {
+    editBower(function() {
+      delete this.dependencies.devicejs;
+      delete this.overrides.devicejs;
     });
   });
 
