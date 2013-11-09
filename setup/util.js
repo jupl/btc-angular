@@ -22,8 +22,10 @@ exports.addIgnored = function(config) {
   // Set up the new ignored function
   config.conventions.ignored = function(file) {
     // Check if any of the given tests pass
-    for(var index = 0, test = tests[index]; index < tests.length; index++) {
-      if(test === file) {
+    for(var index = 0; index < tests.length; index++) {
+      var test = tests[index];
+
+      if(Object.isString(test) && test === file) {
         return true;
       }
       if(Object.isFunction(test) && test(file)) {
@@ -35,6 +37,9 @@ exports.addIgnored = function(config) {
     }
 
     // Otherwise, delegate to the original ignored declaration
+    if(Object.isString(ignored)) {
+      return ignored === file;
+    }
     if(Object.isFunction(ignored)) {
       return ignored(file);
     }
