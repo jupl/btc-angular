@@ -90,7 +90,7 @@ Run all tests listed below once.
 Run code-based tests (ex. unit tests) using Karma. Karma is preconfigured out of the box to run with PhantomJS. If you run this task with `watch=true` Karma will auto-run on file changes. Otherwise by default Karma runs once. In addition, if you run a build (see below) with the `dev` environment the tests are included with a reporter under `test` to run in browsers. (ex. visit `http://locahost:[port]/test`)
 
 #### `test:site [reporter=[reporter]]`
-Run site-based tests (ex. system tests) using Mocha and WebDriverJS. A Brunch server is started up temporarily to interact with the site. You can specify which Mocha test reporter to use instead of the default. The global method `getDriver` is provided to get a setup and built driver. [Mocha as Promised](https://github.com/domenic/mocha-as-promised) is included to leverage WebDriverJS' use of Promises and handle asynchronous behavior easily. ex:
+Run site-based tests (ex. system tests) using Mocha and WebDriverJS. A Brunch server is started up temporarily to interact with the site. Since Mocha is used, the reporter can be specified. (ex: jake test:all reporter=min) By default spec reporter is used. The global method `getDriver` is provided to get a setup and built driver. [Mocha as Promised](https://github.com/domenic/mocha-as-promised) is included to leverage WebDriverJS' use of Promises and handle asynchronous behavior easily. ex:
 
 ```js
 describe('Sample', function() {
