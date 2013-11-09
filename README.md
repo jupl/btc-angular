@@ -79,6 +79,11 @@ Add/remove FastClick to/from the project for optimized click events in touch dev
 #### `add:hammer` / `add:hammerjquery` / `rem:hammer`
 Add/remove Hammer.js (standalone or jQuery plugin) to/from the project for touch event handling. Visit their [page](http://eightmedia.github.io/hammer.js/) for more information.
 
+#### `add:devicejs` / `rem:devicejs`
+Add/remove Device.js to handle different device options in CSS and JavaScript. Visit their [page](http://matthewhudson.me/projects/device.js/) for more information.
+
+**NOTE**: Make sure to take a look at the `noConflict` method to avoid issues with the use of the `device` variable in Cordova.
+
 
 ### Cordova
 These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app. `[device]` denotes the application device to build under. (Currently supporting `ios` and `android`) If you need access to the Cordova JavaScript from your page use the script tag: `<script src="cordova.js"></script>`
@@ -168,3 +173,4 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 - [normalize.css](http://necolas.github.io/normalize.css/)
 - [FastClick](https://github.com/ftlabs/fastclick)
 - [Hammer.js](http://eightmedia.github.io/hammer.js/)
+- [device.js](http://matthewhudson.me/projects/device.js/)

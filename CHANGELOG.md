@@ -1,5 +1,9 @@
 # Changelog
 
+### WIP
+- Update BTC
+- Add device.js
+
 #### 0.3.1 (November 7, 2013)
 - Check for existing of `cordova` variable, not `device` in testing
 
