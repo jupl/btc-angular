@@ -4,6 +4,7 @@ var publicPath = path.resolve(__dirname, '..', brunchConfig.paths.public);
 
 module.exports = function(config) {
   config.set({
+    autoWatch: true,
     browsers: ['PhantomJS'],
     frameworks: ['mocha', 'chai', 'sinon-chai'],
     files: [
