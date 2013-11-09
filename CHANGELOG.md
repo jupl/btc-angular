@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+#### 0.5.1 (November 9, 2013)
 - Ignore Bower files related to testing internally
 
 ### 0.5.0 (November 9, 2013)
