@@ -88,7 +88,7 @@ Add/remove Device.js to handle different device options in CSS and JavaScript. V
 ### Cordova
 These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app. `[device]` denotes the application device to build under. (Currently supporting `ios` and `android`) If you need access to the Cordova JavaScript from your page use the script tag: `<script src="cordova.js"></script>`
 
-#### `cordova:init [package=[package] [name=[name]]]`
+#### `cordova:init [package=io.cordova.hellocordova [name=HelloCordova]]`
 Create a new Cordova project using [cordova-cli](https://github.com/apache/cordova-cli).
 - Package and name options are optional, which uses the default Cordova options. If you specify `name`, you must also specify `package`.
 - Project will reside in `cordova/`. If an existing project exists when running this task, it will be replaced with a new one.

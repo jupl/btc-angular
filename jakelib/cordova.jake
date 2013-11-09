@@ -50,7 +50,6 @@ namespace('cordova', function() {
 
     validateProject(package, name);
     if(package) {
-      package = package.dasherize().replace(/-/g, '.');
       if(name) {
         name = name.camelize();
       }
@@ -107,7 +106,7 @@ function validateDevice(device) {
 }
 
 function validateProject(packageName, appName) {
-  if(packageName && !packageName.dasherize().has('-')) {
+  if(packageName && !/(\w+\.)+\w+/.test(packageName)) {
     fail('Invalid package name');
   }
   else if(appName && !packageName) {
