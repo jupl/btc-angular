@@ -1,8 +1,9 @@
 // These are tasks that are undocumented, as they tend to be used by other tasks.
 require('sugar');
-var Promise = require('bluebird');
-var util = require('util');
 var config = require('../brunch-config').config;
+var execute = require('./lib').execute;
+var localBinCommand = require('./lib').localBinCommand;
+var platforms = require('../setup/platform').platforms;
 
 // Set default task to list available tasks
 task('default', function() {
@@ -11,8 +12,11 @@ task('default', function() {
 
 // Tasks that are used to clean build directories from Brunch
 namespace('clean', function() {
-  task('web', function() {
-    jake.rmRf(config.overrides['web:dev'].paths.public, {silent: true});
+  platforms.forEach(function(platform) {
+    var publicPath = config.overrides[platform + ':dev'].paths.public;
+    task(platform, function() {
+      jake.rmRf(publicPath, {silent: true});
+    });
   });
 });
 
@@ -21,32 +25,28 @@ namespace('clean', function() {
 // 'placeholder' is used)
 namespace('scaffold', function() {
   task('gen', function(type) {
-    if(!process.env.name) {
-      fail('name parameter is required. ex: jake gen:[type] name=[name]');
-    }
-    return new Promise(function(resolve) {
-      jake.exec(util.format('./node_modules/.bin/scaffolt %s %s', type, process.env.name.dasherize()), {interactive: true}, resolve);
-    });
+    var name = process.env.name;
+    validateName(name);
+    return execute(localBinCommand('scaffolt', type + ' ' + name));
   });
 
   task('del', function(type) {
-    if(!process.env.name) {
-      fail('name parameter is required. ex: jake del:[type] name=[name]');
-    }
-    return new Promise(function(resolve) {
-      jake.exec(util.format('./node_modules/.bin/scaffolt %s %s -r', type, process.env.name.dasherize()), {interactive: true}, resolve);
-    });
+    var name = process.env.name;
+    validateName(name);
+    return execute(localBinCommand('scaffolt', type + ' ' + name + ' -r'));
   });
 
   task('add', function(type) {
-    return new Promise(function(resolve) {
-      jake.exec(util.format('./node_modules/.bin/scaffolt %s placeholder', type), {interactive: true}, resolve);
-    });
+    return execute(localBinCommand('scaffolt', type + ' placeholder'));
   });
 
   task('rem', function(type) {
-    return new Promise(function(resolve) {
-      jake.exec(util.format('./node_modules/.bin/scaffolt %s placeholder -r', type), {interactive: true}, resolve);
-    });
+    return execute(localBinCommand('scaffolt', type + ' placeholder -r'));
   });
 });
+
+function validateName(name) {
+  if(!name) {
+    fail('name parameter is required. ex: jake ... name=[name]');
+  }
+}

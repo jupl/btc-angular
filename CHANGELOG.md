@@ -1,6 +1,14 @@
 # Changelog
 
-### 0.4.1 (November 5, 2013)
+### 0.5.0 (November 9, 2013)
+- Fix potential issues in test tasks
+- Add `normalize.css` to available modules to add
+- Fix bug in `addIgnored`
+- Replace Mocha PhantomJS with Karma
+- Remove `test/vendor` files
+- Add autorun support in site testing using nodemon
+
+#### 0.4.1 (November 5, 2013)
 - Update EditorConfig
 - Scaffolt generators are automatically made into generators (requires a name) or modules. (do not require a name) This is done by checking the `isModule` property of a `generator.json` file.
 - Test modules for code testing are more specific
