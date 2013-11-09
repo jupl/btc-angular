@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+### 0.4.0 (November 9, 2013)
 - Update BTC
 - Add device.js
 - Fix bug with package name
