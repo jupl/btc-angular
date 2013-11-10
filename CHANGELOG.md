@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.5.3 (November 9, 2013)
+- Make sure `vendor` file is loaded first when testing in Karma
+
 ### 0.5.2 (November 9, 2013)
 - Fix issue with `addIgnored`
 
