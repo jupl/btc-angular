@@ -1,5 +1,8 @@
 # Changelog
 
+### WIP
+- Update BTC
+
 ### 0.4.0 (November 9, 2013)
 - Update BTC
 - Add device.js
