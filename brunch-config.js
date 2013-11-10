@@ -8,7 +8,7 @@ exports.config = setup({
 
   angularTemplate: {
     pathToSrc: function(path) {
-      return /^app\/(.+)\/template$/.exec(path)[1]
+      return /^app\/(.+)/.exec(path)[1]
     }
   },
 
