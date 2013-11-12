@@ -30,7 +30,7 @@ namespace('test', function() {
     var command = localBinCommand('karma', 'start ' + configFile + reporter);
 
     // Default behavior is to run tests once
-    if(process.env.watch !== 'true') {
+    if(process.env.watch !== 'true' && process.env.watch !== 'server') {
       return new Promise(function(resolve) {
         jake.Task['build:dev'].addListener('complete', function() {
           console.log('');
@@ -41,7 +41,12 @@ namespace('test', function() {
     }
     // Also tests can be run continuously
     else {
-      var server = execute(localBinCommand('brunch', 'w -e web:dev'));
+      if(process.env.watch === 'server') {
+        var server = execute(localBinCommand('brunch', 'w -s -e web:dev'));
+      }
+      else {
+        var server = execute(localBinCommand('brunch', 'w -e web:dev'));
+      }
       return new Promise(function(resolve, reject) {
         server.catch(reject);
         var id = setInterval(function() {

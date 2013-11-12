@@ -1,5 +1,8 @@
 # Changelog
 
+### WIP
+- Add ability to run server in `test:code`
+
 ### 0.5.3 (November 9, 2013)
 - Make sure `vendor` file is loaded first when testing in Karma
 
