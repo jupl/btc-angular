@@ -47,7 +47,7 @@ function devEnvironment(config) {
  * @param  {Object} config
  */
 function prodEnvironment(config) {
-  addIgnored(config, /^test/);
+  addIgnored(config, /^test/, /angular-mocks\.js$/);
   config.optimize = true;
   config.sourceMaps = false;
   if(!config.plugins) {
