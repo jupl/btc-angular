@@ -16,8 +16,9 @@ Aang Brunch is a skeleton to for building [AngularJS](http://angularjs.org/) app
     │   ├── directives      # Angular directives
     │   ├── factories       # Angular factories
     │   ├── filters         # Angular filters
-    │   ├── partials        # HTML partials for Angular (templates and stylesheets)
     │   ├── services        # Angular services
+    │   ├── styles          # Stylus stylesheets
+    │   ├── templates       # HTML templates for Angular
     │   ├── app.js          # Configure main application module
     │   ├── app.styl        # Application/page styling definition
     │   ├── base.styl       # Stylus variables and mixins for the application

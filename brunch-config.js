@@ -6,12 +6,6 @@ exports.config = setup({
     wrapper: false
   },
 
-  angularTemplate: {
-    pathToSrc: function(path) {
-      return /^app\/(.+)/.exec(path)[1];
-    }
-  },
-
   files: {
     javascripts: {
       joinTo: {

@@ -1,0 +1,10 @@
+{
+  "description": "HTML template for Angular",
+  "files": [
+    {
+      "from": "template.html.hbs",
+      "to": "app/templates/{{#dasherize}}{{name}}{{/dasherize}}.html"
+    }
+  ],
+  "dependencies": []
+}

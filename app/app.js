@@ -3,7 +3,7 @@ angular.module('app').config([
   '$locationProvider',
   function($routeProvider, $locationProvider) {
     // Set up routes
-    $routeProvider.when('/', {templateUrl: 'partials/index/template.html'});
+    $routeProvider.when('/', {templateUrl: 'templates/index.html'});
     $routeProvider.otherwise('/');
     $locationProvider.html5Mode(true);
   }
