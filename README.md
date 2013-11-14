@@ -153,4 +153,4 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 ### Utilities
 - [Nib](http://visionmedia.github.io/nib/)
 - [Angular Route](http://docs.angularjs.org/api/ngRoute)
-- [Angular Mocks](http://docs.angularjs.org/api/angular.mock.module)
+- [Angular Mocks](http://docs.angularjs.org/api/angular.mock.module) (for testing)
