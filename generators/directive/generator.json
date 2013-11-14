@@ -4,6 +4,10 @@
     {
       "from": "directive.js.hbs",
       "to": "app/directives/{{#dasherize}}{{name}}{{/dasherize}}.js"
+    },
+    {
+      "from": "test.js.hbs",
+      "to": "test/code/directives/{{#dasherize}}{{name}}{{/dasherize}}.js"
     }
   ],
   "dependencies": []

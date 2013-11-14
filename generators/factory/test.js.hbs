@@ -1,0 +1,12 @@
+describe('{{#lowercamelize}}{{name}}{{/lowercamelize}}Factory', function() {
+  var {{#lowercamelize}}{{name}}{{/lowercamelize}}Factory;
+
+  beforeEach(function() {
+    module('app.factories');
+    inject(function(_{{#lowercamelize}}{{name}}{{/lowercamelize}}Factory_) {
+      {{#lowercamelize}}{{name}}{{/lowercamelize}}Factory = _{{#lowercamelize}}{{name}}{{/lowercamelize}}Factory_;
+    });
+  });
+
+
+});

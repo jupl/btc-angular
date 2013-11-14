@@ -4,6 +4,10 @@
     {
       "from": "factory.js.hbs",
       "to": "app/factories/{{#dasherize}}{{name}}{{/dasherize}}.js"
+    },
+    {
+      "from": "test.js.hbs",
+      "to": "test/code/factories/{{#dasherize}}{{name}}{{/dasherize}}.js"
     }
   ],
   "dependencies": []
