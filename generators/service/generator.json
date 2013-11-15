@@ -1,5 +1,5 @@
 {
-  "description": "Angular service",
+  "description": "Angular service using the service declaration",
   "files": [
     {
       "from": "service.js.hbs",

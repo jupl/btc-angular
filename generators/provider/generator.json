@@ -1,8 +1,8 @@
 {
-  "description": "Angular service using the factory declaration",
+  "description": "Angular service using the provider declaration",
   "files": [
     {
-      "from": "factory.js.hbs",
+      "from": "provider.js.hbs",
       "to": "app/services/{{#dasherize}}{{name}}{{/dasherize}}.js"
     },
     {

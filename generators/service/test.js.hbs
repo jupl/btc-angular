@@ -1,10 +1,10 @@
-describe('{{#lowercamelize}}{{name}}{{/lowercamelize}}Service', function() {
-  var {{#lowercamelize}}{{name}}{{/lowercamelize}}Service;
+describe('{{#lowercamelize}}{{name}}{{/lowercamelize}}', function() {
+  var {{#lowercamelize}}{{name}}{{/lowercamelize}};
 
   beforeEach(function() {
     module('app.services');
-    inject(function(_{{#lowercamelize}}{{name}}{{/lowercamelize}}Service_) {
-      {{#lowercamelize}}{{name}}{{/lowercamelize}}Service = _{{#lowercamelize}}{{name}}{{/lowercamelize}}Service_;
+    inject(function(_{{#lowercamelize}}{{name}}{{/lowercamelize}}_) {
+      {{#lowercamelize}}{{name}}{{/lowercamelize}} = _{{#lowercamelize}}{{name}}{{/lowercamelize}}_;
     });
   });
 
