@@ -8,6 +8,12 @@
 
 This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. It can be used for skeletons. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency.
 
+For fleshed out skeletons based on this one:
+- [Cordova Brunch](https://github.com/jupl/cordova-brunch) (Base skeleton with [Cordova](http://cordova.apache.org/))
+- [Aang Brunch](https://github.com/jupl/aang-brunch) ([AngularJS](http://angularjs.org/))
+- [Chapless Brunch](https://github.com/jupl/chapless-brunch) ([Chaplin](http://chaplinjs.org/))
+- [Cinder Brunch](https://github.com/jupl/cinder-brunch) ([Ember.js](http://emberjs.com/))
+
 
 ## File Structure
 
