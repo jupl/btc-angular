@@ -7,6 +7,8 @@
 ## Introduction
 Aang Brunch is a skeleton to for building [AngularJS](http://angularjs.org/) applications. This skeleton leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency.
 
+For a mobile/Cordova friendly variant, check out [this skeleton](https://github.com/jupl/aang-brunch/tree/cordova).
+
 
 ## File Structure
 
