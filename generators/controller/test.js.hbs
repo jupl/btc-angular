@@ -1,12 +1,12 @@
-describe('{{#camelize}}{{name}}{{/camelize}}Ctrl', function() {
+describe('{{#camelize}}{{name}}{{/camelize}}', function() {
   var $scope;
-  var {{#lowercamelize}}{{name}}{{/lowercamelize}}Ctrl;
+  var {{#lowercamelize}}{{name}}{{/lowercamelize}};
 
   beforeEach(function() {
     module('app.controllers');
     inject(function($rootScope, $controller) {
       $scope = $rootScope.$new();
-      {{#lowercamelize}}{{name}}{{/lowercamelize}}Ctrl = $controller('{{#camelize}}{{name}}{{/camelize}}Ctrl', {
+      {{#lowercamelize}}{{name}}{{/lowercamelize}} = $controller('{{#camelize}}{{name}}{{/camelize}}', {
         $scope: $scope
       });
     });
