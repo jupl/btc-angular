@@ -5,7 +5,7 @@ describe('{{#camelize}}{{name}}{{/camelize}}Ctrl', function() {
   beforeEach(function() {
     module('app.controllers');
     inject(function($rootScope, $controller) {
-      $scope = $rootScope.new();
+      $scope = $rootScope.$new();
       {{#lowercamelize}}{{name}}{{/lowercamelize}}Ctrl = $controller('{{#camelize}}{{name}}{{/camelize}}Ctrl', {
         $scope: $scope
       });
