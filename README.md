@@ -16,9 +16,8 @@ For a mobile/Cordova friendly variant, check out [this skeleton](https://github.
     │   ├── assets          # Static files that are just copied
     │   ├── controllers     # Angular controllers
     │   ├── directives      # Angular directives
-    │   ├── factories       # Angular factories
     │   ├── filters         # Angular filters
-    │   ├── services        # Angular services
+    │   ├── services        # Angular services (factories/providers/services)
     │   ├── styles          # Stylus stylesheets
     │   ├── templates       # HTML templates for Angular
     │   ├── app.js          # Configure main application module
