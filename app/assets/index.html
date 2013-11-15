@@ -7,8 +7,9 @@
 
   <title>Cordova Brunch</title>
   <link rel="stylesheet" href="stylesheets/app.css">
-  <script src="cordova.js"></script>
   <script src="javascripts/vendor.js"></script>
+  <script>if(window.device) { window.devicejs = device.noConflict() }</script>
+  <script src="cordova.js"></script>
   <script src="javascripts/app.js"></script>
 </head>
 <body>

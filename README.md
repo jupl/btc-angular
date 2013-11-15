@@ -1,4 +1,4 @@
-# Cordova Brunch 0.4.1
+# Cordova Brunch 0.4.2
 
 [<img src="https://david-dm.org/jupl/cordova-brunch.png"/>](https://david-dm.org/jupl/cordova-brunch)
 [<img src="https://david-dm.org/jupl/cordova-brunch/dev-status.png"/>](https://david-dm.org/jupl/cordova-brunch#info=devDependencies)
@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Cordova Brunch is a base skeleton for building web applications. (Currently supports iOS and Android applications) This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. It can be used for skeletons. In additional to assembling a standard web-based application, this skeleton can also assemble native applications using Cordova. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency. For complete skeletons that include Cordova Brunch see:
+Cordova Brunch is a base skeleton for building web applications. (Currently supports iOS and Android applications) This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. It can be used for skeletons. In addition to assembling a standard web-based application, this skeleton can also assemble native applications using Cordova. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency. For complete skeletons that include Cordova Brunch see:
 - [Chapless Brunch](https://github.com/jupl/chapless-brunch/tree/cordova)
 - [Cinder Brunch](https://github.com/jupl/cinder-brunch/tree/cordova)
 
@@ -74,15 +74,15 @@ Add/remove the ubiquitous library [jQuery](http://jquery.com/) to/from the proje
 Add/remove [normalize.css](http://necolas.github.io/normalize.css/) to ensure a consistent starting point in styling between different browsers.
 
 #### `add:fastclick` / `rem:fastclick`
-Add/remove FastClick to/from the project for optimized click events in touch devices. Visit their [page](https://github.com/ftlabs/fastclick) for more information and instructions.
+Add/remove [FastClick](https://github.com/ftlabs/fastclick) to/from the project for optimized click events in touch devices.
 
 #### `add:hammer` / `add:hammerjquery` / `rem:hammer`
-Add/remove Hammer.js (standalone or jQuery plugin) to/from the project for touch event handling. Visit their [page](http://eightmedia.github.io/hammer.js/) for more information.
+Add/remove [Hammer.js](http://eightmedia.github.io/hammer.js/) (standalone or jQuery plugin) to/from the project for touch event handling.
 
 #### `add:devicejs` / `rem:devicejs`
-Add/remove Device.js to handle different device options in CSS and JavaScript. Visit their [page](http://matthewhudson.me/projects/device.js/) for more information.
+Add/remove [device.js](http://matthewhudson.me/projects/device.js/) to handle different device options in CSS and JavaScript.
 
-**NOTE**: Make sure to take a look at the `noConflict` method to avoid issues with the use of the `device` variable in Cordova.
+**NOTE**: By default reference device.js using `devicejs`, as `device` is used by Cordova.
 
 
 ### Cordova
@@ -109,16 +109,16 @@ Generate/destroy a test file with the given test name for testing the site. (ex:
 
 
 ### Testing
-Tests leverage [PhantomJS](http://phantomjs.org/), [Mocha](http://visionmedia.github.io/mocha/), [Mocha as Promised](https://github.com/domenic/mocha-as-promised), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai).
+Tests leverage [Mocha](http://visionmedia.github.io/mocha/), [Mocha as Promised](https://github.com/domenic/mocha-as-promised), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai).
 
-#### `test:all [codereporter=progress] [sitereporter=spec]`
+#### `test:all [codereporter=progress] [sitereporter=spec] [browsers=[browsers]]`
 Run all tests listed below once. For more information on reporters see below.
 
-#### `test:code [reporter=progress] [watch=false]`
-Run code-based tests (ex. unit tests) using Karma. Karma is preconfigured out of the box to run with PhantomJS. A Karma reporter can be specified with the `reporter` option. If you run this task with `watch=true` Karma will auto-run on file changes. Otherwise by default Karma runs once. In addition, if you run a build (see below) with the `dev` environment the tests are included with a reporter under `test` to run in browsers. (ex. visit `http://locahost:[port]/test`)
+#### `test:code [reporter=progress] [watch=false] [browsers=[browsers]]`
+Run code-based tests (ex. unit tests) using Karma. Karma is preconfigured to run with [PhantomJS](http://phantomjs.org/). A Karma reporter can be specified with the `reporter` option. You can also override the browsers to run with with the `browsers` option. (ex: `browsers=Chrome,Firefox,Safari`) If you run this task with `watch=true` Karma will auto-run on file changes. Otherwise by default Karma runs once. You can also run the server while watching files with `watch=server`. In addition, if you run a build (see below) with the `dev` environment the tests are included with a reporter under `test` to run in browsers. (ex. visit `http://locahost:[port]/test`)
 
 #### `test:site [reporter=spec] [watch=false]`
-Run site-based tests (ex. system tests) using Mocha and WebDriverJS. A Brunch server is started up temporarily to interact with the site. A Mocha reporter can be specified with the `reporter` option. If you run this task with `watch=true` Mocha will auto-run on file changes with [nodemon](http://remy.github.io/nodemon/). Otherwise by default Mocha runs once. The global method `getDriver` is provided to get a setup and built driver. WebDriverJS' use of Promises can be combined with Mocha as Promised to handle asynchronous behavior easily. ex:
+Run site-based tests (ex. system tests) using Mocha, PhantomJS, and WebDriverJS. A Brunch server is started up temporarily to interact with the site. A Mocha reporter can be specified with the `reporter` option. If you run this task with `watch=true` Mocha will auto-run on file changes with [nodemon](http://remy.github.io/nodemon/). Otherwise by default Mocha runs once. The global method `getDriver` is provided to get a setup and built driver. WebDriverJS' use of Promises can be combined with Mocha as Promised to handle asynchronous behavior easily. ex:
 
 ```js
 describe('Sample', function() {
@@ -165,7 +165,7 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 ## Libraries
 
 ### Core
-- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain)
+- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.5.4
 - [Cordova](http://cordova.apache.org)
 
 ### Utilities
