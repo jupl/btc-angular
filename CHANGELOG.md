@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+### 0.5.4 (November 14, 2013)
 - Add ability to run server in `test:code`
 - For manual testing, set up Mocha and Chai before loading app-related code
 - Add option in `test:code` to explicitly state browsers to run
