@@ -151,7 +151,7 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [AngularJS](http://angularjs.org/)
 
 ### Utilities
-- [Nib](http://visionmedia.github.io/nib/)
 - [Angular Route](http://docs.angularjs.org/api/ngRoute)
 - [Angular Mocks](http://docs.angularjs.org/api/angular.mock.module) (for testing)
-- [ngmin](https://github.com/btford/ngmin)
+- [ngmin](https://github.com/btford/ngmin) (for minification)
+- [Nib](http://visionmedia.github.io/nib/)
