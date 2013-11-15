@@ -3,6 +3,7 @@
 ### WIP
 - Add ability to run server in `test:code`
 - For manual testing, set up Mocha and Chai before loading app-related code
+- Add option in `test:code` to explicitly state browsers to run
 
 ### 0.5.3 (November 9, 2013)
 - Make sure `vendor` file is loaded first when testing in Karma

@@ -29,6 +29,11 @@ namespace('test', function() {
     var reporter = process.env.reporter ? ' --reporters ' + process.env.reporter : '';
     var command = localBinCommand('karma', 'start ' + configFile + reporter);
 
+    // Set browsers options if available
+    if(process.env.browsers) {
+      command += ' --browsers ' + process.env.browsers;
+    }
+
     // Default behavior is to run tests once
     if(process.env.watch !== 'true' && process.env.watch !== 'server') {
       return new Promise(function(resolve) {
