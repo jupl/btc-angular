@@ -50,7 +50,7 @@ namespace('add', function() {
   desc('Add device.js (device information for CSS and JS)');
   task('devicejs', function() {
     editBower(function() {
-      this.dependencies.devicejs = 'https://github.com/matthewhudson/device.js';
+      this.dependencies.devicejs = 'git://github.com/matthewhudson/device.js.git';
       this.overrides.devicejs = {
         main: 'lib/device.js'
       };
