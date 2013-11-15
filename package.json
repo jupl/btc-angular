@@ -1,0 +1,39 @@
+{
+  "repository": "git",
+
+  "scripts": {
+    "start": "npm install --production && ./node_modules/.bin/jake server:prod",
+    "test": "npm install && ./node_modules/.bin/jake test:all"
+  },
+
+  "dependencies": {
+    "bluebird": "~0.9.8",
+    "bower": "~1.2.7",
+    "brunch": "~1.7.8",
+    "jake": "~0.7.2",
+    "jsonfile": "~1.1.0",
+    "scaffolt": "~0.4.2",
+    "sugar": "~1.4.1",
+
+    "javascript-brunch": ">= 1.0 < 1.8",
+    "css-brunch": ">= 1.0 < 1.8",
+    "stylus-brunch": ">= 1.0 < 1.8",
+    "aang-template-brunch": ">= 1.0 < 1.8",
+    "auto-reload-brunch": ">= 1.0 < 1.8",
+    "ngmin-brunch": ">= 1.0 < 1.8",
+    "clean-css-brunch": ">= 1.0 < 1.8",
+    "uglify-js-brunch": ">= 1.0 < 1.8"
+  },
+
+  "devDependencies": {
+    "chai": "~1.8.1",
+    "karma": "~0.10.4",
+    "karma-chai-plugins": "~0.1.3",
+    "karma-mocha": "~0.1.0",
+    "mocha": "~1.14.0",
+    "mocha-as-promised": "~1.4.0",
+    "nodemon": "~0.7.10",
+    "phantomjs": "~1.9.2",
+    "selenium-webdriver": "~2.37.0"
+  }
+}

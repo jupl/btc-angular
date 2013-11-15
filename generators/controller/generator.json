@@ -1,0 +1,14 @@
+{
+  "description": "Angular controller",
+  "files": [
+    {
+      "from": "controller.js.hbs",
+      "to": "app/controllers/{{#dasherize}}{{name}}{{/dasherize}}.js"
+    },
+    {
+      "from": "test.js.hbs",
+      "to": "test/code/controllers/{{#dasherize}}{{name}}{{/dasherize}}.js"
+    }
+  ],
+  "dependencies": []
+}

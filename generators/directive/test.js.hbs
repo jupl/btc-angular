@@ -1,0 +1,16 @@
+describe('{{#lowercamelize}}{{name}}{{/lowercamelize}} directive', function() {
+  var element;
+  var scope;
+  var template = '<div></div>';
+
+  beforeEach(function() {
+    module('app.directives');
+    inject(function($rootScope, $compile) {
+      scope = $rootScope.$new();
+      element = $compile(template)(scope);
+      scope.$digest();
+    });
+  });
+
+
+});

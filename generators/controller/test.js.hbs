@@ -1,0 +1,16 @@
+describe('{{#camelize}}{{name}}{{/camelize}} controller', function() {
+  var $scope;
+  var {{#lowercamelize}}{{name}}{{/lowercamelize}};
+
+  beforeEach(function() {
+    module('app.controllers');
+    inject(function($rootScope, $controller) {
+      $scope = $rootScope.$new();
+      {{#lowercamelize}}{{name}}{{/lowercamelize}} = $controller('{{#camelize}}{{name}}{{/camelize}}', {
+        $scope: $scope
+      });
+    });
+  });
+
+
+});

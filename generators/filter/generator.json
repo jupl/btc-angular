@@ -1,0 +1,14 @@
+{
+  "description": "Angular filter",
+  "files": [
+    {
+      "from": "filter.js.hbs",
+      "to": "app/filters/{{#dasherize}}{{name}}{{/dasherize}}.js"
+    },
+    {
+      "from": "test.js.hbs",
+      "to": "test/code/filters/{{#dasherize}}{{name}}{{/dasherize}}.js"
+    }
+  ],
+  "dependencies": []
+}

@@ -1,0 +1,12 @@
+describe('{{#lowercamelize}}{{name}}{{/lowercamelize}} filter', function() {
+  var {{#lowercamelize}}{{name}}{{/lowercamelize}};
+
+  beforeEach(function() {
+    module('app.filters');
+    inject(function($filter) {
+      {{#lowercamelize}}{{name}}{{/lowercamelize}} = $filter('{{#lowercamelize}}{{name}}{{/lowercamelize}}');
+    });
+  });
+
+
+});

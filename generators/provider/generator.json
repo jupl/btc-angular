@@ -1,0 +1,14 @@
+{
+  "description": "Angular service using the provider declaration",
+  "files": [
+    {
+      "from": "provider.js.hbs",
+      "to": "app/services/{{#dasherize}}{{name}}{{/dasherize}}.js"
+    },
+    {
+      "from": "test.js.hbs",
+      "to": "test/code/services/{{#dasherize}}{{name}}{{/dasherize}}.js"
+    }
+  ],
+  "dependencies": []
+}
