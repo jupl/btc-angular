@@ -62,6 +62,8 @@ If you want to just run Brunch without using Jake tasks, just use either `web:de
 
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run the `test:all` task.
 
+When declaring Angular components, you can use the condensed syntax for dependency injection without worry, as this skeleton uses [ngmin](https://github.com/btford/ngmin) during minification to translate injections such as `.controller(function($http) { ... })` to `.controller(['$http', function(a) { ... }])`.
+
 
 ## Task List
 While Brunch/Scaffolt/etc. can be used, Jake commands are provided for a simple and consistent interface. These tasks can be executed using `jake`. (`jake [task]`) These are the following available tasks provided out of the box:
@@ -84,6 +86,31 @@ Add/remove [normalize.css](http://necolas.github.io/normalize.css/) to ensure a 
 
 
 ### Scaffolding
+- Unit test files are automatically generated for Angular components.
+
+#### `gen:controller name=[name]` / `del:controller name=[name]`
+Generate/destroy an [Angular controller](http://docs.angularjs.org/guide/controller).
+
+#### `gen:directive name=[name]` / `del:directive name=[name]`
+Generate/destroy an [Angular directive](http://docs.angularjs.org/guide/directive).
+
+#### `gen:factory name=[name]` / `del:factory name=[name]`
+Generate/destroy an [Angular service](http://docs.angularjs.org/guide/dev_guide.services.creating_services) using the factory declaration.
+
+#### `gen:filter name=[name]` / `del:filter name=[name]`
+Generate/destroy an [Angular filter](http://docs.angularjs.org/guide/filter).
+
+#### `gen:provider name=[name]` / `del:provider name=[name]`
+Generate/destroy an Angular service using the provider declaration.
+
+#### `gen:service name=[name]` / `del:service name=[name]`
+Generate/destroy an Angular service using the service declaration.
+
+#### `gen:style name=[name]` / `del:style name=[name]`
+Generate/destroy a Stylus stylesheet file.
+
+#### `gen:template name=[name]` / `del:template name=[name]`
+Generate/destroy an HTML file that will be added to Angular's template cache in advance. For an example, see `app/app.js` and `app/templates/index.html`.
 
 #### `gen:codetest name=[name]` / `del:codetest name=[name]`
 Generate/destroy a test file with the given test name for testing code. (ex: unit testing)
