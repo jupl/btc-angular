@@ -82,7 +82,7 @@ Add/remove [Hammer.js](http://eightmedia.github.io/hammer.js/) (standalone or jQ
 #### `add:devicejs` / `rem:devicejs`
 Add/remove [device.js](http://matthewhudson.me/projects/device.js/) to handle different device options in CSS and JavaScript.
 
-**NOTE**: Make sure to take a look at the `noConflict` method to avoid issues with the use of the `device` variable in Cordova.
+**NOTE**: By default reference device.js using `devicejs`, as `device` is used by Cordova.
 
 
 ### Cordova
