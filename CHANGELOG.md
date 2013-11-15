@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+#### 0.4.2 (November 14, 2013)
 - Update BTC
 - Change device.js' device to device.js to avoid issues with Cordova
 
