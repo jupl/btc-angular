@@ -143,7 +143,7 @@ describe('Sample', function() {
       return driver.getTitle();
     })
     .then(function(title) {
-      expect(title).to.equal('Aang Toolchain');
+      expect(title).to.equal('Aang Brunch');
     });
   });
 
