@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+### 0.4.3 (November 14, 2013)
 - Fix broken URL for device.js in generator
 - Change device.js code from last update to work better for testing
 
