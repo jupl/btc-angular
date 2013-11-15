@@ -83,10 +83,10 @@ Generate/destroy a test file with the given test name for testing the site. (ex:
 ### Testing
 Tests leverage [Mocha](http://visionmedia.github.io/mocha/), [Mocha as Promised](https://github.com/domenic/mocha-as-promised), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai).
 
-#### `test:all [codereporter=progress] [browsers=[browsers]] [sitereporter=spec]`
+#### `test:all [codereporter=progress] [sitereporter=spec] [browsers=[browsers]]`
 Run all tests listed below once. For more information on reporters see below.
 
-#### `test:code [browsers=[browsers]] [reporter=progress] [watch=false]`
+#### `test:code [reporter=progress] [watch=false] [browsers=[browsers]]`
 Run code-based tests (ex. unit tests) using Karma. Karma is preconfigured to run with [PhantomJS](http://phantomjs.org/). A Karma reporter can be specified with the `reporter` option. You can also override the browsers to run with with the `browsers` option. (ex: `browsers=Chrome,Firefox,Safari`) If you run this task with `watch=true` Karma will auto-run on file changes. Otherwise by default Karma runs once. You can also run the server while watching files with `watch=server`. In addition, if you run a build (see below) with the `dev` environment the tests are included with a reporter under `test` to run in browsers. (ex. visit `http://locahost:[port]/test`)
 
 #### `test:site [reporter=spec] [watch=false]`
