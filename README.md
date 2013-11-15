@@ -168,7 +168,7 @@ describe('Sample', function() {
       return driver.getTitle();
     })
     .then(function(title) {
-      expect(title).to.equal('Cordova Brunch');
+      expect(title).to.equal('Aang Toolchain');
     });
   });
 
