@@ -5,9 +5,7 @@
 
 
 ## Introduction
-Aang Brunch is a skeleton to for building [AngularJS](http://angularjs.org/) applications. This skeleton leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency.
-
-For a mobile/Cordova friendly variant, check out [this skeleton](https://github.com/jupl/aang-brunch/tree/cordova).
+Aang Brunch is a skeleton to for building [AngularJS](http://angularjs.org/) applications. This skeleton leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. In addition to assembling a standard web-based application, this skeleton can also assemble native applications using Cordova. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency.
 
 
 ## File Structure
@@ -25,6 +23,7 @@ For a mobile/Cordova friendly variant, check out [this skeleton](https://github.
     │   ├── base.styl       # Stylus variables and mixins for the application
     │   └── config.js       # Declare and setup Angular modules
     ├── bower_components    # Packages installed by Bower
+    ├── cordova             # Generated Cordova project
     ├── generators          # Generators used by Scaffolt
     ├── jakelib             # Unified set of tasks for development
     ├── public              # Generated final product
@@ -46,6 +45,7 @@ For a mobile/Cordova friendly variant, check out [this skeleton](https://github.
 ## Requirements
 - [node.js](http://nodejs.org)
 - [Jake](https://github.com/mde/jake#installing-with-npm) (required for development)
+- SDKs for devices to be developed on ([more information](https://github.com/apache/cordova-cli#requirements))
 
 
 ## Setup
@@ -82,6 +82,31 @@ Add/remove the ubiquitous library [jQuery](http://jquery.com/) to/from the proje
 
 #### `add:normalize` / `rem:normalize`
 Add/remove [normalize.css](http://necolas.github.io/normalize.css/) to ensure a consistent starting point in styling between different browsers.
+
+#### `add:fastclick` / `rem:fastclick`
+Add/remove [FastClick](https://github.com/ftlabs/fastclick) to/from the project for optimized click events in touch devices.
+
+#### `add:hammer` / `add:hammerjquery` / `rem:hammer`
+Add/remove [Hammer.js](http://eightmedia.github.io/hammer.js/) (standalone or jQuery plugin) to/from the project for touch event handling.
+
+#### `add:devicejs` / `rem:devicejs`
+Add/remove [device.js](http://matthewhudson.me/projects/device.js/) to handle different device options in CSS and JavaScript.
+
+**NOTE**: By default reference device.js using `devicejs`, as `device` is used by Cordova.
+
+
+### Cordova
+These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app. `[device]` denotes the application device to build under. (Currently supporting `ios` and `android`) If you need access to the Cordova JavaScript from your page use the script tag: `<script src="cordova.js"></script>`
+
+#### `cordova:init [package=io.cordova.hellocordova [name=HelloCordova]]`
+Create a new Cordova project using [cordova-cli](https://github.com/apache/cordova-cli).
+- Package and name options are optional, which uses the default Cordova options. If you specify `name`, you must also specify `package`.
+- Project will reside in `cordova/`. If an existing project exists when running this task, it will be replaced with a new one.
+- Cordova-specific files are added to `app/assets`. (These files will be ignored if a non-Cordova web build is made.) Do not remove these files.
+- It is recommended for your web app to not depend on any files in `app/assets/res`.
+
+#### `cordova:add device=[device]` / `cordova:rem device=[device]`
+Add/remove specified device support to the Cordova project.
 
 
 ### Scaffolding
@@ -143,7 +168,7 @@ describe('Sample', function() {
       return driver.getTitle();
     })
     .then(function(title) {
-      expect(title).to.equal('Brunch Toolchain');
+      expect(title).to.equal('Cordova Brunch');
     });
   });
 
@@ -155,31 +180,25 @@ describe('Sample', function() {
 
 
 ### Building
-These commands are used to assemble the application, generating the necessary JS/CSS and adding assets. Use `dev` mode to keep readable JS/CSS, plus include source maps as well as tests under the `test` folder. Use `prod` mode to minify/uglify JS/CSS as well as omit source maps and tests. If any Bower dependencies have not been downloaded yet, Bower will first download them.
+These commands are used to assemble the application, generating the necessary JS/CSS and adding assets. Use `dev` mode to keep readable JS/CSS, plus include source maps as well as tests under the `test/` folder. Use `prod` mode to minify/uglify JS/CSS as well as omit source maps and tests. Specify `device` where applicable to build a native app using Cordova for a specific device. If any Bower dependencies have not been downloaded yet, Bower will first download them.
 
-#### `build:[mode]`
-Assemble the application once.
+#### `build:[mode] [device=[device]]`
+Assemble the application once. If `device` is specified, then build a native app for a device using Cordova. Otherwise it uses the default web environment.
 
 #### `watch:[mode]`
 Assemble the application and continue to watch for changes. Rebuild every time a change is detected.
 
 #### `server:[mode]`
-Assemble the application and continue to watch for changes. Rebuild every time a change is detected. Also, the application is served locally to open with a browser. This build uses the `web` environment.
+Assemble the application and continue to watch for changes. Rebuild every time a change is detected. Also, the application is served locally to open with a browser. This build uses the web environment.
+
+#### `emulate:[mode] device=[device]`
+Assemble the application, compile, and deploy to an emulator for the specified device.
+
+**NOTE**: [ios-sim](https://github.com/phonegap/ios-sim) is required to run the iOS Simulator.
 
 
 ## Libraries
 
 ### Core
-- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.5.4
-
-### Languages
-- [Stylus](http://learnboost.github.io/stylus/)
-
-### Framework
-- [AngularJS](http://angularjs.org/)
-
-### Utilities
-- [Angular Route](http://docs.angularjs.org/api/ngRoute)
-- [Angular Mocks](http://docs.angularjs.org/api/ngMock) (for testing)
-- [ngmin](https://github.com/btford/ngmin) (for minification)
-- [Nib](http://visionmedia.github.io/nib/)
+- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.1.0
+- [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.4.3

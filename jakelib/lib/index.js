@@ -100,3 +100,9 @@ exports.localBinCommand = function(moduleName, args) {
 exports.resolvePath = function() {
   return path.resolve.apply(null, [cwd].concat(slice.call(arguments, 0)));
 };
+
+/**
+ * List of available devices for Cordova.
+ * @type {Array}
+ */
+exports.devices = ['android', 'ios'];
