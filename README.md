@@ -142,7 +142,7 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 ## Libraries
 
 ### Core
-- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.5.3
+- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.5.4
 
 ### Languages
 - [Stylus](http://learnboost.github.io/stylus/)
