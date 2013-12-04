@@ -1,5 +1,10 @@
 # Changelog
 
+#### 0.5.5 (December 4, 2013)
+- Update dependencies
+- Added `bower:clean` task
+- Changed behavior of `gen`/`del` tasks
+
 #### 0.5.4 (November 14, 2013)
 - Add ability to run server in `test:code`
 - For manual testing, set up Mocha and Chai before loading app-related code
