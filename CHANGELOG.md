@@ -2,6 +2,7 @@
 
 #### WIP
 - Update BTC
+- Update Cordova
 
 #### 0.4.3 (November 14, 2013)
 - Fix broken URL for device.js in generator
