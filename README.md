@@ -41,8 +41,8 @@ Cordova Brunch is a base skeleton for building web applications. (Currently supp
 - [Jake](https://github.com/mde/jake#installing-with-npm) (required for development)
 - SDKs for devices to be developed on ([more information](https://github.com/apache/cordova-cli#requirements))
 
-## Setup
 
+## Setup
 1. Install node.js.
 2. If doing development, install Jake.
 4. Open a terminal window and navigate to the project directory.
@@ -50,7 +50,7 @@ Cordova Brunch is a base skeleton for building web applications. (Currently supp
 
 
 ## Notes
-If you want to just run Brunch without using Jake tasks, just use either `web:dev` or `web:prod` for the environment. ex: `brunch watch --server --environment web:prod`
+If you want to just run Brunch without using Jake tasks, just use either `web:dev` or `web:prod` for the environment. (ex: `brunch watch --server --environment web:prod`) If you have a Cordova project under the `cordova` folder you can also use `cordova:dev` or `cordova:prod` to build to `cordova/www`.
 
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run the `test:all` task.
 
