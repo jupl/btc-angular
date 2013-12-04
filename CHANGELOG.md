@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.5.0 (December 4, 2013)
 - Update BTC
 - Update Cordova to 3.2
   - Stop referencing `res`
