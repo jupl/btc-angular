@@ -2,6 +2,7 @@
 
 #### WIP
 - Update dependencies
+- Added `bower:clean` task
 
 #### 0.5.4 (November 14, 2013)
 - Add ability to run server in `test:code`
