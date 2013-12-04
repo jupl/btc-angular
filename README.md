@@ -1,4 +1,4 @@
-# Cordova Brunch 0.4.3
+# Cordova Brunch 0.5.0
 
 [<img src="https://david-dm.org/jupl/cordova-brunch.png"/>](https://david-dm.org/jupl/cordova-brunch)
 [<img src="https://david-dm.org/jupl/cordova-brunch/dev-status.png"/>](https://david-dm.org/jupl/cordova-brunch#info=devDependencies)
@@ -41,8 +41,8 @@ Cordova Brunch is a base skeleton for building web applications. (Currently supp
 - [Jake](https://github.com/mde/jake#installing-with-npm) (required for development)
 - SDKs for devices to be developed on ([more information](https://github.com/apache/cordova-cli#requirements))
 
-## Setup
 
+## Setup
 1. Install node.js.
 2. If doing development, install Jake.
 4. Open a terminal window and navigate to the project directory.
@@ -50,7 +50,7 @@ Cordova Brunch is a base skeleton for building web applications. (Currently supp
 
 
 ## Notes
-If you want to just run Brunch without using Jake tasks, just use either `web:dev` or `web:prod` for the environment. ex: `brunch watch --server --environment web:prod`
+If you want to just run Brunch without using Jake tasks, just use either `web:dev` or `web:prod` for the environment. (ex: `brunch watch --server --environment web:prod`) If you have a Cordova project under the `cordova` folder you can also use `cordova:dev` or `cordova:prod` to build to `cordova/www`.
 
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run the `test:all` task.
 
@@ -63,6 +63,9 @@ While Brunch/Scaffolt/etc. can be used, Jake commands are provided for a simple 
 
 #### `bower:install`
 Download and preinstall any Bower dependencies in advance. You can run this if you want to download Bower dependencies in advance.
+
+#### `bower:clean`
+Remove downloaded Bower dependencies. This is useful if you want to reinstall dependencies.
 
 
 ### Extras
@@ -89,23 +92,26 @@ Add/remove [device.js](http://matthewhudson.me/projects/device.js/) to handle di
 ### Cordova
 These commands are to set up and initialize native projects that use Cordova to wrap your web application in a native app. `[device]` denotes the application device to build under. (Currently supporting `ios` and `android`) If you need access to the Cordova JavaScript from your page use the script tag: `<script src="cordova.js"></script>`
 
-#### `cordova:init [package=io.cordova.hellocordova [name=HelloCordova]]`
-Create a new Cordova project using [cordova-cli](https://github.com/apache/cordova-cli).
+#### `cordova:gen [package=io.cordova.hellocordova [name=HelloCordova]]`
+Generate a new Cordova project using [cordova-cli](https://github.com/apache/cordova-cli).
 - Package and name options are optional, which uses the default Cordova options. If you specify `name`, you must also specify `package`.
 - Project will reside in `cordova/`. If an existing project exists when running this task, it will be replaced with a new one.
-- Cordova-specific files are added to `app/assets`. (These files will be ignored if a non-Cordova web build is made.) Do not remove these files.
-- It is recommended for your web app to not depend on any files in `app/assets/res`.
+- `config.xml` is added to `app/assets`. (This file will be ignored if a non-Cordova web build is made.) Do not remove this file.
 
 #### `cordova:add device=[device]` / `cordova:rem device=[device]`
 Add/remove specified device support to the Cordova project.
 
 
 ### Scaffolding
+Scaffolding commands are available in the form of `gen` and `del`. (syntax ex: `jake gen codetest=user`) Multiple scaffolds can be specified in a single command. (ex: `jake gen codetest=test1 sitetest=test2`)
 
-#### `gen:codetest name=[name]` / `del:codetest name=[name]`
+#### `gen` / `del`
+List available scaffolds.
+
+#### `gen codetest=[name]` / `del codetest=[name]`
 Generate/destroy a test file with the given test name for testing code. (ex: unit testing)
 
-#### `gen:sitetest name=[name]` / `del:sitetest name=[name]`
+#### `gen sitetest=[name]` / `del sitetest=[name]`
 Generate/destroy a test file with the given test name for testing the site. (ex: functional testing)
 
 

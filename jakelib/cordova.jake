@@ -43,8 +43,8 @@ namespace('emulate', function() {
 });
 
 namespace('cordova', function() {
-  desc('Initialize Cordova builds by creating a Cordova project');
-  task('init', function() {
+  desc('Initialize Cordova builds by generating a Cordova project');
+  task('gen', function() {
     var name = process.env.name;
     var package = process.env.package;
 
@@ -67,7 +67,6 @@ namespace('cordova', function() {
     jake.rmRf(projectPath, {silent: true});
     return execute(command).then(function() {
       jake.cpR(path.resolve(projectPath, 'www', 'config.xml'), assetsPath);
-      jake.cpR(path.resolve(projectPath, 'www', 'res'), assetsPath);
     });
   });
 

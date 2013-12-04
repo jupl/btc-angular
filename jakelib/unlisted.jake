@@ -24,15 +24,11 @@ namespace('clean', function() {
 // uses placeholder text since it is not used. (in fact, the text
 // 'placeholder' is used)
 namespace('scaffold', function() {
-  task('gen', function(type) {
-    var name = process.env.name;
-    validateName(name);
+  task('gen', function(type, name) {
     return execute(localBinCommand('scaffolt', type + ' ' + name));
   });
 
-  task('del', function(type) {
-    var name = process.env.name;
-    validateName(name);
+  task('del', function(type, name) {
     return execute(localBinCommand('scaffolt', type + ' ' + name + ' -r'));
   });
 
@@ -44,9 +40,3 @@ namespace('scaffold', function() {
     return execute(localBinCommand('scaffolt', type + ' placeholder -r'));
   });
 });
-
-function validateName(name) {
-  if(!name) {
-    fail('name parameter is required. ex: jake ... name=[name]');
-  }
-}

@@ -7,4 +7,9 @@ namespace('bower', function() {
   task('install', function() {
     return execute(localBinCommand('bower', 'install'));
   });
+
+  desc('Clear Bower components');
+  task('clean', function() {
+    jake.rmRf('bower_components');
+  });
 });

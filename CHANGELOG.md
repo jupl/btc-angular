@@ -1,12 +1,18 @@
 # Changelog
 
-### 0.4.3 (November 14, 2013)
+#### 0.5.0 (December 4, 2013)
+- Update BTC
+- Update Cordova to 3.2
+  - Stop referencing `res`
+- Rename `cordova:init` to `cordova:gen`
+
+#### 0.4.3 (November 14, 2013)
 - Fix broken URL for device.js in generator
 - Change device.js code from last update to work better for testing
 
 #### 0.4.2 (November 14, 2013)
 - Update BTC
-- Change device.js' device to device.js to avoid issues with Cordova
+- Change device.js' `device` to `devicejs` to avoid issues with Cordova
 
 #### 0.4.1 (November 9, 2013)
 - Update BTC
