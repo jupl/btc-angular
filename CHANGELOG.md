@@ -2,7 +2,7 @@
 
 #### WIP
 - Update BTC
-- Update Cordova
+- Update Cordova to 3.2
   - Stop referencing `res`
 
 #### 0.4.3 (November 14, 2013)
