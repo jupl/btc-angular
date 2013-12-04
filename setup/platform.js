@@ -32,7 +32,7 @@ function webPlatform(config) {
   if(!config.paths) {
     config.paths = {};
   }
-  addIgnored(config, /^app[\\\/]assets[\\\/]res/, 'app/assets/config.xml');
+  addIgnored(config, 'app/assets/config.xml');
   config.paths.public = 'public';
 }
 

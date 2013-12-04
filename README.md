@@ -96,8 +96,7 @@ These commands are to set up and initialize native projects that use Cordova to 
 Create a new Cordova project using [cordova-cli](https://github.com/apache/cordova-cli).
 - Package and name options are optional, which uses the default Cordova options. If you specify `name`, you must also specify `package`.
 - Project will reside in `cordova/`. If an existing project exists when running this task, it will be replaced with a new one.
-- Cordova-specific files are added to `app/assets`. (These files will be ignored if a non-Cordova web build is made.) Do not remove these files.
-- It is recommended for your web app to not depend on any files in `app/assets/res`.
+- `config.xml` is added to `app/assets`. (This file will be ignored if a non-Cordova web build is made.) Do not remove this file.
 
 #### `cordova:add device=[device]` / `cordova:rem device=[device]`
 Add/remove specified device support to the Cordova project.
