@@ -43,8 +43,8 @@ namespace('emulate', function() {
 });
 
 namespace('cordova', function() {
-  desc('Initialize Cordova builds by creating a Cordova project');
-  task('init', function() {
+  desc('Initialize Cordova builds by generating a Cordova project');
+  task('gen', function() {
     var name = process.env.name;
     var package = process.env.package;
 

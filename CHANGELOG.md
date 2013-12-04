@@ -4,6 +4,7 @@
 - Update BTC
 - Update Cordova to 3.2
   - Stop referencing `res`
+- Rename `cordova:init` to `cordova:gen`
 
 #### 0.4.3 (November 14, 2013)
 - Fix broken URL for device.js in generator
