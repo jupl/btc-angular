@@ -67,7 +67,6 @@ namespace('cordova', function() {
     jake.rmRf(projectPath, {silent: true});
     return execute(command).then(function() {
       jake.cpR(path.resolve(projectPath, 'www', 'config.xml'), assetsPath);
-      jake.cpR(path.resolve(projectPath, 'www', 'res'), assetsPath);
     });
   });
 
