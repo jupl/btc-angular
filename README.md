@@ -64,6 +64,9 @@ While Brunch/Scaffolt/etc. can be used, Jake commands are provided for a simple 
 #### `bower:install`
 Download and preinstall any Bower dependencies in advance. You can run this if you want to download Bower dependencies in advance.
 
+#### `bower:clean`
+Remove downloaded Bower dependencies. This is useful if you want to reinstall dependencies.
+
 
 ### Extras
 These commands add additional features/items to the project that are not included by default.
@@ -101,11 +104,15 @@ Add/remove specified device support to the Cordova project.
 
 
 ### Scaffolding
+Scaffolding commands are available in the form of `gen` and `del`. (syntax ex: `jake gen codetest=user`) Multiple scaffolds can be specified in a single command. (ex: `jake gen codetest=test1 sitetest=test2`)
 
-#### `gen:codetest name=[name]` / `del:codetest name=[name]`
+#### `gen` / `del`
+List available scaffolds.
+
+#### `gen codetest=[name]` / `del codetest=[name]`
 Generate/destroy a test file with the given test name for testing code. (ex: unit testing)
 
-#### `gen:sitetest name=[name]` / `del:sitetest name=[name]`
+#### `gen sitetest=[name]` / `del sitetest=[name]`
 Generate/destroy a test file with the given test name for testing the site. (ex: functional testing)
 
 
