@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.5.5 (December 4, 2013)
 - Update dependencies
 - Added `bower:clean` task
 - Changed behavior of `gen`/`del` tasks
