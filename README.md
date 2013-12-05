@@ -205,5 +205,5 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 ## Libraries
 
 ### Core
-- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.1.0
+- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.1.1
 - [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.4.3
