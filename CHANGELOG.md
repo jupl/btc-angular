@@ -1,5 +1,8 @@
 # Changelog
 
+#### WIP
+- Add specific WebStorm and IntelliJ files to gitignore
+
 #### 0.5.5 (December 4, 2013)
 - Update dependencies
 - Added `bower:clean` task
