@@ -1,4 +1,4 @@
-# Aang Brunch 0.1.0
+# Aang Brunch 0.1.1
 
 [<img src="https://david-dm.org/jupl/aang-brunch.png"/>](https://david-dm.org/jupl/aang-brunch)
 [<img src="https://david-dm.org/jupl/aang-brunch/dev-status.png"/>](https://david-dm.org/jupl/aang-brunch#info=devDependencies)
@@ -49,7 +49,6 @@ Aang Brunch is a skeleton to for building [AngularJS](http://angularjs.org/) app
 
 
 ## Setup
-
 1. Install node.js.
 2. If doing development, install Jake.
 4. Open a terminal window and navigate to the project directory.
@@ -72,6 +71,9 @@ While Brunch/Scaffolt/etc. can be used, Jake commands are provided for a simple 
 
 #### `bower:install`
 Download and preinstall any Bower dependencies in advance. You can run this if you want to download Bower dependencies in advance.
+
+#### `bower:clean`
+Remove downloaded Bower dependencies. This is useful if you want to reinstall dependencies.
 
 
 ### Extras
@@ -110,36 +112,39 @@ Add/remove specified device support to the Cordova project.
 
 
 ### Scaffolding
-- Unit test files are automatically generated for Angular components.
+Scaffolding commands are available in the form of `gen` and `del`. (syntax ex: `jake gen codetest=user`) Multiple scaffolds can be specified in a single command. (ex: `jake gen codetest=test1 sitetest=test2`) Unit test files are automatically generated for Angular components.
 
-#### `gen:controller name=[name]` / `del:controller name=[name]`
+#### `gen` / `del`
+List available scaffolds.
+
+#### `gen controller=[name]` / `del controller=[name]`
 Generate/destroy an [Angular controller](http://docs.angularjs.org/guide/controller).
 
-#### `gen:directive name=[name]` / `del:directive name=[name]`
+#### `gen directive=[name]` / `del directive=[name]`
 Generate/destroy an [Angular directive](http://docs.angularjs.org/guide/directive).
 
-#### `gen:factory name=[name]` / `del:factory name=[name]`
+#### `gen factory=[name]` / `del factory=[name]`
 Generate/destroy an [Angular service](http://docs.angularjs.org/guide/dev_guide.services.creating_services) using the factory declaration.
 
-#### `gen:filter name=[name]` / `del:filter name=[name]`
+#### `gen filter=[name]` / `del filter=[name]`
 Generate/destroy an [Angular filter](http://docs.angularjs.org/guide/filter).
 
-#### `gen:provider name=[name]` / `del:provider name=[name]`
+#### `gen provider=[name]` / `del provider=[name]`
 Generate/destroy an Angular service using the provider declaration.
 
-#### `gen:service name=[name]` / `del:service name=[name]`
+#### `gen service=[name]` / `del service=[name]`
 Generate/destroy an Angular service using the service declaration.
 
-#### `gen:style name=[name]` / `del:style name=[name]`
+#### `gen style=[name]` / `del style=[name]`
 Generate/destroy a Stylus stylesheet file.
 
-#### `gen:template name=[name]` / `del:template name=[name]`
+#### `gen template=[name]` / `del template=[name]`
 Generate/destroy an HTML file that will be added to Angular's template cache in advance. For an example, see `app/app.js` and `app/templates/index.html`.
 
-#### `gen:codetest name=[name]` / `del:codetest name=[name]`
+#### `gen codetest=[name]` / `del codetest=[name]`
 Generate/destroy a test file with the given test name for testing code. (ex: unit testing)
 
-#### `gen:sitetest name=[name]` / `del:sitetest name=[name]`
+#### `gen sitetest=[name]` / `del sitetest=[name]`
 Generate/destroy a test file with the given test name for testing the site. (ex: functional testing)
 
 
