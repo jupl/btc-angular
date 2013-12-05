@@ -85,12 +85,6 @@ Add/remove the ubiquitous library [jQuery](http://jquery.com/) to/from the proje
 #### `add:normalize` / `rem:normalize`
 Add/remove [normalize.css](http://necolas.github.io/normalize.css/) to ensure a consistent starting point in styling between different browsers.
 
-#### `add:fastclick` / `rem:fastclick`
-Add/remove [FastClick](https://github.com/ftlabs/fastclick) to/from the project for optimized click events in touch devices.
-
-#### `add:hammer` / `add:hammerjquery` / `rem:hammer`
-Add/remove [Hammer.js](http://eightmedia.github.io/hammer.js/) (standalone or jQuery plugin) to/from the project for touch event handling.
-
 #### `add:devicejs` / `rem:devicejs`
 Add/remove [device.js](http://matthewhudson.me/projects/device.js/) to handle different device options in CSS and JavaScript.
 
@@ -206,3 +200,6 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 ### Core
 - [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.1.1
 - [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.4.3
+
+### Utilities
+- [Angular Touch](http://docs.angularjs.org/api/ngTouch)

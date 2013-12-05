@@ -22,31 +22,6 @@ namespace('add', function() {
     });
   });
 
-  desc('Add FastClick (remove click delay in mobile)');
-  task('fastclick', function() {
-    editBower(function() {
-      this.dependencies.fastclick = '~0.6.10';
-    });
-  });
-
-  desc('Add Hammer.js (touch library)');
-  task('hammer', function() {
-    editBower(function() {
-      this.dependencies.hammerjs = '~1.0.5';
-      this.overrides.hammerjs = {
-        main: 'dist/hammer.js'
-      };
-    });
-  });
-
-  desc('Add Hammer.js (see above) as a jQuery plugin');
-  task('hammerjquery', function() {
-    editBower(function() {
-      this.dependencies.hammerjs = '~1.0.5';
-      delete this.overrides.hammerjs;
-    });
-  });
-
   desc('Add device.js (device information for CSS and JS)');
   task('devicejs', function() {
     editBower(function() {
@@ -83,21 +58,6 @@ namespace('rem', function() {
   task('normalize', function() {
     editBower(function() {
       delete this.dependencies['normalize-css'];
-    });
-  });
-
-  desc('Remove FastClick');
-  task('fastclick', function() {
-    editBower(function() {
-      delete this.dependencies.fastclick;
-    });
-  });
-
-  desc('Remove Hammer.js');
-  task('hammer', function() {
-    editBower(function() {
-      delete this.dependencies.hammerjs;
-      delete this.overrides.hammerjs;
     });
   });
 
