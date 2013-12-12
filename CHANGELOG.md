@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.1.2 (December 12, 2013)
 - Update BTC
   - Fix Windows support
   - Internal fix to bring back spawn options

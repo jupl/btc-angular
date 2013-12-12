@@ -1,4 +1,4 @@
-# Aang Brunch 0.1.1
+# Aang Brunch 0.1.2
 [<img src="https://david-dm.org/jupl/aang-brunch.png"/>](https://david-dm.org/jupl/aang-brunch)
 [<img src="https://david-dm.org/jupl/aang-brunch/dev-status.png"/>](https://david-dm.org/jupl/aang-brunch#info=devDependencies)
 
@@ -174,7 +174,7 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 ## Libraries
 
 ### Core
-- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.5.5
+- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.5.8
 
 ### Languages
 - [Stylus](http://learnboost.github.io/stylus/)
