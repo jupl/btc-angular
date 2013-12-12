@@ -1,5 +1,4 @@
-# Aang Brunch 0.1.1
-
+# Aang Brunch 0.1.2
 [<img src="https://david-dm.org/jupl/aang-brunch.png"/>](https://david-dm.org/jupl/aang-brunch)
 [<img src="https://david-dm.org/jupl/aang-brunch/dev-status.png"/>](https://david-dm.org/jupl/aang-brunch#info=devDependencies)
 
@@ -9,7 +8,6 @@ Aang Brunch is a skeleton to for building [AngularJS](http://angularjs.org/) app
 
 
 ## File Structure
-
     ├── app                 # App is built here. Look at Brunch for more info.
     │   ├── assets          # Static files that are just copied
     │   ├── controllers     # Angular controllers
@@ -50,7 +48,8 @@ Aang Brunch is a skeleton to for building [AngularJS](http://angularjs.org/) app
 
 ## Setup
 1. Install node.js.
-2. If doing development, install Jake.
+2. If using Windows and leveraging Bower, install git.
+3. If doing development, install Jake.
 4. Open a terminal window and navigate to the project directory.
 5. Execute the command `npm install` to install all package dependencies.
 
@@ -194,11 +193,10 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 
 **NOTE**: [ios-sim](https://github.com/phonegap/ios-sim) is required to run the iOS Simulator.
 
-
 ## Libraries
 
 ### Core
-- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.1.1
+- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.1.2
 - [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.5.0
 
 ### Utilities
