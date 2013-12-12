@@ -31,6 +31,6 @@
     "mocha-as-promised": "~1.4.0",
     "nodemon": "~0.7.10",
     "phantomjs": "~1.9.2",
-    "selenium-webdriver": "~2.37.0"
+    "selenium-webdriver": "~2.38.1"
   }
 }

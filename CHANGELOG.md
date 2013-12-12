@@ -6,6 +6,7 @@
 - Mark execute promises as cancellable
 - Move auto-reload-brunch to devDependencies
 - Allow project's bower to be run if root (or root-like)
+- Update selenium-webdriver
 
 #### 0.5.5 (December 4, 2013)
 - Update dependencies
