@@ -25,7 +25,7 @@ namespace('test', function() {
 
   desc('Run code-based tests using Karma');
   task('code', ['bower:install', 'clean:web'], function() {
-    var args = ['start', 'test/karma.conf.js'];
+    var args = ['start', path.resolve('test', 'karma.conf.js')];
 
     // Check for reporter
     if(process.env.reporter) {
