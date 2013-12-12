@@ -1,12 +1,12 @@
 // Test-related tasks
+var brunch = require('./lib').npmBin('brunch');
 var config = require('../brunch-config').config.overrides['web:dev'];
-var execute = require('./lib').execute;
-var localBinCommand = require('./lib').localBinCommand;
+var karma = require('./lib').npmBin('karma');
+var mocha = require('./lib').npmBin('mocha');
+var nodemon = require('./lib').npmBin('nodemon');
 var path = require('path');
+var phantomjs = require('./lib').npmBin('phantomjs');
 var Promise = require('bluebird');
-var resolvePath = require('./lib').resolvePath;
-
-var publicPath = resolvePath(config.paths.public);
 
 namespace('test', function() {
   desc('Run all tests');
@@ -25,21 +25,26 @@ namespace('test', function() {
 
   desc('Run code-based tests using Karma');
   task('code', ['bower:install', 'clean:web'], function() {
-    var configFile = resolvePath('test/karma.conf.js');
-    var reporter = process.env.reporter ? ' --reporters ' + process.env.reporter : '';
-    var command = localBinCommand('karma', 'start ' + configFile + reporter);
+    var args = ['start', path.resolve('test', 'karma.conf.js')];
+
+    // Check for reporter
+    if(process.env.reporter) {
+      args.push('--reporters');
+      args.push(process.env.reporter);
+    }
 
     // Set browsers options if available
     if(process.env.browsers) {
-      command += ' --browsers ' + process.env.browsers;
+      args.push('--browsers');
+      args.push(process.env.browsers);
     }
 
     // Default behavior is to run tests once
     if(process.env.watch !== 'true' && process.env.watch !== 'server') {
       return new Promise(function(resolve) {
         jake.Task['build:dev'].addListener('complete', function() {
-          console.log('');
-          resolve(execute(command + ' --single-run'));
+          args.push('--single-run');
+          resolve(karma.execute(args));
         })
         .execute();
       });
@@ -47,23 +52,24 @@ namespace('test', function() {
     // Also tests can be run continuously
     else {
       if(process.env.watch === 'server') {
-        var server = execute(localBinCommand('brunch', 'w -s -e web:dev'));
+        var server = brunch.execute('watch', '--server', '--env', 'web:dev');
       }
       else {
-        var server = execute(localBinCommand('brunch', 'w -e web:dev'));
+        var server = brunch.execute('watch', '--env', 'web:dev');
       }
       return new Promise(function(resolve, reject) {
         server.catch(reject);
         var id = setInterval(function() {
           try { // Check if public folder is not empty
-            var publicReady = !!jake.readdirR(publicPath).length
+            var publicReady = !!jake.readdirR(config.paths.public).length
           }
           catch(e) {
           }
 
           if(typeof publicReady !== 'undefined' && publicReady) {
             clearInterval(id);
-            execute(command + ' --no-single-run').then(resolve, reject);
+            args.push('--single-run');
+            karma.execute(args).then(resolve, reject);
           }
         }, 1000);
       })
@@ -77,16 +83,14 @@ namespace('test', function() {
 
   desc('Run site-based tests using Mocha and WebDriverJS');
   task('site', ['bower:install', 'clean:web'], function() {
-    var phantom = execute(localBinCommand('phantomjs', '--webdriver=4444'));
-    var server = execute(localBinCommand('brunch', 'w -s -e web:prod'));
-    var reporter = process.env.reporter ? '-R ' + process.env.reporter : '';
-    var command = localBinCommand('mocha', reporter);
+    var phantom = phantomjs.execute('--webdriver=4444');
+    var server = brunch.execute('watch', '--server', '--env', 'web:prod');
+    var args = [];
 
-    // Set up tests that are to run continuously using nodemon
-    if(process.env.watch === 'true') {
-      var args = '--watch ' + publicPath;
-      args += ' --watch ' + resolvePath('test/site');
-      command = localBinCommand('nodemon', args + ' ' + command);
+    // Check for reporter
+    if(process.env.reporter) {
+      args.push('--reporter');
+      args.push(process.env.reporter);
     }
 
     return new Promise(function(resolve, reject) {
@@ -95,14 +99,24 @@ namespace('test', function() {
       var id = setInterval(function() {
         // Check if public folder is not empty
         try {
-          var publicReady = !!jake.readdirR(publicPath).length
+          var publicReady = !!jake.readdirR(config.paths.public).length
         }
         catch(e) {
         }
 
         if(typeof publicReady !== 'undefined' && publicReady) {
           clearInterval(id);
-          execute(command).then(resolve, reject);
+          if(process.env.watch === 'true') {
+            args.unshift(path.resolve('node_modules', '.bin', 'mocha'));
+            args.unshift(path.resolve('test', 'site'));
+            args.unshift('--watch');
+            args.unshift(config.paths.public);
+            args.unshift('--watch');
+            nodemon.execute(args).then(resolve, reject);
+          }
+          else {
+            mocha.execute(args).then(resolve, reject);
+          }
         }
       }, 1000);
     })

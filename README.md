@@ -1,5 +1,4 @@
-# Aang Brunch 0.1.1
-
+# Aang Brunch 0.1.2
 [<img src="https://david-dm.org/jupl/aang-brunch.png"/>](https://david-dm.org/jupl/aang-brunch)
 [<img src="https://david-dm.org/jupl/aang-brunch/dev-status.png"/>](https://david-dm.org/jupl/aang-brunch#info=devDependencies)
 
@@ -11,7 +10,6 @@ For a mobile/Cordova friendly variant, check out [this skeleton](https://github.
 
 
 ## File Structure
-
     ├── app                 # App is built here. Look at Brunch for more info.
     │   ├── assets          # Static files that are just copied
     │   ├── controllers     # Angular controllers
@@ -50,13 +48,14 @@ For a mobile/Cordova friendly variant, check out [this skeleton](https://github.
 
 ## Setup
 1. Install node.js.
-2. If doing development, install Jake.
+2. If using Windows and leveraging Bower, install git.
+3. If doing development, install Jake.
 4. Open a terminal window and navigate to the project directory.
 5. Execute the command `npm install` to install all package dependencies.
 
 
 ## Notes
-If you want to just run Brunch without using Jake tasks, just use either `web:dev` or `web:prod` for the environment. ex: `brunch watch --server --environment web:prod`
+If you want to just run Brunch without using Jake tasks, just use either `web:dev` or `web:prod` for the environment. (ex: `brunch watch --server --environment web:prod`)
 
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run the `test:all` task.
 
@@ -175,7 +174,7 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 ## Libraries
 
 ### Core
-- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.5.5
+- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.5.8
 
 ### Languages
 - [Stylus](http://learnboost.github.io/stylus/)
