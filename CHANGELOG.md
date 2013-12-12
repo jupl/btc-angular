@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.5.6 (December 12, 2013)
 - Add specific WebStorm and IntelliJ files to gitignore
 - Stop worrying about absolute paths
 - Mark execute promises as cancellable

@@ -1,11 +1,9 @@
-# Brunch Toolchain 0.5.5
-
+# Brunch Toolchain 0.5.6
 [<img src="https://david-dm.org/jupl/brunch-toolchain.png"/>](https://david-dm.org/jupl/brunch-toolchain)
 [<img src="https://david-dm.org/jupl/brunch-toolchain/dev-status.png"/>](https://david-dm.org/jupl/brunch-toolchain#info=devDependencies)
 
 
 ## Introduction
-
 This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. It can be used for skeletons. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency.
 
 For fleshed out skeletons based on this one:
@@ -16,7 +14,6 @@ For fleshed out skeletons based on this one:
 
 
 ## File Structure
-
     ├── app                 # App is built here. Look at Brunch for more info.
     │   └── assets          # Static files that are just copied
     ├── bower_components    # Packages installed by Bower
