@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+### 0.5.8 (December 12, 2013)
 - Fix Windows support
 
 #### 0.5.7 (December 12, 2013)

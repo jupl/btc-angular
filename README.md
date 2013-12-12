@@ -1,4 +1,4 @@
-# Brunch Toolchain 0.5.7
+# Brunch Toolchain 0.5.8
 [<img src="https://david-dm.org/jupl/brunch-toolchain.png"/>](https://david-dm.org/jupl/brunch-toolchain)
 [<img src="https://david-dm.org/jupl/brunch-toolchain/dev-status.png"/>](https://david-dm.org/jupl/brunch-toolchain#info=devDependencies)
 
