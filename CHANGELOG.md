@@ -1,5 +1,9 @@
 # Changelog
 
+#### WIP
+- Update BTC
+  - Fix Windows support
+
 #### 0.5.1 (December 12, 2013)
 - Update BTC
 
