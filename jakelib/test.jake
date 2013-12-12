@@ -44,7 +44,7 @@ namespace('test', function() {
       return new Promise(function(resolve) {
         jake.Task['build:dev'].addListener('complete', function() {
           args.push('--single-run');
-          resolve(karma(args));
+          resolve(karma.execute(args));
         })
         .execute();
       });
@@ -52,10 +52,10 @@ namespace('test', function() {
     // Also tests can be run continuously
     else {
       if(process.env.watch === 'server') {
-        var server = brunch('watch', '--server', '--env', 'web:dev');
+        var server = brunch.execute('watch', '--server', '--env', 'web:dev');
       }
       else {
-        var server = brunch('watch', '--env', 'web:dev');
+        var server = brunch.execute('watch', '--env', 'web:dev');
       }
       return new Promise(function(resolve, reject) {
         server.catch(reject);
@@ -69,7 +69,7 @@ namespace('test', function() {
           if(typeof publicReady !== 'undefined' && publicReady) {
             clearInterval(id);
             args.push('--single-run');
-            karma(args).then(resolve, reject);
+            karma.execute(args).then(resolve, reject);
           }
         }, 1000);
       })
@@ -83,8 +83,8 @@ namespace('test', function() {
 
   desc('Run site-based tests using Mocha and WebDriverJS');
   task('site', ['bower:install', 'clean:web'], function() {
-    var phantom = phantomjs('--webdriver=4444');
-    var server = brunch('watch', '--server', '--env', 'web:prod');
+    var phantom = phantomjs.execute('--webdriver=4444');
+    var server = brunch.execute('watch', '--server', '--env', 'web:prod');
     var args = [];
 
     // Check for reporter
@@ -112,11 +112,10 @@ namespace('test', function() {
             args.unshift('--watch');
             args.unshift(config.paths.public);
             args.unshift('--watch');
-            console.log(args);
-            nodemon(args).then(resolve, reject);
+            nodemon.execute(args).then(resolve, reject);
           }
           else {
-            mocha(args).then(resolve, reject);
+            mocha.execute(args).then(resolve, reject);
           }
         }
       }, 1000);
