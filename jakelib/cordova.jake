@@ -1,14 +1,10 @@
 // Cordova-based build tasks
 require('sugar');
+var brunch = require('./lib').npmBin('brunch');
+var cordova = require('./lib').npmBin('cordova');
 var devices = require('./lib').devices;
-var execute = require('./lib').execute;
-var localBinCommand = require('./lib').localBinCommand;
 var path = require('path');
 var Promise = require('bluebird');
-var resolvePath = require('./lib').resolvePath;
-
-var assetsPath = resolvePath('app', 'assets');
-var projectPath = resolvePath('cordova');
 
 namespace('emulate', function() {
   desc('Build project for development and simulate/emulate on a device');
@@ -21,8 +17,8 @@ namespace('emulate', function() {
       jake.Task['build:dev'].addListener('complete', resolve).invoke();
     })
     .then(function() {
-      var command = localBinCommand('cordova', '-d emulate ' + device);
-      return execute(command, {cwd: projectPath});
+      cordova.options.cwd = 'cordova';
+      return cordova.execute('--verbose', 'emulate', device);
     });
   });
 
@@ -36,8 +32,8 @@ namespace('emulate', function() {
       jake.Task['build:prod'].addListener('complete', resolve).invoke();
     })
     .then(function() {
-      var command = localBinCommand('cordova', '-d emulate ' + device);
-      return execute(command, {cwd: projectPath});
+      cordova.options.cwd = 'cordova';
+      return cordova.execute('--verbose', 'emulate', device);
     });
   });
 });
@@ -62,11 +58,12 @@ namespace('cordova', function() {
       name = '';
     }
 
-    var params = '-d create ' + projectPath + ' ' + package + ' ' + name;
-    var command = localBinCommand('cordova', params);
-    jake.rmRf(projectPath, {silent: true});
-    return execute(command).then(function() {
-      jake.cpR(path.resolve(projectPath, 'www', 'config.xml'), assetsPath);
+    var args = ['--verbose', 'create', 'cordova', package, name];
+    jake.rmRf('cordova', {silent: true});
+    return cordova.execute(args).then(function() {
+      var assetsPath = path.resolve('app', 'assets');
+      var configPath = path.resolve('cordova', 'www', 'config.xml');
+      jake.cpR(configPath, assetsPath);
     });
   });
 
@@ -74,11 +71,12 @@ namespace('cordova', function() {
   task('add', function() {
     var command;
     var device = process.env.device;
+    var args = ['--verbose', 'platform', 'add', device];
 
     validateDevice(device);
-    command = localBinCommand('cordova', '-d platform add ' + device);
-    return execute(command, {cwd: projectPath}).then(function() {
-      var origin = resolvePath('jakelib/assets', device + '.gitignore');
+    cordova.options.cwd = 'cordova';
+    return cordova.execute(args).then(function() {
+      var origin = resolvePath('jakelib', 'assets', device + '.gitignore');
       var dest = path.resolve(projectPath, 'platforms', device, '.gitignore');
       jake.cpR(origin, dest);
     });
@@ -88,10 +86,11 @@ namespace('cordova', function() {
   task('rem', function() {
     var command;
     var device = process.env.device;
+    var args = ['--verbose', 'platform', 'remove', device];
 
     validateDevice(device);
-    command = localBinCommand('cordova', '-d platform remove ' + device);
-    return execute(command, {cwd: projectPath});
+    cordova.options.cwd = 'cordova';
+    return cordova.execute(args);
   });
 });
 

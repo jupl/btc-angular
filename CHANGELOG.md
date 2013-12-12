@@ -10,6 +10,8 @@
   - Move auto-reload-brunch to devDependencies
   - Allow project's bower to be run if root (or root-like)
   - Update selenium-webdriver
+- Update Cordova Brunch
+  - Fix typo in copying `config.xml`
 
 #### 0.1.1 (December 4, 2013)
 - Update BTC
