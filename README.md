@@ -1,4 +1,4 @@
-# Cordova Brunch 0.5.1
+# Cordova Brunch 0.5.2
 [<img src="https://david-dm.org/jupl/cordova-brunch.png"/>](https://david-dm.org/jupl/cordova-brunch)
 [<img src="https://david-dm.org/jupl/cordova-brunch/dev-status.png"/>](https://david-dm.org/jupl/cordova-brunch#info=devDependencies)
 
@@ -41,7 +41,8 @@ Cordova Brunch is a base skeleton for building web applications. (Currently supp
 
 ## Setup
 1. Install node.js.
-2. If doing development, install Jake.
+2. If using Windows and leveraging Bower, install git.
+3. If doing development, install Jake.
 4. Open a terminal window and navigate to the project directory.
 5. Execute the command `npm install` to install all package dependencies.
 
@@ -169,7 +170,7 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 ## Libraries
 
 ### Core
-- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.5.5
+- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.5.8
 - [Cordova](http://cordova.apache.org) 3.2
 
 ### Utilities

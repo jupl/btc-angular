@@ -1,6 +1,7 @@
 require('sugar');
 var fs = require('fs');
 var jsonfile = require('jsonfile');
+var os = require('os');
 var path = require('path');
 var Promise = require('bluebird');
 var spawn = require('child_process').spawn;
@@ -49,6 +50,12 @@ exports.generators = fs.readdirSync('generators').filter(function(generator) {
  */
 exports.npmBin = function(moduleName) {
   var command = path.resolve('node_modules', '.bin', moduleName);
+
+  // Tack on '.cmd' for Windows platform
+  if(os.platform() === 'win32') {
+    command += '.cmd';
+  }
+
   return {
     options: {
       stdio: 'inherit'

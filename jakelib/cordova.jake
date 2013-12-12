@@ -61,7 +61,7 @@ namespace('cordova', function() {
     var args = ['--verbose', 'create', 'cordova', package, name];
     jake.rmRf('cordova', {silent: true});
     return cordova.execute(args).then(function() {
-      var assetsPath = path.resolve('app, assets');
+      var assetsPath = path.resolve('app', 'assets');
       var configPath = path.resolve('cordova', 'www', 'config.xml');
       jake.cpR(configPath, assetsPath);
     });

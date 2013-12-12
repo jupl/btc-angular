@@ -1,5 +1,10 @@
 # Changelog
 
+#### 0.5.2 (December 12, 2013)
+- Update BTC
+  - Fix Windows support
+- Fix typo in copying `config.xml`
+
 #### 0.5.1 (December 12, 2013)
 - Update BTC
 
