@@ -24,18 +24,18 @@ namespace('clean', function() {
 // 'placeholder' is used)
 namespace('scaffold', function() {
   task('gen', function(type, name) {
-    return scaffolt(type, name);
+    return scaffolt.execute(type, name);
   });
 
   task('del', function(type, name) {
-    return scaffolt(type, name, '--revert');
+    return scaffolt.execute(type, name, '--revert');
   });
 
   task('add', function(type) {
-    return scaffolt(type, 'placeholder');
+    return scaffolt.execute(type, 'placeholder');
   });
 
   task('rem', function(type) {
-    return scaffolt(type, 'placeholder', '--revert');
+    return scaffolt.execute(type, 'placeholder', '--revert');
   });
 });

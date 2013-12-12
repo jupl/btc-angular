@@ -39,20 +39,31 @@ exports.generators = fs.readdirSync('generators').filter(function(generator) {
 /**
  * Return a function that will execute the a node module command
  * @param  {String} moduleName Name of node module installed locally
- * @return {Function}          Function that runs the node module command.
- *                             Arguments passed to the function will be added
- *                             to the module command. It returns a promise.
+ * @return {Object}            Object with two properties:
+ *                             execute - Function that runs the node module
+ *                             command. Arguments passed to the function will
+ *                             be added to the module command. It returns a
+ *                             promise.
+ *                             options - Options to pass through, since
+ *                             execute relies on node's spawn.
  */
 exports.npmBin = function(moduleName) {
   var command = path.resolve('node_modules', '.bin', moduleName);
-  return function() {
-    return execute.apply(null, [command].concat(slice.call(arguments, 0)));
+  return {
+    options: {
+      stdio: 'inherit'
+    },
+    execute: function() {
+      var args = slice.call(arguments, 0);
+      return execute.apply(null, [command, this.options].concat(args));
+    }
   };
 }
 
 /**
  * Wraps spawn command in a promise.
  * @param  {String}    command Path to command to execute in the shell
+ * @param  {Object}    options Options to pass through via the spawn command
  * @param  {Array}     args    If given argument is an array, it is assumed
  *                             that it is a list of arguments to be passed.
  * @param  {...String}         Params for command that would be space separated
@@ -60,17 +71,12 @@ exports.npmBin = function(moduleName) {
  *                             completed. Errors or aborts will cause
  *                             rejection.
  */
-function execute(command, args) {
+function execute(command, options, args) {
   var child;
-
-  // Ensure that stdio io is inherited (allows color preservation)
-  var options = {
-    stdio: 'inherit'
-  };
 
   // Check if arguments have been given as an array
   if(!Object.isArray(args)) {
-    args = slice.call(arguments, 1);
+    args = slice.call(arguments, 2);
   }
 
   // Run spawn and leverage promises
