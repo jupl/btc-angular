@@ -1,4 +1,4 @@
-# Brunch Toolchain 0.5.7
+# Brunch Toolchain 0.5.8
 [<img src="https://david-dm.org/jupl/brunch-toolchain.png"/>](https://david-dm.org/jupl/brunch-toolchain)
 [<img src="https://david-dm.org/jupl/brunch-toolchain/dev-status.png"/>](https://david-dm.org/jupl/brunch-toolchain#info=devDependencies)
 
@@ -42,7 +42,8 @@ For fleshed out skeletons based on this one:
 
 ## Setup
 1. Install node.js.
-2. If doing development, install Jake.
+2. If using Windows and leveraging Bower, install git.
+3. If doing development, install Jake.
 4. Open a terminal window and navigate to the project directory.
 5. Execute the command `npm install` to install all package dependencies.
 

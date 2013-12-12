@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.5.8 (December 12, 2013)
+- Fix Windows support
+
 #### 0.5.7 (December 12, 2013)
 - Internal fix to bring back spawn options
 
