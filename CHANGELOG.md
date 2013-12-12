@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.5.1 (December 12, 2013)
+- Update BTC
+
 ### 0.5.0 (December 4, 2013)
 - Update BTC
 - Update Cordova to 3.2

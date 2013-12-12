@@ -1,10 +1,7 @@
 // Brunch build tasks
+var brunch = require('./lib').npmBin('brunch');
+var cordova = require('./lib').npmBin('cordova');
 var devices = require('./lib').devices;
-var execute = require('./lib').execute;
-var localBinCommand = require('./lib').localBinCommand;
-var resolvePath = require('./lib').resolvePath;
-
-var projectPath = resolvePath('cordova');
 
 namespace('build', function() {
   desc('Build project (web or device) for development');
@@ -14,16 +11,16 @@ namespace('build', function() {
     validateDevice(device);
     if(device) {
       jake.Task['clean:cordova'].invoke();
-      return execute(localBinCommand('brunch', 'b -e cordova:dev')).then(function() {
+      return brunch.execute('build', '--env', 'cordova:dev').then(function() {
         if(device !== 'none') {
-          var command = localBinCommand('cordova', '-d build ' + device);
-          return execute(command, {cwd: projectPath});
+          cordova.options.cwd = 'cordova';
+          return cordova.execute('--verbose', 'build', device);
         }
       });
     }
     else {
       jake.Task['clean:web'].invoke();
-      return execute(localBinCommand('brunch', 'b -e web:dev'));
+      return brunch.execute('build', '--env', 'web:dev');
     }
   });
 
@@ -34,15 +31,16 @@ namespace('build', function() {
     validateDevice(device);
     if(device) {
       jake.Task['clean:cordova'].invoke();
-      return execute(localBinCommand('brunch', 'b -e cordova:prod')).then(function() {
+      return brunch.execute('build', '--env', 'cordova:prod').then(function() {
         if(device !== 'none') {
-          return execute(localBinCommand('cordova', '-d build ' + device), {cwd: projectPath});
+          cordova.options.cwd = 'cordova';
+          return cordova.execute('--verbose', 'build', device);
         }
       });
     }
     else {
       jake.Task['clean:web'].invoke();
-      return execute(localBinCommand('brunch', 'b -e web:prod'));
+      return brunch.execute('build', '--env', 'web:prod');
     }
   });
 });
@@ -50,24 +48,24 @@ namespace('build', function() {
 namespace('watch', function() {
   desc('Build project for development and rebuild on changes');
   task('dev', ['bower:install', 'clean:web'], function() {
-    return execute(localBinCommand('brunch', 'w -e web:dev'));
+    return brunch.execute('watch', '--env', 'web:dev');
   });
 
   desc('Build project for production and rebuild on changes');
   task('prod', ['bower:install', 'clean:web'], function() {
-    return execute(localBinCommand('brunch', 'w -e web:prod'));
+    return brunch.execute('watch', '--env', 'web:prod');
   });
 });
 
 namespace('server', function() {
   desc('Build project for development, rebuild on changes, and host locally');
   task('dev', ['bower:install', 'clean:web'], function() {
-    return execute(localBinCommand('brunch', 'w -s -e web:dev'));
+    return brunch.execute('watch', '--server', '--env', 'web:dev');
   });
 
   desc('Build project for production, rebuild on changes, and host locally');
   task('prod', ['bower:install', 'clean:web'], function() {
-    return execute(localBinCommand('brunch', 'w -s -e web:prod'));
+    return brunch.execute('watch', '--server', '--env', 'web:prod');
   });
 });
 

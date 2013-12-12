@@ -1,11 +1,9 @@
-# Cordova Brunch 0.5.0
-
+# Cordova Brunch 0.5.1
 [<img src="https://david-dm.org/jupl/cordova-brunch.png"/>](https://david-dm.org/jupl/cordova-brunch)
 [<img src="https://david-dm.org/jupl/cordova-brunch/dev-status.png"/>](https://david-dm.org/jupl/cordova-brunch#info=devDependencies)
 
 
 ## Introduction
-
 Cordova Brunch is a base skeleton for building web applications. (Currently supports iOS and Android applications) This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. It can be used for skeletons. In addition to assembling a standard web-based application, this skeleton can also assemble native applications using Cordova. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency. For complete skeletons that include Cordova Brunch see:
 - [Aang Brunch](https://github.com/jupl/aang-brunch/tree/cordova) ([AngularJS](http://angularjs.org/))
 - [Chapless Brunch](https://github.com/jupl/chapless-brunch/tree/cordova) ([Chaplin](http://chaplinjs.org/))
@@ -13,7 +11,6 @@ Cordova Brunch is a base skeleton for building web applications. (Currently supp
 
 
 ## File Structure
-
     ├── app                 # App is built here. Look at Brunch for more info.
     │   └── assets          # Static files that are just copied
     ├── bower_components    # Packages installed by Bower
@@ -173,7 +170,7 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 
 ### Core
 - [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.5.5
-- [Cordova](http://cordova.apache.org)
+- [Cordova](http://cordova.apache.org) 3.2
 
 ### Utilities
 - [jQuery](http://jquery.com/)
