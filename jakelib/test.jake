@@ -108,7 +108,7 @@ namespace('test', function() {
           clearInterval(id);
           if(process.env.watch === 'true') {
             args.unshift(path.resolve('node_modules', '.bin', 'mocha'));
-            args.unshift('test/site');
+            args.unshift(path.resolve('test', 'site'));
             args.unshift('--watch');
             args.unshift(config.paths.public);
             args.unshift('--watch');
