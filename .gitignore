@@ -10,6 +10,7 @@
 *~
 *.sass-cache
 *.sublime*
+*.iws
 
 # OS or Editor folders
 .DS_Store
@@ -19,6 +20,11 @@
 .tmproj
 nbproject
 Thumbs.db
+
+# WebStorm / IntelliJ
+.idea/tasks.xml
+.idea/watcherTasks.xml
+.idea/workspace.xml
 
 # Project specific
 npm-debug.log
