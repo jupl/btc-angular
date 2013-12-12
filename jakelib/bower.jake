@@ -1,11 +1,10 @@
 // Bower related tasks
-var execute = require('./lib').execute;
-var localBinCommand = require('./lib').localBinCommand;
+var bower = require('./lib').npmBin('bower');
 
 namespace('bower', function() {
   desc('Download and install Bower components');
   task('install', function() {
-    return execute(localBinCommand('bower', 'install'));
+    return bower('install');
   });
 
   desc('Clear Bower components');

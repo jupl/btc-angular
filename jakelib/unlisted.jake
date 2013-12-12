@@ -1,8 +1,7 @@
 // These are tasks that are undocumented, as they tend to be used by other tasks.
 require('sugar');
 var config = require('../brunch-config').config;
-var execute = require('./lib').execute;
-var localBinCommand = require('./lib').localBinCommand;
+var scaffolt = require('./lib').npmBin('scaffolt');
 var platforms = require('../setup/platform').platforms;
 
 // Set default task to list available tasks
@@ -25,18 +24,18 @@ namespace('clean', function() {
 // 'placeholder' is used)
 namespace('scaffold', function() {
   task('gen', function(type, name) {
-    return execute(localBinCommand('scaffolt', type + ' ' + name));
+    return scaffolt(type, name);
   });
 
   task('del', function(type, name) {
-    return execute(localBinCommand('scaffolt', type + ' ' + name + ' -r'));
+    return scaffolt(type, name, '--revert');
   });
 
   task('add', function(type) {
-    return execute(localBinCommand('scaffolt', type + ' placeholder'));
+    return scaffolt(type, 'placeholder');
   });
 
   task('rem', function(type) {
-    return execute(localBinCommand('scaffolt', type + ' placeholder -r'));
+    return scaffolt(type, 'placeholder', '--revert');
   });
 });
