@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+#### 0.5.7 (December 12, 2013)
 - Internal fix to bring back spawn options
 
 #### 0.5.6 (December 12, 2013)
