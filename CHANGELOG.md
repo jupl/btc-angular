@@ -4,6 +4,7 @@
 - Add specific WebStorm and IntelliJ files to gitignore
 - Stop worrying about absolute paths
 - Mark execute promises as cancellable
+- Move auto-reload-brunch to devDependencies
 
 #### 0.5.5 (December 4, 2013)
 - Update dependencies

@@ -17,12 +17,12 @@
 
     "javascript-brunch": ">= 1.0 < 1.8",
     "css-brunch": ">= 1.0 < 1.8",
-    "auto-reload-brunch": ">= 1.0 < 1.8",
     "clean-css-brunch": ">= 1.0 < 1.8",
     "uglify-js-brunch": ">= 1.0 < 1.8"
   },
 
   "devDependencies": {
+    "auto-reload-brunch": ">= 1.0 < 1.8",
     "chai": "~1.8.1",
     "karma": "~0.10.4",
     "karma-chai-plugins": "~0.1.3",
