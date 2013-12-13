@@ -1,6 +1,9 @@
 # Changelog
 
-### 0.5.8 (December 12, 2013)
+### WIP
+- Allow multiple names to be specified per scaffold
+
+#### 0.5.8 (December 12, 2013)
 - Fix Windows support
 
 #### 0.5.7 (December 12, 2013)

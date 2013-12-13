@@ -78,7 +78,7 @@ Add/remove [normalize.css](http://necolas.github.io/normalize.css/) to ensure a 
 
 
 ### Scaffolding
-Scaffolding commands are available in the form of `gen` and `del`. (syntax ex: `jake gen codetest=user`) Multiple scaffolds can be specified in a single command. (ex: `jake gen codetest=test1 sitetest=test2`)
+Scaffolding commands are available in the form of `gen` and `del`. (syntax ex: `jake gen codetest=user`) Multiple scaffolds can be specified in a single command, as well as separating names with commas. (ex: `jake gen codetest=test1,test2 sitetest=test3`)
 
 #### `gen` / `del`
 List available scaffolds.
