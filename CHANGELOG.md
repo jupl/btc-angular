@@ -2,6 +2,7 @@
 
 ### WIP
 - Allow multiple names to be specified per scaffold
+- Move default Jake task to Jakefile
 
 #### 0.5.8 (December 12, 2013)
 - Fix Windows support
