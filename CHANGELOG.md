@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+### 0.6.0 (December 14, 2013)
 - Update Cordova to 3.3
 - Update BTC
   - Allow multiple names to be specified per scaffold
