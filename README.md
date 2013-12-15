@@ -20,6 +20,7 @@ For fleshed out skeletons based on this one:
     ├── generators          # Generators used by Scaffolt
     ├── jakelib             # Unified set of tasks for development
     ├── public              # Generated final product
+    ├── server              # Server configuration
     ├── setup               # Add configuration options to brunch-config
     ├── test                # Test-related files
     │   ├── assets          # Static assets to run code tests manually
