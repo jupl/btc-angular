@@ -1,6 +1,10 @@
 var setup = require('./setup');
 
 exports.config = setup({
+  server: {
+    path: 'server'
+  },
+
   files: {
     javascripts: {
       joinTo: {
