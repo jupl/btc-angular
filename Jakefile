@@ -1,1 +1,4 @@
-// See jakelib for tasks. This is a placeholder to allow Jake to work.
+// Set default task to list available tasks
+task('default', function() {
+  jake.run('-T');
+});

@@ -10,6 +10,29 @@ var cwd = process.cwd();
 var slice = Array.prototype.slice;
 
 /**
+ * Return a function that will execute a console command
+ * @param  {String} command    Command to execute
+ * @return {Object}            Object with two properties:
+ *                             execute - Function that runs the node module
+ *                             command. Arguments passed to the function will
+ *                             be added to the module command. It returns a
+ *                             promise.
+ *                             options - Options to pass through, since
+ *                             execute relies on node's spawn.
+ */
+exports.bin = function(command) {
+  return {
+    options: {
+      stdio: 'inherit'
+    },
+    execute: function() {
+      var args = slice.call(arguments, 0);
+      return execute.apply(null, [command, this.options].concat(args));
+    }
+  };
+}
+
+/**
  * List of available generators from Scaffolt. Each element has the following
  * properties:
  *   name         Generator name that is to be passed to Scaffolt
@@ -40,13 +63,8 @@ exports.generators = fs.readdirSync('generators').filter(function(generator) {
 /**
  * Return a function that will execute the a node module command
  * @param  {String} moduleName Name of node module installed locally
- * @return {Object}            Object with two properties:
- *                             execute - Function that runs the node module
- *                             command. Arguments passed to the function will
- *                             be added to the module command. It returns a
- *                             promise.
- *                             options - Options to pass through, since
- *                             execute relies on node's spawn.
+ * @return {Object}            Object with execute command and options object.
+ *                             For more information see bin command above.
  */
 exports.npmBin = function(moduleName) {
   var command = path.resolve('node_modules', '.bin', moduleName);
@@ -56,15 +74,7 @@ exports.npmBin = function(moduleName) {
     command += '.cmd';
   }
 
-  return {
-    options: {
-      stdio: 'inherit'
-    },
-    execute: function() {
-      var args = slice.call(arguments, 0);
-      return execute.apply(null, [command, this.options].concat(args));
-    }
-  };
+  return exports.bin(command);
 }
 
 /**

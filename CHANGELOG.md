@@ -1,5 +1,13 @@
 # Changelog
 
+### 0.6.0 (December 14, 2013)
+- Update Cordova to 3.3
+- Update BTC
+  - Allow multiple names to be specified per scaffold
+  - Move default Jake task to Jakefile
+  - Include server to customize and add services
+  - Update packages
+
 #### 0.5.2 (December 12, 2013)
 - Update BTC
   - Fix Windows support
