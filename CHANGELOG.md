@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+### 0.6.0 (December 14, 2013)
 - Allow multiple names to be specified per scaffold
 - Move default Jake task to Jakefile
 - Include server to customize and add services
