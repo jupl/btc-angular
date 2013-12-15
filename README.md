@@ -1,4 +1,4 @@
-# Cordova Brunch 0.5.2
+# Cordova Brunch 0.6.0
 [<img src="https://david-dm.org/jupl/cordova-brunch.png"/>](https://david-dm.org/jupl/cordova-brunch)
 [<img src="https://david-dm.org/jupl/cordova-brunch/dev-status.png"/>](https://david-dm.org/jupl/cordova-brunch#info=devDependencies)
 
