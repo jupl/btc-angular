@@ -10,14 +10,16 @@ task('gen', function() {
   // Iterate over all available generators.
   generators.forEach(function(generator) {
     var type = generator.name;
-    var name = process.env[generator.task];
-    if(!generator.isModule && name) {
-      promises.push(new Promise(function(resolve) {
-        validate(type, name);
-        jake.Task['scaffold:gen']
-        .addListener('complete', resolve)
-        .invoke(type, name);
-      }));
+    var names = process.env[generator.task];
+    if(!generator.isModule && names) {
+      names.split(',').forEach(function(name) {
+        promises.push(new Promise(function(resolve) {
+          validate(type, name);
+          jake.Task['scaffold:gen']
+          .addListener('complete', resolve)
+          .invoke(type, name);
+        }));
+      });
     }
   });
 
@@ -38,14 +40,16 @@ task('del', function() {
   // Iterate over all available generators.
   generators.forEach(function(generator) {
     var type = generator.name;
-    var name = process.env[generator.task];
-    if(!generator.isModule && name) {
-      promises.push(new Promise(function(resolve) {
-        validate(type, name);
-        jake.Task['scaffold:del']
-        .addListener('complete', resolve)
-        .invoke(type, name);
-      }));
+    var names = process.env[generator.task];
+    if(!generator.isModule && names) {
+      names.split(',').forEach(function(name) {
+        promises.push(new Promise(function(resolve) {
+          validate(type, name);
+          jake.Task['scaffold:del']
+          .addListener('complete', resolve)
+          .invoke(type, name);
+        }));
+      });
     }
   });
 
