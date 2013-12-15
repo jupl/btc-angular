@@ -4,6 +4,7 @@
 - Allow multiple names to be specified per scaffold
 - Move default Jake task to Jakefile
 - Include server to customize and add services
+- Update packages
 
 #### 0.5.8 (December 12, 2013)
 - Fix Windows support
