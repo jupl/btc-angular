@@ -1,13 +1,7 @@
 // These are tasks that are undocumented, as they tend to be used by other tasks.
-require('sugar');
 var config = require('../brunch-config').config;
 var scaffolt = require('./lib').npmBin('scaffolt');
 var platforms = require('../setup/platform').platforms;
-
-// Set default task to list available tasks
-task('default', function() {
-  jake.run('-T');
-});
 
 // Tasks that are used to clean build directories from Brunch
 namespace('clean', function() {
