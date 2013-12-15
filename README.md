@@ -65,7 +65,7 @@ While Brunch/Scaffolt/etc. can be used, Jake commands are provided for a simple 
 Download and preinstall any Bower dependencies in advance. You can run this if you want to download Bower dependencies in advance.
 
 #### `bower:clean`
-Remove downloaded Bower dependencies. This is useful if you want to reinstall dependencies.
+Remove downloaded Bower dependencies. This is useful if you want to reinstall dependencies. (ex. updated package)
 
 
 ### Extras
