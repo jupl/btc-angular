@@ -197,8 +197,8 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 ## Libraries
 
 ### Core
-- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.1.2
-- [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.5.2
+- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.1.3
+- [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.6.0
 
 ### Utilities
 - [Angular Touch](http://docs.angularjs.org/api/ngTouch)

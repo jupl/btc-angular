@@ -6,6 +6,7 @@
   - Move default Jake task to Jakefile
   - Include server to customize and add services
   - Update packages
+- Update Cordova to 3.3
 
 #### 0.1.2 (December 12, 2013)
 - Update BTC
