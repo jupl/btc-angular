@@ -1,6 +1,7 @@
 # Changelog
 
 #### WIP
+- Update Cordova to 3.3
 - Update BTC
   - Allow multiple names to be specified per scaffold
   - Move default Jake task to Jakefile
