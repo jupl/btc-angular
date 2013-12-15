@@ -76,8 +76,8 @@ namespace('cordova', function() {
     validateDevice(device);
     cordova.options.cwd = 'cordova';
     return cordova.execute(args).then(function() {
-      var origin = resolvePath('jakelib', 'assets', device + '.gitignore');
-      var dest = path.resolve(projectPath, 'platforms', device, '.gitignore');
+      var origin = path.resolve('jakelib', 'assets', device + '.gitignore');
+      var dest = path.resolve('cordova', 'platforms', device, '.gitignore');
       jake.cpR(origin, dest);
     });
   });
