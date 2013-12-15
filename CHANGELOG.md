@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.1.3 (December 14, 2013)
 - Update BTC
   - Allow multiple names to be specified per scaffold
   - Move default Jake task to Jakefile
