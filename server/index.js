@@ -15,10 +15,10 @@ exports.startServer = function(port, publicPath, callback) {
   // app.post(...);
 
   // Set other paths to index.html for HTML5 pushState apps
-  var indexPath = path.resolve(publicPath, 'index.html');
-  app.get('*', function(request, response) {
-    response.sendfile(indexPath);
-  });
+  // var indexPath = path.resolve(publicPath, 'index.html');
+  // app.get('*', function(request, response) {
+  //   response.sendfile(indexPath);
+  // });
 
   // Start up server
   var server = http.createServer(app);
