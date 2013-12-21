@@ -148,7 +148,7 @@ namespace('cordova', function() {
     var device = process.env.device;
     var args = ['--verbose', 'platform', 'update', device];
 
-    validateDevice(device);
+    validateDevice(device, true);
     cordova.options.cwd = 'cordova';
     return cordova.execute(args);
   });
@@ -167,8 +167,11 @@ function listTypes() {
   console.log('Specify either a device or plugin');
 }
 
-function validateDevice(device) {
-  if(device && devices.indexOf(device) === -1) {
+function validateDevice(device, required) {
+  if(required && !device) {
+    fail('Device name required');
+  }
+  else if(device && devices.indexOf(device) === -1) {
     fail('Device is not available');
   }
 }
