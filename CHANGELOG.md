@@ -1,5 +1,10 @@
 # Changelog
 
+#### WIP
+- Update BTC
+  - Update Mocha
+  - Update WebDriverJS
+
 ### 0.6.0 (December 14, 2013)
 - Update Cordova to 3.3
 - Update BTC
