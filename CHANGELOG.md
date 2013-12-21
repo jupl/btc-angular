@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.6.1 (December 20, 2013)
 - Add task to add/remove plugins
 - Add task to upgrade device platform
 - Add task to list device platforms and plugins
