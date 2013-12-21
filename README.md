@@ -101,10 +101,13 @@ Generate a new Cordova project using [cordova-cli](https://github.com/apache/cor
 List device platforms the Cordova project is currently supporting.
 
 #### `cordova:add device=[device]` / `cordova:rem device=[device]`
-Add/remove specified device support to the Cordova project.
+Add/remove specified device support to/from the Cordova project.
 
 #### `cordova:update device=[device]`
 Update specified device platform.
+
+#### `cordova:add plugin=[plugin]` / `cordova:rem plugin=[plugin]`
+Add/remove a plugin to/from the Cordova project.
 
 
 ### Scaffolding

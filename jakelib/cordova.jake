@@ -73,28 +73,72 @@ namespace('cordova', function() {
     return cordova.execute(['--verbose', 'platforms', 'ls']);
   });
 
-  desc('Add a device to the Cordova project');
+  desc('Add a device/plugin to the Cordova project');
   task('add', function() {
     var device = process.env.device;
-    var args = ['--verbose', 'platform', 'add', device];
+    var plugin = process.env.plugin;
+    var promises = [];
 
+    // Check if device is valid (assuming it was provided)
     validateDevice(device);
-    cordova.options.cwd = 'cordova';
-    return cordova.execute(args).then(function() {
-      var origin = path.resolve('jakelib', 'assets', device + '.gitignore');
-      var dest = path.resolve('cordova', 'platforms', device, '.gitignore');
-      jake.cpR(origin, dest);
-    });
+
+    // Add device if given
+    if(device) {
+      var args = ['--verbose', 'platform', 'add', device];
+      cordova.options.cwd = 'cordova';
+      promises.push(cordova.execute(args).then(function() {
+        var origin = path.resolve('jakelib', 'assets', device + '.gitignore');
+        var dest = path.resolve('cordova', 'platforms', device, '.gitignore');
+        jake.cpR(origin, dest);
+      }));
+    }
+
+    // Add plugin if given
+    if(plugin) {
+      var args = ['--verbose', 'plugin', 'add', plugin];
+      cordova.options.cwd = 'cordova';
+      promises.push(cordova.execute(args));
+    }
+
+    // Check if promises have been made. If not, list available types.
+    if(promises.length) {
+      return Promise.all(promises);
+    }
+    else {
+      listTypes();
+    }
   });
 
-  desc('Remove a device from the Cordova project');
+  desc('Remove a device/plugin from the Cordova project');
   task('rem', function() {
     var device = process.env.device;
-    var args = ['--verbose', 'platform', 'remove', device];
+    var plugin = process.env.plugin;
+    var promises = [];
 
+    // Check if device is valid (assuming it was provided)
     validateDevice(device);
-    cordova.options.cwd = 'cordova';
-    return cordova.execute(args);
+
+    // Add if device is given
+    if(device) {
+      var args = ['--verbose', 'platform', 'remove', device];
+      cordova.options.cwd = 'cordova';
+      promises.push(cordova.execute(args));
+    }
+
+    // Add if plugin is given
+    if(plugin) {
+      var args = ['--verbose', 'plugin', 'remove', plugin];
+      cordova.options.cwd = 'cordova';
+      promises.push(cordova.execute(args));
+    }
+
+    // Check if promises have been made. If not, list available types.
+    if(promises.length) {
+      return Promise.all(promises);
+    }
+    else {
+      listTypes();
+    }
   });
 
   desc('Update a device platform');
@@ -108,15 +152,6 @@ namespace('cordova', function() {
   });
 });
 
-function validateDevice(device) {
-  if(!device) {
-    fail('Device name required');
-  }
-  else if(devices.indexOf(device) === -1) {
-    fail('Device is not available');
-  }
-}
-
 function validateProject(packageName, appName) {
   if(packageName && !/(\w+\.)+\w+/.test(packageName)) {
     fail('Invalid package name');
@@ -124,4 +159,18 @@ function validateProject(packageName, appName) {
   else if(appName && !packageName) {
     fail('Package name required');
   }
+}
+
+function listTypes() {
+  console.log('Specify either a device or plugin');
+}
+
+function validateDevice(device) {
+  if(device && devices.indexOf(device) === -1) {
+    fail('Device is not available');
+  }
+}
+
+function validatePlugin(plugin) {
+  // Throw Jake fails here if it does not validate
 }

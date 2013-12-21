@@ -3,6 +3,7 @@
 #### WIP
 - Add task to upgrade device platform
 - Add task to list device platforms
+- Add task to add/remove plugins
 - Update BTC
   - Update Mocha
   - Update WebDriverJS
