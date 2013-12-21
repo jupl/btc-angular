@@ -67,6 +67,12 @@ namespace('cordova', function() {
     });
   });
 
+  desc('List installed device platforms');
+  task('ls', function() {
+    cordova.options.cwd = 'cordova';
+    return cordova.execute(['--verbose', 'platforms', 'ls']);
+  });
+
   desc('Add a device to the Cordova project');
   task('add', function() {
     var command;

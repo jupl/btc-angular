@@ -97,6 +97,9 @@ Generate a new Cordova project using [cordova-cli](https://github.com/apache/cor
 - Project will reside in `cordova/`. If an existing project exists when running this task, it will be replaced with a new one.
 - `config.xml` is added to `app/assets`. (This file will be ignored if a non-Cordova web build is made.) Do not remove this file.
 
+#### `cordova:ls`
+List device platforms the Cordova project is currently supporting.
+
 #### `cordova:add device=[device]` / `cordova:rem device=[device]`
 Add/remove specified device support to the Cordova project.
 
