@@ -75,7 +75,6 @@ namespace('cordova', function() {
 
   desc('Add a device to the Cordova project');
   task('add', function() {
-    var command;
     var device = process.env.device;
     var args = ['--verbose', 'platform', 'add', device];
 
@@ -90,7 +89,6 @@ namespace('cordova', function() {
 
   desc('Remove a device from the Cordova project');
   task('rem', function() {
-    var command;
     var device = process.env.device;
     var args = ['--verbose', 'platform', 'remove', device];
 
@@ -101,7 +99,6 @@ namespace('cordova', function() {
 
   desc('Update a device platform');
   task('update', function() {
-    var command;
     var device = process.env.device;
     var args = ['--verbose', 'platform', 'update', device];
 
