@@ -92,6 +92,17 @@ namespace('cordova', function() {
     cordova.options.cwd = 'cordova';
     return cordova.execute(args);
   });
+
+  desc('Update a device platform');
+  task('update', function() {
+    var command;
+    var device = process.env.device;
+    var args = ['--verbose', 'platform', 'update', device];
+
+    validateDevice(device);
+    cordova.options.cwd = 'cordova';
+    return cordova.execute(args);
+  });
 });
 
 function validateDevice(device) {

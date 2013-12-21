@@ -100,6 +100,9 @@ Generate a new Cordova project using [cordova-cli](https://github.com/apache/cor
 #### `cordova:add device=[device]` / `cordova:rem device=[device]`
 Add/remove specified device support to the Cordova project.
 
+#### `cordova:update device=[device]`
+Update specified device platform.
+
 
 ### Scaffolding
 Scaffolding commands are available in the form of `gen` and `del`. (syntax ex: `jake gen codetest=user`) Multiple scaffolds can be specified in a single command, as well as separating names with commas. (ex: `jake gen codetest=test1,test2 sitetest=test3`)
