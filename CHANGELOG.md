@@ -1,9 +1,9 @@
 # Changelog
 
 #### WIP
-- Add task to upgrade device platform
-- Add task to list device platforms
 - Add task to add/remove plugins
+- Add task to upgrade device platform
+- Add task to list device platforms and plugins
 - Update BTC
   - Update Mocha
   - Update WebDriverJS

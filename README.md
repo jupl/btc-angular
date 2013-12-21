@@ -98,16 +98,16 @@ Generate a new Cordova project using [cordova-cli](https://github.com/apache/cor
 - `config.xml` is added to `app/assets`. (This file will be ignored if a non-Cordova web build is made.) Do not remove this file.
 
 #### `cordova:ls`
-List device platforms the Cordova project is currently supporting.
+List device platforms and plugins the Cordova project currently has.
 
 #### `cordova:add device=[device]` / `cordova:rem device=[device]`
 Add/remove specified device support to/from the Cordova project.
 
-#### `cordova:update device=[device]`
-Update specified device platform.
-
 #### `cordova:add plugin=[plugin]` / `cordova:rem plugin=[plugin]`
 Add/remove a plugin to/from the Cordova project.
+
+#### `cordova:update device=[device]`
+Update specified device platform.
 
 
 ### Scaffolding

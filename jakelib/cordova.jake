@@ -67,10 +67,12 @@ namespace('cordova', function() {
     });
   });
 
-  desc('List installed device platforms');
+  desc('List installed device platforms and plugins');
   task('ls', function() {
     cordova.options.cwd = 'cordova';
-    return cordova.execute(['--verbose', 'platforms', 'ls']);
+    return cordova.execute(['--verbose', 'platform', 'ls']).then(function() {
+      return cordova.execute(['--verbose', 'plugin', 'ls']);
+    });
   });
 
   desc('Add a device/plugin to the Cordova project');
