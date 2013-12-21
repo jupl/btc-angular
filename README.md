@@ -1,4 +1,4 @@
-# Cordova Brunch 0.6.0
+# Cordova Brunch 0.6.1
 [<img src="https://david-dm.org/jupl/cordova-brunch.png"/>](https://david-dm.org/jupl/cordova-brunch)
 [<img src="https://david-dm.org/jupl/cordova-brunch/dev-status.png"/>](https://david-dm.org/jupl/cordova-brunch#info=devDependencies)
 
@@ -97,8 +97,17 @@ Generate a new Cordova project using [cordova-cli](https://github.com/apache/cor
 - Project will reside in `cordova/`. If an existing project exists when running this task, it will be replaced with a new one.
 - `config.xml` is added to `app/assets`. (This file will be ignored if a non-Cordova web build is made.) Do not remove this file.
 
+#### `cordova:ls`
+List device platforms and plugins the Cordova project currently has.
+
 #### `cordova:add device=[device]` / `cordova:rem device=[device]`
-Add/remove specified device support to the Cordova project.
+Add/remove specified device support to/from the Cordova project.
+
+#### `cordova:add plugin=[plugin]` / `cordova:rem plugin=[plugin]`
+Add/remove a plugin to/from the Cordova project.
+
+#### `cordova:update device=[device]`
+Update specified device platform.
 
 
 ### Scaffolding
