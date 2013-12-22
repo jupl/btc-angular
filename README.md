@@ -100,8 +100,17 @@ Generate a new Cordova project using [cordova-cli](https://github.com/apache/cor
 - Project will reside in `cordova/`. If an existing project exists when running this task, it will be replaced with a new one.
 - `config.xml` is added to `app/assets`. (This file will be ignored if a non-Cordova web build is made.) Do not remove this file.
 
+#### `cordova:ls`
+List device platforms and plugins the Cordova project currently has.
+
 #### `cordova:add device=[device]` / `cordova:rem device=[device]`
-Add/remove specified device support to the Cordova project.
+Add/remove specified device support to/from the Cordova project.
+
+#### `cordova:add plugin=[plugin]` / `cordova:rem plugin=[plugin]`
+Add/remove a plugin to/from the Cordova project.
+
+#### `cordova:update device=[device]`
+Update specified device platform.
 
 
 ### Scaffolding
@@ -197,8 +206,8 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 ## Libraries
 
 ### Core
-- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.1.3
-- [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.6.0
+- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.1.4
+- [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.6.1
 
 ### Utilities
 - [Angular Touch](http://docs.angularjs.org/api/ngTouch)

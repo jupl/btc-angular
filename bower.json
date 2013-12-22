@@ -11,7 +11,7 @@
     "angular-route": "~1.2.0",
     "angular-touch": "~1.2.0",
     "chai": "~1.8.1",
-    "mocha": "~1.15.0",
+    "mocha": "~1.16.1",
     "sinon": "http://sinonjs.org/releases/sinon-1.7.3.js",
     "sinon-chai": "~2.4.0"
   },

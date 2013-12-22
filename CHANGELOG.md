@@ -1,5 +1,14 @@
 # Changelog
 
+#### 0.1.4 (December 21, 2013)
+- Update Cordova Brunch
+  - Add task to add/remove plugins
+  - Add task to upgrade device platform
+  - Add task to list device platforms and plugins
+- Update BTC
+  - Update Mocha
+  - Update WebDriverJS
+
 #### 0.1.3 (December 14, 2013)
 - Update BTC
   - Allow multiple names to be specified per scaffold
