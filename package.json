@@ -31,10 +31,10 @@
     "karma": "~0.10.4",
     "karma-chai-plugins": "~0.1.3",
     "karma-mocha": "~0.1.0",
-    "mocha": "~1.15.1",
+    "mocha": "~1.16.1",
     "mocha-as-promised": "~2.0.0",
     "nodemon": "~0.7.10",
     "phantomjs": "~1.9.2",
-    "selenium-webdriver": "~2.38.1"
+    "selenium-webdriver": "~2.39.0"
   }
 }
