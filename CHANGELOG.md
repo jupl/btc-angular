@@ -1,5 +1,10 @@
 # Changelog
 
+#### WIP
+- Update BTC
+  - Update Mocha
+  - Update WebDriverJS
+
 #### 0.1.3 (December 14, 2013)
 - Update BTC
   - Allow multiple names to be specified per scaffold
