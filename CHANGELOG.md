@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.1.4 (December 21, 2013)
 - Update BTC
   - Update Mocha
   - Update WebDriverJS
