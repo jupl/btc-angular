@@ -1,5 +1,8 @@
 # Changelog
 
+#### WIP
+- Fix watch in `test:code`
+
 #### 0.6.1 (December 20, 2013)
 - Update Mocha
 - Update WebDriverJS
