@@ -2,6 +2,9 @@
 
 #### WIP
 - Fix watch in `test:code`
+- Update Mocha
+- Update Bluebird
+- Update Nodemon
 
 #### 0.6.1 (December 20, 2013)
 - Update Mocha
