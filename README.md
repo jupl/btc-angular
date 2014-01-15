@@ -1,4 +1,4 @@
-# Aang Brunch 0.1.4
+# Aang Brunch 0.1.5
 [<img src="https://david-dm.org/jupl/aang-brunch.png"/>](https://david-dm.org/jupl/aang-brunch)
 [<img src="https://david-dm.org/jupl/aang-brunch/dev-status.png"/>](https://david-dm.org/jupl/aang-brunch#info=devDependencies)
 
@@ -206,7 +206,7 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 ## Libraries
 
 ### Core
-- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.1.4
+- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.1.5
 - [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.6.1
 
 ### Utilities
