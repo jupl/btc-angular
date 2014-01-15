@@ -1,5 +1,12 @@
 # Changelog
 
+#### 0.6.2 (January 15, 2014)
+- Update BTC
+  - Fix watch in `test:code`
+  - Update Mocha
+  - Update Bluebird
+  - Update Nodemon
+
 #### 0.6.1 (December 20, 2013)
 - Add task to add/remove plugins
 - Add task to upgrade device platform
