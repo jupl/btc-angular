@@ -1,5 +1,11 @@
 # Changelog
 
+#### 0.6.2 (January 15, 2014)
+- Fix watch in `test:code`
+- Update Mocha
+- Update Bluebird
+- Update Nodemon
+
 #### 0.6.1 (December 20, 2013)
 - Update Mocha
 - Update WebDriverJS

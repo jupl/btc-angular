@@ -68,7 +68,7 @@ namespace('test', function() {
 
           if(typeof publicReady !== 'undefined' && publicReady) {
             clearInterval(id);
-            args.push('--single-run');
+            args.push('--no-single-run');
             karma.execute(args).then(resolve, reject);
           }
         }, 1000);
