@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.6.2 (January 15, 2014)
 - Update BTC
   - Fix watch in `test:code`
   - Update Mocha
