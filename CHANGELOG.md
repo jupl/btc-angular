@@ -1,5 +1,9 @@
 # Changelog
 
+#### WIP
+- Update jQuery
+- Update normalize.css
+
 #### 0.6.2 (January 15, 2014)
 - Fix watch in `test:code`
 - Update Mocha
