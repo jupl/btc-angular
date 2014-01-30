@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.6.3 (Jaunary 30, 2014)
 - Update jQuery
 - Update normalize.css
 - Update Chai
