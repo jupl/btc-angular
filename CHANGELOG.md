@@ -1,5 +1,10 @@
 # Changelog
 
+#### 0.6.3 (Jaunary 30, 2014)
+- Update jQuery
+- Update normalize.css
+- Update Chai
+
 #### 0.6.2 (January 15, 2014)
 - Fix watch in `test:code`
 - Update Mocha
