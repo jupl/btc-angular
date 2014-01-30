@@ -1,10 +1,11 @@
 # Changelog
 
 #### WIP
+- Switch to UI Router
 - Update BTC
-- Update jQuery
-- Update normalize.css
-- Update Chai
+  - Update jQuery
+  - Update normalize.css
+  - Update Chai
 
 #### 0.1.5 (January 15, 2014)
 - Update BTC
