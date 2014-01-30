@@ -1,5 +1,11 @@
 # Changelog
 
+#### 0.6.3 (January 30, 2014)
+- Update BTC
+  - Update jQuery
+  - Update normalize.css
+  - Update Chai
+
 #### 0.6.2 (January 15, 2014)
 - Update BTC
   - Fix watch in `test:code`
