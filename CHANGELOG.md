@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.6.3 (January 30, 2014)
 - Update BTC
   - Update jQuery
   - Update normalize.css
