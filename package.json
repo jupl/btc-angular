@@ -16,15 +16,15 @@
     "jsonfile": "~1.1.0",
     "scaffolt": "~0.4.2",
     "sugar": "~1.4.1",
-
-    "javascript-brunch": ">= 1.0 < 1.8",
-    "css-brunch": ">= 1.0 < 1.8",
-    "clean-css-brunch": ">= 1.0 < 1.8",
-    "uglify-js-brunch": ">= 1.0 < 1.8"
+    "javascript-brunch": "~1.7.1",
+    "uglify-js-brunch": "~1.7.6",
+    "css-brunch": "~1.7.0",
+    "autoprefixer-brunch": "~1.7.7",
+    "clean-css-brunch": "~1.7.1"
   },
 
   "devDependencies": {
-    "auto-reload-brunch": ">= 1.0 < 1.8",
+    "auto-reload-brunch": "~1.7.1",
     "chai": "~1.9.0",
     "karma": "~0.10.4",
     "karma-chai-plugins": "~0.1.3",
