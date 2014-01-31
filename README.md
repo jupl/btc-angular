@@ -16,11 +16,11 @@ For a mobile/Cordova friendly variant, check out [this skeleton](https://github.
     │   ├── directives      # Angular directives
     │   ├── filters         # Angular filters
     │   ├── services        # Angular services (factories/providers/services)
-    │   ├── styles          # Stylus stylesheets
+    │   ├── styles          # Sass stylesheets
     │   ├── templates       # HTML templates for Angular
     │   ├── app.js          # Configure main application module
-    │   ├── app.styl        # Application/page styling definition
-    │   ├── base.styl       # Stylus variables and mixins for the application
+    │   ├── app.scss        # Application/page styling definition
+    │   ├── base.scss       # Sass variables and mixins for the application
     │   └── config.js       # Declare and setup Angular modules
     ├── bower_components    # Packages installed by Bower
     ├── generators          # Generators used by Scaffolt
@@ -178,7 +178,7 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.6.4
 
 ### Languages
-- [Stylus](http://learnboost.github.io/stylus/)
+- [Sass](http://sass-lang.com/)
 
 ### Framework
 - [AngularJS](http://angularjs.org/)
@@ -187,4 +187,3 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [UI Router](https://github.com/angular-ui/ui-router)
 - [Angular Mocks](http://docs.angularjs.org/api/ngMock) (for testing)
 - [ngmin](https://github.com/btford/ngmin) (for minification)
-- [Nib](http://visionmedia.github.io/nib/)

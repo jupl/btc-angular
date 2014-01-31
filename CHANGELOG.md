@@ -1,6 +1,7 @@
 # Changelog
 
-#### WIP
+### WIP
+- Replace Stylus with Sass
 - Update BTC
   - Add Autoprefixer
   - Clean up package.json
