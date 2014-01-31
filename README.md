@@ -1,4 +1,4 @@
-# Aang Brunch 0.1.5
+# Aang Brunch 0.2.0
 [<img src="https://david-dm.org/jupl/aang-brunch.png"/>](https://david-dm.org/jupl/aang-brunch)
 [<img src="https://david-dm.org/jupl/aang-brunch/dev-status.png"/>](https://david-dm.org/jupl/aang-brunch#info=devDependencies)
 
