@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.6.4 (January 31, 2014)
 - Update BTC
   - Add Autoprefixer
   - Clean up package.json
