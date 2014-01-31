@@ -7,5 +7,5 @@ angular.module('app', [
   'app.directives',
   'app.filters',
   'app.services',
-  'ngRoute'
+  'ui.router'
 ]);
