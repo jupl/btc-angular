@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.2.0 (January 30, 2014)
 - Switch to UI Router
 - Update BTC
   - Update jQuery
