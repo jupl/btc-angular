@@ -1,5 +1,9 @@
 # Changelog
 
+#### WIP
+- Add Autoprefixer
+- Clean up package.json
+
 #### 0.6.3 (Jaunary 30, 2014)
 - Update jQuery
 - Update normalize.css

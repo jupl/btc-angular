@@ -147,6 +147,9 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [Scaffolt](https://github.com/paulmillr/scaffolt)
 - [Bower](http://bower.io/)
 
+### Utilities
+- [Autoprexifer](https://github.com/ai/autoprefixer) (using [plugin](https://github.com/lydell/autoprefixer-brunch))
+
 ### Testing
 - [PhantomJS](http://phantomjs.org/) (using [wrapper](https://github.com/Obvious/phantomjs))
 - [Karma](http://karma-runner.github.io/)
