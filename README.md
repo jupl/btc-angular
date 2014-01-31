@@ -20,7 +20,7 @@ For a mobile/Cordova friendly variant, check out [this skeleton](https://github.
     │   ├── templates       # HTML templates for Angular
     │   ├── app.js          # Configure main application module
     │   ├── app.scss        # Application/page styling definition
-    │   ├── base.scss       # Sass variables and mixins for the application
+    │   ├── _base.scss      # Sass variables and mixins for the application
     │   └── config.js       # Declare and setup Angular modules
     ├── bower_components    # Packages installed by Bower
     ├── generators          # Generators used by Scaffolt
@@ -111,7 +111,7 @@ Generate/destroy an Angular service using the provider declaration.
 Generate/destroy an Angular service using the service declaration.
 
 #### `gen style=[name]` / `del style=[name]`
-Generate/destroy a Stylus stylesheet file.
+Generate/destroy a Sass stylesheet file.
 
 #### `gen template=[name]` / `del template=[name]`
 Generate/destroy an HTML file that will be added to Angular's template cache in advance. For an example, see `app/app.js` and `app/templates/index.html`.

@@ -19,7 +19,7 @@
     "javascript-brunch": "~1.7.1",
     "ngmin-brunch": "~1.7.0",
     "uglify-js-brunch": "~1.7.6",
-    "sass-brunch": "git://github.com/brunch/sass-brunch#6b8e778c1ed4926a696e4f0a697fb80dc90c9c91",
+    "sass-brunch": "git://github.com/brunch/sass-brunch",
     "css-brunch": "~1.7.0",
     "autoprefixer-brunch": "~1.7.7",
     "clean-css-brunch": "~1.7.1"
