@@ -8,14 +8,14 @@ namespace('add', function() {
   desc('Add jQuery');
   task('jquery', function() {
     editBower(function() {
-      this.dependencies.jquery = '~2.0.3';
+      this.dependencies.jquery = '~2.1.0';
     });
   });
 
   desc('Add normalize.css');
   task('normalize', function() {
     editBower(function() {
-      this.dependencies['normalize-css'] = '~2.1.3';
+      this.dependencies['normalize-css'] = '~3.0.0';
     });
   });
 

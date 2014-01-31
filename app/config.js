@@ -8,5 +8,5 @@ angular.module('app', [
   'app.filters',
   'app.services',
   'ngTouch',
-  'ngRoute'
+  'ui.router'
 ]);
