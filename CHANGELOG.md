@@ -4,6 +4,7 @@
 - Replace Stylus with Sass
 - Update BTC
   - Add Autoprefixer
+  - Add `npm:clean` task
   - Clean up package.json
 
 ### 0.2.0 (January 30, 2014)
