@@ -18,8 +18,8 @@
     "javascript-brunch": "~1.7.1",
     "uglify-js-brunch": "~1.7.6",
     "css-brunch": "~1.7.0",
-    "autoprefixer-brunch": "~1.7.7",
-    "clean-css-brunch": "~1.7.1"
+    "clean-css-brunch": "~1.7.1",
+    "autoprefixer-brunch": "~1.7.7"
   },
 
   "devDependencies": {
