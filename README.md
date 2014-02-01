@@ -1,4 +1,4 @@
-# Aang Brunch 0.2.0
+# Aang Brunch 0.2.1
 [<img src="https://david-dm.org/jupl/aang-brunch.png"/>](https://david-dm.org/jupl/aang-brunch)
 [<img src="https://david-dm.org/jupl/aang-brunch/dev-status.png"/>](https://david-dm.org/jupl/aang-brunch#info=devDependencies)
 
@@ -67,13 +67,19 @@ When declaring Angular components, you can use the condensed syntax for dependen
 While Brunch/Scaffolt/etc. can be used, Jake commands are provided for a simple and consistent interface. These tasks can be executed using `jake`. (`jake [task]`) These are the following available tasks provided out of the box:
 
 
+### NPM
+
+#### `npm:clean`
+Remove downloaded Node modules. This is useful if you want to reinstall dependencies. (ex. updated/corrupted package(s)) Remember that you need to call `npm install` to install dependencies.
+
+
 ### Bower
 
 #### `bower:install`
 Download and preinstall any Bower dependencies in advance. You can run this if you want to download Bower dependencies in advance.
 
 #### `bower:clean`
-Remove downloaded Bower dependencies. This is useful if you want to reinstall dependencies. (ex. updated package)
+Remove downloaded Bower dependencies. This is useful if you want to reinstall dependencies. (ex. updated/corrupted package(s))
 
 
 ### Extras
@@ -175,16 +181,16 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 ## Libraries
 
 ### Core
-- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.6.3
+- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.6.6
 
 ### Languages
-- [Stylus](http://learnboost.github.io/stylus/)
+- [Stylus](https://github.com/learnboost/stylus)
 
 ### Framework
 - [AngularJS](http://angularjs.org/)
 
 ### Utilities
 - [UI Router](https://github.com/angular-ui/ui-router)
+- [Nib](http://visionmedia.github.io/nib/)
 - [Angular Mocks](http://docs.angularjs.org/api/ngMock) (for testing)
 - [ngmin](https://github.com/btford/ngmin) (for minification)
-- [Nib](http://visionmedia.github.io/nib/)

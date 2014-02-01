@@ -1,6 +1,11 @@
 # Changelog
 
-#### 0.2.0 (January 30, 2014)
+#### 0.2.1 (January 31, 2014)
+- Update BTC
+  - Add `npm:clean` task
+  - Clean up package.json
+
+### 0.2.0 (January 30, 2014)
 - Switch to UI Router
 - Update BTC
   - Update jQuery
