@@ -21,8 +21,8 @@
     "uglify-js-brunch": "~1.7.6",
     "sass-brunch": "git://github.com/brunch/sass-brunch",
     "css-brunch": "~1.7.0",
-    "autoprefixer-brunch": "~1.7.7",
-    "clean-css-brunch": "~1.7.1"
+    "clean-css-brunch": "~1.7.1",
+    "autoprefixer-brunch": "~1.7.7"
   },
 
   "devDependencies": {
