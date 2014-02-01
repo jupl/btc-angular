@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.6.6 (January 31, 2014)
 - Update BTC
   - Remove Autoprefixer for now
 
