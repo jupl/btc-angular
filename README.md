@@ -1,4 +1,4 @@
-# Aang Brunch 0.2.0
+# Aang Brunch 0.2.1
 [<img src="https://david-dm.org/jupl/aang-brunch.png"/>](https://david-dm.org/jupl/aang-brunch)
 [<img src="https://david-dm.org/jupl/aang-brunch/dev-status.png"/>](https://david-dm.org/jupl/aang-brunch#info=devDependencies)
 
@@ -67,13 +67,19 @@ When declaring Angular components, you can use the condensed syntax for dependen
 While Brunch/Scaffolt/etc. can be used, Jake commands are provided for a simple and consistent interface. These tasks can be executed using `jake`. (`jake [task]`) These are the following available tasks provided out of the box:
 
 
+### NPM
+
+#### `npm:clean`
+Remove downloaded Node modules. This is useful if you want to reinstall dependencies. (ex. updated/corrupted package(s)) Remember that you need to call `npm install` to install dependencies.
+
+
 ### Bower
 
 #### `bower:install`
 Download and preinstall any Bower dependencies in advance. You can run this if you want to download Bower dependencies in advance.
 
 #### `bower:clean`
-Remove downloaded Bower dependencies. This is useful if you want to reinstall dependencies. (ex. updated package)
+Remove downloaded Bower dependencies. This is useful if you want to reinstall dependencies. (ex. updated/corrupted package(s))
 
 
 ### Extras
@@ -206,7 +212,7 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 ## Libraries
 
 ### Core
-- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.2.0
+- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.2.1
 - [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.6.3
 
 ### Utilities
