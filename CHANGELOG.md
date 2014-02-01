@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.6.5 (January 31, 2014)
 - Update BTC
   - Fix Autoprefixer
   - Add `npm:clean` task
