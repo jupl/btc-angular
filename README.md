@@ -4,7 +4,7 @@
 
 
 ## Introduction
-This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. [Autoprefixer](https://github.com/ai/autoprefixer) is included to simplify vendor prefixes and browser support. It can be used for skeletons. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency.
+This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. It can be used for skeletons. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency.
 
 For fleshed out skeletons based on this one:
 - [Cordova Brunch](https://github.com/jupl/cordova-brunch) (Base skeleton with [Cordova](http://cordova.apache.org/))
@@ -152,9 +152,6 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [Brunch](http://brunch.io/)
 - [Scaffolt](https://github.com/paulmillr/scaffolt)
 - [Bower](http://bower.io/)
-
-### Utilities
-- [Autoprefixer](https://github.com/ai/autoprefixer) (using [plugin](https://github.com/lydell/autoprefixer-brunch))
 
 ### Testing
 - [PhantomJS](http://phantomjs.org/) (using [wrapper](https://github.com/Obvious/phantomjs))

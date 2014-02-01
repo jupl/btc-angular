@@ -1,5 +1,8 @@
 # Changelog
 
+#### WIP
+- Remove Autoprefixer for now
+
 #### 0.6.5 (January 31, 2014)
 - Fix Autoprefixer
 - Add `npm:clean` task
