@@ -1,5 +1,9 @@
 # Changelog
 
+#### WIP
+- Update BTC
+  - Remove Autoprefixer for now
+
 #### 0.6.5 (January 31, 2014)
 - Update BTC
   - Fix Autoprefixer
