@@ -58,13 +58,19 @@ One-line commands are provided for convenience as well for those that want to st
 While Brunch/Scaffolt/etc. can be used, Jake commands are provided for a simple and consistent interface. These tasks can be executed using `jake`. (`jake [task]`) These are the following available tasks provided out of the box:
 
 
+### NPM
+
+#### `npm:clean`
+Remove downloaded Node modules. This is useful if you want to reinstall dependencies. (ex. updated/corrupted package(s)) Remember that you need to call `npm install` to install dependencies.
+
+
 ### Bower
 
 #### `bower:install`
 Download and preinstall any Bower dependencies in advance. You can run this if you want to download Bower dependencies in advance.
 
 #### `bower:clean`
-Remove downloaded Bower dependencies. This is useful if you want to reinstall dependencies. (ex. updated package)
+Remove downloaded Bower dependencies. This is useful if you want to reinstall dependencies. (ex. updated/corrupted package(s))
 
 
 ### Extras
