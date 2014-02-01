@@ -19,7 +19,7 @@
     "javascript-brunch": "~1.7.1",
     "ngmin-brunch": "~1.7.0",
     "uglify-js-brunch": "~1.7.6",
-    "sass-brunch": "git://github.com/brunch/sass-brunch",
+    "stylus-brunch": "~1.8.0",
     "css-brunch": "~1.7.0",
     "clean-css-brunch": "~1.7.1"
   },

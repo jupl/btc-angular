@@ -16,11 +16,11 @@ For a mobile/Cordova friendly variant, check out [this skeleton](https://github.
     │   ├── directives      # Angular directives
     │   ├── filters         # Angular filters
     │   ├── services        # Angular services (factories/providers/services)
-    │   ├── styles          # Sass stylesheets
+    │   ├── styles          # Stylus stylesheets
     │   ├── templates       # HTML templates for Angular
     │   ├── app.js          # Configure main application module
-    │   ├── app.scss        # Application/page styling definition
-    │   ├── _base.scss      # Sass variables and mixins for the application
+    │   ├── app.styl        # Application/page styling definition
+    │   ├── base.styl       # Stylus variables and mixins for the application
     │   └── config.js       # Declare and setup Angular modules
     ├── bower_components    # Packages installed by Bower
     ├── generators          # Generators used by Scaffolt
@@ -117,7 +117,7 @@ Generate/destroy an Angular service using the provider declaration.
 Generate/destroy an Angular service using the service declaration.
 
 #### `gen style=[name]` / `del style=[name]`
-Generate/destroy a Sass stylesheet file.
+Generate/destroy a Stylus stylesheet file.
 
 #### `gen template=[name]` / `del template=[name]`
 Generate/destroy an HTML file that will be added to Angular's template cache in advance. For an example, see `app/app.js` and `app/templates/index.html`.
@@ -184,12 +184,13 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.6.6
 
 ### Languages
-- [Sass](http://sass-lang.com/)
+- [Stylus](https://github.com/learnboost/stylus)
 
 ### Framework
 - [AngularJS](http://angularjs.org/)
 
 ### Utilities
 - [UI Router](https://github.com/angular-ui/ui-router)
+- [Nib](http://visionmedia.github.io/nib/)
 - [Angular Mocks](http://docs.angularjs.org/api/ngMock) (for testing)
 - [ngmin](https://github.com/btford/ngmin) (for minification)

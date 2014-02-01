@@ -1,9 +1,9 @@
 {
-  "description": "Sass stylesheet",
+  "description": "Stylus stylesheet",
   "files": [
     {
-      "from": "style.scss.hbs",
-      "to": "app/styles/{{#dasherize}}{{name}}{{/dasherize}}.scss"
+      "from": "style.styl.hbs",
+      "to": "app/styles/{{#dasherize}}{{name}}{{/dasherize}}.styl"
     }
   ],
   "dependencies": []
