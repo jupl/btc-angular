@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.6.5 (January 31, 2014)
+- Fix Autoprefixer
+
 #### 0.6.4 (January 31, 2014)
 - Add Autoprefixer
 - Clean up package.json
