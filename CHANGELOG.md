@@ -1,7 +1,6 @@
 # Changelog
 
-### WIP
-- Replace Stylus with Sass
+#### WIP
 - Update BTC
   - Add `npm:clean` task
   - Clean up package.json
