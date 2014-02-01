@@ -3,7 +3,6 @@
 ### WIP
 - Replace Stylus with Sass
 - Update BTC
-  - Add Autoprefixer
   - Add `npm:clean` task
   - Clean up package.json
 
