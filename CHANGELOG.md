@@ -1,5 +1,8 @@
 # Changelog
 
+#### WIP
+- Clean npm cache for `npm:clean`
+
 #### 0.6.6 (January 31, 2014)
 - Remove Autoprefixer for now
 
