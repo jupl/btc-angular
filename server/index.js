@@ -13,7 +13,7 @@ exports.startServer = function(port, publicPath, callback) {
   // Point to generated static files
   app.use(express.static(publicPath));
 
-  // Uncomment to append custom routes and services
+  // Uncomment to append custom routes/services/proxies/etc.
   // setupRoutes(app);
 
   // Set other paths to index.html for HTML5 pushState apps

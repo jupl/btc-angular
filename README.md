@@ -23,7 +23,7 @@ For fleshed out skeletons based on this one:
     ├── server              # Server configuration
     ├── setup               # Add configuration options to brunch-config
     │   ├── prerender       # Configuration for Prerender server/middleware
-    │   └── routes          # Custom routes and services (server-side)
+    │   └── routes          # Custom routes/services/proxies/etc. (server-side)
     ├── test                # Test-related files
     │   ├── assets          # Static assets to run code tests manually
     │   ├── code            # Code-based tests for Karma/manual
