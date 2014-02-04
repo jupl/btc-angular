@@ -1,5 +1,12 @@
 # Changelog
 
+### 0.3.0 (February 4, 2014)
+- Update BTC
+  - Clean npm cache for `npm:clean`
+  - Add structure to `server` directory
+  - Add Prerender support (server and middleware)
+  - Update karma-chai-plugins
+
 #### 0.2.1 (January 31, 2014)
 - Update BTC
   - Add `npm:clean` task
