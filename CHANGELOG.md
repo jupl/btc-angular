@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+### 0.3.0 (February 4, 2014)
 - Update BTC
   - Clean npm cache for `npm:clean`
   - Add structure to `server` directory
