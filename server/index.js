@@ -1,14 +1,10 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var setupPrerender = require('./prerender');
 var setupRoutes = require('./routes');
 
 exports.startServer = function(port, publicPath, callback) {
   var app = express();
-
-  // Uncomment to use Prerender
-  // setupPrerender(app);
 
   // Point to generated static files
   app.use(express.static(publicPath));

@@ -14,8 +14,6 @@
     "express": "~3.4.7",
     "jake": "~0.7.2",
     "jsonfile": "~1.1.0",
-    "prerender": "~2.0.1",
-    "prerender-node": "~0.1.15",
     "scaffolt": "~0.4.2",
     "sugar": "~1.4.1",
     "aang-template-brunch": "~1.7.6",
