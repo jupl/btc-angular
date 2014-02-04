@@ -1,5 +1,8 @@
 # Changelog
 
+#### WIP
+- Update karma-chai-plugins
+
 ### 0.7.0 (Feburary 3, 2014)
 - Clean npm cache for `npm:clean`
 - Add structure to `server` directory
