@@ -27,9 +27,9 @@ For a mobile/Cordova friendly variant, check out [this skeleton](https://github.
     ├── jakelib             # Unified set of tasks for development
     ├── public              # Generated final product
     ├── server              # Server configuration
-    ├── setup               # Add configuration options to brunch-config
     │   ├── prerender       # Configuration for Prerender server/middleware
     │   └── routes          # Custom routes/services/proxies/etc. (server-side)
+    ├── setup               # Add configuration options to brunch-config
     ├── test                # Test-related files
     │   ├── assets          # Static assets to run code tests manually
     │   ├── code            # Code-based tests for Karma/manual
