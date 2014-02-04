@@ -4,7 +4,10 @@ var prerenderUrl = 'http://127.0.0.1:' + (process.env.PORT || 3000);
 
 module.exports = function(app) {
   // Start up prerender server
-  spawn('node', ['server/prerender/server.js'], {stdio: 'inherit'});
+  var child = spawn('node', ['server/prerender/server.js'], {stdio: 'inherit'});
+  process.on('exit', function() {
+    child.kill();
+  });
 
   // Set up prerender middleware and link to server
   middleware.set('prerenderServiceUrl', prerenderUrl);
