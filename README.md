@@ -22,6 +22,7 @@ For fleshed out skeletons based on this one:
     ├── public              # Generated final product
     ├── server              # Server configuration
     ├── setup               # Add configuration options to brunch-config
+    │   └── routes          # Custom routes and services (server-side)
     ├── test                # Test-related files
     │   ├── assets          # Static assets to run code tests manually
     │   ├── code            # Code-based tests for Karma/manual
