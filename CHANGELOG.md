@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.7.1 (February 4, 2014)
 - Update BTC
   - Update karma-chai-plugins
 
