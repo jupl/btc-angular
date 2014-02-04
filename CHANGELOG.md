@@ -1,5 +1,9 @@
 # Changelog
 
+#### WIP
+- Update BTC
+  - Update karma-chai-plugins
+
 ### 0.7.0 (February 3, 2014)
 - Update BTC
   - Clean npm cache for `npm:clean`
