@@ -1,4 +1,4 @@
-# Cordova Brunch 0.6.6
+# Cordova Brunch 0.7.0
 [<img src="https://david-dm.org/jupl/cordova-brunch.png"/>](https://david-dm.org/jupl/cordova-brunch)
 [<img src="https://david-dm.org/jupl/cordova-brunch/dev-status.png"/>](https://david-dm.org/jupl/cordova-brunch#info=devDependencies)
 
@@ -20,6 +20,7 @@ Cordova Brunch is a base skeleton for building web applications. (Currently supp
     ├── public              # Generated final product
     ├── server              # Server configuration
     ├── setup               # Add configuration options to brunch-config
+    │   └── routes          # Custom routes/services/proxies/etc. (server-side)
     ├── test                # Test-related files
     │   ├── assets          # Static assets to run code tests manually
     │   ├── code            # Code-based tests for Karma/manual
@@ -186,7 +187,7 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 ## Libraries
 
 ### Core
-- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.6.6
+- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.7.0
 - [Cordova](http://cordova.apache.org) 3.3
 
 ### Utilities
