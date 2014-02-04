@@ -4,7 +4,7 @@
 
 
 ## Introduction
-This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. It can be used for skeletons. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency.
+This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), [Jake](https://github.com/mde/jake), and [PhantomJS](http://phantomjs.org/) to provide cross-platform tasks in a simple package. It can be used for skeletons. [EditorConfig](http://editorconfig.org/) is also provided to help with consistency. [Prerender](https://prerender.io/) can be easily enabled/configured for search engine crawling.
 
 For fleshed out skeletons based on this one:
 - [Cordova Brunch](https://github.com/jupl/cordova-brunch) (Base skeleton with [Cordova](http://cordova.apache.org/))
@@ -22,6 +22,7 @@ For fleshed out skeletons based on this one:
     ├── public              # Generated final product
     ├── server              # Server configuration
     ├── setup               # Add configuration options to brunch-config
+    │   ├── prerender       # Configuration for Prerender server/middleware
     │   └── routes          # Custom routes and services (server-side)
     ├── test                # Test-related files
     │   ├── assets          # Static assets to run code tests manually
@@ -54,6 +55,12 @@ For fleshed out skeletons based on this one:
 If you want to just run Brunch without using Jake tasks, just use either `web:dev` or `web:prod` for the environment. (ex: `brunch watch --server --env web:prod`)
 
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run the `test:all` task.
+
+Prerender is not enabled by default.
+- To enable Prerender edit `server/index.js`.
+- To modify Prerender server see `prerender/server.js`.
+- To modify Prerender middleware see `prerender/index.js`.
+- For more information visit their [website](https://prerender.io/).
 
 
 ## Task List
@@ -144,7 +151,7 @@ Assemble the application once.
 Assemble the application and continue to watch for changes. Rebuild every time a change is detected.
 
 #### `server:[mode]`
-Assemble the application and continue to watch for changes. Rebuild every time a change is detected. Also, the application is served locally to open with a browser. This build uses the `web` environment.
+Assemble the application and continue to watch for changes. Rebuild every time a change is detected. Also, the application is served locally to open with a browser. [Prerender](https://prerender.io/) server and middleware is set up if enabled. This build uses the `web` environment.
 
 
 ## Libraries
@@ -153,6 +160,9 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [Brunch](http://brunch.io/)
 - [Scaffolt](https://github.com/paulmillr/scaffolt)
 - [Bower](http://bower.io/)
+
+### Utilities
+- [Prerender](https://prerender.io/)
 
 ### Testing
 - [PhantomJS](http://phantomjs.org/) (using [wrapper](https://github.com/Obvious/phantomjs))
