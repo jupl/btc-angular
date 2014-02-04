@@ -1,6 +1,7 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
+var setupRoutes = require('./routes');
 
 exports.startServer = function(port, publicPath, callback) {
   var app = express();
@@ -8,11 +9,8 @@ exports.startServer = function(port, publicPath, callback) {
   // Point to generated static files
   app.use(express.static(publicPath));
 
-  // Define web services
-  // app.use(express.json());
-  // app.use(express.urlencoded());
-  // app.use(app.router);
-  // app.post(...);
+  // Uncomment to append custom routes/services/proxies/etc.
+  // setupRoutes(app);
 
   // Set other paths to index.html for HTML5 pushState apps
   // var indexPath = path.resolve(publicPath, 'index.html');

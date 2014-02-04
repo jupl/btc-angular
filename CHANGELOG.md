@@ -1,5 +1,10 @@
 # Changelog
 
+#### WIP
+- Update BTC
+  - Clean npm cache for `npm:clean`
+  - Add structure to `server` directory
+
 #### 0.6.6 (January 31, 2014)
 - Update BTC
   - Remove Autoprefixer for now
