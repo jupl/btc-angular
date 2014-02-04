@@ -1,5 +1,10 @@
 # Changelog
 
+### 0.7.0 (Feburary 3, 2014)
+- Clean npm cache for `npm:clean`
+- Add structure to `server` directory
+- Add Prerender support (server and middleware)
+
 #### 0.6.6 (January 31, 2014)
 - Remove Autoprefixer for now
 
