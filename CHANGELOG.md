@@ -1,8 +1,5 @@
 # Changelog
 
-#### WIP
-- Add cleanup to prerender server
-
 #### 0.7.1 (February 4, 2014)
 - Update karma-chai-plugins
 
