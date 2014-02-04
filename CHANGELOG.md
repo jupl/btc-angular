@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.7.1 (February 4, 2014)
 - Update karma-chai-plugins
 
 ### 0.7.0 (Feburary 3, 2014)
