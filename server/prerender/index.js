@@ -1,6 +1,6 @@
 var middleware = require('prerender-node');
 var spawn = require('child_process').spawn;
-var prerenderUrl = '127.0.0.1:' + (process.env.PORT || 3000);
+var prerenderUrl = 'http://127.0.0.1:' + (process.env.PORT || 3000);
 
 module.exports = function(app) {
   // Start up prerender server
