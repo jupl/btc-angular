@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+### 0.8.0 (February 5, 2014)
 - Do not install Prerender packages by default
   - Autodetect if packages are available
 - Add tasks to install/uninstall Prerender packages
