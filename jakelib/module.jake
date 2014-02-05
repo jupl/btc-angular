@@ -3,9 +3,52 @@
 var generators = require('./lib').generators;
 var jsonfile = require('jsonfile');
 var npm = require('./lib').bin('npm');
-var Promise = require('bluebird');
 
 namespace('add', function() {
+  desc('Add support for code testing');
+  task('codetesting', function() {
+    editBower(function() {
+      this.dependencies.chai = '~1.9.0';
+      this.dependencies.mocha = '~1.17.0';
+      this.dependencies.sinon = 'http://sinonjs.org/releases/sinon-1.7.3.js';
+      this.dependencies['sinon-chai'] = '~2.4.0';
+      this.overrides.mocha = {
+        "main": [
+          "mocha.css",
+          "mocha.js"
+        ]
+      };
+      this.overrides['sinon-chai'] = {
+        "main": "lib/sinon-chai.js",
+        "dependencies": {
+          "sinon": "*",
+          "chai": "*"
+        }
+      };
+    });
+    return npm.execute('install',
+      'karma@~0.10.14',
+      'karma-chai-plugins@~0.2.0',
+      'karma-mocha@~0.1.0',
+      '--save-dev');
+  });
+
+  desc('Add support for site testing');
+  task('sitetesting', function() {
+    return npm.execute('install',
+      'chai@~1.9.0',
+      'mocha@~1.17.0',
+      'mocha-as-promised@~2.0.0',
+      'nodemon@~1.0.8',
+      'selenium-webdriver@~2.39.0',
+      '--save-dev');
+  });
+
+  desc('Add Prerender');
+  task('prerender', function() {
+    return npm.execute('install', 'prerender@~2.0.1', 'prerender-node@~0.1.15', '--save');
+  });
+
   desc('Add jQuery');
   task('jquery', function() {
     editBower(function() {
@@ -19,27 +62,42 @@ namespace('add', function() {
       this.dependencies['normalize-css'] = '~3.0.0';
     });
   });
-
-  desc('Add Prerender');
-  task('prerender', function() {
-    return npm.execute('install', 'prerender@~2.0.1', 'prerender-node@~0.1.15', '--save');
-  });
-
-  generators.forEach(function(generator) {
-    if(generator.isModule) {
-      desc('Add ' + generator.description);
-      task(generator.task, function() {
-        return new Promise(function(resolve) {
-          jake.Task['scaffold:add']
-          .addListener('complete', resolve)
-          .invoke(generator.name);
-        });
-      });
-    }
-  });
 });
 
 namespace('rem', function() {
+  desc('Remove support for code testing');
+  task('codetesting', function() {
+    editBower(function() {
+      delete this.dependencies.chai;
+      delete this.dependencies.mocha;
+      delete this.dependencies.sinon;
+      delete this.dependencies['sinon-chai'];
+      delete this.overrides.mocha;
+      delete this.overrides['sinon-chai'];
+    });
+    return npm.execute('uninstall',
+      'karma',
+      'karma-chai-plugins',
+      'karma-mocha',
+      '--save-dev');
+  });
+
+  desc('Remove support for site testing');
+  task('sitetesting', function() {
+    return npm.execute('uninstall',
+      'chai',
+      'mocha',
+      'mocha-as-promised',
+      'nodemon',
+      'selenium-webdriver',
+      '--save-dev');
+  });
+
+  desc('Remove Prerender');
+  task('prerender', function() {
+    return npm.execute('uninstall', 'prerender', 'prerender-node', '--save');
+  });
+
   desc('Remove jQuery');
   task('jquery', function() {
     editBower(function() {
@@ -52,24 +110,6 @@ namespace('rem', function() {
     editBower(function() {
       delete this.dependencies['normalize-css'];
     });
-  });
-
-  desc('Remove Prerender');
-  task('prerender', function() {
-    return npm.execute('uninstall', 'prerender', 'prerender-node', '--save');
-  });
-
-  generators.forEach(function(generator) {
-    if(generator.isModule) {
-      desc('Remove ' + generator.description);
-      task(generator.task, function() {
-        return new Promise(function(resolve) {
-          jake.Task['scaffold:rem']
-          .addListener('complete', resolve)
-          .invoke(generator.name);
-        });
-      });
-    }
   });
 });
 

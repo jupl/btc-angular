@@ -3,8 +3,10 @@
 #### WIP
 - Do not install Prerender packages by default
   - Autodetect if packages are available
-- Add tasks to install/uninstalll Prerender packages
+- Add tasks to install/uninstall Prerender packages
 - Add PhantomJS as a dependency (could be used for Prerender)
+- Do not install code/site testing-related packages by default
+- Add tasks to install/uninstall code/site testing-related packages
 
 #### 0.7.1 (February 4, 2014)
 - Update karma-chai-plugins

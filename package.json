@@ -20,14 +20,6 @@
     "sugar": "~1.4.1"
   },
   "devDependencies": {
-    "auto-reload-brunch": "~1.7.1",
-    "chai": "~1.9.0",
-    "karma": "~0.10.4",
-    "karma-chai-plugins": "~0.2.0",
-    "karma-mocha": "~0.1.0",
-    "mocha": "~1.17.0",
-    "mocha-as-promised": "~2.0.0",
-    "nodemon": "~1.0.8",
-    "selenium-webdriver": "~2.39.0"
+    "auto-reload-brunch": "~1.7.1"
   }
 }
