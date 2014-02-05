@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+### 0.8.0 (February 5, 2014)
 - Update BTC
   - Do not install code/site testing-related packages by default
   - Add tasks to install/uninstall code/site testing-related packages
