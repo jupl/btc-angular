@@ -87,8 +87,10 @@ Remove downloaded Bower dependencies. This is useful if you want to reinstall de
 These commands add additional features/items to the project that are not included by default.
 
 #### `add:codetesting` / `rem:codetesting`
+Add/remove packages to test browser code. Packages include Mocha/Chai/Sinon/etc. for Bower and Karma-related packages for NPM.
 
 #### `add:sitetesting` / `rem:sitetesting`
+Add/remove packages to test site features. Packages include Mocha, Chai, WebDriverJS, etc. for NPM.
 
 #### `add:prerender` / `rem:prerender`
 Add/remove [Prerender](https://prerender.io/) to handle search crawling in JavaScript heavy applications. See the "Notes" section above for more information.
