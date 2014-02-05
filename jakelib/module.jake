@@ -9,9 +9,9 @@ namespace('add', function() {
   task('codetesting', function() {
     editBower(function() {
       this.dependencies.chai = '~1.9.0';
-      this.dependencies.mocha = '~1.17.0';
+      this.dependencies.mocha = '~1.17.1';
       this.dependencies.sinon = 'http://sinonjs.org/releases/sinon-1.7.3.js';
-      this.dependencies['sinon-chai'] = '~2.4.0';
+      this.dependencies['sinon-chai'] = '~2.5.0';
       this.overrides.mocha = {
         "main": [
           "mocha.css",
@@ -26,27 +26,33 @@ namespace('add', function() {
         }
       };
     });
-    return npm.execute('install',
-      'karma@~0.10.14',
-      'karma-chai-plugins@~0.2.0',
-      'karma-mocha@~0.1.0',
-      '--save-dev');
+    editPackage(function() {
+      this.devDependencies.karma = '~0.10.9';
+      this.devDependencies['karma-chai-plugins'] = '~0.2.0';
+      this.devDependencies['karma-mocha'] = '~0.1.1';
+    });
+    return npm.execute('install');
   });
 
   desc('Add support for site testing');
   task('sitetesting', function() {
-    return npm.execute('install',
-      'chai@~1.9.0',
-      'mocha@~1.17.0',
-      'mocha-as-promised@~2.0.0',
-      'nodemon@~1.0.8',
-      'selenium-webdriver@~2.39.0',
-      '--save-dev');
+    editPackage(function() {
+      this.devDependencies.chai = '~1.9.0';
+      this.devDependencies.mocha = '~1.17.1';
+      this.devDependencies['mocha-as-promised'] = '~2.0.0';
+      this.devDependencies.nodemon = '~1.0.14';
+      this.devDependencies['selenium-webdriver'] = '~2.39.0';
+    });
+    return npm.execute('install');
   });
 
   desc('Add Prerender');
   task('prerender', function() {
-    return npm.execute('install', 'prerender@~2.0.1', 'prerender-node@~0.1.15', '--save');
+    editPackage(function() {
+      this.dependencies.prerender = '~2.0.1';
+      this.dependencies['prerender-node'] = '~0.1.15';
+    });
+    return npm.execute('install');
   });
 
   desc('Add jQuery');
@@ -117,4 +123,10 @@ function editBower(callback) {
   var json = jsonfile.readFileSync('bower.json');
   callback.call(json);
   jsonfile.writeFileSync('bower.json', json);
+}
+
+function editPackage(callback) {
+  var json = jsonfile.readFileSync('package.json');
+  callback.call(json);
+  jsonfile.writeFileSync('package.json', json);
 }
