@@ -39,9 +39,6 @@ exports.bin = function(command) {
  *                Jake task names
  *   description  Description of generator. If one is not defined in Scaffolt,
  *                then make an educated guess with the name.
- *   isModule     If true, then when generating the scaffold the name parameter
- *                is ignored. Otherwise, the name parameter is used for
- *                scaffolding.
  * @type {Array}
  */
 exports.generators = fs.readdirSync('generators').filter(function(generator) {
@@ -54,8 +51,7 @@ exports.generators = fs.readdirSync('generators').filter(function(generator) {
   return {
     task: generator.dasherize().replace(/-/g, ''),
     name: generator,
-    description: json.description || generator.spacify(),
-    isModule: !!json.isModule
+    description: json.description || generator.spacify()
   }
 });
 
