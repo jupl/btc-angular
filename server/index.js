@@ -7,8 +7,8 @@ var setupRoutes = require('./routes');
 exports.startServer = function(port, publicPath, callback) {
   var app = express();
 
-  // Uncomment to use Prerender
-  // setupPrerender(app);
+  // Set up Prerender if available
+  setupPrerender(app);
 
   // Point to generated static files
   app.use(express.static(publicPath));
