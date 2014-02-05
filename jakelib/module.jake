@@ -5,6 +5,9 @@ var jsonfile = require('jsonfile');
 var npm = require('./lib').bin('npm');
 
 namespace('add', function() {
+  desc('Add support for testing (code/site)');
+  task('testing', ['add:codetesting', 'add:sitetesting']);
+
   desc('Add support for code testing');
   task('codetesting', function() {
     editBower(function() {
@@ -71,6 +74,9 @@ namespace('add', function() {
 });
 
 namespace('rem', function() {
+  desc('Remove support for testing (code/site)');
+  task('testing', ['rem:codetesting', 'rem:sitetesting']);
+
   desc('Remove support for code testing');
   task('codetesting', function() {
     editBower(function() {
