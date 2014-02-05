@@ -1,6 +1,5 @@
 require('sugar');
 var fs = require('fs');
-var jsonfile = require('jsonfile');
 var os = require('os');
 var path = require('path');
 var Promise = require('bluebird');
@@ -51,7 +50,7 @@ exports.generators = fs.readdirSync('generators').filter(function(generator) {
 })
 .map(function(generator) {
   var generatorFile = path.resolve('generators', generator, 'generator.json');
-  var json = jsonfile.readFileSync(generatorFile);
+  var json = require(generatorFile);
   return {
     task: generator.dasherize().replace(/-/g, ''),
     name: generator,
