@@ -57,9 +57,10 @@ If you want to just run Brunch without using Jake tasks, just use either `web:de
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run the `test:all` task.
 
 Prerender is not enabled by default.
-- To enable Prerender edit `server/index.js`.
-- To modify Prerender server see `prerender/server.js`.
-- To modify Prerender middleware see `prerender/index.js`.
+- To enable/disable Prerender see tasks `add:prerender`/`rem:prerender`.
+- By default it is configured to use a local Prerender server that is set up.
+- To modify the local Prerender server see `server/prerender/server.js`.
+- To modify Prerender middleware see `server/prerender/index.js`.
 - For more information visit their [website](https://prerender.io/).
 
 
@@ -90,6 +91,9 @@ Add/remove the ubiquitous library [jQuery](http://jquery.com/) to/from the proje
 
 #### `add:normalize` / `rem:normalize`
 Add/remove [normalize.css](http://necolas.github.io/normalize.css/) to ensure a consistent starting point in styling between different browsers.
+
+#### `add:prerender` / `rem:prerender`
+Add/remove [Prerender](https://prerender.io/) to handle search crawling in JavaScript heavy applications. See the "Notes" section above for more information.
 
 
 ### Scaffolding
