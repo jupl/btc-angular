@@ -15,6 +15,7 @@
     "express": "~3.4.7",
     "jake": "~0.7.2",
     "jsonfile": "~1.1.0",
+    "phantomjs": "~1.9.2",
     "scaffolt": "~0.4.2",
     "sugar": "~1.4.1"
   },
@@ -27,7 +28,6 @@
     "mocha": "~1.17.0",
     "mocha-as-promised": "~2.0.0",
     "nodemon": "~1.0.8",
-    "phantomjs": "~1.9.2",
     "selenium-webdriver": "~2.39.0"
   }
 }
