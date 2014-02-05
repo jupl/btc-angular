@@ -162,6 +162,8 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [Bower](http://bower.io/)
 
 ### Utilities
+- [jQuery](http://jquery.com)
+- [normalize.css](http://necolas.github.io/normalize.css/)
 - [Prerender](https://prerender.io/)
 
 ### Testing
