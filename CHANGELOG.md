@@ -1,5 +1,10 @@
 # Changelog
 
+#### WIP
+- Do not install Prerender packages by default
+  - Autodetect if packages are available
+- Add tasks to install/uninstalll Prerender packages
+
 #### 0.7.1 (February 4, 2014)
 - Update karma-chai-plugins
 
