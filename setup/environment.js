@@ -32,6 +32,12 @@ function devEnvironment(config) {
   var jsJoinTo = config.files.javascripts.joinTo;
   var cssJoinTo = config.files.stylesheets.joinTo;
 
+  // Check if Mocha is installed. If not, ignore test
+  if(!require('../bower.json').dependencies.mocha) {
+    addIgnored(config, /^test/);
+    return;
+  }
+
   // Add test javascript files
   jsJoinTo['test/javascripts/tests.js'] = /^test[\\\/]code/;
   jsJoinTo['test/javascripts/vendor.js'] = /^bower_components[\\\/](chai|mocha|sinon)/;

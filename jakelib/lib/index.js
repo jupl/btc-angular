@@ -1,6 +1,5 @@
 require('sugar');
 var fs = require('fs');
-var jsonfile = require('jsonfile');
 var os = require('os');
 var path = require('path');
 var Promise = require('bluebird');
@@ -40,9 +39,6 @@ exports.bin = function(command) {
  *                Jake task names
  *   description  Description of generator. If one is not defined in Scaffolt,
  *                then make an educated guess with the name.
- *   isModule     If true, then when generating the scaffold the name parameter
- *                is ignored. Otherwise, the name parameter is used for
- *                scaffolding.
  * @type {Array}
  */
 exports.generators = fs.readdirSync('generators').filter(function(generator) {
@@ -51,12 +47,11 @@ exports.generators = fs.readdirSync('generators').filter(function(generator) {
 })
 .map(function(generator) {
   var generatorFile = path.resolve('generators', generator, 'generator.json');
-  var json = jsonfile.readFileSync(generatorFile);
+  var json = require(generatorFile);
   return {
     task: generator.dasherize().replace(/-/g, ''),
     name: generator,
-    description: json.description || generator.spacify(),
-    isModule: !!json.isModule
+    description: json.description || generator.spacify()
   }
 });
 
