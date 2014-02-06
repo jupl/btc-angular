@@ -1,41 +1,28 @@
 {
   "repository": "git",
-
   "scripts": {
     "start": "npm install --production && ./node_modules/.bin/jake server:prod",
     "test": "npm install && ./node_modules/.bin/jake test:all"
   },
-
   "dependencies": {
-    "bluebird": "~1.0.0",
-    "bower": "~1.2.8",
-    "brunch": "~1.7.8",
-    "express": "~3.4.7",
-    "jake": "~0.7.2",
-    "jsonfile": "~1.1.0",
-    "prerender": "~2.0.1",
-    "prerender-node": "~0.1.15",
-    "scaffolt": "~0.4.2",
-    "sugar": "~1.4.1",
     "aang-template-brunch": "~1.7.6",
     "javascript-brunch": "~1.7.1",
     "ngmin-brunch": "~1.7.0",
     "uglify-js-brunch": "~1.7.6",
     "stylus-brunch": "~1.8.0",
     "css-brunch": "~1.7.0",
-    "clean-css-brunch": "~1.7.1"
-  },
-
-  "devDependencies": {
-    "auto-reload-brunch": "~1.7.1",
-    "chai": "~1.9.0",
-    "karma": "~0.10.4",
-    "karma-chai-plugins": "~0.2.0",
-    "karma-mocha": "~0.1.0",
-    "mocha": "~1.17.0",
-    "mocha-as-promised": "~2.0.0",
-    "nodemon": "~1.0.8",
+    "clean-css-brunch": "~1.7.1",
+    "bluebird": "~1.0.0",
+    "bower": "~1.2.8",
+    "brunch": "~1.7.8",
+    "express": "~3.4.7",
+    "jake": "~0.7.2",
+    "jsonfile": "~1.1.0",
     "phantomjs": "~1.9.2",
-    "selenium-webdriver": "~2.39.0"
+    "scaffolt": "~0.4.2",
+    "sugar": "~1.4.1"
+  },
+  "devDependencies": {
+    "auto-reload-brunch": "~1.7.1"
   }
 }

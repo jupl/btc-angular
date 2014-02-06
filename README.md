@@ -1,4 +1,4 @@
-# Aang Brunch 0.3.0
+# Aang Brunch 0.4.0
 [<img src="https://david-dm.org/jupl/aang-brunch.png"/>](https://david-dm.org/jupl/aang-brunch)
 [<img src="https://david-dm.org/jupl/aang-brunch/dev-status.png"/>](https://david-dm.org/jupl/aang-brunch#info=devDependencies)
 
@@ -63,9 +63,10 @@ If you want to just run Brunch without using Jake tasks, just use either `web:de
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run the `test:all` task.
 
 Prerender is not enabled by default.
-- To enable Prerender edit `server/index.js`.
-- To modify Prerender server see `prerender/server.js`.
-- To modify Prerender middleware see `prerender/index.js`.
+- To enable/disable Prerender see tasks `add:prerender`/`rem:prerender`.
+- By default it is configured to use a local Prerender server that is set up.
+- To modify the local Prerender server see `server/prerender/server.js`.
+- To modify Prerender middleware see `server/prerender/index.js`.
 - For more information visit their [website](https://prerender.io/).
 
 When declaring Angular components, you can use the condensed syntax for dependency injection without worry, as this skeleton uses [ngmin](https://github.com/btford/ngmin) during minification to translate injections such as `.controller(function($http) { ... })` to `.controller(['$http', function(a) { ... }])`.
@@ -92,6 +93,18 @@ Remove downloaded Bower dependencies. This is useful if you want to reinstall de
 
 ### Extras
 These commands add additional features/items to the project that are not included by default.
+
+#### `add:testing` / `rem:testing`
+Add/remove packages to test. See below for more details on code/site testing packages.
+
+#### `add:codetesting` / `rem:codetesting`
+Add/remove packages to test browser code. Packages include Mocha/Chai/Sinon/ngMock/etc. for Bower and Karma-related packages for NPM.
+
+#### `add:sitetesting` / `rem:sitetesting`
+Add/remove packages to test site features. Packages include Mocha, Chai, WebDriverJS, etc. for NPM.
+
+#### `add:prerender` / `rem:prerender`
+Add/remove [Prerender](https://prerender.io/) to handle search crawling in JavaScript heavy applications. See the "Notes" section above for more information.
 
 #### `add:jquery` / `rem:jquery`
 Add/remove the ubiquitous library [jQuery](http://jquery.com/) to/from the project.
@@ -138,7 +151,7 @@ Generate/destroy a test file with the given test name for testing the site. (ex:
 
 
 ### Testing
-Tests leverage [Mocha](http://visionmedia.github.io/mocha/), [Mocha as Promised](https://github.com/domenic/mocha-as-promised), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai).
+To enable testing, required packages must be added. Use `add:testing`/`add:codetesting`/`add:sitetesting` tasks to install dependencies via Bower/npm. Tests leverage [Mocha](http://visionmedia.github.io/mocha/), [Mocha as Promised](https://github.com/domenic/mocha-as-promised), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai).
 
 #### `test:all [codereporter=progress] [sitereporter=spec] [browsers=[browsers]]`
 Run all tests listed below once. For more information on reporters see below.
@@ -183,13 +196,13 @@ Assemble the application once.
 Assemble the application and continue to watch for changes. Rebuild every time a change is detected.
 
 #### `server:[mode]`
-Assemble the application and continue to watch for changes. Rebuild every time a change is detected. Also, the application is served locally to open with a browser. [Prerender](https://prerender.io/) server and middleware is set up if enabled. This build uses the `web` environment.
+Assemble the application and continue to watch for changes. Rebuild every time a change is detected. Also, the application is served locally to open with a browser. [Prerender](https://prerender.io/) server and middleware is set up if available. This build uses the `web` environment.
 
 
 ## Libraries
 
 ### Core
-- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.7.1
+- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.8.1
 
 ### Languages
 - [Stylus](https://github.com/learnboost/stylus)
