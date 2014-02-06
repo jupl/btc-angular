@@ -10,6 +10,7 @@
   - Do not install code/site testing-related packages by default
   - Add tasks to install/uninstall code/site testing-related packages
   - Update Sinon Chai
+  - Fix bug in `npm:clean`
 
 ### 0.3.0 (February 4, 2014)
 - Update BTC
