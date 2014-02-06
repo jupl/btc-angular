@@ -1,7 +1,8 @@
 # Changelog
 
 #### 0.8.1 (February 5, 2014)
-- Fix bug in `npm:clean`
+- Update BTC
+  - Fix bug in `npm:clean`
 
 ### 0.8.0 (February 5, 2014)
 - Update BTC
