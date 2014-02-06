@@ -108,11 +108,6 @@ namespace('rem', function() {
       '--save-dev');
   });
 
-  desc('Remove Prerender');
-  task('prerender', function() {
-    return npm.execute('uninstall', 'prerender', 'prerender-node', '--save');
-  });
-
   desc('Remove jQuery');
   task('jquery', function() {
     editBower(function() {

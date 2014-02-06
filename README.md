@@ -206,7 +206,7 @@ describe('Sample', function() {
 These commands are used to assemble the application, generating the necessary JS/CSS and adding assets. Use `dev` mode to keep readable JS/CSS, plus include source maps as well as tests under the `test/` folder. Use `prod` mode to minify/uglify JS/CSS as well as omit source maps and tests. Specify `device` where applicable to build a native app using Cordova for a specific device. If any Bower dependencies have not been downloaded yet, Bower will first download them.
 
 #### `build:[mode] [device=[device]]`
-Assemble the application once. If `device` is specified, then build a native app for a device using Cordova. Otherwise it uses the default web environment.
+Assemble the application once. If `device` is specified, then build a native app for a device using Cordova. Otherwise it uses the `web` environment.
 
 #### `watch:[mode]`
 Assemble the application and continue to watch for changes. Rebuild every time a change is detected.
@@ -224,7 +224,7 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 
 ### Core
 - [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.4.0
-- [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.7.1
+- [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.8.1
 
 ### Utilities
 - [Angular Touch](http://docs.angularjs.org/api/ngTouch)

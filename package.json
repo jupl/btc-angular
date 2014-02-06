@@ -19,11 +19,11 @@
     "express": "~3.4.7",
     "jake": "~0.7.2",
     "jsonfile": "~1.1.0",
-    "phantomjs": "~1.9.2",
     "scaffolt": "~0.4.2",
     "sugar": "~1.4.1"
   },
   "devDependencies": {
-    "auto-reload-brunch": "~1.7.1"
+    "auto-reload-brunch": "~1.7.1",
+    "phantomjs": "~1.9.2"
   }
 }
