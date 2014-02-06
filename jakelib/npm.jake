@@ -1,5 +1,5 @@
 // NPM related tasks
-var npm = require('./lib').npmBin('npm');
+var npm = require('./lib').bin('npm');
 
 namespace('npm', function() {
   desc('Clear Node packages');
