@@ -1,5 +1,8 @@
 # Changelog
 
+#### WIP
+- Fix bug in `npm:clean`
+
 ### 0.8.0 (February 5, 2014)
 - Do not install Prerender packages by default
   - Autodetect if packages are available
