@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+### 0.4.0 (February 5, 2014)
 - Add angular-mocks to code testing package set
 - Update BTC
   - Do not install Prerender packages by default
