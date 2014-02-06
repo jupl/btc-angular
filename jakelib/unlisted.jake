@@ -13,9 +13,7 @@ namespace('clean', function() {
   });
 });
 
-// General task to run Scaffolt. gen/del require a name, while add/rem
-// uses placeholder text since it is not used. (in fact, the text
-// 'placeholder' is used)
+// General task to run Scaffolt.
 namespace('scaffold', function() {
   task('gen', function(type, name) {
     return scaffolt.execute(type, name);
@@ -23,13 +21,5 @@ namespace('scaffold', function() {
 
   task('del', function(type, name) {
     return scaffolt.execute(type, name, '--revert');
-  });
-
-  task('add', function(type) {
-    return scaffolt.execute(type, 'placeholder');
-  });
-
-  task('rem', function(type) {
-    return scaffolt.execute(type, 'placeholder', '--revert');
   });
 });
