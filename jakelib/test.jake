@@ -24,7 +24,7 @@ namespace('test', function() {
   });
 
   desc('Run code-based tests using Karma');
-  task('code', ['bower:install', 'clean:web'], function() {
+  task('code', ['add:codetesting', 'bower:install', 'clean:web'], function() {
     var args = ['start', path.resolve('test', 'karma.conf.js')];
 
     // Check for reporter
@@ -82,7 +82,7 @@ namespace('test', function() {
   });
 
   desc('Run site-based tests using Mocha and WebDriverJS');
-  task('site', ['bower:install', 'clean:web'], function() {
+  task('site', ['add:sitetesting', 'bower:install', 'clean:web'], function() {
     var phantom = phantomjs.execute('--webdriver=4444');
     var server = brunch.execute('watch', '--server', '--env', 'web:prod');
     var args = [];
