@@ -1,13 +1,10 @@
 var fork = require('child_process').fork;
-var prerenderUrl = 'http://127.0.0.1:' + (process.env.PORT || 3000);
+var jsonfile = require('jsonfile');
 
 module.exports = function(app) {
   // Check if Prerender is available
-  try {
-    require.resolve('prerender');
-    require.resolve('prerender-node');
-  }
-  catch(e) {
+  var dependencies = jsonfile.readSync('package.json').dependencies;
+  if(!dependencies.prerender || !dependencies['prerender-node']) {
     return;
   }
 
@@ -19,6 +16,7 @@ module.exports = function(app) {
 
   // Set up Prerender middleware and link to server
   var middleware = require('prerender-node');
+  var prerenderUrl = 'http://127.0.0.1:' + (process.env.PORT || 3000);
   middleware.set('prerenderServiceUrl', prerenderUrl);
   app.use(middleware);
 };

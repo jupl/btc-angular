@@ -7,13 +7,14 @@ var setupRoutes = require('./routes');
 exports.startServer = function(port, publicPath, callback) {
   var app = express();
 
-  // Set up Prerender if available
+  // Add middleware
+  app.use(express.compress());
   setupPrerender(app);
-
-  // Point to generated static files
   app.use(express.static(publicPath));
-
-  // Append custom routes/services/proxies/etc.
+  // app.use(express.json());
+  // app.use(express.urlencoded());
+  // app.use(express.cookieParser());
+  // app.use(express.session(...));
   setupRoutes(app);
 
   // Set other paths to index.html for HTML5 pushState apps
