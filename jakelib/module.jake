@@ -49,10 +49,9 @@ namespace('add', function() {
     return npm.execute('install');
   });
 
-  desc('Add Prerender');
-  task('prerender', function() {
+  desc('Add server extras');
+  task('serverextras', function() {
     editPackage(function() {
-      this.dependencies.prerender = '~2.0.1';
       this.dependencies['prerender-node'] = '~0.1.15';
     });
     return npm.execute('install');
@@ -87,27 +86,29 @@ namespace('rem', function() {
       delete this.overrides.mocha;
       delete this.overrides['sinon-chai'];
     });
-    return npm.execute('uninstall',
-      'karma',
-      'karma-chai-plugins',
-      'karma-mocha',
-      '--save-dev');
+    editPackage(function() {
+      delete this.devDependencies.karma;
+      delete this.devDependencies['karma-chai-plugins'];
+      delete this.devDependencies['karma-mocha'];
+    });
   });
 
   desc('Remove support for site testing');
   task('sitetesting', function() {
-    return npm.execute('uninstall',
-      'chai',
-      'mocha',
-      'mocha-as-promised',
-      'nodemon',
-      'selenium-webdriver',
-      '--save-dev');
+    editPackage(function() {
+      delete this.devDependencies.chai;
+      delete this.devDependencies.mocha;
+      delete this.devDependencies['mocha-as-promised'];
+      delete this.devDependencies.nodemon;
+      delete this.devDependencies['selenium-webdriver'];
+    });
   });
 
-  desc('Remove Prerender');
-  task('prerender', function() {
-    return npm.execute('uninstall', 'prerender', 'prerender-node', '--save');
+  desc('Remove Server extras');
+  task('serverextras', function() {
+    editPackage(function() {
+      delete this.dependencies['prerender-node'];
+    });
   });
 
   desc('Remove jQuery');

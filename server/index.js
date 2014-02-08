@@ -11,10 +11,9 @@ exports.startServer = function(port, publicPath, callback) {
   app.use(express.compress());
   setupPrerender(app);
   app.use(express.static(publicPath));
-  // app.use(express.json());
-  // app.use(express.urlencoded());
-  // app.use(express.cookieParser());
-  // app.use(express.session(...));
+  app.use(express.json());
+  app.use(express.urlencoded());
+  app.use(app.router);
   setupRoutes(app);
 
   // Set other paths to index.html for HTML5 pushState apps
