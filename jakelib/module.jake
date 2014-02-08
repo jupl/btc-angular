@@ -52,6 +52,11 @@ namespace('add', function() {
   desc('Add server extras');
   task('serverextras', function() {
     editPackage(function() {
+      this.dependencies.bcryptjs = '~0.7.10';
+      this.dependencies.mongoose = '~3.8.6';
+      this.dependencies.passport = '~0.2.0';
+      this.dependencies['connect-mongo'] = '~0.4.0';
+      this.dependencies['passport-local'] = '~0.1.6';
       this.dependencies['prerender-node'] = '~0.1.15';
     });
     return npm.execute('install');
@@ -107,6 +112,11 @@ namespace('rem', function() {
   desc('Remove Server extras');
   task('serverextras', function() {
     editPackage(function() {
+      delete this.dependencies.bcryptjs;
+      delete this.dependencies.mongoose;
+      delete this.dependencies.passport;
+      delete this.dependencies['connect-mongo'];
+      delete this.dependencies['passport-local'];
       delete this.dependencies['prerender-node'];
     });
   });

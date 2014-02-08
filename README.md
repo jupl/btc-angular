@@ -21,7 +21,11 @@ For fleshed out skeletons based on this one:
     ├── jakelib             # Unified set of tasks for development
     ├── public              # Generated final product
     ├── server              # Server configuration
-    │   └── routes          # Custom routes/proxies/etc. (server-side)
+    │   ├── models          # Persistent server-side model configuration
+    │   ├── passport        # Configuration for Passport integration
+    │   ├── routes          # Custom routes/proxies/etc. (server-side)
+    │   ├── prerender.js    # Configuration for Prerender middleware
+    │   └── sessions.js     # Configuration for sessions
     ├── setup               # Add configuration options to brunch-config
     ├── test                # Test-related files
     │   ├── assets          # Static assets to run code tests manually
@@ -40,6 +44,7 @@ For fleshed out skeletons based on this one:
 ## Requirements
 - [node.js](http://nodejs.org)
 - [Jake](https://github.com/mde/jake#installing-with-npm) (required for development)
+- [MongoDB](http://www.mongodb.org/) (if using server extras)
 
 
 ## Setup
@@ -58,9 +63,8 @@ If you want to just run Brunch without using Jake tasks, just use either `web:de
 ### `npm start` / `npm test`
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run the `test:all` task.
 
-#### Prerender
-To enable/disable Prerender see tasks `add:prerender`/`rem:prerender`. By default it is configured to use a local Prerender server that is set up. To make changes see `server/prerender/server` for the server setup, and `server/prerender/index` for the middleware setup.
-
+### Server
+Out of the box the server provided simply serves static assets with support for HTML5 push state. Extensible server extras can be added to support models with [Mongoose](http://mongoosejs.com/), authentication with [Passport](http://passportjs.org/), and caching with [Prerender](https://prerender.io/).
 
 
 ## Task List
@@ -94,8 +98,8 @@ Add/remove packages to test browser code. Packages include Mocha/Chai/Sinon/etc.
 #### `add:sitetesting` / `rem:sitetesting`
 Add/remove packages to test site features. Packages include Mocha, Chai, WebDriverJS, etc. for NPM.
 
-#### `add:prerender` / `rem:prerender`
-Add/remove [Prerender](https://prerender.io/) to handle search crawling in JavaScript heavy applications. See the "Notes" section above for more information.
+#### `add:serverextras` / `rem:serverextras`
+Add/remove extra packages to the server so that it does more than just serve static assets. For more information see notes above.
 
 #### `add:jquery` / `rem:jquery`
 Add/remove the ubiquitous library [jQuery](http://jquery.com/) to/from the project.
