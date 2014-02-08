@@ -64,7 +64,7 @@ If you want to just run Brunch without using Jake tasks, just use either `web:de
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run the `test:all` task.
 
 ### Server
-Out of the box the server provided simply serves static assets with support for HTML5 push state. Extensible server extras can be added to support models with [Mongoose](http://mongoosejs.com/), authentication with [Passport](http://passportjs.org/), and caching with [Prerender](https://prerender.io/).
+Out of the box the server provided simply serves static assets with support for HTML5 push state. Extensible server extras can be added to support models with [Mongoose](http://mongoosejs.com/), authentication with [Passport](http://passportjs.org/), and caching with [Prerender](https://prerender.io/). To add extras, see the `add:serverextras` task.
 
 
 ## Task List
@@ -178,7 +178,8 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [Bower](http://bower.io/)
 
 ### Utilities
-- [PhantomJS](http://phantomjs.org/) (using [wrapper](https://github.com/Obvious/phantomjs))
+- [Mongoose](http://mongoosejs.com/)
+- [Passport](http://passportjs.org/)
 - [Prerender](https://prerender.io/)
 - [jQuery](http://jquery.com)
 - [normalize.css](http://necolas.github.io/normalize.css/)
@@ -189,6 +190,7 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [nodemon](http://remy.github.io/nodemon/)
 - [Mocha](http://visionmedia.github.com/mocha/)
 - [Mocha as Promised](https://github.com/domenic/mocha-as-promised)
+- [PhantomJS](http://phantomjs.org/) (using [wrapper](https://github.com/Obvious/phantomjs))
 - [Chai](http://chaijs.com/)
 - [Sinon](http://sinonjs.org/)
 - [Sinon-Chai](https://github.com/domenic/sinon-chai)

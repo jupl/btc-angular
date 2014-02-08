@@ -1,5 +1,10 @@
 # Changelog
 
+### WIP
+- Remove Prerender server
+- Add support for Mongoose/Passport/sessions
+- Install testing-related packages automatically if running tests
+
 #### 0.8.1 (February 5, 2014)
 - Fix bug in `npm:clean`
 
