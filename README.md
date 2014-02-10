@@ -114,7 +114,7 @@ Generate/destroy a test file with the given test name for testing the site with 
 ### Testing
 Tests leverage [Mocha](http://visionmedia.github.io/mocha/), [Mocha as Promised](https://github.com/domenic/mocha-as-promised), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai). Testing packages will automatically be installed if not available.
 
-#### `test:all [codereporter=progress] [sitereporter=spec]`
+#### `test:all [codereporter=[codereporter]] [sitereporter=[sitereporter]]`
 Run all tests listed below once. For more information on reporters see below.
 
 #### `test:code [reporter=[reporter]] [watch=false]`
