@@ -16,8 +16,7 @@ For fleshed out skeletons based on this one:
 ## File Structure
     ├── app                     # Assets/code/styles for the client application
     │   ├── assets              # Static files copied without modification
-    │   └── tests               # Code tests that are run with Karma
-    ├── bower_components        # Packages installed by Bower
+    │   └── tests               # Code tests that run with Karma
     ├── generators              # Generators used by Scaffolt
     ├── jakelib                 # Unified set of tasks for development
     ├── public                  # Compiled client-side assets
