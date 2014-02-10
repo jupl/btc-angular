@@ -11,7 +11,7 @@ global.expect = chai.expect;
 global.should = chai.should();
 
 // Expose driver with a site
-global.getDriver = function(url) {
+global.getDriver = function() {
   return new webdriver.Builder().usingServer('http://localhost:4444').build();
 };
 
