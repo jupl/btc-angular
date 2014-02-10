@@ -1,6 +1,10 @@
-var setup = require('./setup');
+'use strict';
 
-exports.config = setup({
+exports.config = {
+  paths: {
+    public: 'public'
+  },
+
   server: {
     path: 'server'
   },
@@ -8,7 +12,7 @@ exports.config = setup({
   files: {
     javascripts: {
       joinTo: {
-        'javascripts/app.js': /^app/,
+        'javascripts/app.js': /^app[\\\/](?!tests)/,
         'javascripts/vendor.js': /^(vendor|bower_components)/
       }
     },
@@ -22,5 +26,5 @@ exports.config = setup({
     templates: {
       joinTo: 'javascripts/app.js'
     }
-  }
-});
+  },
+};

@@ -1,4 +1,7 @@
+'use strict';
+
 var mongoose = require('mongoose');
+var config = require('../config');
 
 /**
  * Represents a connection to a database. Currently uses/requires MongoDB and
@@ -6,4 +9,4 @@ var mongoose = require('mongoose');
  * data.
  * @type {Connection}
  */
-module.exports = mongoose.createConnection('mongodb://localhost/models');
+module.exports = mongoose.createConnection(config.server.mongoUri);

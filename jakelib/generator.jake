@@ -1,4 +1,6 @@
-// Scaffolt non-module generator tasks
+'use strict';
+
+// Scaffolt generator tasks
 var generators = require('./lib').generators;
 var Promise = require('bluebird');
 
@@ -10,7 +12,7 @@ task('gen', function() {
   // Iterate over all available generators.
   generators.forEach(function(generator) {
     var type = generator.name;
-    var names = process.env[generator.task];
+    var names = process.env[type];
     if(!generator.isModule && names) {
       names.split(',').forEach(function(name) {
         promises.push(new Promise(function(resolve) {
@@ -40,7 +42,7 @@ task('del', function() {
   // Iterate over all available generators.
   generators.forEach(function(generator) {
     var type = generator.name;
-    var names = process.env[generator.task];
+    var names = process.env[type];
     if(!generator.isModule && names) {
       names.split(',').forEach(function(name) {
         promises.push(new Promise(function(resolve) {
@@ -65,7 +67,7 @@ task('del', function() {
 function listGenerators() {
   console.log('Available scaffolds:');
   generators.forEach(function(generator) {
-    console.log(generator.task + ' - ' + generator.description.humanize());
+    console.log(generator.name + ' - ' + generator.description.humanize());
   });
 }
 

@@ -1,4 +1,4 @@
-var jsonfile = require('jsonfile');
+'use strict';
 
 /**
  * Set up Passport if it is available and connect to the application. Passport
@@ -7,14 +7,15 @@ var jsonfile = require('jsonfile');
  */
 module.exports = function(app) {
   // Check if Passport is available
-  var dependencies = jsonfile.readFileSync('package.json').dependencies;
-  if(!dependencies.passport) {
+  try {
+    var passport = require('passport');
+  }
+  catch(e) {
     return;
   }
 
-  // Get user model and passport+strategies
+  // Get user model and Passport strategies
   var User = require('../models/user');
-  var passport = require('passport');
   var strategies = [
     require('./local')
   ];

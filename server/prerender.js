@@ -1,4 +1,4 @@
-var jsonfile = require('jsonfile');
+'use strict';
 
 /**
  * Set up Prerender if it is available and connect to the application.
@@ -6,13 +6,14 @@ var jsonfile = require('jsonfile');
  */
 module.exports = function(app) {
   // Check if Prerender is available
-  var dependencies = jsonfile.readFileSync('package.json').dependencies;
-  if(!dependencies.prerender) {
+  try {
+    var middleware = require('prerender-node');
+  }
+  catch(e) {
     return;
   }
 
   // Set up Prerender middleware and link to server
-  var middleware = require('prerender-node');
   var prerenderUrl = 'http://127.0.0.1:3000';
   middleware.set('prerenderServiceUrl', prerenderUrl);
   app.use(middleware);

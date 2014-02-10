@@ -1,3 +1,5 @@
+'use strict';
+
 var connection = require('./index');
 var bcrypt = require('bcryptjs');
 var Schema = require('mongoose').Schema;

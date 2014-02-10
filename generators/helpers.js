@@ -1,15 +1,25 @@
+'use strict';
+
 require('sugar');
 
 module.exports = function(Handlebars) {
-  Handlebars.registerHelper('humanize', function(options) {
-    return new Handlebars.SafeString(options.fn(this).underscore().humanize());
+  Handlebars.registerHelper('camelize', function(string) {
+    return string.camelize(false);
   });
 
-  Handlebars.registerHelper('dasherize', function(options) {
-    return new Handlebars.SafeString(options.fn(this).dasherize());
+  Handlebars.registerHelper('dasherize', function(string) {
+    return string.dasherize();
   });
 
-  Handlebars.registerHelper('lowercamelize', function(options) {
-    return new Handlebars.SafeString(options.fn(this).camelize(false));
+  Handlebars.registerHelper('humanize', function(string) {
+    return string.underscore().humanize();
+  });
+
+  Handlebars.registerHelper('underscore', function(string) {
+    return string.underscore();
+  });
+
+  Handlebars.registerHelper('uppercamelize', function(string) {
+    return string.camelize(true);
   });
 };

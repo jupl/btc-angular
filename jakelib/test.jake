@@ -1,6 +1,8 @@
+'use strict';
+
 // Test-related tasks
 var brunch = require('./lib').npmBin('brunch');
-var config = require('../brunch-config').config.overrides['web:dev'];
+var config = require('../brunch-config').config;
 var karma = require('./lib').npmBin('karma');
 var mocha = require('./lib').npmBin('mocha');
 var nodemon = require('./lib').npmBin('nodemon');
@@ -24,19 +26,13 @@ namespace('test', function() {
   });
 
   desc('Run code-based tests using Karma');
-  task('code', ['add:codetesting', 'bower:install', 'clean:web'], function() {
-    var args = ['start', path.resolve('test', 'karma.conf.js')];
+  task('code', ['bower:install', 'clean:web'], function() {
+    var args = ['start'];
 
     // Check for reporter
     if(process.env.reporter) {
       args.push('--reporters');
       args.push(process.env.reporter);
-    }
-
-    // Set browsers options if available
-    if(process.env.browsers) {
-      args.push('--browsers');
-      args.push(process.env.browsers);
     }
 
     // Default behavior is to run tests once
@@ -45,28 +41,27 @@ namespace('test', function() {
         jake.Task['build:dev'].addListener('complete', function() {
           args.push('--single-run');
           resolve(karma.execute(args));
-        })
-        .execute();
+        }).execute();
       });
     }
     // Also tests can be run continuously
     else {
       if(process.env.watch === 'server') {
-        var server = brunch.execute('watch', '--server', '--env', 'web:dev');
+        var server = brunch.execute('watch', '--server');
       }
       else {
-        var server = brunch.execute('watch', '--env', 'web:dev');
+        var server = brunch.execute('watch');
       }
       return new Promise(function(resolve, reject) {
         server.catch(reject);
         var id = setInterval(function() {
-          try { // Check if public folder is not empty
+          // Check if public folder is not empty
+          try {
             var publicReady = !!jake.readdirR(config.paths.public).length
           }
-          catch(e) {
-          }
+          catch(e) {}
 
-          if(typeof publicReady !== 'undefined' && publicReady) {
+          if(publicReady) {
             clearInterval(id);
             args.push('--no-single-run');
             karma.execute(args).then(resolve, reject);
@@ -82,9 +77,9 @@ namespace('test', function() {
   });
 
   desc('Run site-based tests using Mocha and WebDriverJS');
-  task('site', ['add:sitetesting', 'bower:install', 'clean:web'], function() {
+  task('site', ['bower:install', 'clean:web'], function() {
     var phantom = phantomjs.execute('--webdriver=4444');
-    var server = brunch.execute('watch', '--server', '--env', 'web:prod');
+    var server = brunch.execute('watch', '--server', '--production');
     var args = [];
 
     // Check for reporter
@@ -101,10 +96,9 @@ namespace('test', function() {
         try {
           var publicReady = !!jake.readdirR(config.paths.public).length
         }
-        catch(e) {
-        }
+        catch(e) {}
 
-        if(typeof publicReady !== 'undefined' && publicReady) {
+        if(publicReady) {
           clearInterval(id);
           if(process.env.watch === 'true') {
             args.unshift(path.resolve('node_modules', '.bin', 'mocha'));

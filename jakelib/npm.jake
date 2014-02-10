@@ -1,3 +1,5 @@
+'use strict';
+
 // NPM related tasks
 var npm = require('./lib').bin('npm');
 
