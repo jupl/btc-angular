@@ -15,8 +15,7 @@ For fleshed out skeletons based on this one:
 
 ## File Structure
     ├── app                     # Assets/code/styles for the client application
-    │   ├── assets              # Static files copied without modification
-    │   └── tests               # Code tests that run with Karma
+    │   └── assets              # Static files copied without modification
     ├── generators              # Generators used by Scaffolt
     ├── jakelib                 # Unified set of tasks for development
     ├── public                  # Compiled client-side assets
@@ -27,6 +26,11 @@ For fleshed out skeletons based on this one:
     │   ├── config.js           # Configuration options
     │   ├── prerender.js        # Prerender middleware integration
     │   └── session.js          # Session configuration
+    ├── test                    # Test-related files
+    │   ├── code                # Code tests that run with Karma
+    │   ├── site                # Site tests that run with WebDriverJS
+    │   ├── mocha.opts          # Default options for site testing
+    │   └── setup.js            # Initialization for site testing
     ├── vendor                  # Additional 3rd party JS/CSS libraries
     ├── .editorconfig           # EditorConfig definitions for coding styles
     ├── bower.json              # Listing for Bower dependencies to download
@@ -81,6 +85,9 @@ Remove downloaded Bower dependencies. This is useful if you want to reinstall de
 ### Extras
 These commands add additional features/items to the project that are not included by default.
 
+#### `add:testing` / `rem:testing`
+Add/remove packages require to run code and site testing.
+
 #### `add:serverextras` / `rem:serverextras`
 Add/remove extra packages to the server so that it does more than just serve static assets. For more information see notes above.
 
@@ -92,28 +99,33 @@ Add/remove [normalize.css](http://necolas.github.io/normalize.css/) to ensure a 
 
 
 ### Scaffolding
-Scaffolding commands are available in the form of `gen` and `del`. (syntax ex: `jake gen codetest=user`) Multiple scaffolds can be specified in a single command, as well as separating names with commas. (ex: `jake gen codetest=test1,test2 sitetest=test3`)
+Scaffolding commands are available in the form of `generate` and `destroy`. (syntax ex: `jake generate codetest=user`) Multiple scaffolds can be specified in a single command, as well as separating names with commas. (ex: `jake generate codetest=test1,test2 sitetest=test3`) The following aliases are also available: `g`, `gen`, `d`, `del`. (ex: `jake g codetest=user`)
 
-#### `gen` / `del`
+#### `generate` / `destroy`
 List available scaffolds.
 
-#### `gen codetest=[name]` / `del codetest=[name]`
+#### `generate codetest=[name]` / `destroy codetest=[name]`
 Generate/destroy a test file with the given test name for testing client-side code with Karma.
+
+#### `generate sitetest=[name]` / `destroy sitetest=[name]`
+Generate/destroy a test file with the given test name for testing the site with WebDriverJS.
 
 
 ### Testing
-Tests leverage [Mocha](http://visionmedia.github.io/mocha/), [Mocha as Promised](https://github.com/domenic/mocha-as-promised), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai).
+Tests leverage [Mocha](http://visionmedia.github.io/mocha/), [Mocha as Promised](https://github.com/domenic/mocha-as-promised), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai). Testing packages will automatically be installed if not available.
 
 #### `test:all [codereporter=progress] [sitereporter=spec]`
 Run all tests listed below once. For more information on reporters see below.
 
 #### `test:code [reporter=progress] [watch=false]`
-Run code-based tests (ex. unit tests) using Karma. Karma is preconfigured to run with all available browsers on the system. ([PhantomJS](http://phantomjs.org/) is included by default). Karma reporter can be specified with the `reporter` option. If you run this task with `watch=true` Karma will auto-run on file changes. Otherwise by default Karma runs once. You can also run the server while watching files with `watch=server`.
+Run code-based tests (ex. unit tests) using Karma. Karma is preconfigured to run with all available browsers on the system. ([PhantomJS](http://phantomjs.org/) is included). Karma reporter can be specified with the `reporter` option. If you run this task with `watch=true` Karma will auto-run on file changes. Otherwise by default Karma runs once. You can also run the server while watching files with `watch=server`.
 
 #### `test:site [reporter=spec] [watch=false]`
-Run site-based tests (ex. system tests) using Mocha, PhantomJS, and WebDriverJS. Required packages will automatically be installed if not already with the `add:sitetesting` task. A server is started up temporarily to interact with the site. A Mocha reporter can be specified with the `reporter` option. If you run this task with `watch=true` Mocha will auto-run on file changes with [nodemon](http://remy.github.io/nodemon/). Otherwise by default Mocha runs once. The global method `getDriver` is provided to get a setup and built driver. WebDriverJS' use of Promises can be combined with Mocha as Promised to handle asynchronous behavior easily. ex:
+Run site-based tests (ex. system tests) using PhantomJS and WebDriverJS. A server is started up temporarily to interact with the site. A Mocha reporter can be specified with the `reporter` option. If you run this task with `watch=true` Mocha will auto-run on file changes with [nodemon](http://remy.github.io/nodemon/). Otherwise by default Mocha runs once. The global method `getDriver` is provided to get a setup and built driver. WebDriverJS' use of Promises can be combined with Mocha as Promised to handle asynchronous behavior easily. ex:
 
 ```js
+'use strict';
+
 describe('Sample', function() {
   var driver;
 
@@ -122,7 +134,7 @@ describe('Sample', function() {
   });
 
   it('Has a proper title', function() {
-    return driver.get('http://localhost:3333').then(function() {
+    return driver.get(baseUrl).then(function() {
       return driver.getTitle();
     })
     .then(function(title) {
@@ -157,7 +169,6 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [Scaffolt](https://github.com/paulmillr/scaffolt)
 - [Bower](http://bower.io/)
 - [Jake](https://github.com/mde/jake)
-- [Karma](http://karma-runner.github.io/)
 
 ### Utilities
 - [Mongoose](http://mongoosejs.com/)
@@ -167,6 +178,7 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [normalize.css](http://necolas.github.io/normalize.css/)
 
 ### Testing
+- [Karma](http://karma-runner.github.io/)
 - [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs)
 - [nodemon](http://remy.github.io/nodemon/)
 - [Mocha](http://visionmedia.github.com/mocha/)

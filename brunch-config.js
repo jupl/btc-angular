@@ -6,13 +6,14 @@ exports.config = {
   },
 
   server: {
-    path: 'server'
+    path: 'server',
+    port: 3333
   },
 
   files: {
     javascripts: {
       joinTo: {
-        'javascripts/app.js': /^app[\\\/](?!tests)/,
+        'javascripts/app.js': /^app/,
         'javascripts/vendor.js': /^(vendor|bower_components)/
       }
     },

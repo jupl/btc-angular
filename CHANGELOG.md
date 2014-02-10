@@ -3,14 +3,15 @@
 ### WIP
 - Remove Prerender server
 - Add support for Mongoose/Passport/sessions
-- Include test-related packages again
 - Simplify Brunch config
 - Enforce strict mode
 - Remove dashes in generators
-- No more editing `package.json` and `bower.json` directly
 - Detect browsers in Karma
 - Add Mocha as Promised to Karma
 - Server refactoring
+- Unify `add:codetesting` and `add:sitetesting` tasks
+- Add scaffold to generate server model
+- Add aliases to generator tasks
 
 #### 0.8.1 (February 5, 2014)
 - Fix bug in `npm:clean`

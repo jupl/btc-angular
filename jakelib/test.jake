@@ -26,7 +26,7 @@ namespace('test', function() {
   });
 
   desc('Run code-based tests using Karma');
-  task('code', ['bower:install', 'clean:web'], function() {
+  task('code', ['add:testing', 'bower:install', 'clean:web'], function() {
     var args = ['start'];
 
     // Check for reporter
@@ -66,7 +66,7 @@ namespace('test', function() {
             args.push('--no-single-run');
             karma.execute(args).then(resolve, reject);
           }
-        }, 1000);
+        }, 500);
       })
       .finally(function() {
         if(!server.isFulfilled()) {
@@ -77,7 +77,7 @@ namespace('test', function() {
   });
 
   desc('Run site-based tests using Mocha and WebDriverJS');
-  task('site', ['bower:install', 'clean:web'], function() {
+  task('site', ['add:testing', 'bower:install', 'clean:web'], function() {
     var phantom = phantomjs.execute('--webdriver=4444');
     var server = brunch.execute('watch', '--server', '--production');
     var args = [];
@@ -112,7 +112,7 @@ namespace('test', function() {
             mocha.execute(args).then(resolve, reject);
           }
         }
-      }, 1000);
+      }, 500);
     })
     // Make sure to stop server and phantom on success or fail
     .finally(function() {

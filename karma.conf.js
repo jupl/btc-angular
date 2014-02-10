@@ -9,7 +9,7 @@ module.exports = function(config) {
       'node_modules/mocha-as-promised/mocha-as-promised.js',
       paths.public + '/javascripts/vendor.js',
       paths.public + '/javascripts/app.js',
-      'app/tests/**/*'
+      'test/code/**/*'
     ]
   });
 };

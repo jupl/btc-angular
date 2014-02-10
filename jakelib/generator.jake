@@ -5,8 +5,10 @@ var generators = require('./lib').generators;
 var Promise = require('bluebird');
 
 // Iterate over non-module generators for creating tasks that scaffold
+task('g', ['generate'])
+task('gen', ['generate'])
 desc('Scaffold item(s), or list available scaffolds')
-task('gen', function() {
+task('generate', function() {
   var promises = [];
 
   // Iterate over all available generators.
@@ -35,8 +37,10 @@ task('gen', function() {
 });
 
 // Iterate over non-module generators for creating tasks that undo a scaffold
-desc('Delete scaffolded item(s), or list available scaffolds')
-task('del', function() {
+task('d', ['destroy'])
+task('del', ['destroy'])
+desc('Destroy scaffolded item(s), or list available scaffolds')
+task('destroy', function() {
   var promises = [];
 
   // Iterate over all available generators.

@@ -18,11 +18,6 @@
     "sugar": "~1.4.1"
   },
   "devDependencies": {
-    "auto-reload-brunch": "~1.7.1",
-    "karma-chai-plugins": "~0.2.0",
-    "karma-detect-browsers": "~0.1.2",
-    "karma-mocha": "~0.1.1",
-    "mocha-as-promised": "~2.0.0",
-    "phantomjs": "~1.9.2"
+    "auto-reload-brunch": "~1.7.1"
   }
 }
