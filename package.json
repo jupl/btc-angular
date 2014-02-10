@@ -1,8 +1,8 @@
 {
   "repository": "git",
   "scripts": {
-    "start": "npm install --production && ./node_modules/.bin/jake server:prod",
-    "test": "npm install && ./node_modules/.bin/jake test:all"
+    "start": "npm install --production && jake server:prod",
+    "test": "npm install && jake test:all"
   },
   "dependencies": {
     "javascript-brunch": "~1.7.1",
