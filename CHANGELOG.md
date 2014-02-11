@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.9.1 (February 11, 2014)
 - Simplify scaffold-related tasks
 - Fix issue with waiting for files to build before running tasks
 
