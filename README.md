@@ -1,4 +1,4 @@
-# Aang Brunch 0.5.0
+# Aang Brunch 0.5.1
 [![Dependency Status](https://gemnasium.com/jupl/aang-brunch.png)](https://gemnasium.com/jupl/aang-brunch)
 
 
@@ -18,7 +18,7 @@ Aang Brunch is a skeleton to for building [AngularJS](http://angularjs.org/) app
     │   ├── app.js              # Configure main application module
     │   ├── app.styl            # Application/page styling definition
     │   ├── base.styl           # Stylus variables and mixins for the application
-    │   └── config.js           # Declare and setup Angular modules
+    │   └── initialize.js       # Declare and setup Angular modules
     ├── cordova                 # Cordova project
     ├── generators              # Generators used by Scaffolt
     ├── jakelib                 # Unified set of tasks for development
@@ -216,7 +216,7 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 ## Libraries
 
 ### Core
-- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.5.0
+- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.5.1
 - [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.9.0
 
 ### Utilities

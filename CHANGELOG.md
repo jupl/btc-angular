@@ -1,5 +1,11 @@
 # Changelog
 
+#### 0.5.1 (February 10, 2014)
+- Rename `config.js` to `initialize.js`
+- Update BTC
+  - Simplify scaffold-related tasks
+  - Fix issue with waiting for files to build before running tasks
+
 ### 0.5.0 (February 10, 2014)
 - Enforce strict mode
 - Go back to ngRoute for now (too many issues with ui-router)
