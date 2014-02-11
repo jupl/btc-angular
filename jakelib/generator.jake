@@ -17,7 +17,7 @@ task('generate', function() {
     var names = process.env[generator];
     if(names) {
       names.split(',').forEach(function(name) {
-        promises.push(new Promise(function(resolve) {
+        promises.push(new Promise(function() {
           validate(generator, name);
           return scaffolt.execute(generator, name);
         }));
@@ -46,7 +46,7 @@ task('destroy', function() {
     var names = process.env[generator];
     if(names) {
       names.split(',').forEach(function(name) {
-        promises.push(new Promise(function(resolve) {
+        promises.push(new Promise(function() {
           validate(generator, name);
           return scaffolt.execute(generator, name, '--revert');
         }));
