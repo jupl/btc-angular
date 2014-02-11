@@ -17,7 +17,7 @@ exports.config = {
         'javascripts/vendor.js': /^(vendor|bower_components)(?!.+angular-mocks.js$)/
       },
       order: {
-        before: ['app/config.js']
+        before: ['app/initialize.js']
       }
     },
 
