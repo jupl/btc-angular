@@ -2,6 +2,7 @@
 
 // Scaffolt generator tasks
 var generators = require('./lib').generators;
+var scaffolt = require('./lib').npmBin('scaffolt');
 var Promise = require('bluebird');
 
 // Iterate over non-module generators for creating tasks that scaffold
@@ -13,15 +14,12 @@ task('generate', function() {
 
   // Iterate over all available generators.
   generators.forEach(function(generator) {
-    var type = generator.name;
-    var names = process.env[type];
-    if(!generator.isModule && names) {
+    var names = process.env[generator];
+    if(names) {
       names.split(',').forEach(function(name) {
-        promises.push(new Promise(function(resolve) {
-          validate(type, name);
-          jake.Task['scaffold:gen']
-          .addListener('complete', resolve)
-          .invoke(type, name);
+        promises.push(new Promise(function() {
+          validate(generator, name);
+          return scaffolt.execute(generator, name);
         }));
       });
     }
@@ -32,7 +30,7 @@ task('generate', function() {
     return Promise.all(promises);
   }
   else {
-    listGenerators();
+    return scaffolt.execute('--list');
   }
 });
 
@@ -45,15 +43,12 @@ task('destroy', function() {
 
   // Iterate over all available generators.
   generators.forEach(function(generator) {
-    var type = generator.name;
-    var names = process.env[type];
-    if(!generator.isModule && names) {
+    var names = process.env[generator];
+    if(names) {
       names.split(',').forEach(function(name) {
-        promises.push(new Promise(function(resolve) {
-          validate(type, name);
-          jake.Task['scaffold:del']
-          .addListener('complete', resolve)
-          .invoke(type, name);
+        promises.push(new Promise(function() {
+          validate(generator, name);
+          return scaffolt.execute(generator, name, '--revert');
         }));
       });
     }
@@ -64,16 +59,9 @@ task('destroy', function() {
     return Promise.all(promises);
   }
   else {
-    listGenerators();
+    return scaffolt.execute('--list');
   }
 });
-
-function listGenerators() {
-  console.log('Available scaffolds:');
-  generators.forEach(function(generator) {
-    console.log(generator.name + ' - ' + generator.description.humanize());
-  });
-}
 
 function validate(generator, name) {
   // Throw Jake fails here if it does not validate
