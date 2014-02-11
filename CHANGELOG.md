@@ -2,6 +2,8 @@
 
 ### WIP
 - Enforce strict mode
+- Go back to ngRoute for now (too many issues with ui-router)
+- Minor refactor in skeleton
 - Update BTC
   - Remove Prerender server
   - Add support for Mongoose/Passport/sessions

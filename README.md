@@ -206,7 +206,7 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [AngularJS](http://angularjs.org/)
 
 ### Utilities
-- [UI Router](https://github.com/angular-ui/ui-router)
+- [ngRoute](http://docs.angularjs.org/api/ngRoute)
 - [Nib](http://visionmedia.github.io/nib/)
 - [Angular Mocks](http://docs.angularjs.org/api/ngMock) (for testing)
 - [ngmin](https://github.com/btford/ngmin) (for minification)

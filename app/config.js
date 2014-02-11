@@ -9,5 +9,5 @@ angular.module('app', [
   'app.directives',
   'app.filters',
   'app.services',
-  'ui.router'
+  'ngRoute'
 ]);
