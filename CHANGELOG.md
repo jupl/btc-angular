@@ -7,7 +7,6 @@
 - Enforce strict mode
 - Remove dashes in generators
 - Detect browsers in Karma
-- Add Mocha as Promised to Karma
 - Server refactoring
 - Unify `add:codetesting` and `add:sitetesting` tasks
 - Add scaffold to generate server model
