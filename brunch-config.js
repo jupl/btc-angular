@@ -27,5 +27,5 @@ exports.config = {
     templates: {
       joinTo: 'javascripts/app.js'
     }
-  },
+  }
 };
