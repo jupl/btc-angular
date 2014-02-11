@@ -11,6 +11,7 @@ namespace('add', function() {
   task('testing', function() {
     // Hack to avoid adding extra Karma packages to package.json
     var pkg = JSON.parse(fs.readFileSync('package.json'));
+    var bow = JSON.parse(fs.readFileSync('bower.json'));
     pkg.devDependencies['karma-chai-plugins'] = '~0.2.0';
     pkg.devDependencies['karma-detect-browsers'] = '~0.1.2';
     pkg.devDependencies['karma-mocha'] = '~0.1.1';
@@ -20,10 +21,11 @@ namespace('add', function() {
     pkg.devDependencies['nodemon'] = '~1.0.14';
     pkg.devDependencies['phantomjs'] = '~1.9.2';
     pkg.devDependencies['selenium-webdriver'] = '~2.39.0';
+    bow.dependencies['angular-mocks'] = bow.dependencies.angular;
     fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
+    fs.writeFileSync('bower.json', JSON.stringify(bow, null, 2) + '\n');
     return npm.execute('install').then(function() {
-      return bower.execute('install', '--allow-root', '--save',
-        'angular-mocks#' + require('../bower').dependencies.angular);
+      return bower.execute('install');
     });
   });
 
