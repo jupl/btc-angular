@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+### 0.9.0 (February 10, 2014)
 - Simplify server
 - No need to copy config.xml anymore
 - Rename `cordova:gen` to `cordova:init`
