@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.9.2 (February 11, 2014)
 - Server extras are installed to `dependencies`, not `devDependencies`
 
 #### 0.9.1 (February 11, 2014)
