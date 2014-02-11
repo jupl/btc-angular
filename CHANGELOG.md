@@ -1,5 +1,17 @@
 # Changelog
 
+### 0.9.0 (February 10, 2014)
+- Simplify server
+- No need to copy config.xml anymore
+- Rename `cordova:gen` to `cordova:init`
+- Update BTC
+  - Simplify Brunch config
+  - Enforce strict mode
+  - Remove dashes in generators
+  - Detect browsers in Karma
+  - Unify `add:codetesting` and `add:sitetesting` tasks
+  - Add aliases to generator tasks
+
 #### 0.8.1 (February 5, 2014)
 - Update BTC
   - Fix bug in `npm:clean`

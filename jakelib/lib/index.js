@@ -1,11 +1,11 @@
+'use strict';
+
 require('sugar');
 var fs = require('fs');
 var os = require('os');
 var path = require('path');
 var Promise = require('bluebird');
 var spawn = require('child_process').spawn;
-
-var cwd = process.cwd();
 var slice = Array.prototype.slice;
 
 /**
@@ -49,7 +49,6 @@ exports.generators = fs.readdirSync('generators').filter(function(generator) {
   var generatorFile = path.resolve('generators', generator, 'generator.json');
   var json = require(generatorFile);
   return {
-    task: generator.dasherize().replace(/-/g, ''),
     name: generator,
     description: json.description || generator.spacify()
   }

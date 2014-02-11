@@ -1,6 +1,5 @@
 // Cordova-based build tasks
 require('sugar');
-var brunch = require('./lib').npmBin('brunch');
 var cordova = require('./lib').npmBin('cordova');
 var devices = require('./lib').devices;
 var path = require('path');
@@ -40,7 +39,7 @@ namespace('emulate', function() {
 
 namespace('cordova', function() {
   desc('Initialize Cordova builds by generating a Cordova project');
-  task('gen', function() {
+  task('init', function() {
     var name = process.env.name;
     var package = process.env.package;
 
@@ -60,11 +59,7 @@ namespace('cordova', function() {
 
     var args = ['--verbose', 'create', 'cordova', package, name];
     jake.rmRf('cordova', {silent: true});
-    return cordova.execute(args).then(function() {
-      var assetsPath = path.resolve('app', 'assets');
-      var configPath = path.resolve('cordova', 'www', 'config.xml');
-      jake.cpR(configPath, assetsPath);
-    });
+    return cordova.execute(args);
   });
 
   desc('List installed device platforms and plugins');
