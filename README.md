@@ -133,12 +133,13 @@ describe('Sample', function() {
     driver = getDriver();
   });
 
+  beforeEach(function() {
+    return driver.get(baseUrl);
+  });
+
   it('Has a proper title', function() {
-    return driver.get(baseUrl).then(function() {
-      return driver.getTitle();
-    })
-    .then(function(title) {
-      expect(title).to.equal('Brunch Toolchain');
+    return driver.getTitle().then(function(title) {
+      title.should.equal('Brunch Toolchain');
     });
   });
 

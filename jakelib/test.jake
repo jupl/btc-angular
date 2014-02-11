@@ -10,16 +10,26 @@ var path = require('path');
 var phantomjs = require('./lib').npmBin('phantomjs');
 var Promise = require('bluebird');
 
+// Hide output from PhantomJS
+delete phantomjs.options.stdio;
+
 namespace('test', function() {
   desc('Run all tests');
   task('all', function() {
     process.env.watch = null;
     return new Promise(function(resolve) {
       console.log('\nCode testing\n------------');
-      process.env.reporter = process.env.codereporter;
+      if(process.env.codereporter) {
+        process.env.reporter = process.env.codereporter;
+      }
       jake.Task['test:code'].addListener('complete', function() {
         console.log('\nSite testing\n------------')
-        process.env.reporter = process.env.sitereporter;
+        if(process.env.sitereporter) {
+          process.env.reporter = process.env.sitereporter;
+        }
+        else {
+          delete process.env.reporter;
+        }
         jake.Task['test:site'].addListener('complete', resolve).execute();
       }).execute();
     });

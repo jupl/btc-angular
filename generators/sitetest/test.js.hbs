@@ -7,10 +7,12 @@ describe('{{humanize name}}', function() {
     driver = getDriver();
   });
 
-  it('', function() {
-    return driver.get(baseUrl).then(function() {
+  beforeEach(function() {
+    return driver.get(baseUrl);
+  });
 
-    });
+  it('', function() {
+
   });
 
   after(function() {
