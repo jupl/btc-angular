@@ -1,6 +1,5 @@
 // Cordova-based build tasks
 require('sugar');
-var brunch = require('./lib').npmBin('brunch');
 var cordova = require('./lib').npmBin('cordova');
 var devices = require('./lib').devices;
 var path = require('path');
