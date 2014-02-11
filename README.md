@@ -20,7 +20,7 @@ For a mobile/Cordova friendly variant, check out [this skeleton](https://github.
     │   ├── app.js              # Configure main application module
     │   ├── app.styl            # Application/page styling definition
     │   ├── base.styl           # Stylus variables and mixins for the application
-    │   └── config.js           # Declare and setup Angular modules
+    │   └── initialize.js       # Declare and setup Angular modules
     ├── generators              # Generators used by Scaffolt
     ├── jakelib                 # Unified set of tasks for development
     ├── public                  # Compiled client-side assets
