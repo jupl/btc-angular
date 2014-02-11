@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('app.controllers', []);
 angular.module('app.directives', []);
 angular.module('app.filters', []);
@@ -7,6 +9,6 @@ angular.module('app', [
   'app.directives',
   'app.filters',
   'app.services',
-  'ngTouch',
-  'ui.router'
+  'ngRoute',
+  'ngTouch'
 ]);

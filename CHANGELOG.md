@@ -1,9 +1,11 @@
 # Changelog
 
 ### 0.5.0 (February 10, 2014)
+- Enforce strict mode
+- Go back to ngRoute for now (too many issues with ui-router)
+- Minor refactor in skeleton
 - Update BTC
   - Simplify Brunch config
-  - Enforce strict mode
   - Remove dashes in generators
   - Detect browsers in Karma
   - Unify `add:codetesting` and `add:sitetesting` tasks

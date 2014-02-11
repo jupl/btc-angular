@@ -3,11 +3,11 @@
   "files": [
     {
       "from": "directive.js.hbs",
-      "to": "app/directives/{{#dasherize}}{{name}}{{/dasherize}}.js"
+      "to": "app/directives/{{dasherize name}}.js"
     },
     {
       "from": "test.js.hbs",
-      "to": "test/code/directives/{{#dasherize}}{{name}}{{/dasherize}}.js"
+      "to": "test/code/directives/{{dasherize name}}.js"
     }
   ],
   "dependencies": []

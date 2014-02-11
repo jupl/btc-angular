@@ -11,6 +11,7 @@ namespace('add', function() {
   task('testing', function() {
     // Hack to avoid adding extra Karma packages to package.json
     var pkg = JSON.parse(fs.readFileSync('package.json'));
+    var bow = JSON.parse(fs.readFileSync('bower.json'));
     pkg.devDependencies['karma-chai-plugins'] = '~0.2.0';
     pkg.devDependencies['karma-detect-browsers'] = '~0.1.2';
     pkg.devDependencies['karma-mocha'] = '~0.1.1';
@@ -20,8 +21,12 @@ namespace('add', function() {
     pkg.devDependencies['nodemon'] = '~1.0.14';
     pkg.devDependencies['phantomjs'] = '~1.9.2';
     pkg.devDependencies['selenium-webdriver'] = '~2.39.0';
+    bow.dependencies['angular-mocks'] = bow.dependencies.angular;
     fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
-    return npm.execute('install');
+    fs.writeFileSync('bower.json', JSON.stringify(bow, null, 2) + '\n');
+    return npm.execute('install').then(function() {
+      return bower.execute('install');
+    });
   });
 
   desc('Add jQuery');
@@ -35,17 +40,6 @@ namespace('add', function() {
       'normalize-css#~3.0.0');
   });
 
-  desc('Add device.js (device information for CSS and JS)');
-  task('devicejs', function() {
-    editBower(function() {
-      this.dependencies.devicejs = 'git://github.com/matthewhudson/device.js.git';
-      this.overrides.devicejs = {
-        main: 'lib/device.js'
-      };
-    });
-  });
-});
-
 namespace('rem', function() {
   desc('Remove testing modules');
   task('testing', function() {
@@ -58,7 +52,11 @@ namespace('rem', function() {
       'mocha-as-promised',
       'nodemon',
       'phantomjs',
-      'selenium-webdriver');
+      'selenium-webdriver')
+    .then(function() {
+      return bower.execute('uninstall', '--allow-root', '--save',
+        'angular-mocks');
+    });
   });
 
   desc('Remove jQuery');

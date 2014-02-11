@@ -14,7 +14,7 @@ exports.config = {
     javascripts: {
       joinTo: {
         'javascripts/app.js': /^app/,
-        'javascripts/vendor.js': /^(vendor|bower_components)/
+        'javascripts/vendor.js': /^(vendor|bower_components)(?!.+angular-mocks.js$)/
       },
       order: {
         before: ['app/config.js']
@@ -34,7 +34,12 @@ exports.config = {
 
   modules: {
     definition: false,
-    wrapper: false
+    wrapper: function(path, code) {
+      if(/^app\//.test(path)) {
+        code = '\n(function() {\n' + code + '\n})();';
+      }
+      return code;
+    }
   },
 
   overrides: {

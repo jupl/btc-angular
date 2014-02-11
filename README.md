@@ -1,4 +1,4 @@
-# Aang Brunch 0.4.0
+# Aang Brunch 0.5.0
 [![Dependency Status](https://gemnasium.com/jupl/aang-brunch.png)](https://gemnasium.com/jupl/aang-brunch)
 
 
@@ -217,7 +217,7 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 ## Libraries
 
 ### Core
-- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.4.0
+- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.5.0
 - [Cordova Brunch](https://github.com/jupl/cordova-brunch) 0.9.0
 
 ### Utilities
