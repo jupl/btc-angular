@@ -3,11 +3,11 @@
   "files": [
     {
       "from": "controller.js.hbs",
-      "to": "app/controllers/{{#dasherize}}{{name}}{{/dasherize}}.js"
+      "to": "app/controllers/{{dasherize name}}.js"
     },
     {
       "from": "test.js.hbs",
-      "to": "test/code/controllers/{{#dasherize}}{{name}}{{/dasherize}}.js"
+      "to": "test/code/controllers/{{dasherize name}}.js"
     }
   ],
   "dependencies": []

@@ -1,140 +1,95 @@
+'use strict';
+
 // Tasks to add modules to the project that are not included by default.
-// This is usually either Bower packages or module-based Scaffolt generators.
-var generators = require('./lib').generators;
-var jsonfile = require('jsonfile');
+// This is usually either Bower packages or NPM packages.
+var fs = require('fs');
+var bower = require('./lib').npmBin('bower');
 var npm = require('./lib').bin('npm');
 
 namespace('add', function() {
-  desc('Add support for testing (code/site)');
-  task('testing', ['add:codetesting', 'add:sitetesting']);
-
-  desc('Add support for code testing');
-  task('codetesting', function() {
-    editBower(function() {
-      this.dependencies['angular-mocks'] = '~1.2.0';
-      this.dependencies.chai = '~1.9.0';
-      this.dependencies.mocha = '~1.17.1';
-      this.dependencies.sinon = 'http://sinonjs.org/releases/sinon-1.7.3.js';
-      this.dependencies['sinon-chai'] = '~2.5.0';
-      this.overrides.mocha = {
-        "main": [
-          "mocha.css",
-          "mocha.js"
-        ]
-      };
-      this.overrides['sinon-chai'] = {
-        "main": "lib/sinon-chai.js",
-        "dependencies": {
-          "sinon": "*",
-          "chai": "*"
-        }
-      };
+  desc('Add testing modules');
+  task('testing', function() {
+    // Hack to avoid adding extra Karma packages to package.json
+    var pkg = JSON.parse(fs.readFileSync('package.json'));
+    pkg.devDependencies['karma-chai-plugins'] = '~0.2.0';
+    pkg.devDependencies['karma-detect-browsers'] = '~0.1.2';
+    pkg.devDependencies['karma-mocha'] = '~0.1.1';
+    pkg.devDependencies['chai'] = '~1.9.0';
+    pkg.devDependencies['mocha'] = '~1.17.1';
+    pkg.devDependencies['mocha-as-promised'] = '~2.0.0';
+    pkg.devDependencies['nodemon'] = '~1.0.14';
+    pkg.devDependencies['phantomjs'] = '~1.9.2';
+    pkg.devDependencies['selenium-webdriver'] = '~2.39.0';
+    fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
+    return npm.execute('install').then(function() {
+      return bower.execute('install', '--allow-root', '--save',
+        'angular-mocks#' + require('../bower').dependencies.angular);
     });
-    editPackage(function() {
-      this.devDependencies.karma = '~0.10.9';
-      this.devDependencies['karma-chai-plugins'] = '~0.2.0';
-      this.devDependencies['karma-mocha'] = '~0.1.1';
-    });
-    return npm.execute('install');
   });
 
-  desc('Add support for site testing');
-  task('sitetesting', function() {
-    editPackage(function() {
-      this.devDependencies.chai = '~1.9.0';
-      this.devDependencies.mocha = '~1.17.1';
-      this.devDependencies['mocha-as-promised'] = '~2.0.0';
-      this.devDependencies.nodemon = '~1.0.14';
-      this.devDependencies['selenium-webdriver'] = '~2.39.0';
-    });
-    return npm.execute('install');
-  });
-
-  desc('Add Prerender');
-  task('prerender', function() {
-    editPackage(function() {
-      this.dependencies.prerender = '~2.0.1';
-      this.dependencies['prerender-node'] = '~0.1.15';
-    });
-    return npm.execute('install');
+  desc('Add server extras');
+  task('serverextras', function() {
+    return npm.execute('install', '--save-dev',
+      'bcryptjs@~0.7.10',
+      'connect-mongo@~0.4.0',
+      'mongoose@~3.8.6',
+      'passport@~0.2.0',
+      'passport-local@~0.1.6',
+      'prerender-node@~0.1.15');
   });
 
   desc('Add jQuery');
   task('jquery', function() {
-    editBower(function() {
-      this.dependencies.jquery = '~2.1.0';
-    });
+    return bower.execute('install', '--allow-root', '--save', 'jquery#~2.1.0');
   });
 
   desc('Add normalize.css');
   task('normalize', function() {
-    editBower(function() {
-      this.dependencies['normalize-css'] = '~3.0.0';
-    });
+    return bower.execute('install', '--allow-root', '--save',
+      'normalize-css#~3.0.0');
   });
 });
 
 namespace('rem', function() {
-  desc('Remove support for testing (code/site)');
-  task('testing', ['rem:codetesting', 'rem:sitetesting']);
-
-  desc('Remove support for code testing');
-  task('codetesting', function() {
-    editBower(function() {
-      delete this.dependencies['angular-mocks'];
-      delete this.dependencies.chai;
-      delete this.dependencies.mocha;
-      delete this.dependencies.sinon;
-      delete this.dependencies['sinon-chai'];
-      delete this.overrides.mocha;
-      delete this.overrides['sinon-chai'];
-    });
-    return npm.execute('uninstall',
-      'karma',
+  desc('Remove testing modules');
+  task('testing', function() {
+    return npm.execute('uninstall', '--save-dev',
       'karma-chai-plugins',
+      'karma-detect-browsers',
       'karma-mocha',
-      '--save-dev');
-  });
-
-  desc('Remove support for site testing');
-  task('sitetesting', function() {
-    return npm.execute('uninstall',
       'chai',
       'mocha',
       'mocha-as-promised',
       'nodemon',
-      'selenium-webdriver',
-      '--save-dev');
+      'phantomjs',
+      'selenium-webdriver')
+    .then(function() {
+      return bower.execute('uninstall', '--allow-root', '--save',
+        'angular-mocks');
+    });
   });
 
-  desc('Remove Prerender');
-  task('prerender', function() {
-    return npm.execute('uninstall', 'prerender', 'prerender-node', '--save');
+  desc('Remove Server extras');
+  task('serverextras', function() {
+    return npm.execute('uninstall', '--save-dev',
+      'bcryptjs',
+      'connect-mongo',
+      'mongoose',
+      'passport',
+      'passport-local',
+      'prerender-node');
   });
 
   desc('Remove jQuery');
   task('jquery', function() {
-    editBower(function() {
-      delete this.dependencies.jquery;
-    });
+    return bower.execute('uninstall', '--allow-root', '--save', 'jquery');
   });
 
   desc('Remove normalize.css');
   task('normalize', function() {
     editBower(function() {
-      delete this.dependencies['normalize-css'];
+    return bower.execute('uninstall', '--allow-root', '--save',
+      'normalize-css');
     });
   });
 });
-
-function editBower(callback) {
-  var json = jsonfile.readFileSync('bower.json');
-  callback.call(json);
-  jsonfile.writeFileSync('bower.json', json);
-}
-
-function editPackage(callback) {
-  var json = jsonfile.readFileSync('package.json');
-  callback.call(json);
-  jsonfile.writeFileSync('package.json', json);
-}
