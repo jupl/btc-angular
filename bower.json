@@ -7,7 +7,6 @@
   ],
   "dependencies": {
     "angular": "~1.2.0",
-    "angular-mocks": "~1.2.0",
     "angular-ui-router": "0.2.7"
   },
   "overrides": {}

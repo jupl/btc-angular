@@ -14,7 +14,7 @@ exports.config = {
     javascripts: {
       joinTo: {
         'javascripts/app.js': /^app/,
-        'javascripts/vendor.js': /^(vendor|bower_components)/
+        'javascripts/vendor.js': /^(vendor|bower_components)(?!.+angular-mocks.js$)/
       },
       order: {
         before: ['app/config.js']
@@ -29,19 +29,6 @@ exports.config = {
 
     templates: {
       joinTo: 'javascripts/app.js'
-    }
-  },
-
-  overrides: {
-    production: {
-      files: {
-        javascripts: {
-          joinTo: {
-            'javascripts/app.js': /^app/,
-            'javascripts/vendor.js': /^(vendor|bower_components)(?!.+angular-mocks.js$)/
-          }
-        }
-      }
     }
   },
 

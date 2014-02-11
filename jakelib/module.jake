@@ -21,7 +21,10 @@ namespace('add', function() {
     pkg.devDependencies['phantomjs'] = '~1.9.2';
     pkg.devDependencies['selenium-webdriver'] = '~2.39.0';
     fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
-    return npm.execute('install');
+    return npm.execute('install').then(function() {
+      return bower.execute('install', '--allow-root', '--save',
+        'angular-mocks#' + require('../bower').dependencies.angular);
+    });
   });
 
   desc('Add server extras');
@@ -59,7 +62,11 @@ namespace('rem', function() {
       'mocha-as-promised',
       'nodemon',
       'phantomjs',
-      'selenium-webdriver');
+      'selenium-webdriver')
+    .then(function() {
+      return bower.execute('uninstall', '--allow-root', '--save',
+        'angular-mocks');
+    });
   });
 
   desc('Remove Server extras');

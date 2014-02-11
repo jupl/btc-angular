@@ -9,6 +9,7 @@ module.exports = function(config) {
     files: [
       'node_modules/mocha-as-promised/mocha-as-promised.js',
       paths.public + '/javascripts/vendor.js',
+      'bower_components/angular-mocks/angular-mocks.js',
       paths.public + '/javascripts/app.js',
       'test/code/**/*'
     ]
