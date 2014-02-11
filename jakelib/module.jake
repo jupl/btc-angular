@@ -31,7 +31,7 @@ namespace('add', function() {
 
   desc('Add server extras');
   task('serverextras', function() {
-    return npm.execute('install', '--save-dev',
+    return npm.execute('install', '--save',
       'bcryptjs@~0.7.10',
       'connect-mongo@~0.4.0',
       'mongoose@~3.8.6',
@@ -73,7 +73,7 @@ namespace('rem', function() {
 
   desc('Remove Server extras');
   task('serverextras', function() {
-    return npm.execute('uninstall', '--save-dev',
+    return npm.execute('uninstall', '--save',
       'bcryptjs',
       'connect-mongo',
       'mongoose',
