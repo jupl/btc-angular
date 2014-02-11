@@ -1,7 +1,6 @@
 {
   "repository": "git",
   "scripts": {
-    "start": "npm install --production && jake server:prod",
     "test": "npm install && jake test:all"
   },
   "dependencies": {

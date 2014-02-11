@@ -2,6 +2,8 @@
 
 ### WIP
 - Simplify server
+- No need to copy config.xml anymore
+- Rename `cordova:gen` to `cordova:init`
 - Update BTC
   - Simplify Brunch config
   - Enforce strict mode
