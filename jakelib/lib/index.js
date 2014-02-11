@@ -32,26 +32,12 @@ exports.bin = function(command) {
 }
 
 /**
- * List of available generators from Scaffolt. Each element has the following
- * properties:
- *   name         Generator name that is to be passed to Scaffolt
- *   task         Same as name, but its name is formatted to be friendly with
- *                Jake task names
- *   description  Description of generator. If one is not defined in Scaffolt,
- *                then make an educated guess with the name.
+ * List of available generators from Scaffolt.
  * @type {Array}
  */
 exports.generators = fs.readdirSync('generators').filter(function(generator) {
   var generatorFile = path.resolve('generators', generator, 'generator.json');
   return fs.existsSync(generatorFile);
-})
-.map(function(generator) {
-  var generatorFile = path.resolve('generators', generator, 'generator.json');
-  var json = require(generatorFile);
-  return {
-    name: generator,
-    description: json.description || generator.spacify()
-  }
 });
 
 /**

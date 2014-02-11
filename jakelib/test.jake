@@ -1,14 +1,15 @@
 'use strict';
 
 // Test-related tasks
+var fs = require('fs');
+var path = require('path');
+var Promise = require('bluebird');
 var brunch = require('./lib').npmBin('brunch');
 var config = require('../brunch-config').config;
 var karma = require('./lib').npmBin('karma');
 var mocha = require('./lib').npmBin('mocha');
 var nodemon = require('./lib').npmBin('nodemon');
-var path = require('path');
 var phantomjs = require('./lib').npmBin('phantomjs');
-var Promise = require('bluebird');
 
 // Hide output from PhantomJS
 delete phantomjs.options.stdio;
@@ -65,18 +66,13 @@ namespace('test', function() {
       return new Promise(function(resolve, reject) {
         server.catch(reject);
         var id = setInterval(function() {
-          // Check if public folder is not empty
-          try {
-            var publicReady = !!jake.readdirR(config.paths.public).length
-          }
-          catch(e) {}
-
-          if(publicReady) {
+          // Check if code is available
+          if(fs.existsSync(path.resolve(config.paths.public, 'javascripts'))) {
             clearInterval(id);
             args.push('--no-single-run');
             karma.execute(args).then(resolve, reject);
           }
-        }, 1000);
+        }, 500);
       })
       .finally(function() {
         if(!server.isFulfilled()) {
@@ -102,13 +98,8 @@ namespace('test', function() {
       phantom.catch(reject);
       server.catch(reject);
       var id = setInterval(function() {
-        // Check if public folder is not empty
-        try {
-          var publicReady = !!jake.readdirR(config.paths.public).length
-        }
-        catch(e) {}
-
-        if(publicReady) {
+        // Check if code is available
+        if(fs.existsSync(path.resolve(config.paths.public, 'javascripts'))) {
           clearInterval(id);
           if(process.env.watch === 'true') {
             args.unshift(path.resolve('node_modules', '.bin', 'mocha'));
@@ -122,7 +113,7 @@ namespace('test', function() {
             mocha.execute(args).then(resolve, reject);
           }
         }
-      }, 1000);
+      }, 500);
     })
     // Make sure to stop server and phantom on success or fail
     .finally(function() {
