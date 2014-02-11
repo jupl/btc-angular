@@ -50,7 +50,6 @@ Aang Brunch is a skeleton to for building [AngularJS](http://angularjs.org/) app
 3. If working on development, install Jake.
 4. Open a terminal window and navigate to the project directory.
 5. Execute the command `npm install` to install all package dependencies.
-6. If server is not going to just serve static assets, run the `add:serverextras` task.
 
 
 ## Notes
