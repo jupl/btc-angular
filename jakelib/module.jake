@@ -39,6 +39,7 @@ namespace('add', function() {
     return bower.execute('install', '--allow-root', '--save',
       'normalize-css#~3.0.0');
   });
+});
 
 namespace('rem', function() {
   desc('Remove testing modules');
