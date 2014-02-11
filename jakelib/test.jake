@@ -66,7 +66,7 @@ namespace('test', function() {
             args.push('--no-single-run');
             karma.execute(args).then(resolve, reject);
           }
-        }, 500);
+        }, 1000);
       })
       .finally(function() {
         if(!server.isFulfilled()) {
@@ -112,7 +112,7 @@ namespace('test', function() {
             mocha.execute(args).then(resolve, reject);
           }
         }
-      }, 500);
+      }, 1000);
     })
     // Make sure to stop server and phantom on success or fail
     .finally(function() {
