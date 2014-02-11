@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+### 0.5.0 (February 10, 2014)
 - Enforce strict mode
 - Go back to ngRoute for now (too many issues with ui-router)
 - Minor refactor in skeleton
