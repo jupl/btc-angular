@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.5.2 (February 11, 2014)
 - Update BTC
   - Server extras are installed to `dependencies`, not `devDependencies`
 
