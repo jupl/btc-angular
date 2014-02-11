@@ -1,5 +1,8 @@
 # Changelog
 
+#### WIP
+- Simplify scaffold-related tasks
+
 ### 0.9.0 (February 10, 2014)
 - Remove Prerender server
 - Add support for Mongoose/Passport/sessions
