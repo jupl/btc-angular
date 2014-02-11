@@ -1,5 +1,18 @@
 # Changelog
 
+### 0.5.0 (February 10, 2014)
+- Update BTC
+  - Simplify Brunch config
+  - Enforce strict mode
+  - Remove dashes in generators
+  - Detect browsers in Karma
+  - Unify `add:codetesting` and `add:sitetesting` tasks
+  - Add aliases to generator tasks
+- Update Cordova Brunch
+  - Simplify server
+  - No need to copy config.xml anymore
+  - Rename `cordova:gen` to `cordova:init`
+
 ### 0.4.0 (February 5, 2014)
 - Add angular-mocks to code testing package set
 - Update BTC

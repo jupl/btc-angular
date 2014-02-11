@@ -1,3 +1,5 @@
+'use strict';
+
 // Bower related tasks
 var bower = require('./lib').npmBin('bower');
 

@@ -1,8 +1,7 @@
 {
   "repository": "git",
   "scripts": {
-    "start": "npm install --production && ./node_modules/.bin/jake server:prod",
-    "test": "npm install && ./node_modules/.bin/jake test:all"
+    "test": "npm install && jake test:all"
   },
   "dependencies": {
     "aang-template-brunch": "~1.7.6",
@@ -18,12 +17,10 @@
     "cordova": "~3.3.0",
     "express": "~3.4.7",
     "jake": "~0.7.2",
-    "jsonfile": "~1.1.0",
     "scaffolt": "~0.4.2",
     "sugar": "~1.4.1"
   },
   "devDependencies": {
-    "auto-reload-brunch": "~1.7.1",
-    "phantomjs": "~1.9.2"
+    "auto-reload-brunch": "~1.7.1"
   }
 }

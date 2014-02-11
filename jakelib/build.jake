@@ -1,3 +1,5 @@
+'use strict';
+
 // Brunch build tasks
 var brunch = require('./lib').npmBin('brunch');
 var cordova = require('./lib').npmBin('cordova');
@@ -11,7 +13,7 @@ namespace('build', function() {
     validateDevice(device);
     if(device) {
       jake.Task['clean:cordova'].invoke();
-      return brunch.execute('build', '--env', 'cordova:dev').then(function() {
+      return brunch.execute('build', '--env', 'cordova').then(function() {
         if(device !== 'none') {
           cordova.options.cwd = 'cordova';
           return cordova.execute('--verbose', 'build', device);
@@ -20,7 +22,7 @@ namespace('build', function() {
     }
     else {
       jake.Task['clean:web'].invoke();
-      return brunch.execute('build', '--env', 'web:dev');
+      return brunch.execute('build');
     }
   });
 
@@ -31,7 +33,8 @@ namespace('build', function() {
     validateDevice(device);
     if(device) {
       jake.Task['clean:cordova'].invoke();
-      return brunch.execute('build', '--env', 'cordova:prod').then(function() {
+      return brunch.execute('build', '--env', 'cordova', '--production')
+      .then(function() {
         if(device !== 'none') {
           cordova.options.cwd = 'cordova';
           return cordova.execute('--verbose', 'build', device);
@@ -40,7 +43,7 @@ namespace('build', function() {
     }
     else {
       jake.Task['clean:web'].invoke();
-      return brunch.execute('build', '--env', 'web:prod');
+      return brunch.execute('build', '--production');
     }
   });
 });
@@ -48,24 +51,24 @@ namespace('build', function() {
 namespace('watch', function() {
   desc('Build project for development and rebuild on changes');
   task('dev', ['bower:install', 'clean:web'], function() {
-    return brunch.execute('watch', '--env', 'web:dev');
+    return brunch.execute('watch');
   });
 
   desc('Build project for production and rebuild on changes');
   task('prod', ['bower:install', 'clean:web'], function() {
-    return brunch.execute('watch', '--env', 'web:prod');
+    return brunch.execute('watch', '--production');
   });
 });
 
 namespace('server', function() {
   desc('Build project for development, rebuild on changes, and host locally');
   task('dev', ['bower:install', 'clean:web'], function() {
-    return brunch.execute('watch', '--server', '--env', 'web:dev');
+    return brunch.execute('watch', '--server');
   });
 
   desc('Build project for production, rebuild on changes, and host locally');
   task('prod', ['bower:install', 'clean:web'], function() {
-    return brunch.execute('watch', '--server', '--env', 'web:prod');
+    return brunch.execute('watch', '--server', '--production');
   });
 });
 
