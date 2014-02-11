@@ -5,8 +5,7 @@ angular.module('app').config(function($locationProvider, $routeProvider) {
 
   $routeProvider
   .when('/', {
-    templateUrl: 'templates/index.html',
-    controller: 'Index'
+    templateUrl: 'templates/index.html'
   })
   .otherwise('/');
 });
