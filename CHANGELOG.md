@@ -1,5 +1,17 @@
 # Changelog
 
+### 0.9.0 (February 10, 2014)
+- Remove Prerender server
+- Add support for Mongoose/Passport/sessions
+- Simplify Brunch config
+- Enforce strict mode
+- Remove dashes in generators
+- Detect browsers in Karma
+- Server refactoring
+- Unify `add:codetesting` and `add:sitetesting` tasks
+- Add scaffold to generate server model
+- Add aliases to generator tasks
+
 #### 0.8.1 (February 5, 2014)
 - Fix bug in `npm:clean`
 
