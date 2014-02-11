@@ -1,5 +1,18 @@
 # Changelog
 
+### WIP
+- Enforce strict mode
+- Update BTC
+  - Remove Prerender server
+  - Add support for Mongoose/Passport/sessions
+  - Simplify Brunch config
+  - Remove dashes in generators
+  - Detect browsers in Karma
+  - Server refactoring
+  - Unify `add:codetesting` and `add:sitetesting` tasks
+  - Add scaffold to generate server model
+  - Add aliases to generator tasks
+
 ### 0.4.0 (February 5, 2014)
 - Add angular-mocks to code testing package set
 - Update BTC

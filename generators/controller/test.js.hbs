@@ -1,16 +1,20 @@
-describe('{{#camelize}}{{name}}{{/camelize}} controller', function() {
+'use strict';
+
+describe('{{uppercamelize name}} controller', function() {
   var $scope;
-  var {{#lowercamelize}}{{name}}{{/lowercamelize}};
+  var {{camelize name}};
 
   beforeEach(function() {
     module('app.controllers');
     inject(function($rootScope, $controller) {
       $scope = $rootScope.$new();
-      {{#lowercamelize}}{{name}}{{/lowercamelize}} = $controller('{{#camelize}}{{name}}{{/camelize}}', {
+      {{camelize name}} = $controller('{{uppercamelize name}}', {
         $scope: $scope
       });
     });
   });
 
+  it('', function() {
 
+  });
 });
