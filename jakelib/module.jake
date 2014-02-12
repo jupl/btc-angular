@@ -98,11 +98,11 @@ namespace('rem', function() {
 function editBower(callback) {
   var json = JSON.parse(fs.readFileSync('bower.json'));
   callback.call(json);
-  fs.writeFileSync('bower.json', JSON.stringify(pkg, null, 2) + '\n');
+  fs.writeFileSync('bower.json', JSON.stringify(json, null, 2) + '\n');
 }
 
 function editPackage(callback) {
   var json = JSON.parse(fs.readFileSync('package.json'));
   callback.call(json);
-  fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
+  fs.writeFileSync('package.json', JSON.stringify(json, null, 2) + '\n');
 }
