@@ -1,4 +1,4 @@
-# Cordova Brunch 0.9.1
+# Cordova Brunch 0.9.2
 [![Dependency Status](https://gemnasium.com/jupl/cordova-brunch.png)](https://gemnasium.com/jupl/cordova-brunch)
 
 
