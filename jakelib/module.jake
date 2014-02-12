@@ -74,17 +74,13 @@ namespace('rem', function() {
 
   desc('Remove Server extras');
   task('serverextras', function() {
-    editPackage(function() {
-      delete this.devDependencies['karma-chai-plugins'];
-      delete this.devDependencies['karma-detect-browsers'];
-      delete this.devDependencies['karma-mocha'];
-      delete this.devDependencies['chai'];
-      delete this.devDependencies['mocha'];
-      delete this.devDependencies['mocha-as-promised'];
-      delete this.devDependencies['nodemon'];
-      delete this.devDependencies['phantomjs'];
-      delete this.devDependencies['selenium-webdriver'];
-    });
+    return npm.execute('uninstall', '--save',
+      'bcryptjs',
+      'connect-mongo',
+      'mongoose',
+      'passport',
+      'passport-local',
+      'prerender-node');
   });
 
   desc('Remove jQuery');
