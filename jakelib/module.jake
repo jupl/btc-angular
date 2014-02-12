@@ -3,52 +3,53 @@
 // Tasks to add modules to the project that are not included by default.
 // This is usually either Bower packages or NPM packages.
 var fs = require('fs');
-var bower = require('./lib').npmBin('bower');
 var npm = require('./lib').bin('npm');
 
 namespace('add', function() {
   desc('Add testing modules');
   task('testing', function() {
-    // Hack to avoid adding extra Karma packages to package.json
-    var pkg = JSON.parse(fs.readFileSync('package.json'));
-    var bow = JSON.parse(fs.readFileSync('bower.json'));
-    pkg.devDependencies['karma-chai-plugins'] = '~0.2.0';
-    pkg.devDependencies['karma-detect-browsers'] = '~0.1.2';
-    pkg.devDependencies['karma-mocha'] = '~0.1.1';
-    pkg.devDependencies['chai'] = '~1.9.0';
-    pkg.devDependencies['mocha'] = '~1.17.1';
-    pkg.devDependencies['mocha-as-promised'] = '~2.0.0';
-    pkg.devDependencies['nodemon'] = '~1.0.14';
-    pkg.devDependencies['phantomjs'] = '~1.9.2';
-    pkg.devDependencies['selenium-webdriver'] = '~2.39.0';
-    bow.dependencies['angular-mocks'] = bow.dependencies.angular;
-    fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
-    fs.writeFileSync('bower.json', JSON.stringify(bow, null, 2) + '\n');
-    return npm.execute('install').then(function() {
-      return bower.execute('install');
+    editPackage(function() {
+      this.devDependencies['karma-chai-plugins'] = '~0.2.0';
+      this.devDependencies['karma-detect-browsers'] = '~0.1.2';
+      this.devDependencies['karma-mocha'] = '~0.1.1';
+      this.devDependencies['chai'] = '~1.9.0';
+      this.devDependencies['mocha'] = '~1.17.1';
+      this.devDependencies['mocha-as-promised'] = '~2.0.0';
+      this.devDependencies['nodemon'] = '~1.0.14';
+      this.devDependencies['phantomjs'] = '~1.9.2';
+      this.devDependencies['selenium-webdriver'] = '~2.39.0';
     });
+    editBower(function() {
+      this.dependencies['angular-mocks'] = this.dependencies['angular'];
+    });
+    return npm.execute('install');
   });
 
   desc('Add server extras');
   task('serverextras', function() {
-    return npm.execute('install', '--save',
-      'bcryptjs@~0.7.10',
-      'connect-mongo@~0.4.0',
-      'mongoose@~3.8.6',
-      'passport@~0.2.0',
-      'passport-local@~0.1.6',
-      'prerender-node@~0.1.15');
+    editPackage(function() {
+      this.dependencies['bcryptjs'] = '~0.7.10';
+      this.dependencies['connect-mongo'] = '~0.4.0';
+      this.dependencies['mongoose'] = '~3.8.6';
+      this.dependencies['passport'] = '~0.2.0';
+      this.dependencies['passport-local'] = '~0.1.6';
+      this.dependencies['prerender-node'] = '~0.1.15';
+    });
+    return npm.execute('install');
   });
 
   desc('Add jQuery');
   task('jquery', function() {
-    return bower.execute('install', '--allow-root', '--save', 'jquery#~2.1.0');
+    editBower(function() {
+      this.dependencies['jquery'] = '~2.1.0';
+    });
   });
 
   desc('Add normalize.css');
   task('normalize', function() {
-    return bower.execute('install', '--allow-root', '--save',
-      'normalize-css#~3.0.0');
+    editBower(function() {
+      this.dependencies['normalize-css'] = '~3.0.0';
+    });
   });
 });
 
@@ -73,25 +74,42 @@ namespace('rem', function() {
 
   desc('Remove Server extras');
   task('serverextras', function() {
-    return npm.execute('uninstall', '--save',
-      'bcryptjs',
-      'connect-mongo',
-      'mongoose',
-      'passport',
-      'passport-local',
-      'prerender-node');
+    editPackage(function() {
+      delete this.devDependencies['karma-chai-plugins'];
+      delete this.devDependencies['karma-detect-browsers'];
+      delete this.devDependencies['karma-mocha'];
+      delete this.devDependencies['chai'];
+      delete this.devDependencies['mocha'];
+      delete this.devDependencies['mocha-as-promised'];
+      delete this.devDependencies['nodemon'];
+      delete this.devDependencies['phantomjs'];
+      delete this.devDependencies['selenium-webdriver'];
+    });
   });
 
   desc('Remove jQuery');
   task('jquery', function() {
-    return bower.execute('uninstall', '--allow-root', '--save', 'jquery');
+    editBower(function() {
+      delete this.dependencies['jquery'];
+    });
   });
 
   desc('Remove normalize.css');
   task('normalize', function() {
     editBower(function() {
-    return bower.execute('uninstall', '--allow-root', '--save',
-      'normalize-css');
+      delete this.dependencies['normalize-css'];
     });
   });
 });
+
+function editBower(callback) {
+  var json = JSON.parse(fs.readFileSync('bower.json'));
+  callback.call(json);
+  fs.writeFileSync('bower.json', JSON.stringify(json, null, 2) + '\n');
+}
+
+function editPackage(callback) {
+  var json = JSON.parse(fs.readFileSync('package.json'));
+  callback.call(json);
+  fs.writeFileSync('package.json', JSON.stringify(json, null, 2) + '\n');
+}
