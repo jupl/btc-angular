@@ -1,4 +1,4 @@
-# Brunch Toolchain 0.9.2
+# Brunch Toolchain 0.9.3
 [![Dependency Status](https://gemnasium.com/jupl/brunch-toolchain.png)](https://gemnasium.com/jupl/brunch-toolchain)
 
 
