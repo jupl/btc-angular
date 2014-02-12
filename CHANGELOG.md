@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.9.3 (February 11, 2014)
 - Revert to editing `package.json` and `bower.json`
 
 #### 0.9.2 (February 11, 2014)
