@@ -17,7 +17,6 @@ Cordova Brunch is a base skeleton for building web applications. (Currently supp
     ├── jakelib                 # Unified set of tasks for development
     ├── public                  # Compiled client-side assets
     ├── server                  # Server configuration
-    ├── setup                   # Add configuration options to brunch-config
     ├── test                    # Test-related files
     │   ├── code                # Code tests that run with Karma
     │   ├── site                # Site tests that run with WebDriverJS
