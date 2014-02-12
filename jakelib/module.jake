@@ -43,6 +43,9 @@ namespace('add', function() {
 namespace('rem', function() {
   desc('Remove testing modules');
   task('testing', function() {
+    editBower(function() {
+      delete this.dependencies['angular-mocks'];
+    });
     return npm.execute('uninstall', '--save-dev',
       'karma-chai-plugins',
       'karma-detect-browsers',
@@ -52,11 +55,7 @@ namespace('rem', function() {
       'mocha-as-promised',
       'nodemon',
       'phantomjs',
-      'selenium-webdriver')
-    .then(function() {
-      return bower.execute('uninstall', '--allow-root', '--save',
-        'angular-mocks');
-    });
+      'selenium-webdriver');
   });
 
   desc('Remove jQuery');
