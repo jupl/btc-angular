@@ -2,7 +2,6 @@
 
 #### 0.5.3 (February 11, 2014)
 - Update BTC
-  - Server extras are installed to `dependencies`, not `devDependencies`
   - Revert to editing `package.json` and `bower.json`
 
 #### 0.5.2 (February 11, 2014)
