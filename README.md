@@ -67,6 +67,7 @@ One-line commands are provided for convenience as well for those that want to st
 ### Server
 Out of the box the server provided simply serves static assets with support for HTML5 push state. Extensible server extras can be added to support models and sessions with [Mongoose](http://mongoosejs.com/), authentication with [Passport](http://passportjs.org/), and caching with [Prerender](https://prerender.io/). To add extras, see the `add:serverextras` task.
 
+### ngmin
 When declaring Angular components, you can use the condensed syntax for dependency injection without worry, as this skeleton uses [ngmin](https://github.com/btford/ngmin) during minification to translate injections such as `.controller(function($http) { ... })` to `.controller(['$http', function(a) { ... }])`.
 
 
