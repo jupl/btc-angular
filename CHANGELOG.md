@@ -2,6 +2,7 @@
 
 ### WIP
 - Update Cordova to 3.4
+- Update FastClick to 1.0.0
 - Update BTC
   - Simplify generator-related tasks by reusing code
   - Installing test-related modules does not modify `package.json`

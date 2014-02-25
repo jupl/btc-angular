@@ -22,7 +22,7 @@ namespace('add', function() {
   desc('Add FastClick (remove click delay in mobile)');
   task('fastclick', function() {
     editBower(function() {
-      this.dependencies.fastclick = '~0.6.10';
+      this.dependencies.fastclick = '~1.0.0';
     });
   });
 
