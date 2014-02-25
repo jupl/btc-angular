@@ -1,6 +1,7 @@
 # Changelog
 
 ### WIP
+- Update Cordova to 3.4
 - Update BTC
   - Simplify generator-related tasks by reusing code
   - Installing test-related modules does not modify `package.json`
