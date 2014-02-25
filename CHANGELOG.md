@@ -4,6 +4,7 @@
 - Remove server extras (let the user customize as needed)
 - Simplify generator-related tasks by reusing code
 - Installing test-related modules does not modify `package.json`
+- Install Bower components automatically after running `npm install`
 
 #### 0.9.3 (February 11, 2014)
 - Revert to editing `package.json` and `bower.json`
