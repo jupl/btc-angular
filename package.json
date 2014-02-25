@@ -1,7 +1,8 @@
 {
   "repository": "git",
   "scripts": {
-    "test": "npm install && jake test:all"
+    "test": "npm install && jake test:install && jake test:all",
+    "postinstall": "jake bower:install"
   },
   "dependencies": {
     "javascript-brunch": "~1.7.1",
