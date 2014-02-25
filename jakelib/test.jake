@@ -8,6 +8,7 @@ var brunch = require('./lib').npmBin('brunch');
 var config = require('../brunch-config').config;
 var karma = require('./lib').npmBin('karma');
 var mocha = require('./lib').npmBin('mocha');
+var npm = require('./lib').bin('npm');
 var nodemon = require('./lib').npmBin('nodemon');
 var phantomjs = require('./lib').npmBin('phantomjs');
 
@@ -15,6 +16,20 @@ var phantomjs = require('./lib').npmBin('phantomjs');
 delete phantomjs.options.stdio;
 
 namespace('test', function() {
+  desc('Install required testing components');
+  task('install', function() {
+    return npm.execute('install',
+      'karma-chai-plugins@~0.2.0',
+      'karma-detect-browsers@~0.1.2',
+      'karma-mocha@~0.1.1',
+      'chai@~1.9.0',
+      'mocha@~1.17.1',
+      'mocha-as-promised@~2.0.0',
+      'nodemon@~1.0.14',
+      'phantomjs@~1.9.2',
+      'selenium-webdriver@~2.39.0');
+  });
+
   desc('Run all tests');
   task('all', function() {
     process.env.watch = null;
@@ -37,7 +52,7 @@ namespace('test', function() {
   });
 
   desc('Run code-based tests using Karma');
-  task('code', ['add:testing', 'bower:install', 'clean:web'], function() {
+  task('code', ['bower:install', 'clean:web'], function() {
     var args = ['start'];
 
     // Check for reporter
@@ -83,7 +98,7 @@ namespace('test', function() {
   });
 
   desc('Run site-based tests using Mocha and WebDriverJS');
-  task('site', ['add:testing', 'bower:install', 'clean:web'], function() {
+  task('site', ['bower:install', 'clean:web'], function() {
     var phantom = phantomjs.execute('--webdriver=4444');
     var server = brunch.execute('watch', '--server', '--production');
     var args = [];
