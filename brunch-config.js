@@ -14,7 +14,7 @@ exports.config = {
     javascripts: {
       joinTo: {
         'javascripts/app.js': /^app/,
-        'javascripts/vendor.js': /^(vendor|bower_components)(?!.+angular-mocks.js$)/
+        'javascripts/vendor.js': /^(vendor|bower_components)/
       },
       order: {
         before: ['app/initialize.js']
