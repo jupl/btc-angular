@@ -3,7 +3,6 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var setupRoutes = require('./routes');
 
 exports.startServer = function(port, publicPath, callback) {
   var app = express();
@@ -12,7 +11,6 @@ exports.startServer = function(port, publicPath, callback) {
   // Add middleware
   app.use(express.compress());
   app.use(express.static(publicPath));
-  setupRoutes(app);
 
   // Set other paths to index.html for HTML5 pushState apps
   var indexPath = path.resolve(publicPath, 'index.html');

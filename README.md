@@ -19,8 +19,6 @@ For fleshed out skeletons based on this one:
     ├── jakelib                 # Unified set of tasks for development
     ├── public                  # Compiled client-side assets
     ├── server                  # Server configuration
-    │   ├── routes              # Custom routes/proxies/etc. (server-side)
-    │   └── index.js            # Starting point for server configuration
     ├── test                    # Test-related files
     │   ├── code                # Code tests that run with Karma
     │   ├── site                # Site tests that run with WebDriverJS
