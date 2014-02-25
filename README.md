@@ -19,12 +19,8 @@ For fleshed out skeletons based on this one:
     ├── jakelib                 # Unified set of tasks for development
     ├── public                  # Compiled client-side assets
     ├── server                  # Server configuration
-    │   ├── models              # Persistent server-side model configuration
-    │   ├── passport            # Passport integration
     │   ├── routes              # Custom routes/proxies/etc. (server-side)
-    │   ├── config.js           # Configuration options
-    │   ├── prerender.js        # Prerender middleware integration
-    │   └── session.js          # Session configuration
+    │   └── index.js            # Starting point for server configuration
     ├── test                    # Test-related files
     │   ├── code                # Code tests that run with Karma
     │   ├── site                # Site tests that run with WebDriverJS
@@ -41,25 +37,20 @@ For fleshed out skeletons based on this one:
 ## Requirements
 - [node.js](http://nodejs.org)
 - [Jake](https://github.com/mde/jake#installing-with-npm) (required for development)
-- [MongoDB](http://www.mongodb.org/) (if using server extras)
 
 
 ## Setup
 1. Install node.js.
-2. If using Windows and leveraging Bower, install [Git](http://git-scm.com/download/win).
+2. If using Windows install [Git](http://git-scm.com/download/win).
 3. If working on development, install Jake.
 4. Open a terminal window and navigate to the project directory.
 5. Execute the command `npm install` to install all package dependencies.
-6. If server is not going to just serve static assets, run the `add:serverextras` task.
 
 
 ## Notes
 
 ### `npm start` / `npm test`
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run the `test:all` task.
-
-### Server
-Out of the box the server provided simply serves static assets with support for HTML5 push state. Extensible server extras can be added to support models and sessions with [Mongoose](http://mongoosejs.com/), authentication with [Passport](http://passportjs.org/), and caching with [Prerender](https://prerender.io/). To add extras, see the `add:serverextras` task.
 
 
 ## Task List
@@ -171,9 +162,6 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [Jake](https://github.com/mde/jake)
 
 ### Utilities
-- [Mongoose](http://mongoosejs.com/)
-- [Passport](http://passportjs.org/)
-- [Prerender](https://prerender.io/)
 - [jQuery](http://jquery.com)
 - [normalize.css](http://necolas.github.io/normalize.css/)
 

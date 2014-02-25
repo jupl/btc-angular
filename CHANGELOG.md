@@ -1,5 +1,8 @@
 # Changelog
 
+### WIP
+- Remove server extras (let the user customize as needed)
+
 #### 0.9.3 (February 11, 2014)
 - Revert to editing `package.json` and `bower.json`
 

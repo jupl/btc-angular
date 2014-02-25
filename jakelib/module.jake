@@ -22,19 +22,6 @@ namespace('add', function() {
     return npm.execute('install');
   });
 
-  desc('Add server extras');
-  task('serverextras', function() {
-    editPackage(function() {
-      this.dependencies['bcryptjs'] = '~0.7.10';
-      this.dependencies['connect-mongo'] = '~0.4.0';
-      this.dependencies['mongoose'] = '~3.8.6';
-      this.dependencies['passport'] = '~0.2.0';
-      this.dependencies['passport-local'] = '~0.1.6';
-      this.dependencies['prerender-node'] = '~0.1.15';
-    });
-    return npm.execute('install');
-  });
-
   desc('Add jQuery');
   task('jquery', function() {
     editBower(function() {
@@ -63,17 +50,6 @@ namespace('rem', function() {
       'nodemon',
       'phantomjs',
       'selenium-webdriver');
-  });
-
-  desc('Remove Server extras');
-  task('serverextras', function() {
-    return npm.execute('uninstall', '--save',
-      'bcryptjs',
-      'connect-mongo',
-      'mongoose',
-      'passport',
-      'passport-local',
-      'prerender-node');
   });
 
   desc('Remove jQuery');
