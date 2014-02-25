@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+### 0.10.0 (February 25, 2014)
 - Update Cordova to 3.4
 - Update FastClick to 1.0.0
 - Update BTC
