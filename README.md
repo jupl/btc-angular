@@ -25,12 +25,6 @@ For a mobile/Cordova friendly variant, check out [this skeleton](https://github.
     ├── jakelib                 # Unified set of tasks for development
     ├── public                  # Compiled client-side assets
     ├── server                  # Server configuration
-    │   ├── models              # Persistent server-side model configuration
-    │   ├── passport            # Passport integration
-    │   ├── routes              # Custom routes/proxies/etc. (server-side)
-    │   ├── config.js           # Configuration options
-    │   ├── prerender.js        # Prerender middleware integration
-    │   └── session.js          # Session configuration
     ├── test                    # Test-related files
     │   ├── code                # Code tests that run with Karma
     │   ├── site                # Site tests that run with WebDriverJS
@@ -47,25 +41,20 @@ For a mobile/Cordova friendly variant, check out [this skeleton](https://github.
 ## Requirements
 - [node.js](http://nodejs.org)
 - [Jake](https://github.com/mde/jake#installing-with-npm) (required for development)
-- [MongoDB](http://www.mongodb.org/) (if using server extras)
 
 
 ## Setup
 1. Install node.js.
-2. If using Windows and leveraging Bower, install [Git](http://git-scm.com/download/win).
+2. If using Windows install [Git](http://git-scm.com/download/win).
 3. If working on development, install Jake.
 4. Open a terminal window and navigate to the project directory.
 5. Execute the command `npm install` to install all package dependencies.
-6. If server is not going to just serve static assets, run the `add:serverextras` task.
 
 
 ## Notes
 
 ### `npm start` / `npm test`
-One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run the `test:all` task.
-
-### Server
-Out of the box the server provided simply serves static assets with support for HTML5 push state. Extensible server extras can be added to support models and sessions with [Mongoose](http://mongoosejs.com/), authentication with [Passport](http://passportjs.org/), and caching with [Prerender](https://prerender.io/). To add extras, see the `add:serverextras` task.
+One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run both the `test:install` and `test:all` tasks.
 
 ### ngmin
 When declaring Angular components, you can use the condensed syntax for dependency injection without worry, as this skeleton uses [ngmin](https://github.com/btford/ngmin) during minification to translate injections such as `.controller(function($http) { ... })` to `.controller(['$http', function(a) { ... }])`.
@@ -84,7 +73,7 @@ Remove downloaded Node modules. This is useful if you want to reinstall dependen
 ### Bower
 
 #### `bower:install`
-Download and preinstall any Bower dependencies in advance. You can run this if you want to download Bower dependencies in advance.
+Download and preinstall any Bower dependencies in advance. You can run this if you want to force download Bower dependencies.
 
 #### `bower:clean`
 Remove downloaded Bower dependencies. This is useful if you want to reinstall dependencies. (ex. updated/corrupted package(s))
@@ -92,12 +81,6 @@ Remove downloaded Bower dependencies. This is useful if you want to reinstall de
 
 ### Extras
 These commands add additional features/items to the project that are not included by default.
-
-#### `add:testing` / `rem:testing`
-Add/remove packages require to run code and site testing.
-
-#### `add:serverextras` / `rem:serverextras`
-Add/remove extra packages to the server so that it does more than just serve static assets. For more information see notes above.
 
 #### `add:jquery` / `rem:jquery`
 Add/remove the ubiquitous library [jQuery](http://jquery.com/) to/from the project.
@@ -144,7 +127,10 @@ Generate/destroy a test file with the given test name for testing the site with 
 
 
 ### Testing
-Tests leverage [Mocha](http://visionmedia.github.io/mocha/), [Mocha as Promised](https://github.com/domenic/mocha-as-promised), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai). Testing packages will automatically be installed if not available.
+Tests leverage [Mocha](http://visionmedia.github.io/mocha/), [Mocha as Promised](https://github.com/domenic/mocha-as-promised), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai). If you have not set up your environment for testing you must run the `test:install` task first.
+
+#### `test:install`
+Install packages required to run code and site testing. You should only need to run this once, unless the tasks `npm:clean`/`bower:clean` have been run or you are aware that testing packages have been updated.
 
 #### `test:all [codereporter=[codereporter]] [sitereporter=[sitereporter]]`
 Run all tests listed below once. For more information on reporters see below.
@@ -207,7 +193,7 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 - [AngularJS](http://angularjs.org/)
 
 ### Utilities
-- [ngRoute](http://docs.angularjs.org/api/ngRoute)
+- [Angular Route](http://docs.angularjs.org/api/ngRoute)
 - [Nib](http://visionmedia.github.io/nib/)
 - [Angular Mocks](http://docs.angularjs.org/api/ngMock) (for testing)
 - [ngmin](https://github.com/btford/ngmin) (for minification)

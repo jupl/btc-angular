@@ -1,5 +1,11 @@
 # Changelog
 
+### WIP
+- Remove server extras (let the user customize as needed, will go to a separate repo)
+- Simplify generator-related tasks by reusing code
+- Installing test-related modules does not modify `package.json`
+- Install Bower components automatically after running `npm install`
+
 #### 0.5.3 (February 11, 2014)
 - Update BTC
   - Server extras are installed to `dependencies`, not `devDependencies`

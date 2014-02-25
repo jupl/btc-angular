@@ -1,8 +1,9 @@
 {
   "repository": "git",
   "scripts": {
-    "start": "npm install --production && jake server:prod",
-    "test": "npm install && jake test:all"
+    "start": "npm install --production && jake build:prod",
+    "test": "npm install && jake test:install && jake test:all",
+    "postinstall": "jake bower:install"
   },
   "dependencies": {
     "aang-template-brunch": "~1.7.6",
