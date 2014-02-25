@@ -1,7 +1,7 @@
 {
   "repository": "git",
   "scripts": {
-    "start": "npm install --production && jake server:prod",
+    "start": "npm install --production && jake build:prod",
     "test": "npm install && jake test:install && jake test:all",
     "postinstall": "jake bower:install"
   },
