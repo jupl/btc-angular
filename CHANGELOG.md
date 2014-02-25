@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+### 0.10.0 (February 25, 2014)
 - Remove server extras (let the user customize as needed, will go to a separate repo)
 - Simplify generator-related tasks by reusing code
 - Installing test-related modules does not modify `package.json`
