@@ -1,4 +1,4 @@
-# Cordova Brunch 0.9.2
+# Cordova Brunch 0.10.0
 [![Dependency Status](https://gemnasium.com/jupl/cordova-brunch.png)](https://gemnasium.com/jupl/cordova-brunch)
 
 
@@ -17,7 +17,6 @@ Cordova Brunch is a base skeleton for building web applications. (Currently supp
     ├── jakelib                 # Unified set of tasks for development
     ├── public                  # Compiled client-side assets
     ├── server                  # Server configuration
-    ├── setup                   # Add configuration options to brunch-config
     ├── test                    # Test-related files
     │   ├── code                # Code tests that run with Karma
     │   ├── site                # Site tests that run with WebDriverJS
@@ -39,7 +38,7 @@ Cordova Brunch is a base skeleton for building web applications. (Currently supp
 
 ## Setup
 1. Install node.js.
-2. If using Windows and leveraging Bower, install [Git](http://git-scm.com/download/win).
+2. If using Windows install [Git](http://git-scm.com/download/win).
 3. If working on development, install Jake.
 4. Open a terminal window and navigate to the project directory.
 5. Execute the command `npm install` to install all package dependencies.
@@ -48,7 +47,7 @@ Cordova Brunch is a base skeleton for building web applications. (Currently supp
 ## Notes
 
 ### `npm start` / `npm test`
-One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run the `test:all` task.
+One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run both the `test:install` and `test:all` tasks.
 
 
 ## Task List
@@ -64,7 +63,7 @@ Remove downloaded Node modules. This is useful if you want to reinstall dependen
 ### Bower
 
 #### `bower:install`
-Download and preinstall any Bower dependencies in advance. You can run this if you want to download Bower dependencies in advance.
+Download and preinstall any Bower dependencies in advance. You can run this if you want to force download Bower dependencies.
 
 #### `bower:clean`
 Remove downloaded Bower dependencies. This is useful if you want to reinstall dependencies. (ex. updated/corrupted package(s))
@@ -72,9 +71,6 @@ Remove downloaded Bower dependencies. This is useful if you want to reinstall de
 
 ### Extras
 These commands add additional features/items to the project that are not included by default.
-
-#### `add:testing` / `rem:testing`
-Add/remove packages require to run code and site testing.
 
 #### `add:jquery` / `rem:jquery`
 Add/remove the ubiquitous library [jQuery](http://jquery.com/) to/from the project.
@@ -130,7 +126,10 @@ Generate/destroy a test file with the given test name for testing the site with 
 
 
 ### Testing
-Tests leverage [Mocha](http://visionmedia.github.io/mocha/), [Mocha as Promised](https://github.com/domenic/mocha-as-promised), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai). Testing packages will automatically be installed if not available.
+Tests leverage [Mocha](http://visionmedia.github.io/mocha/), [Mocha as Promised](https://github.com/domenic/mocha-as-promised), and [Chai](http://chaijs.com/). Code and site testing is provided. Code testing adds [Sinon](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai). If you have not set up your environment for testing you must run the `test:install` task first.
+
+#### `test:install`
+Install packages required to run code and site testing. You should only need to run this once, unless the task `npm:clean` has been run or you are aware that testing packages have been updated.
 
 #### `test:all [codereporter=[codereporter]] [sitereporter=[sitereporter]]`
 Run all tests listed below once. For more information on reporters see below.
@@ -189,8 +188,8 @@ Assemble the application, compile, and deploy to an emulator for the specified d
 ## Libraries
 
 ### Core
-- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.9.3
-- [Cordova](http://cordova.apache.org) 3.3
+- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.10.0
+- [Cordova](http://cordova.apache.org) 3.4
 
 ### Utilities
 - [FastClick](https://github.com/ftlabs/fastclick)

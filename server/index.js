@@ -6,13 +6,13 @@ var path = require('path');
 
 exports.startServer = function(port, publicPath, callback) {
   var app = express();
+  var server = http.createServer(app);
 
   // Add middleware
   app.use(express.compress());
   app.use(express.static(publicPath));
 
   // Start up server
-  var server = http.createServer(app);
   server.listen(port, callback);
   return server;
 };

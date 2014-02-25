@@ -1,5 +1,13 @@
 # Changelog
 
+### 0.10.0 (February 25, 2014)
+- Update Cordova to 3.4
+- Update FastClick to 1.0.0
+- Update BTC
+  - Simplify generator-related tasks by reusing code
+  - Installing test-related modules does not modify `package.json`
+  - Install Bower components automatically after running `npm install`
+
 #### 0.9.2 (February 11, 2014)
 - Update BTC
   - Revert to editing `package.json` and `bower.json`
