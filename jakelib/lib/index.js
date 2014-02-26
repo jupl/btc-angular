@@ -1,7 +1,6 @@
 'use strict';
 
 require('sugar');
-var fs = require('fs');
 var os = require('os');
 var path = require('path');
 var Promise = require('bluebird');
@@ -32,22 +31,13 @@ exports.bin = function(command) {
 }
 
 /**
- * List of available generators from Scaffolt.
- * @type {Array}
- */
-exports.generators = fs.readdirSync('generators').filter(function(generator) {
-  var generatorFile = path.resolve('generators', generator, 'generator.json');
-  return fs.existsSync(generatorFile);
-});
-
-/**
  * Return a function that will execute the a node module command
  * @param  {String} moduleName Name of node module installed locally
  * @return {Object}            Object with execute command and options object.
  *                             For more information see bin command above.
  */
 exports.npmBin = function(moduleName) {
-  var command = path.resolve('node_modules', '.bin', moduleName);
+  var command = path.join('node_modules', '.bin', moduleName);
 
   // Tack on '.cmd' for Windows platform
   if(os.platform() === 'win32') {
