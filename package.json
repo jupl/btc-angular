@@ -1,0 +1,24 @@
+{
+  "repository": "git",
+  "scripts": {
+    "start": "npm install --production && jake build:prod",
+    "test": "npm install && jake test:install && jake test:all",
+    "postinstall": "jake bower:install"
+  },
+  "dependencies": {
+    "javascript-brunch": "~1.7.1",
+    "uglify-js-brunch": "~1.7.6",
+    "css-brunch": "~1.7.0",
+    "clean-css-brunch": "~1.7.1",
+    "bluebird": "~1.0.0",
+    "bower": "~1.2.8",
+    "brunch": "~1.7.8",
+    "express": "~3.4.7",
+    "jake": "~0.7.2",
+    "scaffolt": "~0.4.2",
+    "sugar": "~1.4.1"
+  },
+  "devDependencies": {
+    "auto-reload-brunch": "~1.7.1"
+  }
+}
