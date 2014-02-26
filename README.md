@@ -50,6 +50,9 @@ For fleshed out skeletons based on this one:
 ### `npm start` / `npm test`
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run both the `test:install` and `test:all` tasks.
 
+### Server
+A basic push state server is included by default. You can expand/enhance the server as needed for services and to create a more ambitious application.
+
 
 ## Task List
 While Brunch/Scaffolt/etc. can be used, Jake commands are provided for a simple and consistent interface. These tasks can be executed using `jake`. (`jake [task]`) These are the following available tasks provided out of the box:
