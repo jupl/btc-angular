@@ -1,4 +1,4 @@
-# Brunch Toolchain 0.10.0
+# Brunch Toolchain 0.10.1
 [![Dependency Status](https://gemnasium.com/jupl/brunch-toolchain.png)](https://gemnasium.com/jupl/brunch-toolchain)
 
 
@@ -49,6 +49,9 @@ For fleshed out skeletons based on this one:
 
 ### `npm start` / `npm test`
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run both the `test:install` and `test:all` tasks.
+
+### Server
+A basic push state server is included by default. You can expand/enhance the server as needed for services and to create a more ambitious application.
 
 
 ## Task List
@@ -106,7 +109,7 @@ Run all tests listed below once. For more information on reporters see below.
 Run code-based tests (ex. unit tests) using Karma. Karma is preconfigured to run with all available browsers on the system. ([PhantomJS](http://phantomjs.org/) is included). Karma reporter can be specified with the `reporter` option. If you run this task with `watch=true` Karma will auto-run on file changes. Otherwise by default Karma runs once. You can also run the server while watching files with `watch=server`.
 
 #### `test:site [reporter=[reporter]] [watch=false]`
-Run site-based tests (ex. system tests) using PhantomJS and WebDriverJS. A server is started up temporarily to interact with the site. A Mocha reporter can be specified with the `reporter` option. If you run this task with `watch=true` Mocha will auto-run on file changes with [nodemon](http://remy.github.io/nodemon/). Otherwise by default Mocha runs once. The global method `getDriver` is provided to get a setup and built driver. WebDriverJS' use of Promises can be combined with Mocha as Promised to handle asynchronous behavior easily. ex:
+Run site-based tests (ex. system tests) using PhantomJS and WebDriverJS. A server is started up temporarily to interact with the site. A Mocha reporter can be specified with the `reporter` option. If you run this task with `watch=true` Mocha will auto-run on file changes with [nodemon](http://remy.github.io/nodemon/). Otherwise by default Mocha runs once. The global method `getDriver` is provided to get a setup and built driver, while the global property `baseUrl` returns the root site url. (ex. `http://localhost:3333`) WebDriverJS' use of Promises can be combined with Mocha as Promised to handle asynchronous behavior easily. ex:
 
 ```js
 'use strict';
