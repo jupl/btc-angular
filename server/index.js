@@ -13,7 +13,7 @@ exports.startServer = function(port, publicPath, callback) {
   app.use(express.static(publicPath));
 
   // Set other paths to index.html for HTML5 push state apps
-  var indexPath = path.resolve(publicPath, 'index.html');
+  var indexPath = path.join(publicPath, 'index.html');
   app.get('*', function(request, response) {
     response.sendfile(indexPath);
   });
