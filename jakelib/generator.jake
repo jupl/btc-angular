@@ -1,7 +1,9 @@
 'use strict';
 
 // Scaffolt generator tasks
+var fs = require('fs');
 var generators = require('./lib').generators;
+var path = require('path');
 var scaffolt = require('./lib').npmBin('scaffolt');
 var Promise = require('bluebird');
 var generate = true;
@@ -18,7 +20,7 @@ task('generate', function() {
   var promises = [];
 
   // Iterate over all available generators.
-  generators.forEach(function(generator) {
+  getGenerators().forEach(function(generator) {
     var names = process.env[generator];
     if(names) {
       names.split(',').forEach(function(name) {
@@ -53,4 +55,10 @@ task('destroy', function() {
 
 function validate(generator, name) {
   // Throw Jake fails here if it does not validate
+}
+
+function getGenerators() {
+  return fs.readdirSync('generators').filter(function(generator) {
+    return fs.existsSync(path.join('generators', generator, 'generator.json'));
+  });
 }

@@ -1,5 +1,10 @@
 # Changelog
 
+#### WIP
+- Update BTC
+  - Rename paths for generated JS/CSS
+  - For index.html, use relative paths by default
+
 ### 0.10.0 (February 25, 2014)
 - Update Cordova to 3.4
 - Update FastClick to 1.0.0
