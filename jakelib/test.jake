@@ -86,7 +86,7 @@ namespace('test', function() {
         server.catch(reject);
         var id = setInterval(function() {
           // Check if code is available
-          if(fs.existsSync(path.resolve(config.paths.public, 'javascripts'))) {
+          if(fs.existsSync(path.join(config.paths.public, 'javascripts'))) {
             clearInterval(id);
             args.push('--no-single-run');
             karma.execute(args).then(resolve, reject);
@@ -118,11 +118,11 @@ namespace('test', function() {
       server.catch(reject);
       var id = setInterval(function() {
         // Check if code is available
-        if(fs.existsSync(path.resolve(config.paths.public, 'javascripts'))) {
+        if(fs.existsSync(path.join(config.paths.public, 'javascripts'))) {
           clearInterval(id);
           if(process.env.watch === 'true') {
-            args.unshift(path.resolve('node_modules', '.bin', 'mocha'));
-            args.unshift(path.resolve('test', 'site'));
+            args.unshift(path.join('node_modules', '.bin', 'mocha'));
+            args.unshift(path.join('test', 'site'));
             args.unshift('--watch');
             args.unshift(config.paths.public);
             args.unshift('--watch');
