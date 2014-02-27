@@ -3,7 +3,9 @@
 
 
 ## Introduction
-Cordova Brunch is a base skeleton for building web applications. (Currently supports iOS and Android applications) This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), and [Jake](https://github.com/mde/jake) to provide cross-platform tasks in a simple package. It can be used for skeletons. In addition to assembling a standard web-based application, this skeleton can also assemble native applications using Cordova. For complete skeletons that include Cordova Brunch see:
+Cordova Brunch is a base skeleton for building web applications. (Currently supports iOS and Android applications) This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), and [Jake](https://github.com/mde/jake) to provide cross-platform tasks in a simple package. It can be used for skeletons. In addition to assembling a standard web-based application, this skeleton can also assemble native applications using Cordova.
+
+For complete skeletons that include Cordova Brunch see:
 - [Aang Brunch](https://github.com/jupl/aang-brunch/tree/cordova) ([AngularJS](http://angularjs.org/))
 - [Chapless Brunch](https://github.com/jupl/chapless-brunch/tree/cordova) ([Chaplin](http://chaplinjs.org/))
 - [Cinder Brunch](https://github.com/jupl/cinder-brunch/tree/cordova) ([Ember.js](http://emberjs.com/))
@@ -50,7 +52,7 @@ Cordova Brunch is a base skeleton for building web applications. (Currently supp
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run both the `test:install` and `test:all` tasks.
 
 ### Server
-A basic push state server is included by default. You can expand/enhance the server as needed for services and to create a more ambitious application.
+A basic push state server serving static assets is included by default. You can expand/enhance the server as needed for services and to create a more ambitious application.
 
 
 ## Task List
