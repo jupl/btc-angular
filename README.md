@@ -1,15 +1,14 @@
-# Brunch Toolchain 0.10.1
-[![Dependency Status](https://gemnasium.com/jupl/brunch-toolchain.png)](https://gemnasium.com/jupl/brunch-toolchain)
+# Brunch Toolchain (+ Server Extras) 0.1.1
+[![Dependency Status](https://gemnasium.com/jupl/btc-serverpack.png)](https://gemnasium.com/jupl/btc-serverpack)
 
 
 ## Introduction
-This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), and [Jake](https://github.com/mde/jake) to provide cross-platform tasks in a simple package. It can be used for skeletons.
+This is a toolchain that leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), and [Jake](https://github.com/mde/jake) to provide cross-platform tasks in a simple package. It can be used for skeletons. Additional packages are provided for building out the server with [MongoDB](http://www.mongodb.org/).
 
-For fleshed out skeletons based on this one:
-- [Cordova Brunch](https://github.com/jupl/cordova-brunch) (Base skeleton with [Cordova](http://cordova.apache.org/))
-- [Aang Brunch](https://github.com/jupl/aang-brunch) ([AngularJS](http://angularjs.org/))
-- [Chapless Brunch](https://github.com/jupl/chapless-brunch) ([Chaplin](http://chaplinjs.org/))
-- [Cinder Brunch](https://github.com/jupl/cinder-brunch) ([Ember.js](http://emberjs.com/))
+For fleshed out skeletons based on this one see:
+- [Aang Brunch](https://github.com/jupl/aang-brunch/tree/server) ([AngularJS](http://angularjs.org/))
+- [Chapless Brunch](https://github.com/jupl/chapless-brunch/tree/server) ([Chaplin](http://chaplinjs.org/))
+- [Cinder Brunch](https://github.com/jupl/cinder-brunch/tree/server) ([Ember.js](http://emberjs.com/))
 
 
 ## File Structure
@@ -19,6 +18,12 @@ For fleshed out skeletons based on this one:
     ├── jakelib                 # Unified set of tasks for development
     ├── public                  # Compiled client-side assets
     ├── server                  # Server configuration
+    │   ├── models              # Persistent server-side model configuration
+    │   ├── passport            # Passport integration
+    │   ├── routes              # Custom routes/proxies/etc. (server-side)
+    │   ├── config.js           # Configuration options
+    │   ├── prerender.js        # Prerender middleware integration
+    │   └── session.js          # Session configuration
     ├── test                    # Test-related files
     │   ├── code                # Code tests that run with Karma
     │   ├── site                # Site tests that run with WebDriverJS
@@ -34,11 +39,12 @@ For fleshed out skeletons based on this one:
 
 ## Requirements
 - [node.js](http://nodejs.org)
+- [MongoDB](http://www.mongodb.org/)
 - [Jake](https://github.com/mde/jake#installing-with-npm) (required for development)
 
 
 ## Setup
-1. Install node.js.
+1. Install node.js and MongoDB.
 2. If using Windows install [Git](http://git-scm.com/download/win).
 3. If working on development, install Jake.
 4. Open a terminal window and navigate to the project directory.
@@ -51,7 +57,11 @@ For fleshed out skeletons based on this one:
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run both the `test:install` and `test:all` tasks.
 
 ### Server
-A basic push state server is included by default. You can expand/enhance the server as needed for services and to create a more ambitious application.
+Out of the box the server provides:
+- Serve static assets with support for HTML5 push state
+- Models and sessions with [Mongoose](http://mongoosejs.com/)
+- Authentication with [Passport](http://passportjs.org/)
+- Caching with [Prerender](https://prerender.io/).
 
 
 ## Task List
@@ -88,6 +98,9 @@ Scaffolding commands are available in the form of `generate` and `destroy`. (syn
 
 #### `generate` / `destroy`
 List available scaffolds.
+
+#### `generate servermodel=[name]` / `destroy servermodel=[name]`
+Generate/destroy a Mongoose model.
 
 #### `generate codetest=[name]` / `destroy codetest=[name]`
 Generate/destroy a test file with the given test name for testing client-side code with Karma.
@@ -154,21 +167,9 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 ## Libraries
 
 ### Core
-- [Brunch](http://brunch.io/)
-- [Scaffolt](https://github.com/paulmillr/scaffolt)
-- [Bower](http://bower.io/)
-- [Jake](https://github.com/mde/jake)
+- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.10.1
+- [Mongoose](http://mongoosejs.com/)
+- [Passport](http://passportjs.org/)
 
 ### Utilities
-- [jQuery](http://jquery.com)
-- [normalize.css](http://necolas.github.io/normalize.css/)
-
-### Testing
-- [Karma](http://karma-runner.github.io/)
-- [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs)
-- [nodemon](http://remy.github.io/nodemon/)
-- [Mocha](http://visionmedia.github.com/mocha/)
-- [Mocha as Promised](https://github.com/domenic/mocha-as-promised)
-- [Chai](http://chaijs.com/)
-- [Sinon](http://sinonjs.org/)
-- [Sinon-Chai](https://github.com/domenic/sinon-chai)
+- [Prerender](https://prerender.io/)

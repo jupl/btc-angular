@@ -1,7 +1,7 @@
 {
   "repository": "git",
   "scripts": {
-    "start": "npm install --production && jake build:prod",
+    "start": "nodemon --watch server --exec 'npm install --production && jake server:prod'",
     "test": "npm install && jake test:install && jake test:all",
     "postinstall": "jake bower:install"
   },
@@ -10,11 +10,18 @@
     "uglify-js-brunch": "~1.7.6",
     "css-brunch": "~1.7.0",
     "clean-css-brunch": "~1.7.1",
+    "bcryptjs": "~0.7.10",
     "bluebird": "~1.0.0",
     "bower": "~1.2.8",
     "brunch": "~1.7.8",
+    "connect-mongo": "~0.4.0",
     "express": "~3.4.7",
+    "forever": "~0.10.11",
     "jake": "~0.7.2",
+    "mongoose": "~3.8.6",
+    "passport": "~0.2.0",
+    "passport-local": "~0.1.6",
+    "prerender-node": "~0.1.15",
     "scaffolt": "~0.4.2",
     "sugar": "~1.4.1"
   },
