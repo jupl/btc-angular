@@ -51,7 +51,7 @@ For fleshed out skeletons based on this one:
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run both the `test:install` and `test:all` tasks.
 
 ### Server
-A basic push state server is included by default. You can expand/enhance the server as needed for services and to create a more ambitious application.
+A basic push state server serving static assets is included by default. You can expand/enhance the server as needed for services and to create a more ambitious application.
 
 
 ## Task List
