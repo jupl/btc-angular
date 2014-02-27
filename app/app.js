@@ -1,8 +1,6 @@
 'use strict';
 
-angular.module('app').config(function($locationProvider, $routeProvider) {
-  $locationProvider.html5Mode(true);
-
+angular.module('app').config(function($routeProvider) {
   $routeProvider
   .when('/', {templateUrl: 'templates/index.html'})
   .otherwise('/');

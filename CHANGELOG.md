@@ -2,6 +2,7 @@
 
 ### WIP
 - Set up application bootstrap in initialize.js (cleans up HTML)
+- Do not use pushState by default for this skeleton
 - Update BTC
   - Remove server extras (let the user customize as needed, will go to a separate repo)
   - Simplify generator-related tasks by reusing code
