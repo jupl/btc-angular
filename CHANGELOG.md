@@ -1,5 +1,10 @@
 # Changelog
 
+#### 0.10.2 (February 28, 2014)
+- Update BTC
+  - Add BrowserSync as an option for autoreload
+  - Update paths for code and site testing
+
 #### 0.10.1 (February 26, 2014)
 - Update BTC
   - Rename paths for generated JS/CSS

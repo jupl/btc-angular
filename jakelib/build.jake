@@ -68,6 +68,7 @@ namespace('server', function() {
 
   desc('Build project for production, rebuild on changes, and host locally');
   task('prod', ['bower:install', 'clean:web'], function() {
+    delete process.env.browsersync;
     return brunch.execute('watch', '--server', '--production');
   });
 });
