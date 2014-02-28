@@ -10,6 +10,12 @@ exports.config = {
     port: 3333
   },
 
+  plugins: {
+    autoreload: {
+      enabled: process.env.browsersync !== 'true'
+    }
+  },
+
   files: {
     javascripts: {
       joinTo: {

@@ -26,6 +26,7 @@
     "sugar": "~1.4.1"
   },
   "devDependencies": {
-    "auto-reload-brunch": "~1.7.1"
+    "auto-reload-brunch": "~1.7.1",
+    "browser-sync": "~0.6.1"
   }
 }

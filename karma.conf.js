@@ -1,15 +1,16 @@
 'use strict';
 
-var paths = require('./brunch-config').config.paths;
+var config = require('./brunch-config').config;
+var path = require('path');
 
-module.exports = function(config) {
-  config.set({
+module.exports = function(karmaConfig) {
+  karmaConfig.set({
     autoWatch: true,
     frameworks: ['mocha', 'chai', 'sinon-chai', 'detectBrowsers'],
     files: [
       'node_modules/mocha-as-promised/mocha-as-promised.js',
-      paths.public + '/javascripts/vendor.js',
-      paths.public + '/javascripts/app.js',
+      path.join(config.paths.public, 'scripts/vendor.js'),
+      path.join(config.paths.public, 'scripts/app.js'),
       'test/code/**/*'
     ]
   });
