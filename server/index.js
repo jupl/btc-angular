@@ -3,6 +3,7 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
+var setupBrowserSync = require('./browser-sync');
 
 exports.startServer = function(port, publicPath, callback) {
   var app = express();
@@ -18,7 +19,13 @@ exports.startServer = function(port, publicPath, callback) {
     response.sendfile(indexPath);
   });
 
-  // Start up server
-  server.listen(port, callback);
+  // Start up server (and BrowserSync if specified)
+  server.listen(port, function(err) {
+    callback.apply(null, arguments);
+    if(!err && process.env.browsersync === 'true') {
+      setupBrowserSync(port, publicPath);
+    }
+  });
+
   return server;
 };
