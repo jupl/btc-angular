@@ -1,5 +1,9 @@
 # Changelog
 
+#### 0.10.2 (February 28, 2014)
+- Add BrowserSync as an option for autoreload
+- Update paths for code and site testing
+
 #### 0.10.1 (February 26, 2014)
 - Rename paths for generated JS/CSS
 - For index.html, use relative paths by default
