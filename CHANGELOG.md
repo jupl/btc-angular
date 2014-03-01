@@ -10,6 +10,8 @@
   - Install Bower components automatically after running `npm install`
   - Rename paths for generated JS/CSS
   - For index.html, use relative paths by default
+  - Add BrowserSync as an option for autoreload
+  - Update paths for code and site testing
 
 #### 0.5.3 (February 11, 2014)
 - Update BTC
