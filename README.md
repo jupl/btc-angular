@@ -1,4 +1,4 @@
-# Aang Brunch 0.5.3
+# Aang Brunch 0.6.0
 [![Dependency Status](https://gemnasium.com/jupl/aang-brunch.png)](https://gemnasium.com/jupl/aang-brunch)
 
 
