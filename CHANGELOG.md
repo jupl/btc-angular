@@ -1,6 +1,6 @@
 # Changelog
 
-### WIP
+### 0.6.0 (March 1, 2014)
 - Set up application bootstrap in initialize.js (cleans up HTML)
 - Do not use pushState by default for this skeleton
 - Remove IIFEs, set strict mode once at initialize.js
