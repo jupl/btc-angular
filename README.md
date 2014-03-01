@@ -199,5 +199,5 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 ## Libraries
 
 ### Core
-- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.6.0
+- [Aang Brunch](https://github.com/jupl/aang-brunch) 0.6.0
 - [BTC Serverpack](https://github.com/jupl/btc-serverpack) 0.1.0
