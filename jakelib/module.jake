@@ -18,6 +18,16 @@ namespace('add', function() {
       this.dependencies['normalize-css'] = '~3.0.0';
     });
   });
+
+  desc('Add device.js (device information for CSS and JS)');
+  task('devicejs', function() {
+    editBower(function() {
+      this.dependencies.devicejs = 'git://github.com/matthewhudson/device.js.git';
+      this.overrides.devicejs = {
+        main: 'lib/device.js'
+      };
+    });
+  });
 });
 
 namespace('rem', function() {
