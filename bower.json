@@ -1,0 +1,10 @@
+{
+  "name": "package-name",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {},
+  "overrides": {}
+}
