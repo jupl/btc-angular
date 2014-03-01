@@ -4,6 +4,10 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var setupBrowserSync = require('./browser-sync');
+var setupPassport = require('./passport');
+var setupPrerender = require('./prerender');
+var setupRoutes = require('./routes');
+var setupSession = require('./session');
 
 exports.startServer = function(port, publicPath, callback) {
   var app = express();
@@ -12,7 +16,14 @@ exports.startServer = function(port, publicPath, callback) {
 
   // Add middleware
   app.use(express.compress());
+  setupPrerender(app);
   app.use(express.static(publicPath));
+  app.use(express.json());
+  app.use(express.urlencoded());
+  app.use(express.cookieParser());
+  setupSession(app);
+  setupPassport(app);
+  setupRoutes(app);
 
   // Set other paths to index.html for HTML5 push state apps
   app.get('*', function(request, response) {

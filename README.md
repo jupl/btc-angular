@@ -3,11 +3,7 @@
 
 
 ## Introduction
-Aang Brunch is a skeleton to for building [AngularJS](http://angularjs.org/) applications. This skeleton leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), and [Jake](https://github.com/mde/jake) to provide cross-platform tasks in a simple package.
-
-Available variants:
-- [Cordova](https://github.com/jupl/aang-brunch/tree/cordova)
-- [Serverpack](https://github.com/jupl/aang-brunch/tree/server)
+Aang Brunch is a skeleton to for building [AngularJS](http://angularjs.org/) applications. This skeleton leverages [node](http://nodejs.org), [Brunch](http://brunch.io), [Scaffolt](https://github.com/paulmillr/scaffolt), [Bower](http://bower.io/), and [Jake](https://github.com/mde/jake) to provide cross-platform tasks in a simple package. Additional packages are provided for building out the server with [MongoDB](http://www.mongodb.org/).
 
 
 ## File Structure
@@ -27,6 +23,12 @@ Available variants:
     ├── jakelib                 # Unified set of tasks for development
     ├── public                  # Compiled client-side assets
     ├── server                  # Server configuration
+    │   ├── models              # Persistent server-side model configuration
+    │   ├── passport            # Passport integration
+    │   ├── routes              # Custom routes/proxies/etc. (server-side)
+    │   ├── config.js           # Configuration options
+    │   ├── prerender.js        # Prerender middleware integration
+    │   └── session.js          # Session configuration
     ├── test                    # Test-related files
     │   ├── code                # Code tests that run with Karma
     │   ├── site                # Site tests that run with WebDriverJS
@@ -42,11 +44,12 @@ Available variants:
 
 ## Requirements
 - [node.js](http://nodejs.org)
+- [MongoDB](http://www.mongodb.org/)
 - [Jake](https://github.com/mde/jake#installing-with-npm) (required for development)
 
 
 ## Setup
-1. Install node.js.
+1. Install node.js and MongoDB.
 2. If using Windows install [Git](http://git-scm.com/download/win).
 3. If working on development, install Jake.
 4. Open a terminal window and navigate to the project directory.
@@ -59,7 +62,11 @@ Available variants:
 One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run both the `test:install` and `test:all` tasks.
 
 ### Server
-A basic push state server serving static assets is included by default. You can expand/enhance the server as needed for services and to create a more ambitious application.
+Out of the box the server provides:
+- Serve static assets with support for HTML5 push state
+- Models and sessions with [Mongoose](http://mongoosejs.com/)
+- Authentication with [Passport](http://passportjs.org/)
+- Caching with [Prerender](https://prerender.io/).
 
 ### ngmin
 When declaring Angular components, you can use the condensed syntax for dependency injection without worry, as this skeleton uses [ngmin](https://github.com/btford/ngmin) during minification to translate injections such as `.controller(function($http) { ... })` to `.controller(['$http', function(a) { ... }])`.
@@ -123,6 +130,9 @@ Generate/destroy a Stylus stylesheet file.
 
 #### `generate template=[name]` / `destroy template=[name]`
 Generate/destroy an HTML file that will be added to Angular's template cache in advance. For an example, see `app/app.js` and `app/templates/index.html`.
+
+#### `generate servermodel=[name]` / `destroy servermodel=[name]`
+Generate/destroy a Mongoose model.
 
 #### `generate codetest=[name]` / `destroy codetest=[name]`
 Generate/destroy a test file with the given test name for testing client-side code with Karma.
@@ -189,16 +199,5 @@ Assemble the application and continue to watch for changes. Rebuild every time a
 ## Libraries
 
 ### Core
-- [Brunch Toolchain](https://github.com/jupl/brunch-toolchain) 0.10.2
-
-### Languages
-- [Stylus](https://github.com/learnboost/stylus)
-
-### Framework
-- [AngularJS](http://angularjs.org/)
-
-### Utilities
-- [Angular Route](http://docs.angularjs.org/api/ngRoute)
-- [Nib](http://visionmedia.github.io/nib/)
-- [Angular Mocks](http://docs.angularjs.org/api/ngMock) (for testing)
-- [ngmin](https://github.com/btford/ngmin) (for minification)
+- [Aang Brunch](https://github.com/jupl/cinder-brunch) 0.6.0
+- [BTC Serverpack](https://github.com/jupl/btc-serverpack) 0.1.0

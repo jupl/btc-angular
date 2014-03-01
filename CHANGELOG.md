@@ -2,7 +2,6 @@
 
 ### 0.6.0 (March 1, 2014)
 - Set up application bootstrap in initialize.js (cleans up HTML)
-- Do not use pushState by default for this skeleton
 - Remove IIFEs, set strict mode once at initialize.js
 - Update BTC
   - Remove server extras (let the user customize as needed, will go to a separate repo)
