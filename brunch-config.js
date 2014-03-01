@@ -10,11 +10,17 @@ exports.config = {
     port: 3333
   },
 
+  plugins: {
+    autoreload: {
+      enabled: process.env.browsersync !== 'true'
+    }
+  },
+
   files: {
     javascripts: {
       joinTo: {
-        'javascripts/app.js': /^app/,
-        'javascripts/vendor.js': /^(vendor|bower_components)(?!.+angular-mocks.js$)/
+        'scripts/app.js': /^app/,
+        'scripts/vendor.js': /^(vendor|bower_components)/
       },
       order: {
         before: ['app/initialize.js']
@@ -23,22 +29,17 @@ exports.config = {
 
     stylesheets: {
       joinTo: {
-        'stylesheets/app.css': /^(app|vendor|bower_components)/
+        'styles/app.css': /^(app|vendor|bower_components)/
       }
     },
 
     templates: {
-      joinTo: 'javascripts/app.js'
+      joinTo: 'scripts/app.js'
     }
   },
 
   modules: {
     definition: false,
-    wrapper: function(path, code) {
-      if(/^app\//.test(path)) {
-        code = '\n(function() {\n' + code + '\n})();';
-      }
-      return code;
-    }
+    wrapper: false
   }
 };
