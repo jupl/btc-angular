@@ -33,16 +33,20 @@ Visit [the site](http://jupl.github.io/btc/) for more information.
 
 
 ## Setup
-1. Install Node.js and [Git](http://git-scm.com/download/win).
-2. If developing, install Jake.
-3. Download one of the starter projects from GitHub.
-4. Navigate to the project directory and run the command `npm install`.
+1. Download and install the following if you have not already:
+  - [Node.js](http://nodejs.org/download/)
+  - [Git](http://git-scm.com/downloads)
+  - [Jake](https://github.com/mde/jake#installing-with-npm) (if developing)
+  - [Platform SDKs](https://github.com/apache/cordova-cli#requirements) (if using Cordova)
+  - [MongoDB](http://www.mongodb.org/) or service (if using Serverpack)
+2. Download one of the starter projects from GitHub.
+3. Navigate to the project directory and run the command `npm install`.
 
 
 ## Notes
 
 ### `npm start` / `npm test`
-One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run both the `test:install` and `test:all` tasks.
+One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `build:prod` task. Use `npm test` to download all packages and run both the `test:install` and `test:all` tasks.
 
 ### Server
 A basic push state server serving static assets is included by default. You can expand/enhance the server as needed for services and to create a more ambitious application.
@@ -51,10 +55,10 @@ A basic push state server serving static assets is included by default. You can 
 ## Libraries
 
 ### Core
-- [Brunch](http://brunch.io/)
-- [Scaffolt](https://github.com/paulmillr/scaffolt)
-- [Bower](http://bower.io/)
 - [Jake](https://github.com/mde/jake)
+- [Brunch](http://brunch.io/)
+- [Bower](http://bower.io/)
+- [Scaffolt](https://github.com/paulmillr/scaffolt)
 
 ### Utilities
 - [jQuery](http://jquery.com)
@@ -63,10 +67,11 @@ A basic push state server serving static assets is included by default. You can 
 
 ### Testing
 - [Karma](http://karma-runner.github.io/)
-- [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs)
-- [nodemon](http://remy.github.io/nodemon/)
+- [Selenium WebDriver](https://code.google.com/p/selenium/wiki/WebDriverJs)
+- [PhantomJS](http://phantomjs.org/)
 - [Mocha](http://visionmedia.github.com/mocha/)
 - [Mocha as Promised](https://github.com/domenic/mocha-as-promised)
 - [Chai](http://chaijs.com/)
 - [Sinon](http://sinonjs.org/)
 - [Sinon-Chai](https://github.com/domenic/sinon-chai)
+- [nodemon](http://remy.github.io/nodemon/)
