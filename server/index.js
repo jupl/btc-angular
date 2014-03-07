@@ -31,12 +31,10 @@ exports.startServer = function(port, publicPath, callback) {
   });
 
   // Start up server (and BrowserSync if specified)
-  server.listen(port, function(err) {
+  return server.listen(port, function(err) {
     callback.apply(null, arguments);
     if(!err && process.env.browsersync === 'true') {
       setupBrowserSync(port, publicPath);
     }
   });
-
-  return server;
 };
