@@ -1,5 +1,9 @@
 # Changelog
 
+#### 0.10.3 (March 7, 2014)
+- Update Express.js
+- Include Normalize.css by default
+
 #### 0.10.2 (February 28, 2014)
 - Add BrowserSync as an option for autoreload
 - Update paths for code and site testing

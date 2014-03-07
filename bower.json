@@ -5,6 +5,8 @@
     "node_modules",
     "bower_components"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "normalize-css": "~3.0.0"
+  },
   "overrides": {}
 }
