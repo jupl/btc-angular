@@ -1,5 +1,8 @@
 # Changelog
 
+#### WIP
+- Update Express.js
+
 #### 0.10.2 (February 28, 2014)
 - Add BrowserSync as an option for autoreload
 - Update paths for code and site testing
