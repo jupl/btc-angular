@@ -1,5 +1,9 @@
 # Changelog
 
+#### WIP
+- Update Hammer.js
+  - Update how Hammer and jquery.hammer is added to Bower
+
 #### 0.10.2 (February 28, 2014)
 - Update BTC
   - Add BrowserSync as an option for autoreload
