@@ -2,6 +2,7 @@
 
 #### WIP
 - Update Express.js
+- Include Normalize.css by default
 
 #### 0.10.2 (February 28, 2014)
 - Add BrowserSync as an option for autoreload
