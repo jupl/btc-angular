@@ -16,7 +16,7 @@
     "bower": "~1.2.8",
     "brunch": "~1.7.8",
     "cordova": "~3.4.0",
-    "express": "~3.4.7",
+    "express": "~3.5.0",
     "jake": "~0.7.2",
     "scaffolt": "~0.4.2",
     "sugar": "~1.4.1"
