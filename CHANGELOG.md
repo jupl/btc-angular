@@ -3,6 +3,9 @@
 #### WIP
 - Update Hammer.js
   - Update how Hammer and jquery.hammer is added to Bower
+- Update BTC
+  - Update Express.js
+  - Include Normalize.css by default
 
 #### 0.10.2 (February 28, 2014)
 - Update BTC
