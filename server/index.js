@@ -7,7 +7,6 @@ var setupBrowserSync = require('./browser-sync');
 
 exports.startServer = function(port, publicPath, callback) {
   var app = express();
-  var server = http.createServer(app);
   var indexPath = path.join(publicPath, 'index.html');
 
   // Add middleware
@@ -20,12 +19,10 @@ exports.startServer = function(port, publicPath, callback) {
   });
 
   // Start up server (and BrowserSync if specified)
-  server.listen(port, function(err) {
+  return http.createServer(app).listen(port, function(err) {
     callback.apply(null, arguments);
     if(!err && process.env.browsersync === 'true') {
       setupBrowserSync(port, publicPath);
     }
   });
-
-  return server;
 };
