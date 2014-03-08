@@ -1,4 +1,4 @@
-# [BTC Cordova](http://jupl.github.io/btc/cordova/) 0.10.2
+# [BTC Cordova](http://jupl.github.io/btc/cordova/) 0.10.3
 [![Dependency Status](https://gemnasium.com/jupl/btc-cordova.png)](https://gemnasium.com/jupl/btc-cordova)
 
 This is the base skeleton with Cordova for the following derived project templates:
