@@ -55,7 +55,7 @@ This is a project template for [AngularJS](http://angularjs.org/) applications w
 ## Notes
 
 ### `npm start` / `npm test`
-One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `build:prod` task. Use `npm test` to download all packages and run both the `test:install` and `test:all` tasks.
+One-line commands are provided for convenience as well for those that want to start running things as quickly as possible by installing depedencies automatically. Use `npm start` to download non-development packages and run the `server:prod` task. Use `npm test` to download all packages and run both the `test:install` and `test:all` tasks.
 
 ### Server
 Out of the box the server provides:
