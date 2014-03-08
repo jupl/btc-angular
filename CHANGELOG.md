@@ -1,5 +1,10 @@
 # Changelog
 
+#### 0.6.1 (March 7, 2014)
+- Update BTC
+  - Update Express.js
+  - Include Normalize.css by default
+
 ### 0.6.0 (March 1, 2014)
 - Set up application bootstrap in initialize.js (cleans up HTML)
 - Remove IIFEs, set strict mode once at initialize.js

@@ -18,7 +18,7 @@
     "bower": "~1.2.8",
     "brunch": "~1.7.8",
     "connect-mongo": "~0.4.0",
-    "express": "~3.4.7",
+    "express": "~3.5.0",
     "forever": "~0.10.11",
     "jake": "~0.7.2",
     "mongoose": "~3.8.6",
