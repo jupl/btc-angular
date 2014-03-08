@@ -8,6 +8,7 @@ This is the base skeleton with server extras for the following derived project t
 
 Visit [the site](http://jupl.github.io/btc/) for more information.
 
+
 ## File Structure
     ├── app                     # Assets/code/styles for the client application
     │   └── assets              # Static files copied without modification
