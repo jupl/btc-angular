@@ -20,6 +20,6 @@
   },
   "devDependencies": {
     "auto-reload-brunch": "~1.7.1",
-    "browser-sync": "~0.6.1"
+    "browser-sync": "~0.7.0"
   }
 }

@@ -1,5 +1,8 @@
 # Changelog
 
+#### WIP
+- Update BrowserSync
+
 #### 0.10.3 (March 7, 2014)
 - Update Express.js
 - Include Normalize.css by default
