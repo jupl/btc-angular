@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.10.4 (March 9, 2014)
 - Fix bug with running Cordova tasks on existing project
 - Update BTC
   - Update BrowserSync
