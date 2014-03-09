@@ -25,8 +25,8 @@ namespace('test', function() {
       'chai@~1.9.0',
       'mocha@~1.17.1',
       'mocha-as-promised@~2.0.0',
-      'phantomjs@~1.9.2',
-      'selenium-webdriver@~2.39.0');
+      'phantomjs@~1.9.7',
+      'selenium-webdriver@~2.40.0');
   });
 
   desc('Run all tests');

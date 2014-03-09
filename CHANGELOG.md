@@ -1,5 +1,12 @@
 # Changelog
 
+#### WIP
+- Update BTC
+  - Update BrowserSync
+  - Update Bluebird
+  - Update PhantomJS
+  - Update Selenium Webdriver
+
 #### 0.1.1 (March 7, 2014)
 - Update BTC
   - Update Express.js

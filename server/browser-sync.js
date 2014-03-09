@@ -13,12 +13,7 @@ module.exports = function(port, publicPath) {
   var id = setInterval(function() {
     if(fs.existsSync(publicPath)) {
       clearInterval(id);
-      require('browser-sync').init(paths, {
-        proxy: {
-          host: '0.0.0.0',
-          port: port
-        }
-      });
+      require('browser-sync').init(paths, {proxy: 'localhost: ' + port});
     }
   }, 500);
 };
