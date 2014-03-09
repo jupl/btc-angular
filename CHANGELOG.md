@@ -1,5 +1,11 @@
 # Changelog
 
+#### 0.10.4 (March 9, 2014)
+- Update BrowserSync
+- Update Bluebird
+- Update PhantomJS
+- Update Selenium Webdriver
+
 #### 0.10.3 (March 7, 2014)
 - Update Hammer.js
   - Update how Hammer and jquery.hammer is added to Bower
