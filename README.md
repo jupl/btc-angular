@@ -1,4 +1,4 @@
-# [BTC Base](http://jupl.github.io/btc/) 0.10.3
+# [BTC Base](http://jupl.github.io/btc/) 0.10.4
 [![Dependency Status](https://gemnasium.com/jupl/btc.png)](https://gemnasium.com/jupl/btc)
 
 This is the base skeleton for the following derived project templates:

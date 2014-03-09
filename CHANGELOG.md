@@ -1,5 +1,9 @@
 # Changelog
 
+#### 0.10.4 (March 9, 2014)
+- Update BrowserSync
+- Update Bluebird
+
 #### 0.10.3 (March 7, 2014)
 - Update Express.js
 - Include Normalize.css by default
