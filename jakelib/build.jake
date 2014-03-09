@@ -1,8 +1,9 @@
 'use strict';
 
 // Brunch build tasks
+var path = require('path');
 var brunch = require('./lib').npmBin('brunch');
-var cordova = require('./lib').npmBin('cordova');
+var cordova = require('./lib').bin(path.resolve('node_modules/.bin/cordova'));
 var devices = require('./lib').devices;
 
 namespace('build', function() {
