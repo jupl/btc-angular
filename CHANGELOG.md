@@ -1,6 +1,7 @@
 # Changelog
 
 #### WIP
+- Update passport-local
 - Update BTC
   - Update BrowserSync
   - Update Bluebird
