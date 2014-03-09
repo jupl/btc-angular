@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.1.2 (March 9, 2014)
 - Update passport-local
 - Update BTC
   - Update BrowserSync
