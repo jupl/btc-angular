@@ -2,6 +2,7 @@
 
 #### WIP
 - Update BrowserSync
+- Update Bluebird
 
 #### 0.10.3 (March 7, 2014)
 - Update Express.js
