@@ -63,7 +63,7 @@ Out of the box the server provides:
 ## Libraries
 
 ### Core
-- [BTC](https://github.com/jupl/btc) 0.10.3
+- [BTC](https://github.com/jupl/btc) 0.10.4
 - [Mongoose](http://mongoosejs.com/)
 - [Passport](http://passportjs.org/)
 
