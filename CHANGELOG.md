@@ -1,6 +1,8 @@
 # Changelog
 
 #### 0.6.2 (March 10, 2014)
+- Update BTC Cordova
+  - Fix bug with running Cordova tasks on existing project
 - Update BTC
   - Update BrowserSync
   - Update Bluebird

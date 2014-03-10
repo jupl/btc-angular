@@ -1,8 +1,8 @@
 // Cordova-based build tasks
 require('sugar');
-var cordova = require('./lib').npmBin('cordova');
-var devices = require('./lib').devices;
 var path = require('path');
+var cordova = require('./lib').bin(path.resolve('node_modules/.bin/cordova'));
+var devices = require('./lib').devices;
 var Promise = require('bluebird');
 
 namespace('emulate', function() {
