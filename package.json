@@ -24,7 +24,7 @@
     "mongoose": "~3.8.6",
     "nodemon": "~1.0.14",
     "passport": "~0.2.0",
-    "passport-local": "~0.1.6",
+    "passport-local": "~1.0.0",
     "prerender-node": "~0.1.15",
     "scaffolt": "~0.4.2",
     "sugar": "~1.4.1"

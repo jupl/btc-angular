@@ -72,4 +72,4 @@ When declaring Angular components, you can use the condensed syntax for dependen
 
 ### Core
 - [BTC Angular](https://github.com/jupl/btc-angular) 0.6.2
-- [BTC Serverpack](https://github.com/jupl/btc-serverpack) 0.1.1
+- [BTC Serverpack](https://github.com/jupl/btc-serverpack) 0.1.2

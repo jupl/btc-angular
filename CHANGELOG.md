@@ -1,6 +1,8 @@
 # Changelog
 
-#### WIP
+#### 0.1.2 (March 9, 2014)
+- Update BTC Serverpack
+  - Update passport-local
 - Update BTC
   - Update BrowserSync
   - Update Bluebird
