@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.6.2 (March 10, 2014)
 - Update BTC
   - Update BrowserSync
   - Update Bluebird
