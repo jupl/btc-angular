@@ -1,4 +1,4 @@
-# [BTC Angular](http://jupl.github.io/btc/angular/) 0.6.1
+# [BTC Angular](http://jupl.github.io/btc/angular/) 0.6.2
 [![Dependency Status](https://gemnasium.com/jupl/btc-angular.png)](https://gemnasium.com/jupl/btc-angular)
 
 This is a project template for [AngularJS](http://angularjs.org/) applications with server extras. Visit [the site](http://jupl.github.io/btc/angular) for more information.
@@ -71,5 +71,5 @@ When declaring Angular components, you can use the condensed syntax for dependen
 ## Libraries
 
 ### Core
-- [BTC Angular](https://github.com/jupl/btc-angular) 0.6.1
+- [BTC Angular](https://github.com/jupl/btc-angular) 0.6.2
 - [BTC Serverpack](https://github.com/jupl/btc-serverpack) 0.1.1
