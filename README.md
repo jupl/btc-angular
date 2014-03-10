@@ -62,7 +62,7 @@ When declaring Angular components, you can use the condensed syntax for dependen
 ## Libraries
 
 ### Core
-- [BTC](https://github.com/jupl/btc) 0.10.3
+- [BTC](https://github.com/jupl/btc) 0.10.4
 
 ### Languages
 - [Stylus](https://github.com/learnboost/stylus)
