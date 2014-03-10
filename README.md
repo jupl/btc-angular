@@ -1,4 +1,4 @@
-# [BTC Angular](http://jupl.github.io/btc/angular/) 0.6.1
+# [BTC Angular](http://jupl.github.io/btc/angular/) 0.6.2
 [![Dependency Status](https://gemnasium.com/jupl/btc-angular.png)](https://gemnasium.com/jupl/btc-angular)
 
 This is a project template for [AngularJS](http://angularjs.org/) applications with Cordova. Visit [the site](http://jupl.github.io/btc/angular) for more information.
@@ -59,8 +59,8 @@ When declaring Angular components, you can use the condensed syntax for dependen
 ## Libraries
 
 ### Core
-- [BTC Angular](https://github.com/jupl/btc-angular) 0.6.1
-- [BTC Cordova](https://github.com/jupl/btc-cordova) 0.10.3
+- [BTC Angular](https://github.com/jupl/btc-angular) 0.6.2
+- [BTC Cordova](https://github.com/jupl/btc-cordova) 0.10.4
 
 ### Utilities
 - [Angular Touch](http://docs.angularjs.org/api/ngTouch)
