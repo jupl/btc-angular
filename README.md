@@ -1,4 +1,6 @@
 # [BTC Angular](http://jupl.github.io/btc/angular/) 0.6.2
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/jupl/btc-angular.svg)](https://greenkeeper.io/)
 [![Dependency Status](https://gemnasium.com/jupl/btc-angular.png)](https://gemnasium.com/jupl/btc-angular)
 
 This is a project template for [AngularJS](http://angularjs.org/) applications. Visit [the site](http://jupl.github.io/btc/angular) for more information.
