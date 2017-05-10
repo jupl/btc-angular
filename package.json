@@ -7,22 +7,22 @@
   },
   "dependencies": {
     "aang-template-brunch": "~1.7.6",
-    "javascript-brunch": "~1.7.1",
+    "javascript-brunch": "~2.10.0",
     "ngmin-brunch": "~1.7.0",
-    "uglify-js-brunch": "~1.7.6",
-    "stylus-brunch": "~1.8.0",
-    "css-brunch": "~1.7.0",
-    "clean-css-brunch": "~1.7.1",
-    "bluebird": "~1.1.0",
-    "bower": "~1.2.8",
-    "brunch": "~1.7.8",
-    "express": "~3.5.0",
-    "jake": "~0.7.2",
-    "scaffolt": "~0.4.2",
-    "sugar": "~1.4.1"
+    "uglify-js-brunch": "~2.10.0",
+    "stylus-brunch": "~2.10.0",
+    "css-brunch": "~2.10.0",
+    "clean-css-brunch": "~2.10.0",
+    "bluebird": "~3.5.0",
+    "bower": "~1.8.0",
+    "brunch": "~2.10.9",
+    "express": "~4.15.2",
+    "jake": "~8.0.15",
+    "scaffolt": "~0.5.0",
+    "sugar": "~2.0.4"
   },
   "devDependencies": {
-    "auto-reload-brunch": "~1.7.1",
-    "browser-sync": "~0.7.0"
+    "auto-reload-brunch": "~2.7.1",
+    "browser-sync": "~2.18.8"
   }
 }
